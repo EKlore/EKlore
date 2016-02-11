@@ -1,0 +1,13 @@
+template(name="header")
+	nav.navbar.navbar-default.navbar-fixed-top
+		.container
+			.navbar-header
+				button.navbar-toggle.collapsed(type="button" data-toggle="collapse" data-target="#mkp-navbar" aria-expended="false")
+					span.sr-only {{_ "toggleNav"}}
+					span.icon-bar
+					span.icon-bar
+					span.icon-bar
+				.navbar-brand {{_ "applicationName"}}
+			.collapse.navbar-collapse
+				.nav.navbar-nav.navbar-right
+					+loginButtons
