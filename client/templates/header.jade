@@ -1,13 +1,11 @@
 template(name="header")
-	nav.navbar.navbar-default.navbar-fixed-top
+	nav.nav-wrapper
 		.container
-			.navbar-header
-				button.navbar-toggle.collapsed(type="button" data-toggle="collapse" data-target="#mkp-navbar" aria-expended="false")
-					span.sr-only {{_ "toggleNav"}}
-					span.icon-bar
-					span.icon-bar
-					span.icon-bar
-				.navbar-brand {{_ "applicationName"}}
-			.collapse.navbar-collapse
-				.nav.navbar-nav.navbar-right
-					+loginButtons
+			a.brand-logo(href="{{pathFor 'home'}}") {{_ "eklore"}}
+			ul#nav-mobiel.right.hide-on-med-and-down
+				li
+					a(href="#") Test
+				li
+					+atNavButton
+			a.button-collapse(href="#" data-activates="nav-mobile")
+				i.mdi-navigation-menu
