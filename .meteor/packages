@@ -28,5 +28,8 @@ ejson
 spacebars
 check
 meteorhacks:aggregate
-twbs:bootstrap
-ian:accounts-ui-bootstrap-3
+meteorhacks:kadira
+materialize:materialize
+useraccounts:core
+useraccounts:materialize
+useraccounts:iron-routing
