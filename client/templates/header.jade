@@ -4,8 +4,8 @@ template(name="header")
 			a.brand-logo(href="{{pathFor 'home'}}") {{_ "eklore"}}
 			ul#nav-mobiel.right.hide-on-med-and-down
 				li
-					a(href="#") Test
+					a(href="{{pathFor 'myProfile'}}") {{_ "myProfile"}}
 				li
-					+atNavButton
+					+loginButtons
 			a.button-collapse(href="#" data-activates="nav-mobile")
 				i.mdi-navigation-menu
