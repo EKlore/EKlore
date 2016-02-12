@@ -1,0 +1,15 @@
+#https://docs.travis-ci.com/user/languages/javascript-with-nodejs#sts=Meteor%20Apps
+language: node_js
+node_js:
+  - "0.12"
+before_install:
+  - "curl -L https://raw.githubusercontent.com/arunoda/travis-ci-laika/master/configure.sh | /bin/sh"
+services:
+  - mongodb
+env:
+  - LAIKA_OPTIONS="-t 5000"
+#deploy:
+#  provider: modulus
+#  api_key: "YOUR API KEY"
+#  project_name: "YOUR PROJECT NAME"
+#https://docs.travis-ci.com/user/deployment/modulus/
