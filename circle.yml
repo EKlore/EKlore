@@ -3,9 +3,3 @@ dependencies:
     - ~/.meteor
   override:
     - meteor || curl https://install.meteor.com | /bin/sh
-
-deployment:
-  production:
-    branch: "master"
-    commands:
-      - printf "dexterneo\nfbicia\n" | meteor deploy eklorefete.meteor.com
