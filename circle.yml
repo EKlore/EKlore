@@ -8,4 +8,4 @@ deployment:
   production:
     branch: "master"
     commands:
-      - printf "dexterneo\nfbicia131289\n" | meteor deploy eklorefete.meteor.com
+      - printf "dexterneo\nfbicia\n" | meteor deploy eklorefete.meteor.com
