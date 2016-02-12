@@ -8,6 +8,10 @@ services:
   - mongodb
 env:
   - LAIKA_OPTIONS="-t 5000"
+notifications:
+  slack:
+    rooms:
+      - eklorefete:eQfe01r2GIZxcDOL8uB3CrtX#website_app
 #deploy:
 #  provider: modulus
 #  api_key: "YOUR API KEY"
