@@ -1,5 +1,5 @@
 #https://docs.travis-ci.com/user/languages/javascript-with-nodejs#sts=Meteor%20Apps
-sudo: false
+sudo: required
 language: node_js
 node_js:
   - "0.12"
