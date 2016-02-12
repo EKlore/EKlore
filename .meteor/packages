@@ -18,7 +18,6 @@ standard-minifiers
 meteor-base
 mobile-experience
 mongo
-blaze-html-templates
 session
 tracker
 logging
@@ -29,6 +28,8 @@ spacebars
 check
 meteorhacks:aggregate
 meteorhacks:kadira
+accounts-ui
 materialize:materialize
-accounts-facebook
-accounts-google
+peerlibrary:blaze-components
+ecmascript
+peerlibrary:reactive-field
