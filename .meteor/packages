@@ -30,6 +30,5 @@ check
 meteorhacks:aggregate
 meteorhacks:kadira
 materialize:materialize
-useraccounts:core
-useraccounts:materialize
-useraccounts:iron-routing
+accounts-facebook
+accounts-google
