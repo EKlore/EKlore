@@ -32,19 +32,34 @@ template(name="questions")
 						h2 Qui suis-je maintenant ?
 				.panel-body
 					form
-						.form-group.form-group-lg
-							label.radio-inline
-								input(type='radio', name='inlineRadioOptions', value='option1')
-								| Salarié
-							label.radio-inline
-								input(type='radio', name='inlineRadioOptions', value='option2')
-								|  Chômeur
-							label.radio-inline
-								input(type='radio', name='inlineRadioOptions', value='option3')
-								|  Etudiant
-							label.radio-inline
-								input(type='radio', name='inlineRadioOptions', value='option3')
-								|  Autre
+						.form-group
+							input#salarie(type='checkbox', name='salarie', autocomplete='off')
+							.btn-group
+								label.btn.btn-default(for='salarie')
+									span.glyphicon.glyphicon-plus
+									span.glyphicon.glyphicon-minus
+								label.btn.btn-default.active(for='salarie') Salarié
+						.form-group
+							input#chomeur(type='checkbox', name='chomeur', autocomplete='off')
+							.btn-group
+								label.btn.btn-default(for='chomeur')
+									span.glyphicon.glyphicon-plus
+									span.glyphicon.glyphicon-minus
+								label.btn.btn-default.active(for='chomeur') Chômeur
+						.form-group
+							input#etudiant(type='checkbox', name='etudiant', autocomplete='off')
+							.btn-group
+								label.btn.btn-default(for='etudiant')
+									span.glyphicon.glyphicon-plus
+									span.glyphicon.glyphicon-minus
+								label.btn.btn-default.active(for='etudiant') Etudiant
+						.form-group
+							input#autre(type='checkbox', name='autre', autocomplete='off')
+							.btn-group
+								label.btn.btn-default(for='autre')
+									span.glyphicon.glyphicon-plus
+									span.glyphicon.glyphicon-minus
+								label.btn.btn-default.active(for='autre') Autre
 				.panel-footer
 					+changeQuestion
 		div(class="#{question2}")
