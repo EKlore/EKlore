@@ -28,9 +28,9 @@ spacebars
 check
 meteorhacks:aggregate
 meteorhacks:kadira
-accounts-ui
-materialize:materialize
 peerlibrary:blaze-components
 ecmascript
 peerlibrary:reactive-field
 anti:gagarin
+twbs:bootstrap
+ian:accounts-ui-bootstrap-3
