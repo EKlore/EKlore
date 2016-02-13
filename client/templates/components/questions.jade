@@ -1,30 +1,134 @@
 template(name="questions")
 	.container
 		div(class="#{question0}")
-			h3 Qui suis-je administrativement ?
-			form
-				.form-group
-					label(for="first_name") First Name
-					input#first_name(type="text")
-				.form-group
-					label(for="last_name") Last Name
-					input#last_name(type="text")
-				.form-group
-					label(for="password") Password
-					input#password(type="password")
-				.form-group
-					label(for="email") Email
-					input#email(type="email")
-				+changeQuestion
+			.panel.panel-default
+				.panel-heading
+					.panel-title
+						h2 Qui suis-je administrativement ?
+				.panel-body
+					form.form-horizontal
+						.form-group.form-group-lg
+							label.col-xs-2.col-sm-2.col-md-2.col-lg-2.control-label(for="first_name") Prénom
+							.col-xs-10.col-sm-10.col-md-10.col-lg-10
+								input#first_name.form-control.input-lg(type="text")
+						.form-group.form-group-lg
+							label.col-xs-2.col-sm-2.col-md-2.col-lg-2.control-label(for="last_name") Nom de famille
+							.col-xs-10.col-sm-10.col-md-10.col-lg-10
+								input#last_name.form-control.input-lg(type="text")
+						.form-group.form-group-lg
+							label.col-xs-2.col-sm-2.col-md-2.col-lg-2.control-label(for="email") Email
+							.col-xs-10.col-sm-10.col-md-10.col-lg-10
+								input#email.form-control.input-lg(type="email")
+						.form-group.form-group-lg
+							label.col-xs-2.col-sm-2.col-md-2.col-lg-2.control-label(for="password") Mot de passe
+							.col-xs-10.col-sm-10.col-md-10.col-lg-10
+								input#password.form-control.input-lg(type="password")
+				.panel-footer
+					+changeQuestion
 		div(class="#{question1}")
-			h3 Qui suis-je maintenant ?
-			form
-				.form-group
-						select
-							option(value='0' disabled selected) Choisissez parmi la liste      
-							option(value='1') Salarié       
-							option(value='2') Chômeur      
-							option(value='3') Etudiant
-							option(value='3') Autre
-						label Quel est mon occupation actuelle 
-				+changeQuestion
+			.panel.panel-default
+				.panel-heading
+					.panel-title
+						h2 Qui suis-je maintenant ?
+				.panel-body
+					form
+						.form-group.form-group-lg
+							label.radio-inline
+								input(type='radio', name='inlineRadioOptions', value='option1')
+								| Salarié
+							label.radio-inline
+								input(type='radio', name='inlineRadioOptions', value='option2')
+								|  Chômeur
+							label.radio-inline
+								input(type='radio', name='inlineRadioOptions', value='option3')
+								|  Etudiant
+							label.radio-inline
+								input(type='radio', name='inlineRadioOptions', value='option3')
+								|  Autre
+				.panel-footer
+					+changeQuestion
+		div(class="#{question2}")
+			.panel.panel-default
+				.panel-heading
+					.panel-title
+						h2 Comment je me sens ?
+				.panel-body
+					form
+						.form-group.form-group-lg
+							label.radio-inline
+								input(type='radio', name='inlineRadioOptions', value='option1')
+								| Seul
+							label.radio-inline
+								input(type='radio', name='inlineRadioOptions', value='option2')
+								|  Perdu
+							label.radio-inline
+								input(type='radio', name='inlineRadioOptions', value='option3')
+								|  Concentré sur un objectif
+							label.radio-inline
+								input(type='radio', name='inlineRadioOptions', value='option3')
+								|  Envie d'agir
+				.panel-footer
+					+changeQuestion
+		div(class="#{question3}")
+			.panel.panel-default
+				.panel-heading
+					.panel-title
+						h2 Mes besoins ?
+				.panel-body
+					form
+						.form-group.form-group-lg
+							label.radio-inline
+								input(type='radio', name='inlineRadioOptions', value='option1')
+								| Argent
+							label.radio-inline
+								input(type='radio', name='inlineRadioOptions', value='option2')
+								|  Sécurité
+							label.radio-inline
+								input(type='radio', name='inlineRadioOptions', value='option3')
+								|  Être entouré
+							label.radio-inline
+								input(type='radio', name='inlineRadioOptions', value='option3')
+								|  Trouver du sens
+				.panel-footer
+					+changeQuestion
+		div(class="#{question4}")
+			.panel.panel-default
+				.panel-heading
+					.panel-title
+						h2 Ce que je suis près à donner ?
+				.panel-body
+					form
+						.form-group.form-group-lg
+							label.radio-inline
+								input(type='radio', name='inlineRadioOptions', value='option1')
+								| Compétences
+							label.radio-inline
+								input(type='radio', name='inlineRadioOptions', value='option2')
+								|  Temps
+							label.radio-inline
+								input(type='radio', name='inlineRadioOptions', value='option3')
+								|  Argent
+							label.radio-inline
+								input(type='radio', name='inlineRadioOptions', value='option3')
+								|  Energie
+				.panel-footer
+					+changeQuestion
+		div(class="#{question5}")
+			.panel.panel-default
+				.panel-heading
+					.panel-title
+						h2 Je cherche ?
+				.panel-body
+					form
+						.form-group.form-group-lg
+							label.radio-inline
+								input(type='radio', name='inlineRadioOptions', value='option1')
+								| Un emploi
+							label.radio-inline
+								input(type='radio', name='inlineRadioOptions', value='option2')
+								|  De l'inspiration
+							label.radio-inline
+								input(type='radio', name='inlineRadioOptions', value='option3')
+								|  Des contacts
+				.panel-footer
+					+changeQuestion

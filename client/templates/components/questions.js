@@ -20,6 +20,38 @@ class Questions extends BlazeComponent {
 		}
 	}
 
+	question2() {
+		if (this.questionLevel() === 2) {
+			return false;
+		} else {
+			return 'hidden';
+		}
+	}
+
+	question3() {
+		if (this.questionLevel() === 3) {
+			return false;
+		} else {
+			return 'hidden';
+		}
+	}
+
+	question4() {
+		if (this.questionLevel() === 4) {
+			return false;
+		} else {
+			return 'hidden';
+		}
+	}
+
+	question5() {
+		if (this.questionLevel() === 5) {
+			return false;
+		} else {
+			return 'hidden';
+		}
+	}
+
 	template() {
 		return 'questions';
 	}
