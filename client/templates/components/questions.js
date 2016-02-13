@@ -4,16 +4,11 @@ class Questions extends BlazeComponent {
 		this.questionLevel = new ReactiveField(0);
 	}
 
-	onRendered() {
-		super.onRendered();
-		$('select').material_select();
-	}
-
 	question0() {
 		if (this.questionLevel() === 0) {
 			return false;
 		} else {
-			return 'hide';
+			return 'hidden';
 		}
 	}
 
@@ -21,7 +16,7 @@ class Questions extends BlazeComponent {
 		if (this.questionLevel() === 1) {
 			return false;
 		} else {
-			return 'hide';
+			return 'hidden';
 		}
 	}
 

@@ -1,39 +1,30 @@
 template(name="questions")
 	.container
 		div(class="#{question0}")
-			.row
-				h2 Qui suis-je administrativement ?
-				form.col.s12
-					.row
-						.input-field.col.s6
-							input#first_name.validate(type="text")
-							label(for="first_name") First Name
-						.input-field.col.s6
-							input#last_name.validate(type="text")
-							label(for="last_name") Last Name
-					.row
-						.input-field.col.s12
-							input#password.validate(type="password")
-							label(for="password") Password
-					.row
-						.input-field.col.s12
-							input#email.validate(type="email")
-							label(for="email") Email
-					+changeQuestion
+			h3 Qui suis-je administrativement ?
+			form
+				.form-group
+					label(for="first_name") First Name
+					input#first_name(type="text")
+				.form-group
+					label(for="last_name") Last Name
+					input#last_name(type="text")
+				.form-group
+					label(for="password") Password
+					input#password(type="password")
+				.form-group
+					label(for="email") Email
+					input#email(type="email")
+				+changeQuestion
 		div(class="#{question1}")
-			.row
-				h2 Qui suis-je maintenant ?
-				form.col.s12
-					.row
-						.input-field.col.s12
-							select
-								option(value='0' disabled selected) Choisissez parmi la liste      
-								option(value='1') Salarié       
-								option(value='2') Chômeur      
-								option(value='3') Etudiant
-								option(value='3') Autre
-							label Quel est mon occupation actuelle 
-					+changeQuestion
-
-				
-					
+			h3 Qui suis-je maintenant ?
+			form
+				.form-group
+						select
+							option(value='0' disabled selected) Choisissez parmi la liste      
+							option(value='1') Salarié       
+							option(value='2') Chômeur      
+							option(value='3') Etudiant
+							option(value='3') Autre
+						label Quel est mon occupation actuelle 
+				+changeQuestion
