@@ -4,7 +4,17 @@ class Questions extends BlazeComponent {
 		this.questionLevel = new ReactiveField(0);
 	}
 
-	question0() {
+	onRendered() {
+		$('#radioBtn a').on('click', function() {
+			var sel = $(this).data('title');
+			var tog = $(this).data('toggle');
+			$('#' + tog).prop('value', sel);
+			$('a[data-toggle="' + tog + '"]').not('[data-title="' + sel + '"]').removeClass('active').addClass('notActive');
+			$('a[data-toggle="' + tog + '"][data-title="' + sel + '"]').removeClass('notActive').addClass('active');
+		});
+	}
+
+	level0() {
 		if (this.questionLevel() === 0) {
 			return false;
 		} else {
@@ -12,7 +22,7 @@ class Questions extends BlazeComponent {
 		}
 	}
 
-	question1() {
+	level1() {
 		if (this.questionLevel() === 1) {
 			return false;
 		} else {
@@ -20,7 +30,7 @@ class Questions extends BlazeComponent {
 		}
 	}
 
-	question2() {
+	level2() {
 		if (this.questionLevel() === 2) {
 			return false;
 		} else {
@@ -28,7 +38,7 @@ class Questions extends BlazeComponent {
 		}
 	}
 
-	question3() {
+	level3() {
 		if (this.questionLevel() === 3) {
 			return false;
 		} else {
@@ -36,7 +46,7 @@ class Questions extends BlazeComponent {
 		}
 	}
 
-	question4() {
+	level4() {
 		if (this.questionLevel() === 4) {
 			return false;
 		} else {
@@ -44,7 +54,7 @@ class Questions extends BlazeComponent {
 		}
 	}
 
-	question5() {
+	level5() {
 		if (this.questionLevel() === 5) {
 			return false;
 		} else {
