@@ -36,10 +36,18 @@ template(name="question0OKFirstName")
 	span.question0OKFirstName.glyphicon.glyphicon-ok.form-control-feedback(aria-hidden="true")
 
 template(name="question0ErrorLastName")
-	span.help-block {{_ "lastNameMandatory"}}
+	span.question0ErrorLastName.glyphicon.glyphicon-remove.form-control-feedback(aria-hidden="true")
+	span.question0ErrorLastName.help-block {{_ "lastNameMandatory"}}
+
+template(name="question0OKLastName")
+	span.question0OKLastName.glyphicon.glyphicon-ok.form-control-feedback(aria-hidden="true")
 
 template(name="question0ErrorEmail")
-	span.help-block {{_ "emailMandatory"}}
+	span.question0ErrorEmail.glyphicon.glyphicon-remove.form-control-feedback(aria-hidden="true")
+	span.question0ErrorEmail.help-block {{_ "emailMandatory"}}
+
+template(name="question0OKEmail")
+	span.question0OKEmail.glyphicon.glyphicon-ok.form-control-feedback(aria-hidden="true")
 
 template(name="question0ErrorPassword")
 	span.help-block {{_ "passwordErrorLength"}}

@@ -92,44 +92,13 @@ class Questions extends BlazeComponent {
 				});
 				this.questionLevel(this.questionLevel() + 1);
 			} else {
-				if (!this.userProfile().firstName) {
-					$('#firstName').parents('.form-group').removeClass('has-success');
-					if (!$('#firstName').parents('.form-group').hasClass('has-error')) {
-						$('#firstName').parents('.form-group').addClass('has-error').addClass('has-feedback');
-						$('#firstName').parent().append(function() {
-							return Blaze.toHTML(Template.question0ErrorFirstName);
-						});
-					}
-				} else {
-					if ($('#firstName').parents('.form-group').hasClass('has-error')) {
-						$('#firstName').parents('.form-group').removeClass('has-error');
-						$(".question0ErrorFirstName").remove();
-						$('#firstName').parents('.form-group').addClass('has-success').addClass('has-feedback');
-						$('#firstName').parent().append(function() {
-							return Blaze.toHTML(Template.question0OKFirstName);
-						});
-					} else {
-						$('#firstName').parents('.form-group').addClass('has-success').addClass('has-feedback');
-						$('#firstName').parent().append(function() {
-							return Blaze.toHTML(Template.question0OKFirstName);
-						});
-					}
-				}
-				if (!this.userProfile().lastName) {
-					$('#lastName').parents('.form-group').addClass('has-error');
-					$('#lastName').parent().append(function() {
-						return Blaze.toHTML(Template.question0ErrorLastName);
-					});
-				}
-				if (!this.userProfile().email || this.userProfile().email.match(' /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;')) {
-					$('#email').parents('.form-group').addClass('has-error');
-					$('#email').parent().append(function() {
-						return Blaze.toHTML(Template.question0ErrorEmail);
-					});
-				}
+				addErrorOrSuccess.call(this, 'firstName', '#firstName', 'question0ErrorFirstName', 'question0OKFirstName');
+				addErrorOrSuccess.call(this, 'lastName', '#lastName', 'question0ErrorLastName', 'question0OKLastName');
+				addErrorOrSuccessForEmail.call(this, 'email', '#email', 'question0ErrorEmail', 'question0OKEmail');
 			}
-		} else {}
+		}
 	}
+
 
 	previousQuestion() {
 		if (this.questionLevel() > 0) {
