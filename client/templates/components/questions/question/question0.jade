@@ -29,4 +29,20 @@ template(name="question0")
 			+changeQuestion
 
 template(name="question0ErrorFirstName")
-	span.help-block {{_ "firstNameMandatory"}}
+	span.question0ErrorFirstName.glyphicon.glyphicon-remove.form-control-feedback(aria-hidden="true")
+	span.question0ErrorFirstName.help-block {{_ "firstNameMandatory"}}
+
+template(name="question0OKFirstName")
+	span.question0OKFirstName.glyphicon.glyphicon-ok.form-control-feedback(aria-hidden="true")
+
+template(name="question0ErrorLastName")
+	span.help-block {{_ "lastNameMandatory"}}
+
+template(name="question0ErrorEmail")
+	span.help-block {{_ "emailMandatory"}}
+
+template(name="question0ErrorPassword")
+	span.help-block {{_ "passwordErrorLength"}}
+
+template(name="question0ErrorConfirmPassword")
+	span.help-block {{_ "confirmPasswordDifferentPassword"}}
