@@ -3,5 +3,16 @@
 	"404": "Désolé, nous ne trouvons pas de page à cette adresse...",
 	"toggleNav": "Basculer la navigation",
 	"createMyProfile": "Créez votre profil",
-	"myProfile": "Mon profil"
+	"myProfile": "Mon profil",
+	"firstNameMandatory": "Le prénom est obligatoire.",
+	"whoAmI": "Qui suis-je administrativement ?",
+	"firstName": "Prénom",
+	"lastName": "Nom",
+	"email": "Email",
+	"password": "Mot de passe",
+	"confirmPassword": "Confirmez votre mot de passe",
+	"previousQuestion": "Question précédente",
+	"nextQuestion": "Question suivante",
+	"previous": "Précédent",
+	"next": "Suivant"
 }
