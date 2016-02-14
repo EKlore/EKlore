@@ -2,6 +2,7 @@ class Questions extends BlazeComponent {
 	onCreated() {
 		super.onCreated();
 		this.questionLevel = new ReactiveField(0);
+		this.userProfile = new ReactiveField({});
 	}
 
 	onRendered() {
@@ -74,7 +75,29 @@ class Questions extends BlazeComponent {
 	}
 
 	nextQuestion() {
-		this.questionLevel(this.questionLevel() + 1);
+		if (this.questionLevel() === 0) {
+			this.userProfile().firstName = $('#firstName').val();
+			this.userProfile().lastName = $('#lastName').val();
+			this.userProfile().email = $('#email').val();
+			this.userProfile().password = $('#password').val();
+			if (this.userProfile().firstName && this.userProfile().lastName && this.userProfile().email && this.userProfile().password.length > 5 && this.userProfile().password === $('#confirmPassword').val()) {
+				Accounts.createUser({
+					username: this.userProfile().firstName.concat('_', this.userProfile().lastName),
+					email: this.userProfile().email,
+					password: this.userProfile().password,
+					profile: {
+						firstName: this.userProfile().firstName,
+						lastName: this.userProfile().lastName
+					}
+				});
+				this.questionLevel(this.questionLevel() + 1);
+			} else {
+				if (!this.userProfile().firstName) {
+
+				}
+				console.log(this.userProfile());
+			}
+		} else {}
 	}
 
 	previousQuestion() {
