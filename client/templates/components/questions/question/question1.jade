@@ -1,0 +1,17 @@
+template(name="question1")
+	.panel.panel-default
+		.panel-heading
+			.panel-title
+				h2 Qui suis je là maintenant ?
+		.panel-body
+			.form-group
+				.col-xs-6.col-sm-7.col-md-7.col-lg-7
+					.input-group
+						#radioBtn.btn-group
+							a.btn.btn-primary.btn-lg.active(data-toggle='fun', data-title='Y') Salarié                    
+							a.btn.btn-primary.btn-lg.notActive(data-toggle='fun', data-title='X') Chômeur
+							a.btn.btn-primary.btn-lg.notActive(data-toggle='fun', data-title='W') Etudiant
+							a.btn.btn-primary.btn-lg.notActive(data-toggle='fun', data-title='Z') Autre
+						input#fun(type='hidden', name='fun')
+		.panel-footer
+			+changeQuestion

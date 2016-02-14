@@ -1,0 +1,30 @@
+template(name="question5")
+	.panel.panel-default
+		.panel-heading
+			.panel-title
+				h2 Je cherche ?
+		.panel-body
+			form
+				.form-group
+					input#aJob(type='checkbox', name='aJob', autocomplete='off')
+					.btn-group
+						label.btn.btn-default(for='aJob')
+							span.glyphicon.glyphicon-plus
+							span.glyphicon.glyphicon-minus
+						label.btn.btn-default.active(for='aJob') Un emploi
+				.form-group
+					input#inspiration(type='checkbox', name='inspiration', autocomplete='off')
+					.btn-group
+						label.btn.btn-default(for='inspiration')
+							span.glyphicon.glyphicon-plus
+							span.glyphicon.glyphicon-minus
+						label.btn.btn-default.active(for='inspiration') De l'inspiration
+				.form-group
+					input#contacts(type='checkbox', name='contacts', autocomplete='off')
+					.btn-group
+						label.btn.btn-default(for='contacts')
+							span.glyphicon.glyphicon-plus
+							span.glyphicon.glyphicon-minus
+						label.btn.btn-default.active(for='contacts') Des contacts
+		.panel-footer
+			+changeQuestion

@@ -1,0 +1,37 @@
+template(name="question3")
+	.panel.panel-default
+		.panel-heading
+			.panel-title
+				h2 Mes besoins ?
+		.panel-body
+			form
+				.form-group
+					input#needMoney(type='checkbox', name='needMoney', autocomplete='off')
+					.btn-group
+						label.btn.btn-default(for='needMoney')
+							span.glyphicon.glyphicon-plus
+							span.glyphicon.glyphicon-minus
+						label.btn.btn-default.active(for='needMoney') Argent
+				.form-group
+					input#safety(type='checkbox', name='safety', autocomplete='off')
+					.btn-group
+						label.btn.btn-default(for='safety')
+							span.glyphicon.glyphicon-plus
+							span.glyphicon.glyphicon-minus
+						label.btn.btn-default.active(for='safety') Sécurité
+				.form-group
+					input#notAlone(type='checkbox', name='notAlone', autocomplete='off')
+					.btn-group
+						label.btn.btn-default(for='notAlone')
+							span.glyphicon.glyphicon-plus
+							span.glyphicon.glyphicon-minus
+						label.btn.btn-default.active(for='notAlone') Être entouré
+				.form-group
+					input#findMeaning(type='checkbox', name='findMeaning', autocomplete='off')
+					.btn-group
+						label.btn.btn-default(for='findMeaning')
+							span.glyphicon.glyphicon-plus
+							span.glyphicon.glyphicon-minus
+						label.btn.btn-default.active(for='findMeaning') Trouver du sens
+		.panel-footer
+			+changeQuestion

@@ -1,0 +1,37 @@
+template(name="question4")
+	.panel.panel-default
+		.panel-heading
+			.panel-title
+				h2 Ce que je suis près à donner ?
+		.panel-body
+			form
+				.form-group
+					input#skills(type='checkbox', name='skills', autocomplete='off')
+					.btn-group
+						label.btn.btn-default(for='skills')
+							span.glyphicon.glyphicon-plus
+							span.glyphicon.glyphicon-minus
+						label.btn.btn-default.active(for='skills') Compétences
+				.form-group
+					input#giveTime(type='checkbox', name='giveTime', autocomplete='off')
+					.btn-group
+						label.btn.btn-default(for='giveTime')
+							span.glyphicon.glyphicon-plus
+							span.glyphicon.glyphicon-minus
+						label.btn.btn-default.active(for='giveTime') Temps
+				.form-group
+					input#giveMoney(type='checkbox', name='giveMoney', autocomplete='off')
+					.btn-group
+						label.btn.btn-default(for='giveMoney')
+							span.glyphicon.glyphicon-plus
+							span.glyphicon.glyphicon-minus
+						label.btn.btn-default.active(for='giveMoney') Argent
+				.form-group
+					input#giveEnergy(type='checkbox', name='giveEnergy', autocomplete='off')
+					.btn-group
+						label.btn.btn-default(for='giveEnergy')
+							span.glyphicon.glyphicon-plus
+							span.glyphicon.glyphicon-minus
+						label.btn.btn-default.active(for='giveEnergy') Energie
+		.panel-footer
+			+changeQuestion

@@ -1,0 +1,37 @@
+template(name="question2")
+	.panel.panel-default
+		.panel-heading
+			.panel-title
+				h2 Comment je me sens ?
+		.panel-body
+			form
+				.form-group
+					input#alone(type='checkbox', name='alone', autocomplete='off')
+					.btn-group
+						label.btn.btn-default(for='alone')
+							span.glyphicon.glyphicon-plus
+							span.glyphicon.glyphicon-minus
+						label.btn.btn-default.active(for='alone') Seul
+				.form-group
+					input#lost(type='checkbox', name='lost', autocomplete='off')
+					.btn-group
+						label.btn.btn-default(for='lost')
+							span.glyphicon.glyphicon-plus
+							span.glyphicon.glyphicon-minus
+						label.btn.btn-default.active(for='lost') Perdu
+				.form-group
+					input#focused(type='checkbox', name='focused', autocomplete='off')
+					.btn-group
+						label.btn.btn-default(for='focused')
+							span.glyphicon.glyphicon-plus
+							span.glyphicon.glyphicon-minus
+						label.btn.btn-default.active(for='focused') Concentré sur un objectif
+				.form-group
+					input#doSomething(type='checkbox', name='doSomething', autocomplete='off')
+					.btn-group
+						label.btn.btn-default(for='doSomething')
+							span.glyphicon.glyphicon-plus
+							span.glyphicon.glyphicon-minus
+						label.btn.btn-default.active(for='doSomething') Envie d'agir
+		.panel-footer
+			+changeQuestion
