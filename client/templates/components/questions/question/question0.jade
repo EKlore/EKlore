@@ -2,28 +2,31 @@ template(name="question0")
 	.panel.panel-default
 		.panel-heading
 			.panel-title
-				h2 Qui suis-je administrativement ?
+				h2 {{_ "whoAmI"}}
 		.panel-body
 			form.form-horizontal
 				.form-group.form-group-lg
-					label.col-xs-3.col-sm-2.col-md-2.col-lg-2.control-label(for="first_name") Prénom
+					label.col-xs-3.col-sm-2.col-md-2.col-lg-2.control-label(for="first_name") {{_ "firstName"}}
 					.col-xs-9.col-sm-10.col-md-10.col-lg-10
 						input#firstName.form-control.input-lg(type="text")
 				.form-group.form-group-lg
-					label.col-xs-3.col-sm-2.col-md-2.col-lg-2.control-label(for="last_name") Nom de famille
+					label.col-xs-3.col-sm-2.col-md-2.col-lg-2.control-label(for="last_name") {{_ "lastName"}}
 					.col-xs-9.col-sm-10.col-md-10.col-lg-10
 						input#lastName.form-control.input-lg(type="text")
 				.form-group.form-group-lg
-					label.col-xs-3.col-sm-2.col-md-2.col-lg-2.control-label(for="email") Email
+					label.col-xs-3.col-sm-2.col-md-2.col-lg-2.control-label(for="email") {{_ "email"}}
 					.col-xs-9.col-sm-10.col-md-10.col-lg-10
 						input#email.form-control.input-lg(type="email")
 				.form-group.form-group-lg
-					label.col-xs-3.col-sm-2.col-md-2.col-lg-2.control-label(for="password") Mot de passe
+					label.col-xs-3.col-sm-2.col-md-2.col-lg-2.control-label(for="password") {{_ "password"}}
 					.col-xs-9.col-sm-10.col-md-10.col-lg-10
 						input#password.form-control.input-lg(type="password")
 				.form-group.form-group-lg
-					label.col-xs-3.col-sm-2.col-md-2.col-lg-2.control-label(for="confirmPassword") Confirmez votre mot de passe
+					label.col-xs-3.col-sm-2.col-md-2.col-lg-2.control-label(for="confirmPassword") {{_ "confirmPassword"}}
 					.col-xs-9.col-sm-10.col-md-10.col-lg-10
 						input#confirmPassword.form-control.input-lg(type="password")
 		.panel-footer
 			+changeQuestion
+
+template(name="question0ErrorFirstName")
+	span.help-block {{_ "firstNameMandatory"}}

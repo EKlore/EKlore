@@ -93,7 +93,10 @@ class Questions extends BlazeComponent {
 				this.questionLevel(this.questionLevel() + 1);
 			} else {
 				if (!this.userProfile().firstName) {
-
+					$('#firstName').parents('.form-group').addClass('has-error');
+					$('#firstName').parent().append(function() {
+						return Blaze.toHTML(Template.question0ErrorFirstName)
+					});
 				}
 				console.log(this.userProfile());
 			}
