@@ -13,6 +13,9 @@ class Questions extends BlazeComponent {
 			$('a[data-toggle="' + tog + '"]').not('[data-title="' + sel + '"]').removeClass('active').addClass('notActive');
 			$('a[data-toggle="' + tog + '"][data-title="' + sel + '"]').removeClass('notActive').addClass('active');
 		});
+		if (Meteor.userId()) {
+			this.questionLevel(1);
+		}
 	}
 
 	level0() {
