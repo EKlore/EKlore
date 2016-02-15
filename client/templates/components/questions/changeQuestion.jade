@@ -1,0 +1,16 @@
+template(name="changeQuestion")
+	.row
+		if hide
+			.col-xs-12.hidden-sm.hidden-md.hidden-lg
+				button.btn-block.btn-lg.nextQuestion.btn.btn-success(type="button") {{_ "next"}}
+			.hidden-xs.col-sm-12.col-md-12.col-lg-12
+				button.btn-block.btn-lg.nextQuestion.btn.btn-success(type="button") {{_ "nextQuestion"}}
+		else
+			.col-xs-6.hidden-sm.hidden-md.hidden-lg
+				button.btn-block.btn-lg.previousQuestion.btn.btn-warning(type="button") {{_ "previous"}}
+			.col-xs-6.hidden-sm.hidden-md.hidden-lg
+				button.btn-block.btn-lg.nextQuestion.btn.btn-success(type="button") {{_ "next"}}
+			.hidden-xs.col-sm-6.col-md-6.col-lg-6
+				button.btn-block.btn-lg.previousQuestion.btn.btn-warning(type="button") {{_ "previousQuestion"}}
+			.hidden-xs.col-sm-6.col-md-6.col-lg-6
+				button.btn-block.btn-lg.nextQuestion.btn.btn-success(type="button") {{_ "nextQuestion"}}

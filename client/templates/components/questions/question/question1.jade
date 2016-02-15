@@ -5,7 +5,7 @@ template(name="question1")
 				h2 Qui suis je là maintenant ?
 		.panel-body
 			.form-group
-				.col-xs-6.col-sm-7.col-md-7.col-lg-7
+				.col-xs-12.col-sm-12.col-md-12.col-lg-12
 					.input-group
 						#radioBtn.btn-group
 							a.btn.btn-primary.btn-lg.active(data-toggle='fun', data-title='Y') Salarié                    
@@ -14,4 +14,4 @@ template(name="question1")
 							a.btn.btn-primary.btn-lg.notActive(data-toggle='fun', data-title='Z') Autre
 						input#fun(type='hidden', name='fun')
 		.panel-footer
-			+changeQuestion
+			+changeQuestion(hide=true)

@@ -3,6 +3,7 @@ class Questions extends BlazeComponent {
 		super.onCreated();
 		this.questionLevel = new ReactiveField(0);
 		this.userProfile = new ReactiveField({});
+		this.questionProfile = new ReactiveField({});
 	}
 
 	onRendered() {
@@ -28,8 +29,10 @@ class Questions extends BlazeComponent {
 
 	level1() {
 		if (this.questionLevel() === 1) {
+			$('.previousQuestion').addClass('hidden');
 			return false;
 		} else {
+			$('.previousQuestion').removeClass('hidden');
 			return 'hidden';
 		}
 	}
@@ -101,6 +104,14 @@ class Questions extends BlazeComponent {
 				addErrorOrSuccessForPassword.call(this, 'password', '#password', 'question0ErrorPassword', 'question0OKPassword');
 				addErrorOrSuccessForConfirmPassword.call(this, 'password', '#confirmPassword', 'question0ErrorConfirmPassword', 'question0OKConfirmPassword');
 			}
+		} else if (this.questionLevel() === 1) {
+			this.questionProfile().userId = Meteor.userId();
+			this.questionProfile().question1 = {
+				answer: $('#radioBtn').find('.active').eq(0).attr('data-title'),
+				date: new Date()
+			};
+			console.log(this.questionProfile());
+			this.questionLevel(this.questionLevel() + 1);
 		}
 	}
 
