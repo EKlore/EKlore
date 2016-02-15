@@ -50,7 +50,15 @@ template(name="question0OKEmail")
 	span.question0OKEmail.glyphicon.glyphicon-ok.form-control-feedback(aria-hidden="true")
 
 template(name="question0ErrorPassword")
-	span.help-block {{_ "passwordErrorLength"}}
+	span.question0ErrorPassword.glyphicon.glyphicon-remove.form-control-feedback(aria-hidden="true")
+	span.question0ErrorPassword.help-block {{_ "passwordErrorLength"}}
+
+template(name="question0OKPassword")
+	span.question0OKPassword.glyphicon.glyphicon-ok.form-control-feedback(aria-hidden="true")
 
 template(name="question0ErrorConfirmPassword")
-	span.help-block {{_ "confirmPasswordDifferentPassword"}}
+	span.question0ErrorConfirmPassword.glyphicon.glyphicon-remove.form-control-feedback(aria-hidden="true")
+	span.question0ErrorConfirmPassword.help-block {{_ "confirmPasswordDifferentPassword"}}
+
+template(name="question0OKConfirmPassword")
+	span.question0OKConfirmPassword.glyphicon.glyphicon-ok.form-control-feedback(aria-hidden="true")

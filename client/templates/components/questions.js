@@ -95,6 +95,8 @@ class Questions extends BlazeComponent {
 				addErrorOrSuccess.call(this, 'firstName', '#firstName', 'question0ErrorFirstName', 'question0OKFirstName');
 				addErrorOrSuccess.call(this, 'lastName', '#lastName', 'question0ErrorLastName', 'question0OKLastName');
 				addErrorOrSuccessForEmail.call(this, 'email', '#email', 'question0ErrorEmail', 'question0OKEmail');
+				addErrorOrSuccessForPassword.call(this, 'password', '#password', 'question0ErrorPassword', 'question0OKPassword');
+				addErrorOrSuccessForConfirmPassword.call(this, 'password', '#confirmPassword', 'question0ErrorConfirmPassword', 'question0OKConfirmPassword');
 			}
 		}
 	}
