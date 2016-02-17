@@ -6,7 +6,7 @@ class Questions extends BlazeComponent {
 		this.questionProfile = new ReactiveField({});
 	}
 
-	onRendered() {
+	/*onRendered() {
 		$('#radioBtn a').on('click', function() {
 			var sel = $(this).data('title');
 			var tog = $(this).data('toggle');
@@ -17,7 +17,7 @@ class Questions extends BlazeComponent {
 		if (Meteor.userId()) {
 			this.questionLevel(1);
 		}
-	}
+	}*/
 
 	level0() {
 		if (this.questionLevel() === 0) {
