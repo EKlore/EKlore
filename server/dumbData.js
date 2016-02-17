@@ -135,7 +135,7 @@ Meteor.startup(function() {
 			title: 'Qui suis je là maintenant ?'
 		}];
 		for (var i = 0; i < questionList.length; i++) {
-			Questions.insert(questionList[i], function(error, result) {
+			UserQuestions.insert(questionList[i], function(error, result) {
 				if (error) {
 					console.log(error.message, error);
 				}
