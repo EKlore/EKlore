@@ -1,20 +1,4 @@
 template(name="questions")
 	.container
-		div(class="#{level0}")
-			+progressBar(value=16)
-			+question0
-		div(class="#{level1}")
-			+progressBar(value=32)
-			+question1
-		div(class="#{level2}")
-			+progressBar(value=48)
-			+question2
-		div(class="#{level3}")
-			+progressBar(value=64)
-			+question3
-		div(class="#{level4}")
-			+progressBar(value=80)
-			+question4
-		div(class="#{level5}")
-			+progressBar(value=100)
-			+question5
+		with questionData
+			h1 #{title}
