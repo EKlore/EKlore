@@ -4,12 +4,15 @@
 	"toggleNav": "Basculer la navigation",
 	"createMyProfile": "Créez votre profil",
 	"myProfile": "Mon profil",
+	"myDay": "Mon programme",
+	"meeting": "Rencontres",
+	"signUpSignIn": "Connectez vous ou créez votre compte",
 	"firstNameMandatory": "Le prénom est obligatoire.",
 	"lastNameMandatory": "Le prénom est obligatoire.",
 	"emailMandatory": "L'email est obligatoire.",
 	"passwordErrorLength": "Le mot de passe doit faire 6 caractères ou plus.",
 	"confirmPasswordDifferentPassword": "Les deux mots de passe ne sont pas identiques.",
-	"whoAmI": "Qui suis-je administrativement ?",
+	"whoAmI": "Qui suis-je ?",
 	"firstName": "Prénom",
 	"lastName": "Nom",
 	"email": "Email",
@@ -18,5 +21,7 @@
 	"previousQuestion": "Question précédente",
 	"nextQuestion": "Question suivante",
 	"previous": "Précédent",
-	"next": "Suivant"
+	"next": "Suivant",
+	"validate": "Valider",
+	"cancel": "Annuler"
 }
