@@ -9,8 +9,13 @@ template(name="header")
 					span.icon-bar
 				a.navbar-brand(href="{{pathFor 'home'}}") {{_ "eklore"}}
 			.collapse.navbar-collapse
-				ul.nav.navbar-nav
-					li(class="#{myProfileActive}")
-						a(href="{{pathFor 'myProfile'}}") {{_ "myProfile"}}
+				if currentUser
+					ul.nav.navbar-nav
+						li(class="#{myProfileActive}")
+							a(href="{{pathFor 'myProfile'}}") {{_ "myProfile"}}
+						li(class="#{myDayActive}")
+							a(href="{{pathFor 'myDay'}}") {{_ "myDay"}}
+						li(class="#{meetingActive}")
+							a(href="{{pathFor 'meeting'}}") {{_ "meeting"}}
 				.nav.navbar-nav.navbar-right
 					+loginButtons

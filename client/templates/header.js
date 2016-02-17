@@ -6,4 +6,18 @@ Template.header.helpers({
 			return false;
 		}
 	},
+	myDayActive() {
+		if (Router.current().route._path === '/myDay') {
+			return 'active';
+		} else {
+			return false;
+		}
+	},
+	meetingActive() {
+		if (Router.current().route._path === '/meeting') {
+			return 'active';
+		} else {
+			return false;
+		}
+	}
 });
