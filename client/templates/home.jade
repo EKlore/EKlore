@@ -1,4 +1,7 @@
 template(name="home")
 	.container
 		h1 {{_ "eklore"}}
-		a.btn.btn-primary(role="button" href="{{pathFor 'myProfile'}}") {{_ "createMyProfile"}}
+		if currentUser
+			a.btn.btn-primary(href="{{pathFor 'myProfile'}}" role="button") {{_ "createMyProfile"}}
+		else
+			a.btn.btn-primary(href="{{pathFor 'signUpSignIn'}}" role="button") {{_ "signUpSignIn"}}
