@@ -1,4 +1,16 @@
 template(name="questions")
 	.container
-		with questionData
-			h1 #{title}
+		.panel.panel-default
+			.panel-heading
+				.panel-title
+					h2 #{title}
+			.panel-body
+				.form-group
+					.col-xs-12.col-sm-12.col-md-12.col-lg-12
+						.input-group
+							#radioBtn.btn-group
+								each choices
+									a.btn.btn-primary.btn-lg.notActive(data-toggle='fun', data-title='#{choiceId}') #{label}
+							input#fun(type='hidden', name='fun')
+			.panel-footer
+				+changeQuestion(hide=true)

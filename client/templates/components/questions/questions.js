@@ -4,17 +4,15 @@ class Questions extends BlazeComponent {
 		this.question = new ReactiveField({});
 	}
 
-	questionData() {
-		return UserQuestions.findOne({
-			userId: Meteor.userId(),
-			answered: false,
-			deprecated: false
-		}, {
-			sort: {
-				level: 1,
-				version: 1
-			}
-		}).fetch();
+	onRendered() {
+		$('#radioBtn a').first().removeClass('notActive').addClass('active');
+		$('#radioBtn a').on('click', function() {
+			var sel = $(this).data('title');
+			var tog = $(this).data('toggle');
+			$('#' + tog).prop('value', sel);
+			$('a[data-toggle="' + tog + '"]').not('[data-title="' + sel + '"]').removeClass('active').addClass('notActive');
+			$('a[data-toggle="' + tog + '"][data-title="' + sel + '"]').removeClass('notActive').addClass('active');
+		});
 	}
 
 	template() {
