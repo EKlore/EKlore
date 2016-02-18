@@ -1,5 +1,7 @@
 template(name="questions")
 	.container
+		//.progress
+			.progress-bar.progress-bar-info.progress-bar-striped.active(role='progressbar', aria-valuenow='#{questionsAnswered}', aria-valuemin='0', aria-valuemax='100', style='width: #{questionsAnswered}%')
 		.panel.panel-default
 			.panel-heading
 				.panel-title
@@ -8,9 +10,11 @@ template(name="questions")
 				.form-group
 					.col-xs-12.col-sm-12.col-md-12.col-lg-12
 						.input-group
-							#radioBtn.btn-group
+							.btn-group
 								each choices
-									a.btn.btn-primary.btn-lg.notActive(data-toggle='fun', data-title='#{choiceId}') #{label}
+									a.btn.radioBtn.btn-primary.btn-lg(class="#{choiceIndex}" data-toggle='fun', data-title='#{choiceId}') #{label}
 							input#fun(type='hidden', name='fun')
 			.panel-footer
-				+changeQuestion(hide=true)
+				.row
+					.col-xs-12.col-sm-12.col-md-12.col-lg-12
+						button.btn-block.btn-lg#nextQuestion.btn.btn-success(type="button") {{_ "next"}}
