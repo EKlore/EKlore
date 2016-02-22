@@ -264,7 +264,31 @@ Meteor.startup(function() {
 			title: 'Comment je me sens ?'
 		}];
 		for (var i = 0; i < questionList.length; i++) {
-			UserQuestions.insert(questionList[i], function(error, result) {
+			Meteor.call('insertQuestions', questionList[i], function(error, result) {
+				if (error) {
+					console.log(error.message, error);
+				}
+			});
+		}
+	}
+	if (Volunteers.find({}).count() === 0) {
+		var volunteers = [{
+			firstName: 'Solenn',
+			lastName: 'Thomas',
+			pictureUrl: '/volunteers/solenn_thomas.jpg',
+			functionInFete: 'Fondatrice d\'EKlore et de FETE'
+		}, {
+			firstName: 'Jeremy',
+			lastName: 'Fourna',
+			pictureUrl: '/volunteers/jeremy_fourna.jpg',
+			functionInFete: 'Développeur de ce site !'
+		}, {
+			firstName: 'Alizée',
+			lastName: 'Thurneyssen',
+			functionInFete: 'Responsable programmation'
+		}];
+		for (var j = 0; j < volunteers.length; j++) {
+			Meteor.call('addAVolunteer', volunteers[j], function(error, result) {
 				if (error) {
 					console.log(error.message, error);
 				}
