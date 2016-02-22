@@ -1,5 +1,31 @@
 template(name="home")
-	.container
-		h1 {{_ "eklore"}}
-		if currentUser
-			a.btn.btn-primary(href="{{pathFor 'myProfile'}}" role="button") {{_ "createMyProfile"}}
+	.container-fluid
+		.jumbotron
+			h1 {{_ "fete"}}
+				small {{_ "feteAcronym"}}
+		.panel.panel-default
+			.panel-heading
+				p.panel-title {{_ "presentationFete"}}
+			.panel-body
+				p BLA BLA BLA
+				p BLA BLA BLA
+		.panel.panel-default
+			.panel-heading
+				p.panel-title {{_ "localisation"}}
+			.panel-body
+				.col-sm-6.col-md6.col-lg-6
+					.address.adresse
+						strong {{_ "fete"}} {{_ "eklore"}}
+						br
+						| Le Grand Palais
+						br
+						| Avenue Winston-Churchill
+						br
+						| 75008 Paris
+					.address
+						strong {{_ "contact"}}
+						br
+						a(href="mailto:contact@fete-eklore.fr") contact@fete-eklore.fr
+				.col-sm-6.col-md6.col-lg-6
+					+Map
+		a.btn.btn-primary.btn-lg.btn-block(role="button" href="{{pathFor 'myProfile'}}") {{_ "createYourProfile"}}

@@ -1,11 +1,15 @@
 {
 	"eklore": "EKlore",
+	"fete": "FETE",
+	"feteAcronym": "FEstival des Talents et de l'Emploi",
 	"404": "Désolé, nous ne trouvons pas de page à cette adresse...",
 	"toggleNav": "Basculer la navigation",
+	"presentationFete": "FETE ? Mais qu'est-ce donc ?",
 	"createMyProfile": "Créez votre profil",
 	"myProfile": "Mon profil",
 	"myDay": "Mon programme",
 	"meeting": "Rencontres",
+	"localisation": "Localisation",
 	"signUpSignIn": "Connectez vous ou créez votre compte",
 	"firstNameMandatory": "Le prénom est obligatoire.",
 	"lastNameMandatory": "Le prénom est obligatoire.",
@@ -23,5 +27,7 @@
 	"previous": "Précédent",
 	"next": "Suivant",
 	"validate": "Valider",
-	"cancel": "Annuler"
+	"cancel": "Annuler",
+	"contact": "Contactez-nous",
+	"createYourProfile": "Créez vous aussi votre profil et venez faire la FETE avec nous !"
 }
