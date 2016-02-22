@@ -9,7 +9,7 @@
 	"myProfile": "Mon profil",
 	"myDay": "Mon programme",
 	"meeting": "Rencontres",
-	"localisation": "Localisation",
+	"localisationAndSchedule": "Localisation & Horaires",
 	"signUpSignIn": "Connectez vous ou créez votre compte",
 	"firstNameMandatory": "Le prénom est obligatoire.",
 	"lastNameMandatory": "Le prénom est obligatoire.",
@@ -29,5 +29,9 @@
 	"validate": "Valider",
 	"cancel": "Annuler",
 	"contact": "Contactez-nous",
-	"createYourProfile": "Créez vous aussi votre profil et venez faire la FETE avec nous !"
+	"createYourProfile": "Créez vous aussi votre profil et venez faire la FETE avec nous !",
+	"volunteers": "Bénévoles",
+	"withoutThemNothingIsPossible": "Sans eux FETE n'existerait pas !",
+	"dateFete": "24 septembre 2016 ou 1 octobre 2016",
+	"hourFete": "De 10h à 18h"
 }
