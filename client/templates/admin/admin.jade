@@ -1,0 +1,51 @@
+template(name="admin")
+	.container
+		if isAdmin
+			.panel.panel-default
+				.panel-heading
+					h3 Universes
+				.panel-body
+					.col-xs-12.col-sm-6.col-md-6.col-lg-6
+						p There are
+							span.badge #{universesCount}
+							| universes.
+					.col-xs-12.col-sm-6.col-md-6.col-lg-6
+						a.pull-right.btn.btn-primary(role="button" href="{{pathFor 'newUniverse'}}") Add a universe
+					if universesCount
+						table.table
+							thead
+								tr
+									th Name
+									th Label
+									th Workshops linked
+							tbody
+								each universe
+									tr
+										td #{name}
+										td #{label}
+										td #{workshopsLinkedCount}
+			.panel.panel-default
+				.panel-heading
+					h3 Workshops
+				.panel-body
+					.col-xs-12.col-sm-6.col-md-6.col-lg-6
+						p There are
+							span.badge #{workshopsCount}
+							| workshops.
+					.col-xs-12.col-sm-6.col-md-6.col-lg-6
+						a.pull-right.btn.btn-primary(role="button" href="{{pathFor 'newUniverse'}}") Add a workshop
+					if workshopsCount
+						table.table
+							thead
+								tr
+									th Name
+									th Description
+									th Universes linked
+							tbody
+								each workshop
+									tr
+										td #{name}
+										td #{description}
+										td #{universesLinkedCount}
+		else
+			h1 Go Fuck Yourself !
