@@ -1,5 +1,81 @@
 Meteor.startup(function() {
-	if (UserQuestions.find({}).count() === 0) {
+	/*if (Universes.find({}).count() === 0 && Workshops.find({}).count() === 0 && UserQuestions.find({}).count() === 0) {
+		var dem1 = Universes.insert({
+			name: 'DEM1',
+			label: 'Métiers de demain',
+		});
+		var reso = Universes.insert({
+			name: 'RESO',
+			label: 'Réseauter',
+		});
+		var arti = Universes.insert({
+			name: 'ARTI',
+			label: 'Vivre de son art',
+		});
+		var entr = Universes.insert({
+			name: 'ENTR',
+			label: 'Entreprendre ou reprendre',
+		});
+		var form = Universes.insert({
+			name: 'FORM',
+			label: 'Formations',
+		});
+		var sala = Universes.insert({
+			name: 'SALA',
+			label: 'Salariat',
+		});
+		var sens = Universes.insert({
+			name: 'SENS',
+			label: 'Apporter du sens',
+		});
+		var dem11 = Workshops.insert({
+			name: 'Atelier 1',
+			description: 'BLA BLA',
+			dateStart: new Date(2016, 8, 24, 8, 0, 0),
+			dateEnd: new Date(2016, 8, 24, 9, 0, 0),
+			universLinked: [{
+				UniverseId: dem1,
+				matchingPower: 0.9
+			}, {
+				UniverseId: reso,
+				matchingPower: 0.8
+			}, {
+				UniverseId: arti,
+				matchingPower: 0.7
+			}]
+		});
+		var reso1 = Workshops.insert({
+			name: 'Atelier 2',
+			description: 'BLA BLA',
+			dateStart: new Date(2016, 8, 24, 8, 0, 0),
+			dateEnd: new Date(2016, 8, 24, 9, 0, 0),
+			universLinked: [{
+				UniverseId: reso,
+				matchingPower: 0.9
+			}, {
+				UniverseId: sala,
+				matchingPower: 0.8
+			}, {
+				UniverseId: form,
+				matchingPower: 0.7
+			}]
+		});
+		var sens1 = Workshops.insert({
+			name: 'Atelier 3',
+			description: 'BLA BLA',
+			dateStart: new Date(2016, 8, 24, 9, 0, 0),
+			dateEnd: new Date(2016, 8, 24, 10, 0, 0),
+			universLinked: [{
+				UniverseId: sens,
+				matchingPower: 0.9
+			}, {
+				UniverseId: sala,
+				matchingPower: 0.8
+			}, {
+				UniverseId: entr,
+				matchingPower: 0.7
+			}]
+		});
 		var user = Accounts.createUser({
 			password: '123456',
 			email: 'abc@def.com',
@@ -14,31 +90,31 @@ Meteor.startup(function() {
 				choiceId: Random.id(),
 				label: 'Salarié',
 				universLinked: [{
-					universId: 'A',
+					universeId: dem1,
 					matchingPower: 0.9
 				}, {
-					universId: 'B',
+					universeId: reso,
 					matchingPower: 0.8
 				}],
 				workshopLinked: [{
-					workshopId: 'C',
+					workshopId: dem11,
 					matchingPower: 0.7
 				}, {
-					workshopId: 'D',
+					workshopId: reso1,
 					matchingPower: 0.6
 				}]
 			}, {
 				choiceId: Random.id(),
 				label: 'Chômeur',
 				universLinked: [{
-					universId: 'C',
+					universeId: sala,
 					matchingPower: 0.9
 				}, {
-					universId: 'D',
+					universeId: entr,
 					matchingPower: 0.8
 				}],
 				workshopLinked: [{
-					workshopId: 'A',
+					workshopId: sens1,
 					matchingPower: 0.7
 				}, {
 					workshopId: 'B',
@@ -48,10 +124,10 @@ Meteor.startup(function() {
 				choiceId: Random.id(),
 				label: 'Etudiant',
 				universLinked: [{
-					universId: 'E',
+					universeId: 'E',
 					matchingPower: 0.9
 				}, {
-					universId: 'F',
+					universeId: 'F',
 					matchingPower: 0.8
 				}],
 				workshopLinked: [{
@@ -65,10 +141,10 @@ Meteor.startup(function() {
 				choiceId: Random.id(),
 				label: 'Autre',
 				universLinked: [{
-					universId: 'G',
+					universeId: 'G',
 					matchingPower: 0.9
 				}, {
-					universId: 'H',
+					universeId: 'H',
 					matchingPower: 0.8
 				}],
 				workshopLinked: [{
@@ -81,29 +157,14 @@ Meteor.startup(function() {
 			}],
 			deprecated: false,
 			universLinked: [{
-				universId: 'G',
+				universeId: reso,
 				matchingPower: 0.9
 			}, {
-				universId: 'H',
+				universeId: sens,
 				matchingPower: 0.8
 			}, {
-				universId: 'A',
+				universeId: form,
 				matchingPower: 0.9
-			}, {
-				universId: 'B',
-				matchingPower: 0.8
-			}, {
-				universId: 'C',
-				matchingPower: 0.9
-			}, {
-				universId: 'D',
-				matchingPower: 0.8
-			}, {
-				universId: 'E',
-				matchingPower: 0.9
-			}, {
-				universId: 'F',
-				matchingPower: 0.8
 			}],
 			workshopLinked: [{
 				workshopId: 'G',
@@ -143,10 +204,10 @@ Meteor.startup(function() {
 				choiceId: Random.id(),
 				label: 'Seul',
 				universLinked: [{
-					universId: 'A',
+					universeId: 'A',
 					matchingPower: 0.9
 				}, {
-					universId: 'B',
+					universeId: 'B',
 					matchingPower: 0.8
 				}],
 				workshopLinked: [{
@@ -160,10 +221,10 @@ Meteor.startup(function() {
 				choiceId: Random.id(),
 				label: 'Perdu',
 				universLinked: [{
-					universId: 'C',
+					universeId: 'C',
 					matchingPower: 0.9
 				}, {
-					universId: 'D',
+					universeId: 'D',
 					matchingPower: 0.8
 				}],
 				workshopLinked: [{
@@ -177,10 +238,10 @@ Meteor.startup(function() {
 				choiceId: Random.id(),
 				label: 'Concentré sur un objectif',
 				universLinked: [{
-					universId: 'E',
+					universeId: 'E',
 					matchingPower: 0.9
 				}, {
-					universId: 'F',
+					universeId: 'F',
 					matchingPower: 0.8
 				}],
 				workshopLinked: [{
@@ -194,10 +255,10 @@ Meteor.startup(function() {
 				choiceId: Random.id(),
 				label: "Envie d'agir",
 				universLinked: [{
-					universId: 'G',
+					universeId: 'G',
 					matchingPower: 0.9
 				}, {
-					universId: 'H',
+					universeId: 'H',
 					matchingPower: 0.8
 				}],
 				workshopLinked: [{
@@ -210,28 +271,28 @@ Meteor.startup(function() {
 			}],
 			deprecated: false,
 			universLinked: [{
-				universId: 'G',
+				universeId: 'G',
 				matchingPower: 0.9
 			}, {
-				universId: 'H',
+				universeId: 'H',
 				matchingPower: 0.8
 			}, {
-				universId: 'A',
+				universeId: 'A',
 				matchingPower: 0.9
 			}, {
-				universId: 'B',
+				universeId: 'B',
 				matchingPower: 0.8
 			}, {
-				universId: 'C',
+				universeId: 'C',
 				matchingPower: 0.9
 			}, {
-				universId: 'D',
+				universeId: 'D',
 				matchingPower: 0.8
 			}, {
-				universId: 'E',
+				universeId: 'E',
 				matchingPower: 0.9
 			}, {
-				universId: 'F',
+				universeId: 'F',
 				matchingPower: 0.8
 			}],
 			workshopLinked: [{
@@ -270,7 +331,7 @@ Meteor.startup(function() {
 				}
 			});
 		}
-	}
+	}*/
 	if (Volunteers.find({}).count() === 0) {
 		var volunteers = [{
 			firstName: 'Solenn',
