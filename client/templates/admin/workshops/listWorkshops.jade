@@ -1,0 +1,32 @@
+template(name="listWorkshops")
+	.panel.panel-default
+		.panel-heading
+			h3 {{_ "workshopList"}}
+		.panel-body
+			.col-xs-12.col-sm-6.col-md-6.col-lg-6
+				p {{_ "thereAre"}}
+					span.badge #{workshopsCount}
+					| {{_ "workshops"}}.
+			.col-xs-12.col-sm-6.col-md-6.col-lg-6
+				a.pull-right.btn.btn-primary(role="button" href="{{pathFor 'newWorkshop'}}") {{_ "addNewWorkshop"}}
+			if workshopsCount
+				table.table
+					thead
+						tr
+							th {{_ "name"}}
+							th {{_ "description"}}
+							th {{_ "universesLinked"}}
+							th {{_ "startDate"}}
+							th {{_ "endDate"}}
+							th {{_"actionEdit"}}
+					tbody
+						each workshop
+							tr
+								td #{name}
+								td #{description}
+								td #{universesLinkedCount}
+								td #{dateStart}
+								td #{dateEnd}
+								td
+									a.btn.btn-info(role="button" href="{{pathFor 'editWorkshop'}}")
+										span.glyphicon.glyphicon-edit(aria-hidden="true")

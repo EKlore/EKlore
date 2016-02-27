@@ -1,0 +1,49 @@
+template(name="editUniverse")
+	.container
+		.panel.panel-default
+			.panel-heading
+				h3 {{_ "universeEdition"}} : #{name}
+			.panel-body
+				.panel.panel-default
+					.panel-body
+						form
+							.form-group
+								label(for="universeName") {{_ "universeName"}}
+								input#universeName.form-control(type="text" value="#{name}")
+							.form-group
+								label(for="universeLabel") {{_ "universeLabel"}}
+								textarea#universeLabel.form-control(rows="3") #{label}
+					.panel-footer
+						.row
+							.col-xs-12.col-sm-6.col-md-6.col-lg-6
+								a.btn.btn-danger.btn-block(role="button" href="{{pathFor 'admin'}}") {{_ "cancel"}}
+							.col-xs-12.col-sm-6.col-md-6.col-lg-6
+								button#save.btn.btn-success.btn-block {{_ "validate"}}
+				.panel.panel-success
+					.panel-heading
+						h4 {{_ "workshopsLinkedWithUniverse"}}
+					.panel-body
+						each workshopsLinked
+							.panel.panel-default
+								.panel-heading
+									p.panel-title #{workshopData.name}
+								.panel-body
+									form.form-inline.removeWorkshopFromUniverse
+										.form-group
+											label(for="matchingPower") {{_ "matchingPower"}}
+											input.matchingPower.form-control(type="number" value="#{matchingPower}" disabled)
+										button.btn.btn-danger(type="submit") {{_ "remove"}}
+				.panel.panel-danger
+					.panel-heading
+						h4 {{_ "workshopsNotLinkedWithUniverse"}}
+					.panel-body
+						each workshops
+							.panel.panel-default
+								.panel-heading
+									p.panel-title #{name}
+								.panel-body
+									form.form-inline.addWorkshopToUniverse
+										.form-group
+											label(for="matchingPower") {{_ "matchingPower"}}
+											input.matchingPower.form-control(type="number" placeholder="0.01" min="0.01" max="1" step="0.01")
+										button.btn.btn-success(type="submit") {{_ "add"}}
