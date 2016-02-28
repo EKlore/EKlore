@@ -1,19 +1,19 @@
 Template.header.helpers({
-	myProfileActive() {
+	myProfileActive: function() {
 		if (Router.current().route._path === '/myProfile') {
 			return 'active';
 		} else {
 			return false;
 		}
 	},
-	myDayActive() {
+	myDayActive: function() {
 		if (Router.current().route._path === '/myDay') {
 			return 'active';
 		} else {
 			return false;
 		}
 	},
-	meetingActive() {
+	meetingActive: function() {
 		if (Router.current().route._path === '/meeting') {
 			return 'active';
 		} else {
