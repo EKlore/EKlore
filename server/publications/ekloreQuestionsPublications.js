@@ -1,3 +1,3 @@
-Meteor.publish('allEKloreQuestions', function() {
-	return EKloreQuestions.find({});
+Meteor.publish('allEkloreQuestions', function() {
+	return EkloreQuestions.find({});
 });
