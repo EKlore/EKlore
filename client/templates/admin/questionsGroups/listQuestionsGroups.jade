@@ -1,0 +1,39 @@
+template(name="listQuestionsGroups")
+	.panel.panel-default
+		#listQuestionsGroups.panel-heading(role="tab")
+			h3
+				a(role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseQuestionsGroups" aria-expanded="true" aria-controls="collapseQuestionsGroups") {{_ "questionsGroupsList"}}
+					small {{_ "clickToDisplayOrHide"}}
+		#collapseQuestionsGroups.panel-collapse.collapse(role="tabpanel" aria-labelledby="listQuestionsGroups")
+			.panel-body
+				.col-xs-12.col-sm-6.col-md-6.col-lg-6
+					p {{_ "thereAre"}}
+						span.badge #{questionsGroupsCount}
+						| {{_ "questionsGroups"}}.
+				.col-xs-12.col-sm-6.col-md-6.col-lg-6
+					a.pull-right.btn.btn-primary(role="button" href="{{pathFor 'newQuestionsGroup'}}") {{_ "addNewQuestionsGroup"}}
+				if questionsGroupsCount
+					table.table
+						thead
+							tr
+								th {{_ "title"}}
+								th {{_ "label"}}
+								th {{_ "deprecated"}}
+								th {{_ "ekloreQuestionsLinkedCount"}}
+								th {{_"actionEdit"}}
+						tbody
+							each questionsGroup
+								tr
+									td #{title}
+									td #{label}
+									td
+										if deprecated
+											a.btn.btn-danger(role="button" href="#")
+												span.glyphicon.glyphicon-remove(aria-hidden="true")
+										else
+											a.btn.btn-success(role="button" href="#")
+												span.glyphicon.glyphicon-ok(aria-hidden="true")
+									td #{ekloreQuestionsLinkedCount}
+									td
+										a.btn.btn-info(role="button" href="{{pathFor 'editQuestionsGroup'}}")
+											span.glyphicon.glyphicon-edit(aria-hidden="true")
