@@ -1,0 +1,41 @@
+template(name="listEkloreQuestions")
+	.panel.panel-default
+		#listEkloreQuestions.panel-heading(role="tab")
+			h3
+				a(role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEkloreQuestions" aria-expanded="true" aria-controls="collapseEkloreQuestions") {{_ "ekloreQuestionsList"}}
+					small {{_ "clickToDisplayOrHide"}}
+		#collapseEkloreQuestions.panel-collapse.collapse(role="tabpanel" aria-labelledby="listEkloreQuestions")
+			.panel-body
+				.col-xs-12.col-sm-6.col-md-6.col-lg-6
+					p {{_ "thereAre"}}
+						span.badge #{ekloreQuestionsCount}
+						| {{_ "ekloreQuestions"}}.
+				.col-xs-12.col-sm-6.col-md-6.col-lg-6
+					a.pull-right.btn.btn-primary(role="button" href="{{pathFor 'newEkloreQuestion'}}") {{_ "addNewEkloreQuestion"}}
+				if ekloreQuestionsCount
+					table.table
+						thead
+							tr
+								th {{_ "title"}}
+								th {{_ "version"}}
+								th {{_ "displayTipe"}}
+								th {{_ "deprecated"}}
+								th {{_ "ekloreQuestionsLinkedCount"}}
+								th {{_"actionEdit"}}
+						tbody
+							each questionsGroup
+								tr
+									td #{title}
+									td #{version}
+									td #{displayType}
+									td
+										if deprecated
+											a.btn.btn-danger(role="button" href="#")
+												span.glyphicon.glyphicon-remove(aria-hidden="true")
+										else
+											a.btn.btn-success(role="button" href="#")
+												span.glyphicon.glyphicon-ok(aria-hidden="true")
+									td #{ekloreQuestionsLinkedCount}
+									td
+										a.btn.btn-info(role="button" href="{{pathFor 'editEkloreQuestions'}}")
+											span.glyphicon.glyphicon-edit(aria-hidden="true")
