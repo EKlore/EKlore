@@ -39,3 +39,5 @@ dburles:collection-helpers
 momentjs:moment
 kadira:debug
 meteorhacks:kadira-profiler
+markdown
+appcache
