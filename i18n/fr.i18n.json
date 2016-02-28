@@ -58,8 +58,11 @@
 	"actionEdit": "Edition",
 	"actionDelete": "Suppression",
 	"universeEdition": "Edition de l'univers",
+	"workshopEdition": "Edition de l'atelier",
 	"workshopsLinkedWithUniverse": "Ateliers liés à l'univers",
+	"universesLinkedWithWorkshop": "Univers liés à l'atelier",
 	"workshopsNotLinkedWithUniverse": "Ateliers non liés à l'univers",
+	"universesNotLinkedWithWorkshop": "Univers non liés à l'atelier",
 	"add": "Ajouter",
 	"matchingPower": "Pouvoir de matching",
 	"remove": "Enlever"
