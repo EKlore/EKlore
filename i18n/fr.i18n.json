@@ -46,7 +46,7 @@
 	"workshopList": "Les ateliers",
 	"thereAre": "Il y a",
 	"universes": "univers",
-	"workshops": "atelier(s)",
+	"workshops": "ateliers",
 	"circulateThereIsNothingToSee": "Circulez, il n'y a rien à voir ici !",
 	"name": "Nom",
 	"label": "Label",
@@ -80,5 +80,8 @@
 	"ekloreQuestionsLinkedCount": "Nombre de questions liées",
 	"title": "Titre",
 	"ekloreQuestionsLinkedToQuestionsGroup": "Questions liées au groupe de questions",
-	"deprecated": "Actif ?"
+	"deprecated": "Actif ?",
+	"ekloreQuestionsList": "Les questions EKlore",
+	"ekloreQuestions": "questions EKlore",
+	"addNewEkloreQuestion": "Ajouter une nouvelle question EKlore"
 }
