@@ -21,8 +21,8 @@ Template.newWorkshop.events({
 		var workshop = {
 			name: $('#workshopName').val(),
 			description: $('#workshopDescription').val(),
-			dateStart: $('#workshopDateStart').val(),
-			dateEnd: $('#workshopEndDate').val()
+			dateStart: moment($('#workshopDateStart').val()).toDate(),
+			dateEnd: moment($('#workshopEndDate').val()).toDate()
 		};
 		if (!workshop.name) {
 			return throwError('Name must be filled');

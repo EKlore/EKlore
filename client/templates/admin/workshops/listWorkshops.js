@@ -1,18 +1,18 @@
 Template.listWorkshops.helpers({
-	workshopsCount() {
+	workshopsCount: function() {
 		return Workshops.find({}).count();
 	},
-	workshop() {
+	workshop: function() {
 		return Workshops.find({}, {
 			sort: {
-				name: 1
+				dateStart: 1
 			}
 		});
 	},
-	dateStart() {
-		return moment(this.dateStart).format("H:mm");
+	dateStart: function() {
+		return moment(this.dateStart).format("D-MMM H:mm");
 	},
-	dateEnd() {
-		return moment(this.dateEnd).format("H:mm");
+	dateEnd: function() {
+		return moment(this.dateEnd).format("D-MMM H:mm");
 	}
 });
