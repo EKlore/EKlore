@@ -1,6 +1,7 @@
 Template.editQuestionsGroup.helpers({
 	ekloreQuestionsLinked: function() {
-		return EKloreQuestions.find({
+		return EkloreQuestions
+.find({
 			'questionGroupId': this._id
 		});
 	}

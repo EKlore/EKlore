@@ -10,6 +10,6 @@ Template.listQuestionsGroups.helpers({
 		});
 	},
 	ekloreQuestionsLinkedCount: function() {
-		return EKloreQuestions.find({}).count();
+		return EkloreQuestions.find({}).count();
 	}
 });
