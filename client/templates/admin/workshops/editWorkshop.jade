@@ -1,1 +1,55 @@
 template(name="editWorkshop")
+	.container
+		.panel.panel-default
+			.panel-heading
+				h3 {{_ "workshopEdition"}} : #{name}
+			.panel-body
+				.panel.panel-default
+					.panel-body
+						form
+							.form-group
+								label(for="workshopName") {{_ "workshopName"}}
+								input#workshopName.form-control(type="text" value="#{name}")
+							.form-group
+								label(for="workshopDescription") {{_ "workshopDescription"}}
+								textarea#workshopDescription.form-control(rows="3") #{description}
+							.form-group
+								label(for="workshopDateStart") {{_ "workshopDateStart"}}
+								input#workshopDateStart.form-control(type="text" value="#{dateStart}")
+							.form-group
+								label(for="workshopEndDate") {{_ "workshopEndDate"}}
+								input#workshopEndDate.form-control(type="text" value="#{dateEnd}")
+					.panel-footer
+						.row
+							.col-xs-12.col-sm-6.col-md-6.col-lg-6
+								a.btn.btn-danger.btn-block(role="button" href="{{pathFor 'admin'}}") {{_ "cancel"}}
+							.col-xs-12.col-sm-6.col-md-6.col-lg-6
+								button#save.btn.btn-success.btn-block {{_ "validate"}}
+				.panel.panel-success
+					.panel-heading
+						h4 {{_ "universesLinkedWithWorkshop"}}
+					.panel-body
+						each universesLinked
+							.panel.panel-default
+								.panel-heading
+									p.panel-title #{universeData.name}
+								.panel-body
+									form.form-inline.removeUniverseFromWorkshop
+										.form-group
+											label(for="matchingPower") {{_ "matchingPower"}}
+											input.matchingPower.form-control(type="number" value="#{matchingPower}" disabled)
+										button.btn.btn-danger(type="submit") {{_ "remove"}}
+				.panel.panel-danger
+					.panel-heading
+						h4 {{_ "universesNotLinkedWithWorkshop"}}
+					.panel-body
+						each universes
+							.panel.panel-default
+								.panel-heading
+									p.panel-title #{name}
+								.panel-body
+									form.form-inline.addUniverseToWorkshop
+										.form-group
+											label(for="matchingPower") {{_ "matchingPower"}}
+											input.matchingPower.form-control(type="number" placeholder="0.01" min="0.01" max="1" step="0.01")
+										button.btn.btn-success(type="submit") {{_ "add"}}
