@@ -52,6 +52,8 @@ iron:middleware-stack@1.0.11
 iron:router@1.0.12
 iron:url@1.0.11
 jquery@1.11.4
+kadira:debug@3.0.1
+kadira:runtime-dev@0.0.1
 launch-screen@1.0.4
 livedata@1.0.15
 localstorage@1.0.5
@@ -64,6 +66,8 @@ meteorhacks:collection-utils@1.2.0
 meteorhacks:fast-render@2.12.0
 meteorhacks:inject-data@2.0.0
 meteorhacks:kadira@2.27.3
+meteorhacks:kadira-binary-deps@1.4.0
+meteorhacks:kadira-profiler@1.2.1
 meteorhacks:meteorx@1.4.1
 meteorhacks:picker@1.0.3
 meteorhacks:subs-manager@1.6.3
