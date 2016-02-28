@@ -1,7 +1,8 @@
 template(name="admin")
 	.container
 		if isAdmin
-			+listUniverses
-			+listWorkshops
+			div#accordion.panel-group(role="tablist" aria-multiselectable="true")
+				+listUniverses
+				+listWorkshops
 		else
 			h1 {{_ "circulateThereIsNothingToSee"}}
