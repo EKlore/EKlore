@@ -21,10 +21,7 @@ Template.editWorkshop.helpers({
 	},
 	dateEnd: function() {
 		return moment(this.dateEnd).format("YYYY-MM-D HH:mm");
-	}
-});
-
-Template.editWorkshop.helpers({
+	},
 	universes: function() {
 		return Universes.find({
 			'workshopsLinked.workshopId': {
