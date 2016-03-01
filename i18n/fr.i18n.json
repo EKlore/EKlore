@@ -83,5 +83,9 @@
 	"deprecated": "Actif ?",
 	"ekloreQuestionsList": "Les questions EKlore",
 	"ekloreQuestions": "questions EKlore",
-	"addNewEkloreQuestion": "Ajouter une nouvelle question EKlore"
+	"addNewEkloreQuestion": "Ajouter une nouvelle question EKlore",
+	"ekloreQuestionTitle": "Titre de la question",
+	"ekloreQuestionLevel": "Niveau de la question",
+	"text": "Mode texte",
+	"picture": "Mode image"
 }
