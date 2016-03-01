@@ -1,6 +1,41 @@
+Template.newEkloreQuestion.helpers({
+	universes: function() {
+			return Universes.find({}, {
+				sort: {
+					name: 1
+				}
+			});
+		}
+		/*player1List() {
+			var list = _.uniq(Meteor.users.find({}, {
+				sort: {
+					'profile.firstName': 1,
+					'profile.lastName': 1
+				},
+				fields: {
+					'_id': 1,
+					'profile.firstName': 1,
+					'profile.lastName': 1
+				}
+			}).fetch().map(function(x) {
+				return x;
+			}), true);
+			list.sort(function(a, b) {
+				if (a.fullName > b.fullName) {
+					return 1;
+				}
+				if (a.fullName < b.fullName) {
+					return -1;
+				}
+				return 0;
+			});
+			return list;
+		}*/
+});
+
 Template.newEkloreQuestion.events({
-	'click #addQuestionsGroup': function(e) {
-		e.preventDefault();
+	'click #addQuestionsGroup': function(event) {
+		event.preventDefault();
 		var questionsGroup = {
 			title: $('#questionsGroupTitle').val(),
 			label: $('#questionsGroupLabel').val(),
@@ -25,5 +60,13 @@ Template.newEkloreQuestion.events({
 				Router.go('admin');
 			}
 		});
+	},
+	'submit .addUniverseToEkloreQuestion': function(event) {
+		event.preventDefault();
+		if ($(event.target).find('.btn').hasClass('btn-success')) {
+			$(event.target).find('.btn').removeClass('btn-success').addClass('btn-danger');
+		} else if ($(event.target).find('.btn').hasClass('btn-danger')) {
+			$(event.target).find('.btn').removeClass('btn-danger').addClass('btn-success');
+		}
 	}
 });
