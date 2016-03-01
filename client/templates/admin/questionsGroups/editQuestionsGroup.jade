@@ -19,21 +19,21 @@ template(name="editQuestionsGroup")
 							if deprecated
 								.radio
 									label
-									input(type="radio" name="deprecated" value="notDeprecated")
-									| {{_ "active"}}
+										input(type="radio" name="deprecated" value="notDeprecated")
+										| {{_ "active"}}
 								.radio
 									label
-									input(type="radio" name="deprecated" value="deprecated" checked)
-									| {{_ "inactive"}}
+										input(type="radio" name="deprecated" value="deprecated" checked)
+										| {{_ "inactive"}}
 							else
 								.radio
 									label
-									input(type="radio" name="deprecated" value="notDeprecated" checked)
-									| {{_ "active"}}
+										input(type="radio" name="deprecated" value="notDeprecated" checked)
+										| {{_ "active"}}
 								.radio
 									label
-									input(type="radio" name="deprecated" value="deprecated")
-									| {{_ "inactive"}}
+										input(type="radio" name="deprecated" value="deprecated")
+										| {{_ "inactive"}}
 					.panel-footer
 						.row
 							.col-xs-12.col-sm-6.col-md-6.col-lg-6
