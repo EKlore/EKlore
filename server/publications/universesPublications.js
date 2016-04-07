@@ -1,8 +1,8 @@
-Meteor.publish('allUniverses', function() {
+Meteor.publish('allUniverses', () => {
 	return Universes.find({});
 });
 
-Meteor.publish('anUniverse', function(universeId) {
+Meteor.publish('anUniverse', (universeId) => {
 	return Universes.find({
 		_id: universeId
 	});

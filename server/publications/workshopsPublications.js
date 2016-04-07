@@ -1,8 +1,8 @@
-Meteor.publish('allWorkshops', function() {
+Meteor.publish('allWorkshops', () => {
 	return Workshops.find({});
 });
 
-Meteor.publish('aWorkshop', function(workshopId) {
+Meteor.publish('aWorkshop', (workshopId) => {
 	return Workshops.find({
 		_id: workshopId
 	});

@@ -1,4 +1,4 @@
-Meteor.publish('oneQuestionAtATime', function(userID) {
+Meteor.publish('oneQuestionAtATime', (userID) => {
 	return UserQuestions.find({
 		userId: userID,
 		answered: false,

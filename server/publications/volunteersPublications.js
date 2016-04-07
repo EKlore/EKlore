@@ -1,3 +1,3 @@
-Meteor.publish('allVolunteers', function() {
+Meteor.publish('allVolunteers', () => {
 	return Volunteers.find({});
 });

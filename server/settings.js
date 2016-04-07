@@ -1,1 +1,1 @@
-Meteor.release = '0.0.0';
+Meteor.release = '0.1.0';

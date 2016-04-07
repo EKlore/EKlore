@@ -1,8 +1,8 @@
-Meteor.publish('allQuestionsGroups', function() {
+Meteor.publish('allQuestionsGroups', () => {
 	return QuestionsGroups.find({});
 });
 
-Meteor.publish('aQuestionsGroup', function(questionGroupId) {
+Meteor.publish('aQuestionsGroup', (questionGroupId) => {
 	return QuestionsGroups.find({
 		_id: questionGroupId
 	});

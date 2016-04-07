@@ -1,4 +1,4 @@
-Meteor.startup(function() {
+Meteor.startup(() => {
 	if (Volunteers.find({}).count() === 0) {
 		var volunteers = [{
 			firstName: 'Solenn',
@@ -16,7 +16,7 @@ Meteor.startup(function() {
 			functionInFete: 'Responsable programmation'
 		}];
 		for (var j = 0; j < volunteers.length; j++) {
-			Meteor.call('addAVolunteer', volunteers[j], function(error, result) {
+			Meteor.call('addAVolunteer', volunteers[j], (error, result) => {
 				if (error) {
 					console.log(error.message, error);
 				}
