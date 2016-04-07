@@ -28,10 +28,8 @@ spacebars
 check
 meteorhacks:aggregate
 meteorhacks:kadira
-peerlibrary:blaze-components
 ecmascript
 peerlibrary:reactive-field
-anti:gagarin
 twbs:bootstrap
 ian:accounts-ui-bootstrap-3
 bevanhunt:leaflet
@@ -39,6 +37,6 @@ dburles:collection-helpers
 momentjs:moment
 kadira:debug
 meteorhacks:kadira-profiler
-markdown
-appcache
 erasaur:meteor-lodash
+blaze-html-templates
+templating
