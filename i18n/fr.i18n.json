@@ -87,5 +87,7 @@
 	"ekloreQuestionTitle": "Titre de la question",
 	"ekloreQuestionLevel": "Niveau de la question",
 	"text": "Mode texte",
-	"picture": "Mode image"
+	"picture": "Mode image",
+	"questionsGroupsNotLinkedWithEkloreQuestion": "Groupes de questions non liés à la question EKlore",
+	"questionsGroupsLinkedWithEkloreQuestion": "Groupes de questions liés à la question EKlore"
 }
