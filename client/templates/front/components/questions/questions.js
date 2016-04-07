@@ -1,4 +1,4 @@
-class Questions extends BlazeComponent {
+/*class Questions extends BlazeComponent {
 	onCreated() {
 		super.onCreated();
 		this.question = new ReactiveField({});
@@ -30,7 +30,7 @@ class Questions extends BlazeComponent {
 		}
 	}
 
-	/*questionsAnswered() {
+	questionsAnswered() {
 		console.log(Meteor.call('questionAnsweredCount', Meteor.userId(), function(error, result) {
 			if (error) {
 				return throwError(error.message);
@@ -45,7 +45,7 @@ class Questions extends BlazeComponent {
 				return result;
 			}
 		});
-	}*/
+	}
 
 	events() {
 		return super.events().concat({
@@ -72,4 +72,4 @@ class Questions extends BlazeComponent {
 	}
 }
 
-Questions.register('Questions');
+Questions.register('Questions');*/
