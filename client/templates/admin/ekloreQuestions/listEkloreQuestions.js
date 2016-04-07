@@ -1,15 +1,15 @@
 Template.listEkloreQuestions.helpers({
-	ekloreQuestionsCount: function() {
+	ekloreQuestionsCount() {
 		return EkloreQuestions.find({}).count();
 	},
-	questionsGroup: function() {
+	questionsGroup() {
 		return EkloreQuestions.find({}, {
 			sort: {
 				createdAt: 1
 			}
 		});
 	},
-	userQuestionsLinkedCount: function() {
+	userQuestionsLinkedCount() {
 		return UserQuestions.find({
 			questionId: this._id
 		}).count();

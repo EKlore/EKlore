@@ -1,5 +1,5 @@
 Template.admin.helpers({
-	isAdmin: function() {
+	isAdmin() {
 		if (Meteor.user().profile.admin) {
 			return true;
 		} else {

@@ -18,7 +18,7 @@ Template.newQuestionsGroup.events({
 		if (questionsGroup.level < 2) {
 			return throwError('The level must be superior to 1');
 		}
-		Meteor.call('addAQuestionsGroup', questionsGroup, function(error, result) {
+		Meteor.call('addAQuestionsGroup', questionsGroup, (error, result) => {
 			if (error) {
 				return throwError(error.message);
 			} else {

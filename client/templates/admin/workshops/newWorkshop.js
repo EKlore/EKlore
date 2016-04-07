@@ -1,4 +1,4 @@
-Template.newWorkshop.onRendered(function() {
+Template.newWorkshop.onRendered(() => {
 	$('#workshopDateStart').datetimepicker({
 		format: 'yyyy-mm-dd hh:ii',
 		weekStart: 1,
@@ -16,8 +16,8 @@ Template.newWorkshop.onRendered(function() {
 });
 
 Template.newWorkshop.events({
-	'click #addWorkshop': function(e) {
-		e.preventDefault();
+	'click #addWorkshop': function(event) {
+		event.preventDefault();
 		var workshop = {
 			name: $('#workshopName').val(),
 			description: $('#workshopDescription').val(),
@@ -39,7 +39,7 @@ Template.newWorkshop.events({
 		if (workshop.dateEnd < workshop.dateStart) {
 			return throwError('Date start must be inferior to Date end');
 		}
-		Meteor.call('addAWorkshop', workshop, function(error, result) {
+		Meteor.call('addAWorkshop', workshop, (error, result) => {
 			if (error) {
 				return throwError(error.message);
 			} else {

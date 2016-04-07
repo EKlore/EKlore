@@ -1,8 +1,8 @@
 Template.listUniverses.helpers({
-	universesCount: function() {
+	universesCount() {
 		return Universes.find({}).count();
 	},
-	universe: function() {
+	universe() {
 		return Universes.find({}, {
 			sort: {
 				name: 1

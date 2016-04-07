@@ -1,1 +1,0 @@
-Template.adminHeader.helpers({});

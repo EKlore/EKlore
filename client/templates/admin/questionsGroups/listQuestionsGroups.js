@@ -1,15 +1,15 @@
 Template.listQuestionsGroups.helpers({
-	questionsGroupsCount: function() {
+	questionsGroupsCount() {
 		return QuestionsGroups.find({}).count();
 	},
-	questionsGroup: function() {
+	questionsGroup() {
 		return QuestionsGroups.find({}, {
 			sort: {
 				title: 1
 			}
 		});
 	},
-	ekloreQuestionsLinkedCount: function() {
+	ekloreQuestionsLinkedCount() {
 		return EkloreQuestions.find({}).count();
 	}
 });

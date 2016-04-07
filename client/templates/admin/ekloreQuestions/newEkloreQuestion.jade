@@ -24,15 +24,9 @@ template(name="newEkloreQuestion")
 						h4 Univers
 					.panel-body
 						each universes
-							.panel.panel-default
-								.panel-heading
-									p.panel-title #{name}
-								.panel-body
-									form.form-inline.addUniverseToEkloreQuestion
-										.form-group
-											label(for="matchingPower") {{_ "matchingPower"}}
-											input.matchingPower.form-control(type="number" placeholder="0.01" min="0.01" max="1" step="0.01")
-										button.btn.btn-success(type="submit") {{_ "add"}}
+							+universesToAdd
+						each workshops
+							+workshopsToAdd
 			.panel-footer
 				.row
 					.col-xs-12.col-sm-6.col-md-6.col-lg-6

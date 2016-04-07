@@ -12,7 +12,7 @@ Template.newUniverse.events({
 			return throwError('Label must be filled');
 		}
 		if (universe.name && universe.label) {
-			Meteor.call('addAUniverse', universe, function(error, result) {
+			Meteor.call('addAUniverse', universe, (error, result) => {
 				if (error) {
 					return throwError(error.message);
 				} else {

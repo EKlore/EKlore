@@ -1,5 +1,5 @@
 Template.editEkloreQuestion.helpers({
-	ekloreQuestionsLinked: function() {
+	ekloreQuestionsLinked() {
 		return EkloreQuestions.find({
 			'questionGroupId': this._id
 		});
@@ -32,7 +32,7 @@ Template.editEkloreQuestion.events({
 		if (questionsGroupData.level < 2) {
 			return throwError('The level must be superior to 1');
 		}
-		Meteor.call('updateAQuestionsGroup', questionsGroupData, function(error, result) {
+		Meteor.call('updateAQuestionsGroup', questionsGroupData, (error, result) => {
 			if (error) {
 				return throwError(error.message);
 			} else {
