@@ -1,0 +1,10 @@
+template(name="universesToRemove")
+	.panel.panel-default
+		.panel-heading
+			p.panel-title #{universeData.name}
+		.panel-body
+			form.form-inline.removeUniverseFromWorkshop
+				.form-group
+					label(for="matchingPower") {{_ "matchingPower"}}
+					input.matchingPower.form-control(type="number" value="#{matchingPower}" disabled)
+				button.btn.btn-danger(type="submit") {{_ "remove"}}
