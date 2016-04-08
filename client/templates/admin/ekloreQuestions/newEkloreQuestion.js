@@ -5,55 +5,31 @@ Template.newEkloreQuestion.helpers({
 				name: 1
 			}
 		});
-	},
-	/*player1List() {
-		var list = _.uniq(Meteor.users.find({}, {
-			sort: {
-				'profile.firstName': 1,
-				'profile.lastName': 1
-			},
-			fields: {
-				'_id': 1,
-				'profile.firstName': 1,
-				'profile.lastName': 1
-			}
-		}).fetch().map(function(x) {
-			return x;
-		}), true);
-		list.sort(function(a, b) {
-			if (a.fullName > b.fullName) {
-				return 1;
-			}
-			if (a.fullName < b.fullName) {
-				return -1;
-			}
-			return 0;
-		});
-		return list;
-	}*/
+	}
 });
 
 Template.newEkloreQuestion.events({
-	'click #addQuestionsGroup': function(event) {
+	'click #addEkloreQuestion': function(event) {
 		event.preventDefault();
-		var questionsGroup = {
-			title: $('#questionsGroupTitle').val(),
-			label: $('#questionsGroupLabel').val(),
-			level: Number($('#questionsGroupLevel').val())
+		var ekloreQuestion = {
+			title: $('#ekloreQuestionTitle').val(),
+			level: Number($('#ekloreQuestionLevel').val())
 		};
-		if (!questionsGroup.title) {
+		if ($('input[name="displayType"]:checked').val() === 'text') {
+			ekloreQuestion.displayType = 'text';
+		} else if ($('input[name="displayType"]:checked').val() === 'picture') {
+			ekloreQuestion.displayType = 'picture';
+		}
+		if (!ekloreQuestion.title) {
 			return throwError('Title must be filled');
 		}
-		if (!questionsGroup.label) {
-			return throwError('Label must be filled');
+		if (!ekloreQuestion.displayType) {
+			return throwError('Display type must be defined');
 		}
-		if (!questionsGroup.level) {
-			return throwError('Level must be filled');
-		}
-		if (questionsGroup.level < 2) {
+		if (ekloreQuestion.level < 2) {
 			return throwError('The level must be superior to 1');
 		}
-		Meteor.call('addAQuestionsGroup', questionsGroup, (error, result) => {
+		Meteor.call('addAnEkloreQuestion', ekloreQuestion, (error, result) => {
 			if (error) {
 				return throwError(error.message);
 			} else {
