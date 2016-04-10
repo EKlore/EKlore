@@ -6,7 +6,7 @@ template(name="newEkloreQuestion")
 			.panel-body
 				form
 					.form-group
-						label(for="EkloreQuestionTitle") {{_ "ekloreQuestionTitle"}}
+						label(for="ekloreQuestionTitle") {{_ "ekloreQuestionTitle"}}
 						input#ekloreQuestionTitle.form-control(type="text")
 					.form-group
 						label(for="ekloreQuestionLevel") {{_ "ekloreQuestionLevel"}}
@@ -19,14 +19,6 @@ template(name="newEkloreQuestion")
 						label
 							input(type="radio" name="displayType" value="picture")
 							| {{_ "picture"}}
-				.panel.panel-default
-					.panel-heading
-						h4 Univers
-					//.panel-body
-						each universes
-							+universesToAdd
-						each workshops
-							+workshopsToAdd
 			.panel-footer
 				.row
 					.col-xs-12.col-sm-6.col-md-6.col-lg-6
