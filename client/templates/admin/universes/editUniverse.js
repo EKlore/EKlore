@@ -39,7 +39,7 @@ Template.editUniverse.events({
 		event.preventDefault();
 		var workshopData = {
 			universeId: Router.current().params._id,
-			workshopId: this.workshopId,
+			workshopId: this.workshopId
 		};
 		Meteor.call('removeWorkshopFromUniverse', workshopData, (error, result) => {
 			if (error) {

@@ -9,7 +9,7 @@ Template.universesToRemove.events({
 		event.preventDefault();
 		var universeData = {
 			workshopId: Router.current().params._id,
-			universeId: this.universeId,
+			universeId: this.universeId
 		};
 		Meteor.call('removeUniverseFromWorkshop', universeData, (error, result) => {
 			if (error) {

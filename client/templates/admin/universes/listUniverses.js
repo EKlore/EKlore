@@ -8,5 +8,5 @@ Template.listUniverses.helpers({
 				name: 1
 			}
 		});
-	},
+	}
 });

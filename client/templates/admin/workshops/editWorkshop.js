@@ -17,10 +17,10 @@ Template.editWorkshop.onRendered(() => {
 
 Template.editWorkshop.helpers({
 	dateStart() {
-		return moment(this.dateStart).format("YYYY-MM-D HH:mm");
+		return moment(this.dateStart).format('YYYY-MM-D HH:mm');
 	},
 	dateEnd() {
-		return moment(this.dateEnd).format("YYYY-MM-D HH:mm");
+		return moment(this.dateEnd).format('YYYY-MM-D HH:mm');
 	},
 	universes() {
 		return Universes.find({

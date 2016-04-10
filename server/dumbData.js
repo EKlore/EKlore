@@ -18,7 +18,7 @@ Meteor.startup(() => {
 		for (var j = 0; j < volunteers.length; j++) {
 			Meteor.call('addAVolunteer', volunteers[j], (error, result) => {
 				if (error) {
-					console.log(error.message, error);
+					return throwError(error.message);
 				}
 			});
 		}
