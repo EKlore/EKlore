@@ -18,9 +18,8 @@ template(name="listEkloreQuestions")
 							tr
 								th {{_ "title"}}
 								th {{_ "version"}}
-								th {{_ "displayTipe"}}
+								th {{_ "displayType"}}
 								th {{_ "deprecated"}}
-								th {{_ "ekloreQuestionsLinkedCount"}}
 								th {{_"actionEdit"}}
 						tbody
 							each questionsGroup
@@ -35,7 +34,6 @@ template(name="listEkloreQuestions")
 										else
 											a.btn.btn-success(role="button" href="#")
 												span.glyphicon.glyphicon-ok(aria-hidden="true")
-									td #{ekloreQuestionsLinkedCount}
 									td
-										a.btn.btn-info(role="button" href="{{pathFor 'editEkloreQuestions'}}")
+										a.btn.btn-info(role="button" href="{{pathFor 'editEkloreQuestion'}}")
 											span.glyphicon.glyphicon-edit(aria-hidden="true")
