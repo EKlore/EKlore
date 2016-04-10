@@ -1,12 +1,4 @@
-Template.newEkloreQuestion.helpers({
-	universes() {
-		return Universes.find({}, {
-			sort: {
-				name: 1
-			}
-		});
-	}
-});
+Template.newEkloreQuestion.helpers({});
 
 Template.newEkloreQuestion.events({
 	'click #addEkloreQuestion': function(event) {
@@ -36,13 +28,5 @@ Template.newEkloreQuestion.events({
 				Router.go('admin');
 			}
 		});
-	},
-	'submit .addUniverseToEkloreQuestion': function(event) {
-		event.preventDefault();
-		if ($(event.target).find('.btn').hasClass('btn-success')) {
-			$(event.target).find('.btn').removeClass('btn-success').addClass('btn-danger');
-		} else if ($(event.target).find('.btn').hasClass('btn-danger')) {
-			$(event.target).find('.btn').removeClass('btn-danger').addClass('btn-success');
-		}
 	}
 });
