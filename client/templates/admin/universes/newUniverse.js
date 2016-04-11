@@ -16,7 +16,7 @@ Template.newUniverse.events({
 				if (error) {
 					return throwError(error.message);
 				} else {
-					Router.go('admin');
+					Router.go('editUniverse', { _id: result });
 				}
 			});
 		}

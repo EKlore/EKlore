@@ -43,7 +43,7 @@ Template.newWorkshop.events({
 			if (error) {
 				return throwError(error.message);
 			} else {
-				Router.go('admin');
+				Router.go('editWorkshop', { _id: result });
 			}
 		});
 	}

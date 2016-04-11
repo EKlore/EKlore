@@ -22,7 +22,7 @@ Template.newQuestionsGroup.events({
 			if (error) {
 				return throwError(error.message);
 			} else {
-				Router.go('admin');
+				Router.go('editQuestionsGroup', { _id: result });
 			}
 		});
 	}
