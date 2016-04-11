@@ -25,7 +25,7 @@ Template.newEkloreQuestion.events({
 			if (error) {
 				return throwError(error.message);
 			} else {
-				Router.go('admin');
+				Router.go('editEkloreQuestion', { _id: result });
 			}
 		});
 	}
