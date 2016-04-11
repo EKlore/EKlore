@@ -10,6 +10,8 @@ Template.listQuestionsGroups.helpers({
 		});
 	},
 	ekloreQuestionsLinkedCount() {
-		return EkloreQuestions.find({}).count();
+		return EkloreQuestions.find({
+			questionGroupId: this._id
+		}).count();
 	}
 });
