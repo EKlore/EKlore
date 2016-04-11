@@ -3,7 +3,7 @@ Meteor.publish('allEkloreQuestions', () => {
 		deprecated: false
 	}, {
 		fields: {
-			title: 1,
+			title: 1
 		}
 	});
 });
