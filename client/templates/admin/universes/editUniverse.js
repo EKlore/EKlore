@@ -11,7 +11,7 @@ Template.editUniverse.helpers({
 Template.editUniverse.events({
 	'click #save': function(event) {
 		event.preventDefault();
-		var universeData = {
+		const universeData = {
 			universeId: Router.current().params._id,
 			name: $('#universeName').val(),
 			label: $('#universeLabel').val()
