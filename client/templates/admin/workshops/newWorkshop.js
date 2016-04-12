@@ -18,7 +18,7 @@ Template.newWorkshop.onRendered(() => {
 Template.newWorkshop.events({
 	'click #addWorkshop': function(event) {
 		event.preventDefault();
-		var workshop = {
+		const workshop = {
 			name: $('#workshopName').val(),
 			description: $('#workshopDescription').val(),
 			dateStart: moment($('#workshopDateStart').val()).toDate(),

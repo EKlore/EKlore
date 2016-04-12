@@ -34,7 +34,7 @@ Template.editWorkshop.helpers({
 Template.editWorkshop.events({
 	'click #save': function(event) {
 		event.preventDefault();
-		var workshopData = {
+		const workshopData = {
 			workshopId: Router.current().params._id,
 			name: $('#workshopName').val(),
 			description: $('#workshopDescription').val(),
