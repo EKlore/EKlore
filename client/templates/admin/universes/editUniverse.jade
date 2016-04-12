@@ -24,15 +24,7 @@ template(name="editUniverse")
 						h4 {{_ "workshopsLinkedWithUniverse"}}
 					.panel-body
 						each workshopsLinked
-							.panel.panel-default
-								.panel-heading
-									p.panel-title #{workshopData.name}
-								.panel-body
-									form.form-inline.removeWorkshopFromUniverse
-										.form-group
-											label(for="matchingPower") {{_ "matchingPower"}}
-											input.matchingPower.form-control(type="number" value="#{matchingPower}" disabled)
-										button.btn.btn-danger(type="submit") {{_ "remove"}}
+							+workshopsToRemove
 				.panel.panel-danger
 					.panel-heading
 						h4 {{_ "workshopsNotLinkedWithUniverse"}}
