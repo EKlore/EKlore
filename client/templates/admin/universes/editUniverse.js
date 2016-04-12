@@ -5,9 +5,6 @@ Template.editUniverse.helpers({
 				$ne: this._id
 			}
 		});
-	},
-	workshopData() {
-		return Workshops.findOne(this.workshopId);
 	}
 });
 
@@ -34,23 +31,5 @@ Template.editUniverse.events({
 				}
 			});
 		}
-	},
-	'submit .removeWorkshopFromUniverse': function(event) {
-		event.preventDefault();
-		var workshopData = {
-			universeId: Router.current().params._id,
-			workshopId: this.workshopId
-		};
-		Meteor.call('removeWorkshopFromUniverse', workshopData, (error, result) => {
-			if (error) {
-				return throwError(error.message);
-			} else {
-				Meteor.call('removeUniverseFromWorkshop', workshopData, (error, result) => {
-					if (error) {
-						return throwError(error.message);
-					}
-				});
-			}
-		});
 	}
 });
