@@ -1,0 +1,10 @@
+template(name="workshopsToRemove")
+	.panel.panel-default
+		.panel-heading
+			p.panel-title #{workshopData.name}
+		.panel-body
+			form.form-inline.removeWorkshopFromUniverse
+				.form-group
+					label(for="matchingPower") {{_ "matchingPower"}}
+					input.matchingPower.form-control(type="number" value="#{matchingPower}" disabled)
+				button.btn.btn-danger(type="submit") {{_ "remove"}}
