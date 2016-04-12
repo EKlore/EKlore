@@ -1,7 +1,7 @@
 Template.newUniverse.events({
-	'click #addUniverse': function(e) {
-		e.preventDefault();
-		var universe = {
+	'click #addUniverse': function(event) {
+		event.preventDefault();
+		const universe = {
 			name: $('#universeName').val(),
 			label: $('#universeLabel').val()
 		};
