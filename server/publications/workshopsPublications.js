@@ -1,5 +1,12 @@
 Meteor.publish('allWorkshops', () => {
-	return Workshops.find({});
+	return Workshops.find({}, {
+		fields: {
+			name: 1,
+			dateStart: 1,
+			dateEnd: 1,
+			universesLinked: 1
+		}
+	});
 });
 
 Meteor.publish('allWorkshopsLinkableToUniverse', () => {

@@ -8,6 +8,15 @@ Meteor.publish('allUniverses', () => {
 	});
 });
 
+Meteor.publish('allUniversesLinkableToWorkshop', () => {
+	return Universes.find({}, {
+		fields: {
+			name: 1
+		}
+	});
+});
+
+
 Meteor.publish('anUniverse', (universeId) => {
 	return Universes.find({
 		_id: universeId
