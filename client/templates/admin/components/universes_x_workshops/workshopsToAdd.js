@@ -1,7 +1,7 @@
 Template.workshopsToAdd.events({
 	'submit .addWorkshopToUniverse': function(event) {
 		event.preventDefault();
-		var workshopData = {
+		const workshopData = {
 			universeId: Router.current().params._id,
 			workshopId: this._id,
 			matchingPower: Number($(event.target).find('.matchingPower').val())
