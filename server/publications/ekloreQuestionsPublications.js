@@ -1,7 +1,5 @@
 Meteor.publish('allEkloreQuestions', () => {
-	return EkloreQuestions.find({
-		deprecated: false
-	}, {
+	return EkloreQuestions.find({}, {
 		fields: {
 			title: 1
 		}
