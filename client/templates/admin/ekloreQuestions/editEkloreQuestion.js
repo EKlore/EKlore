@@ -1,9 +1,4 @@
 Template.editEkloreQuestion.helpers({
-	ekloreQuestionsLinked() {
-		return EkloreQuestions.find({
-			'questionGroupId': this._id
-		});
-	},
 	questionGroupData() {
 		return QuestionsGroups.findOne({ _id: this.questionGroupId });
 	},
@@ -28,7 +23,7 @@ Template.editEkloreQuestion.helpers({
 Template.editEkloreQuestion.events({
 	'click #save': function(event) {
 		event.preventDefault();
-		var ekloreQuestion = {
+		const ekloreQuestion = {
 			ekloreQuestionId: Router.current().params._id,
 			title: $('#questionsGroupTitle').val(),
 			level: Number($('#questionsGroupLevel').val())
@@ -52,6 +47,18 @@ Template.editEkloreQuestion.events({
 				return throwError(error.message);
 			} else {
 				return throwError('Update succesful !');
+			}
+		});
+	},
+	'click .linkToEkloreQuestion': function(event) {
+		event.preventDefault();
+		const data = {
+			ekloreQuestionId: Router.current().params._id,
+			questionGroupId: this._id
+		};
+		Meteor.call('linkQuestionGroupToAnEkloreQuestion', data, (error, result) => {
+			if (error) {
+				return throwError(error.message);
 			}
 		});
 	}
