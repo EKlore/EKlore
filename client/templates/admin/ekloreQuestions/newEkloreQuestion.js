@@ -1,9 +1,7 @@
-Template.newEkloreQuestion.helpers({});
-
 Template.newEkloreQuestion.events({
 	'click #addEkloreQuestion': function(event) {
 		event.preventDefault();
-		var ekloreQuestion = {
+		const ekloreQuestion = {
 			title: $('#ekloreQuestionTitle').val(),
 			level: Number($('#ekloreQuestionLevel').val())
 		};
