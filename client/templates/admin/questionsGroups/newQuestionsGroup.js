@@ -1,7 +1,7 @@
 Template.newQuestionsGroup.events({
-	'click #addQuestionsGroup': function(e) {
-		e.preventDefault();
-		var questionsGroup = {
+	'click #addQuestionsGroup': function(event) {
+		event.preventDefault();
+		const questionsGroup = {
 			title: $('#questionsGroupTitle').val(),
 			label: $('#questionsGroupLabel').val(),
 			level: Number($('#questionsGroupLevel').val())
