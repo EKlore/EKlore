@@ -13,10 +13,3 @@ Meteor.publish('aQuestionsGroup', (questionGroupId) => {
 		_id: questionGroupId
 	});
 });
-
-Meteor.publish('aQuestionsGroupForAnEkloreQuestion', (ekloreQuestionId) => {
-	const ekloreQuestion = EkloreQuestions.findOne({ _id: ekloreQuestionId });
-	return QuestionsGroups.find({
-		_id: ekloreQuestion.questionGroupId
-	});
-});
