@@ -1,16 +1,15 @@
 Template.editQuestionsGroup.helpers({
 	ekloreQuestionsLinked() {
-		return EkloreQuestions
-			.find({
-				'questionGroupId': this._id
-			});
+		return EkloreQuestions.find({
+			questionGroupId: this._id
+		});
 	}
 });
 
 Template.editQuestionsGroup.events({
 	'click #save': function(event) {
 		event.preventDefault();
-		var questionsGroupData = {
+		const questionsGroupData = {
 			questionsGroupId: Router.current().params._id,
 			title: $('#questionsGroupTitle').val(),
 			label: $('#questionsGroupLabel').val(),
