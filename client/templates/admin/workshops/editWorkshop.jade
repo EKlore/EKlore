@@ -29,11 +29,15 @@ template(name="editWorkshop")
 					.panel-heading
 						h4 {{_ "universesLinkedWithWorkshop"}}
 					.panel-body
-						each universesLinked
-							+universesToRemove
+						.row
+							each universesLinked
+								.col-xs-12.col-sm-6.col-md-6.col-lg-6
+									+universesToRemove
 				.panel.panel-danger
 					.panel-heading
 						h4 {{_ "universesNotLinkedWithWorkshop"}}
 					.panel-body
-						each universes
-							+universesToAdd
+						.row
+							each universes
+								.col-xs-12.col-sm-6.col-md-6.col-lg-6
+									+universesToAdd
