@@ -1,0 +1,19 @@
+template(name="editDeprecated")
+	if deprecated
+		.radio
+			label
+				input(type="radio" name="deprecated" value="notDeprecated")
+				| {{_ "active"}}
+		.radio
+			label
+				input(type="radio" name="deprecated" value="deprecated" checked)
+				| {{_ "inactive"}}
+	else
+		.radio
+			label
+				input(type="radio" name="deprecated" value="notDeprecated" checked)
+				| {{_ "active"}}
+		.radio
+			label
+				input(type="radio" name="deprecated" value="deprecated")
+				| {{_ "inactive"}}
