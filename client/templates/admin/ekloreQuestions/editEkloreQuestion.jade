@@ -13,47 +13,36 @@ template(name="editEkloreQuestion")
 							.form-group
 								label(for="ekloreQuestionLevel") {{_ "ekloreQuestionLevel"}}
 								input#ekloreQuestionLevel.form-control(type="number" min="2" max="100" step="1" value="#{level}")
-							if deprecated
-								.radio
-									label
-									input(type="radio" name="deprecated" value="notDeprecated")
-									| {{_ "active"}}
-								.radio
-									label
-									input(type="radio" name="deprecated" value="deprecated" checked)
-									| {{_ "inactive"}}
-							else
-								.radio
-									label
-									input(type="radio" name="deprecated" value="notDeprecated" checked)
-									| {{_ "active"}}
-								.radio
-									label
-									input(type="radio" name="deprecated" value="deprecated")
-									| {{_ "inactive"}}
+							+editDeprecated
+						.panel.panel-default
+							.panel-heading
+								h4.panel-title Choix
+							.panel-body
+								each choices
+									p display choice
 					.panel-footer
 						.row
 							.col-xs-12.col-sm-6.col-md-6.col-lg-6
 								a.btn.btn-danger.btn-block(role="button" href="{{pathFor 'admin'}}") {{_ "cancel"}}
 							.col-xs-12.col-sm-6.col-md-6.col-lg-6
 								button#save.btn.btn-success.btn-block {{_ "save"}}
-				.panel.panel-default
-					.panel-heading
-						h4 Groupe de question lié à la question
-					.panel-body
-						if questionGroupId
-							with questionGroupData
-								p #{title}
-									button.btn.pull-rigth.btn-danger {{_ "remove"}}
-						else
-							each questionsGroups
-								p #{title}
-									button.btn.btn-success.btn-xs(type="submit") {{_ "linkToEkloreQuestion"}}
-				.panel.panel-default
-					.panel-heading
-						h4 Choix
-					.panel-body
-						each choices
-							p display choice
-					.panel-footer
-						p add choices
+				if questionGroupId
+					.panel.panel-default
+						.panel-heading
+							h4 Groupe de question lié à la question
+						.panel-body
+								with questionGroupData
+									p #{title}
+										button.btn.pull-rigth.btn-danger {{_ "remove"}}
+				else
+					.panel.panel-default
+						.panel-heading
+							h4 Groupe de question disponibles
+						.panel-body
+							.row
+								each questionsGroups
+									.col-xs-12.col-sm-6.col-md-6.col-lg-6
+										.panel.panel-default
+											.panel-body
+												p #{title}
+													button.btn.linkToEkloreQuestion.pull-right.btn-success(type="submit") {{_ "linkToEkloreQuestion"}}
