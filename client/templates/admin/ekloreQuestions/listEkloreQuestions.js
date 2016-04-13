@@ -2,16 +2,11 @@ Template.listEkloreQuestions.helpers({
 	ekloreQuestionsCount() {
 		return EkloreQuestions.find({}).count();
 	},
-	questionsGroup() {
+	ekloreQuestions() {
 		return EkloreQuestions.find({}, {
 			sort: {
-				createdAt: 1
+				title: 1
 			}
 		});
-	},
-	userQuestionsLinkedCount() {
-		return UserQuestions.find({
-			questionId: this._id
-		}).count();
 	}
 });
