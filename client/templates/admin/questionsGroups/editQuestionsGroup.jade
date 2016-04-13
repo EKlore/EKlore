@@ -16,24 +16,7 @@ template(name="editQuestionsGroup")
 							.form-group
 								label(for="questionsGroupLevel") {{_ "questionsGroupLevel"}}
 								input#questionsGroupLevel.form-control(type="number" min="2" max="100" step="1" value="#{level}")
-							if deprecated
-								.radio
-									label
-										input(type="radio" name="deprecated" value="notDeprecated")
-										| {{_ "active"}}
-								.radio
-									label
-										input(type="radio" name="deprecated" value="deprecated" checked)
-										| {{_ "inactive"}}
-							else
-								.radio
-									label
-										input(type="radio" name="deprecated" value="notDeprecated" checked)
-										| {{_ "active"}}
-								.radio
-									label
-										input(type="radio" name="deprecated" value="deprecated")
-										| {{_ "inactive"}}
+							+editDeprecated
 					.panel-footer
 						.row
 							.col-xs-12.col-sm-6.col-md-6.col-lg-6
