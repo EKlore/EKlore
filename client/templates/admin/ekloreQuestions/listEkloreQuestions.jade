@@ -22,18 +22,13 @@ template(name="listEkloreQuestions")
 								th {{_ "deprecated"}}
 								th {{_"actionEdit"}}
 						tbody
-							each questionsGroup
+							each ekloreQuestions
 								tr
 									td #{title}
 									td #{version}
 									td #{displayType}
 									td
-										if deprecated
-											a.btn.btn-danger(role="button" href="#")
-												span.glyphicon.glyphicon-remove(aria-hidden="true")
-										else
-											a.btn.btn-success(role="button" href="#")
-												span.glyphicon.glyphicon-ok(aria-hidden="true")
+										+deprecated
 									td
 										a.btn.btn-info(role="button" href="{{pathFor 'editEkloreQuestion'}}")
 											span.glyphicon.glyphicon-edit(aria-hidden="true")

@@ -27,12 +27,7 @@ template(name="listQuestionsGroups")
 									td #{title}
 									td #{label}
 									td
-										if deprecated
-											a.btn.btn-danger(role="button" href="#")
-												span.glyphicon.glyphicon-remove(aria-hidden="true")
-										else
-											a.btn.btn-success(role="button" href="#")
-												span.glyphicon.glyphicon-ok(aria-hidden="true")
+										+deprecated
 									td #{ekloreQuestionsLinkedCount}
 									td
 										a.btn.btn-info(role="button" href="{{pathFor 'editQuestionsGroup'}}")
