@@ -27,11 +27,13 @@ template(name="editQuestionsGroup")
 					.panel-heading
 						h4 {{_ "ekloreQuestionsLinkedToQuestionsGroup"}}
 					.panel-body
-						each ekloreQuestionsLinked
-							.panel.panel-default
-								.panel-body
-									p #{title}
-										if deprecated
-											button.btn.pull-rigth.btn-success {{_ "activate"}}
-										else
-											button.btn.pull-rigth.btn-danger {{_ "activate"}}
+						.row
+							each ekloreQuestionsLinked
+								.col-xs-12.col-sm-6.col-md-6.col-lg-6
+									.panel.panel-default
+										.panel-body
+											p #{title}
+												if deprecated
+													button.btn.pull-rigth.btn-danger {{_ "deprecated"}}
+												else
+													button.btn.pull-rigth.btn-success {{_ "active"}}
