@@ -17,6 +17,29 @@ Template.editEkloreQuestion.helpers({
 		} else {
 			return false;
 		}
+	},
+	workshops() {
+		if (!this.workshopsLinked || this.workshopsLinked.length === 0) {
+			return Workshops.find({}, {
+				fields: {
+					name: 1
+				}
+			});
+		} else {
+			let qStart = '{$or:[';
+			let qEnd = ']}';
+			this.workshopsLinked.map((cur, index, array) => {
+				qstart += ',';
+				qStart += '{$ne: ' + cur.curworkshopId + '}';
+			});
+			qStart += qEnd;
+			console.log(qStart);
+			return Workshops.find({ qStart }, {
+				fields: {
+					name: 1
+				}
+			});
+		}
 	}
 });
 
@@ -57,6 +80,17 @@ Template.editEkloreQuestion.events({
 			questionGroupId: this._id
 		};
 		Meteor.call('linkQuestionGroupToAnEkloreQuestion', data, (error, result) => {
+			if (error) {
+				return throwError(error.message);
+			}
+		});
+	},
+	'click #removeQuestionGroupFromEkloreQuestion': function(event) {
+		event.preventDefault();
+		const data = {
+			ekloreQuestionId: Router.current().params._id
+		};
+		Meteor.call('unlikQuestionGroupFromEkloreQuestion', data, (error, result) => {
 			if (error) {
 				return throwError(error.message);
 			}

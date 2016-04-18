@@ -20,6 +20,7 @@ template(name="listEkloreQuestions")
 								th {{_ "version"}}
 								th {{_ "displayType"}}
 								th {{_ "deprecated"}}
+								th {{_ "linkedToQuestionsGroup"}}
 								th {{_"actionEdit"}}
 						tbody
 							each ekloreQuestions
@@ -29,6 +30,8 @@ template(name="listEkloreQuestions")
 									td #{displayType}
 									td
 										+deprecated
+									td
+										+linkedToQuestionsGroup
 									td
 										a.btn.btn-info(role="button" href="{{pathFor 'editEkloreQuestion'}}")
 											span.glyphicon.glyphicon-edit(aria-hidden="true")
