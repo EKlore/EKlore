@@ -26,15 +26,32 @@ Template.editEkloreQuestion.helpers({
 				}
 			});
 		} else {
-			let qStart = '{$or:[';
-			let qEnd = ']}';
+			let qStart = { $and: [] };
 			this.workshopsLinked.map((cur, index, array) => {
-				qstart += ',';
-				qStart += '{$ne: ' + cur.curworkshopId + '}';
+				let element = { _id: { $ne: cur.workshopId } };
+				return qStart['$and'].push(element);
 			});
-			qStart += qEnd;
-			console.log(qStart);
-			return Workshops.find({ qStart }, {
+			return Workshops.find(qStart, {
+				fields: {
+					name: 1
+				}
+			});
+		}
+	},
+	universes() {
+		if (!this.universesLinked || this.universesLinked.length === 0) {
+			return Universes.find({}, {
+				fields: {
+					name: 1
+				}
+			});
+		} else {
+			let qStart = { $and: [] };
+			this.universesLinked.map((cur, index, array) => {
+				let element = { _id: { $ne: cur.universeId } };
+				return qStart['$and'].push(element);
+			});
+			return Universes.find(qStart, {
 				fields: {
 					name: 1
 				}
