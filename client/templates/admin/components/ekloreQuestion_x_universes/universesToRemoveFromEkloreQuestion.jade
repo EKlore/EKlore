@@ -1,0 +1,10 @@
+template(name="universesToRemoveFromEkloreQuestion")
+	.panel.panel-default
+		.panel-heading
+			p.panel-title #{universeData.name}
+		.panel-body
+			form.form-inline.removeUniverseFromEkloreQuestion
+				.form-group
+					label(for="matchingPower") {{_ "matchingPower"}}
+					input.matchingPower.form-control(type="number" value="#{matchingPower}" disabled)
+				button.btn.btn-danger(type="submit") {{_ "remove"}}
