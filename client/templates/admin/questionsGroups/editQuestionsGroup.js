@@ -9,30 +9,30 @@ Template.editQuestionsGroup.helpers({
 Template.editQuestionsGroup.events({
 	'click #save': function(event) {
 		event.preventDefault();
-		const questionsGroupData = {
-			questionsGroupId: Router.current().params._id,
+		const data = {
+			questionGroupId: Router.current().params._id,
 			title: $('#questionsGroupTitle').val(),
 			label: $('#questionsGroupLabel').val(),
 			level: Number($('#questionsGroupLevel').val())
 		};
 		if ($('input[name="deprecated"]:checked').val() === 'notDeprecated') {
-			questionsGroupData.deprecated = false;
+			data.deprecated = false;
 		} else if ($('input[name="deprecated"]:checked').val() === 'deprecated') {
-			questionsGroupData.deprecated = true;
+			data.deprecated = true;
 		}
-		if (!questionsGroupData.title) {
-			return throwError('Name must be filled');
+		if (!data.title) {
+			return throwError('Title must be filled');
 		}
 		if (!questionsGroupData.label) {
 			return throwError('Label must be filled');
 		}
-		if (!questionsGroupData.level) {
+		if (!data.level) {
 			return throwError('Level must be filled');
 		}
-		if (questionsGroupData.level < 2) {
+		if (data.level < 2) {
 			return throwError('The level must be superior to 1');
 		}
-		Meteor.call('updateAQuestionsGroup', questionsGroupData, (error, result) => {
+		Meteor.call('updateAQuestionsGroup', data, (error, result) => {
 			if (error) {
 				return throwError(error.message);
 			} else {
