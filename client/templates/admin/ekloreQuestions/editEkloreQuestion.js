@@ -63,26 +63,31 @@ Template.editEkloreQuestion.helpers({
 Template.editEkloreQuestion.events({
 	'click #save': function(event) {
 		event.preventDefault();
-		const ekloreQuestion = {
+		const data = {
 			ekloreQuestionId: Router.current().params._id,
-			title: $('#questionsGroupTitle').val(),
-			level: Number($('#questionsGroupLevel').val())
+			title: $('#ekloreQuestionTitle').val(),
+			level: Number($('#ekloreQuestionLevel').val())
 		};
 		if ($('input[name="deprecated"]:checked').val() === 'notDeprecated') {
-			ekloreQuestion.deprecated = false;
+			data.deprecated = false;
 		} else if ($('input[name="deprecated"]:checked').val() === 'deprecated') {
-			ekloreQuestion.deprecated = true;
+			data.deprecated = true;
 		}
-		if (!ekloreQuestion.title) {
-			return throwError('Name must be filled');
+		if ($('input[name="displayType"]:checked').val() === 'text') {
+			data.displayType = 'text';
+		} else if ($('input[name="displayType"]:checked').val() === 'picture') {
+			data.displayType = 'picture';
 		}
-		if (!ekloreQuestion.level) {
+		if (!data.title) {
+			return throwError('title must be filled');
+		}
+		if (!data.level) {
 			return throwError('Level must be filled');
 		}
-		if (ekloreQuestion.level < 2) {
+		if (data.level < 2) {
 			return throwError('The level must be superior to 1');
 		}
-		Meteor.call('updateAQuestionsGroup', ekloreQuestion, (error, result) => {
+		Meteor.call('updateAnEkloreQuestion', data, (error, result) => {
 			if (error) {
 				return throwError(error.message);
 			} else {

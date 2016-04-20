@@ -13,53 +13,11 @@ template(name="editEkloreQuestion")
 							.form-group
 								label(for="ekloreQuestionLevel") {{_ "ekloreQuestionLevel"}}
 								input#ekloreQuestionLevel.form-control(type="number" min="2" max="100" step="1" value="#{level}")
-							+editDeprecated
-						.panel.panel-default
-							.panel-heading
-								h4.panel-title Choix
-							.panel-body
-								each choices
-									.choices.panel.panel-default
-										.panel-heading
-											p.panel-title #{label}
-										.panel-body
-											form
-												.form-group
-													label(for="choiceLabel") {{_ "label"}}
-													input.choiceLabel.form-control(type="text" value="#{label}")
-								else
-									.newChoice.panel.panel-default
-										.panel-heading
-											p.panel-title Choix n°1
-										.panel-body
-											form
-												.form-group
-													label(for="newChoiceLabel") {{_ "label"}}
-													input.newChoiceLabel.form-control(type="text")
-									.newChoice.panel.panel-default
-										.panel-heading
-											p.panel-title Choix n°2
-										.panel-body
-											form
-												.form-group
-													label(for="newChoiceLabel") {{_ "label"}}
-													input.newChoiceLabel.form-control(type="text")
-									.newChoice.panel.panel-default
-										.panel-heading
-											p.panel-title Choix n°3
-										.panel-body
-											form
-												.form-group
-													label(for="newChoiceLabel") {{_ "label"}}
-													input.newChoiceLabel.form-control(type="text")
-									.newChoice.panel.panel-default
-										.panel-heading
-											p.panel-title Choix n°4
-										.panel-body
-											form
-												.form-group
-													label(for="newChoiceLabel") {{_ "label"}}
-													input.newChoiceLabel.form-control(type="text")
+							.row
+								.col-xs-12.col-sm-6.col-md-6.col-lg-6
+									+editDeprecated
+								.col-xs-12.col-sm-6.col-md-6.col-lg-6
+									+editDisplayType
 					.panel-footer
 						.row
 							.col-xs-12.col-sm-6.col-md-6.col-lg-6
@@ -68,31 +26,56 @@ template(name="editEkloreQuestion")
 								button#save.btn.btn-success.btn-block {{_ "save"}}
 				.panel.panel-default
 					.panel-heading
-						h4 Universes
+						h4.panel-title Choix
+					.panel-body
+						each choices
+							.choices.panel.panel-default
+								.panel-heading
+									p.panel-title #{label}
+								.panel-body
+									form
+										.form-group
+											label(for="choiceLabel") {{_ "label"}}
+											input.choiceLabel.form-control(type="text" value="#{label}")
+									.panel.panel-default
+										.panel-heading
+											h4.panel-title Universes
+										.panel-body
+											.panel.panel-success
+												.panel-heading
+													h4.panel-title {{_ "universesLinkedWithEkloreQuestionChoice"}}
+												.panel-body
+													.row
+														each universesLinked
+															.col-xs-12.col-sm-6.col-md-6.col-lg-6
+																+universesToRemoveFromEkloreQuestion
+				.panel.panel-default
+					.panel-heading
+						h4.panel-title Universes
 					.panel-body
 						.panel.panel-success
 							.panel-heading
-								h4 {{_ "workshopsLinkedWithEkloreQuestion"}}
+								h4.panel-title {{_ "universesLinkedWithEkloreQuestion"}}
 							.panel-body
 								.row
 									each universesLinked
 										.col-xs-12.col-sm-6.col-md-6.col-lg-6
-											+workshopsToRemoveFromEkloreQuestion
+											+universesToRemoveFromEkloreQuestion
 						.panel.panel-danger
 							.panel-heading
-								h4 {{_ "workshopsNotLinkedWithEkloreQuestion"}}
+								h4.panel-title {{_ "universesNotLinkedWithEkloreQuestion"}}
 							.panel-body
 								.row
 									each universes
 										.col-xs-12.col-sm-6.col-md-6.col-lg-6
-											+workshopsToAddToEkloreQuestion
+											+universesToAddToEkloreQuestion
 				.panel.panel-default
 					.panel-heading
-						h4 Workshops
+						h4.panel-title Workshops
 					.panel-body
 						.panel.panel-success
 							.panel-heading
-								h4 {{_ "workshopsLinkedWithEkloreQuestion"}}
+								h4.panel-title {{_ "workshopsLinkedWithEkloreQuestion"}}
 							.panel-body
 								.row
 									each workshopsLinked
@@ -100,7 +83,7 @@ template(name="editEkloreQuestion")
 											+workshopsToRemoveFromEkloreQuestion
 						.panel.panel-danger
 							.panel-heading
-								h4 {{_ "workshopsNotLinkedWithEkloreQuestion"}}
+								h4.panel-title {{_ "workshopsNotLinkedWithEkloreQuestion"}}
 							.panel-body
 								.row
 									each workshops
@@ -109,7 +92,7 @@ template(name="editEkloreQuestion")
 				if questionGroupId
 					.panel.panel-success
 						.panel-heading
-							h4 Groupe de question lié à la question
+							h4.panel-title Groupe de question lié à la question
 						.panel-body
 								with questionGroupData
 									p #{title}
@@ -117,7 +100,7 @@ template(name="editEkloreQuestion")
 				else
 					.panel.panel-danger
 						.panel-heading
-							h4 Groupe de question disponibles
+							h4.panel-title Groupe de question disponibles
 						.panel-body
 							.row
 								each questionsGroups
