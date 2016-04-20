@@ -7,15 +7,15 @@ Template.universesToRemove.helpers({
 Template.universesToRemove.events({
 	'submit .removeUniverseFromWorkshop': function(event) {
 		event.preventDefault();
-		var universeData = {
+		const data = {
 			workshopId: Router.current().params._id,
 			universeId: this.universeId
 		};
-		Meteor.call('removeUniverseFromWorkshop', universeData, (error, result) => {
+		Meteor.call('removeUniverseFromWorkshop', data, (error, result) => {
 			if (error) {
 				return throwError(error.message);
 			} else {
-				Meteor.call('removeWorkshopFromUniverse', universeData, (error, result) => {
+				Meteor.call('removeWorkshopFromUniverse', data, (error, result) => {
 					if (error) {
 						return throwError(error.message);
 					}
