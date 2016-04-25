@@ -26,10 +26,9 @@ Template.editEkloreQuestion.helpers({
 				}
 			});
 		} else {
-			let qStart = { $and: [] };
+			let qStart = { _id: { $nin: [] } };
 			this.workshopsLinked.map((cur, index, array) => {
-				let element = { _id: { $ne: cur.workshopId } };
-				return qStart['$and'].push(element);
+				return qStart._id['$nin'].push(cur.workshopId);
 			});
 			return Workshops.find(qStart, {
 				fields: {
@@ -46,10 +45,9 @@ Template.editEkloreQuestion.helpers({
 				}
 			});
 		} else {
-			let qStart = { $and: [] };
+			let qStart = { _id: { $nin: [] } };
 			this.universesLinked.map((cur, index, array) => {
-				let element = { _id: { $ne: cur.universeId } };
-				return qStart['$and'].push(element);
+				return qStart._id['$nin'].push(cur.universeId);
 			});
 			return Universes.find(qStart, {
 				fields: {
