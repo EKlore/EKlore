@@ -29,26 +29,7 @@ template(name="editEkloreQuestion")
 						h4.panel-title Choix
 					.panel-body
 						each choices
-							.choices.panel.panel-default
-								.panel-heading
-									p.panel-title #{label}
-								.panel-body
-									form
-										.form-group
-											label(for="choiceLabel") {{_ "label"}}
-											input.choiceLabel.form-control(type="text" value="#{label}")
-									.panel.panel-default
-										.panel-heading
-											h4.panel-title Universes
-										.panel-body
-											.panel.panel-success
-												.panel-heading
-													h4.panel-title {{_ "universesLinkedWithEkloreQuestionChoice"}}
-												.panel-body
-													.row
-														each universesLinked
-															.col-xs-12.col-sm-6.col-md-6.col-lg-6
-																+universesToRemoveFromEkloreQuestion
+							+choice
 				.panel.panel-default
 					.panel-heading
 						h4.panel-title Universes
