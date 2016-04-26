@@ -1,5 +1,5 @@
 Template.universesToAddToChoice.events({
-	'submit .addUniverseToEkloreQuestion': function(event) {
+	'submit .addUniverseToChoice': function(event) {
 		event.preventDefault();
 		const data = {
 			choiceId: Template.parentData(1).choiceId,
