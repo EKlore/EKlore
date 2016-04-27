@@ -9,7 +9,7 @@ Template.myProfile.helpers({
 				title: 1,
 				label: 1
 			}
-		})
+		});
 	}
 });
 
@@ -19,7 +19,7 @@ Template.myProfile.events({
 		const data = {
 			questionsGroupId: this._id,
 			userId: Meteor.userId()
-		}
+		};
 		Meteor.call('addQuestionsGroupToUser', data, (error, result) => {
 			if (error) {
 				return throwError(error.message);
