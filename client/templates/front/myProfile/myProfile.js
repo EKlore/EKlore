@@ -19,7 +19,7 @@ Template.myProfile.helpers({
 			fields: {
 				name: 1
 			}
-		})
+		});
 	},
 	perc() {
 		return Math.ceil(Math.random() * 100);
