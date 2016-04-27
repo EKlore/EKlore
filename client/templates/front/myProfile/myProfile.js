@@ -10,6 +10,19 @@ Template.myProfile.helpers({
 				label: 1
 			}
 		});
+	},
+	universes() {
+		return Universes.find({}, {
+			sort: {
+				name: 1
+			},
+			fields: {
+				name: 1
+			}
+		})
+	},
+	perc() {
+		return Math.ceil(Math.random() * 100);
 	}
 });
 
