@@ -1,0 +1,130 @@
+template(name="myProfile")
+	if currentUser
+		.panel.panel-default
+			.panel-body
+				h4 Il vous reste
+					span.badge 23
+					| questions à répondre pour compléter votre profil
+					a.btn.btn-primary(role="button" href="#") GO !
+		.panel.panel-default
+			.panel-heading
+				h3 Votre profil par univers
+			.panel-body
+				.col-xs-4.col-sm-3.col-md-2.col-lg-2.univers
+					.circle.center-block 100%
+					p.text-center Babar
+				.col-xs-4.col-sm-3.col-md-2.col-lg-2.univers
+					.circle.center-block 100%
+					p.text-center Babar
+				.col-xs-4.col-sm-3.col-md-2.col-lg-2.univers
+					.circle.center-block 100%
+					p.text-center Babar
+				.col-xs-4.col-sm-3.col-md-2.col-lg-2.univers
+					.circle.center-block 100%
+					p.text-center Babar
+				.col-xs-4.col-sm-3.col-md-2.col-lg-2.univers
+					.circle.center-block 100%
+					p.text-center Babar
+				.col-xs-4.col-sm-3.col-md-2.col-lg-2.univers
+					.circle.center-block 100%
+					p.text-center Babar
+				.col-xs-4.col-sm-3.col-md-2.col-lg-2.univers
+					.circle.center-block 100%
+					p.text-center Babar
+				.col-xs-4.col-sm-3.col-md-2.col-lg-2.univers
+					.circle.center-block 100%
+					p.text-center Babar
+		.panel.panel-default
+			.panel-heading
+				h3 Vous n'êtes pas seul... d'autres personnes vous ressemble !
+			.panel-body
+				.col-xs-4.col-sm-3.col-md-2.col-lg-2.univers
+					.circle.center-block 100%
+					p.text-center Babar
+				.col-xs-4.col-sm-3.col-md-2.col-lg-2.univers
+					.circle.center-block 100%
+					p.text-center Babar
+				.col-xs-4.col-sm-3.col-md-2.col-lg-2.univers
+					.circle.center-block 100%
+					p.text-center Babar
+				.col-xs-4.col-sm-3.col-md-2.col-lg-2.univers
+					.circle.center-block 100%
+					p.text-center Babar
+				.col-xs-4.col-sm-3.col-md-2.col-lg-2.univers
+					.circle.center-block 100%
+					p.text-center Babar
+				.col-xs-4.col-sm-3.col-md-2.col-lg-2.univers
+					.circle.center-block 100%
+					p.text-center Babar
+				.col-xs-4.col-sm-3.col-md-2.col-lg-2.univers
+					.circle.center-block 100%
+					p.text-center Babar
+				.col-xs-4.col-sm-3.col-md-2.col-lg-2.univers
+					.circle.center-block 100%
+					p.text-center Babar
+				.col-xs-4.col-sm-3.col-md-2.col-lg-2.univers
+					.circle.center-block 100%
+					p.text-center Babar
+				.col-xs-4.col-sm-3.col-md-2.col-lg-2.univers
+					.circle.center-block 100%
+					p.text-center Babar
+				.col-xs-4.col-sm-3.col-md-2.col-lg-2.univers
+					.circle.center-block 100%
+					p.text-center Babar
+				.col-xs-4.col-sm-3.col-md-2.col-lg-2.univers
+					.circle.center-block 100%
+					p.text-center Babar
+				.col-xs-4.col-sm-3.col-md-2.col-lg-2.univers
+					.circle.center-block 100%
+					p.text-center Babar
+				.col-xs-4.col-sm-3.col-md-2.col-lg-2.univers
+					.circle.center-block 100%
+					p.text-center Babar
+				.col-xs-4.col-sm-3.col-md-2.col-lg-2.univers
+					.circle.center-block 100%
+					p.text-center Babar
+		.panel.panel-default
+			.panel-heading
+				h3 Groupe de questions disponibles
+			.panel-body
+				.row
+					each questionsGroup
+						.col-xs-12.col-sm-6.col-md-6.col-lg-6
+							.panel.panel-default
+								.panel-heading
+									h4.panel-title #{title}
+								.panel-body
+									p #{label}
+								.panel-footer
+									a.center-block.addQuestionsGroupToUser.btn.btn-primary(role="button" href="#") Répondre aux questions !
+	else
+		.row
+			.col-xs-12.col-sm-6.col-md-6.col-lg-6
+				.panel.panel-default
+					.panel-heading
+						h3.panel-title Créez votre compte en 30 secondes !
+					.panel-body
+						form.createNewUser
+							.form-group
+								label(for="pseudo") {{_ "pseudo"}}
+								input#createPseudo.form-control(type="text" required)
+							.form-group
+								label(for="email") {{_ "email"}}
+								input#createEmail.form-control(type="email" required)
+							.form-group
+								label(for="password") {{_ "password"}}
+								input#createPassword.form-control(type="password" required)
+							button.btn.btn-success.btn-block(type="submit") Créer votre compte
+			.col-xs-12.col-sm-6.col-md-6.col-lg-6
+				.panel.panel-default
+					.panel-heading
+						h3.panel-title Connectez vous !
+					.panel-body
+						form.userLogIn
+							.form-group
+								label(for="email") {{_ "email"}}
+								input#signInEmail.form-control(type="email" required)
+							.form-group
+								label(for="password") {{_ "password"}}
+								input#singInPassword.form-control(type="password" required)
+							button.btn.btn-success.btn-block(type="submit") Connection
