@@ -71,16 +71,16 @@ Template.choice.events({
 			choiceId: this.choiceId,
 			label: $(event.target).find('#' + this.choiceId).val()
 		};
-		console.log(data, event.target);
+		data.choiceIndex = lodash.findIndex(Template.parentData(1).choices, ['choiceId', data.choiceId]);
 		if (!data.label) {
 			return throwError('Label must be filled');
 		}
-		/*Meteor.call('updateAChoice', data, (error, result) => {
+		Meteor.call('updateAChoice', data, (error, result) => {
 			if (error) {
 				return throwError(error.message);
 			} else {
 				return throwError('Update succesful !');
 			}
-		});*/
+		});
 	}
 });
