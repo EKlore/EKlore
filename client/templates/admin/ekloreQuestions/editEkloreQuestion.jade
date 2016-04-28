@@ -28,8 +28,9 @@ template(name="editEkloreQuestion")
 					.panel-heading
 						h4.panel-title Choix
 					.panel-body
-						each choices
-							+choice
+						#accordionChoice.panel-group(role="tablist" aria-multiselectable="true")
+							each choices
+								+choice
 				.panel.panel-default
 					.panel-heading
 						h4.panel-title Universes

@@ -1,56 +1,62 @@
 template(name="choice")
 	.choices.panel.panel-default
-		.panel-heading
-			p.panel-title #{label}
-		.panel-body
-			.panel.panel-default
-				.panel-body
-					form.saveLabel
-						.form-group
-							label(for="#{choiceId}") {{_ "label"}}
-							input.form-control(id="#{choiceId}" type="text" value="#{label}")
-						.row
-							.col-xs-12.col-sm-6.col-md-6.col-lg-6
-								a.btn.btn-danger.btn-block(role="button" href="{{pathFor 'admin'}}") {{_ "cancel"}}
-							.col-xs-12.col-sm-6.col-md-6.col-lg-6
-								button.btn.btn-success.btn-block(type="submit") {{_ "save"}}
-			.panel.panel-default
-				.panel-heading
-					h4.panel-title Universes
-				.panel-body
-					.panel.panel-success
-						.panel-heading
-							h4.panel-title {{_ "universesLinkedWithChoice"}}
-						.panel-body
+		.panel-heading(id="#{idForChoice}")
+			p.panel-title
+				a(role="button" data-toggle="collapse" data-parent="#accordionChoice" href="##{collapseChoice}" aria-expanded="true" aria-controls="#{collapseChoice}")
+					if label
+						| #{label} : Cliquer pour afficher/cacher
+					else
+						| Choix non défini : Cliquer pour afficher/cacher
+		.panel-collapse.collapse(role="tabpanel" aria-labelledby="#{idForChoice}" id="#{collapseChoice}")
+			.panel-body
+				.panel.panel-default
+					.panel-body
+						form.saveLabel
+							.form-group
+								label(for="#{choiceId}") {{_ "label"}}
+								input.form-control(id="#{choiceId}" type="text" value="#{label}")
 							.row
-								each universesLinked
-									.col-xs-12.col-sm-6.col-md-6.col-lg-6
-										+universesToRemoveFromChoice
-					.panel.panel-danger
-						.panel-heading
-							h4.panel-title {{_ "universesNotLinkedWithChoice"}}
-						.panel-body
-							.row
-								each universes
-									.col-xs-12.col-sm-6.col-md-6.col-lg-6
-										+universesToAddToChoice
-			.panel.panel-default
-				.panel-heading
-					h4.panel-title Workshops
-				.panel-body
-					.panel.panel-success
-						.panel-heading
-							h4.panel-title {{_ "workshopsLinkedWithChoice"}}
-						.panel-body
-							.row
-								each workshopsLinked
-									.col-xs-12.col-sm-6.col-md-6.col-lg-6
-										+workshopsToRemoveFromChoice
-					.panel.panel-danger
-						.panel-heading
-							h4.panel-title {{_ "workshopsNotLinkedWithChoice"}}
-						.panel-body
-							.row
-								each workshops
-									.col-xs-12.col-sm-6.col-md-6.col-lg-6
-										+workshopsToAddToChoice
+								.col-xs-12.col-sm-6.col-md-6.col-lg-6
+									a.btn.btn-danger.btn-block(role="button" href="{{pathFor 'admin'}}") {{_ "cancel"}}
+								.col-xs-12.col-sm-6.col-md-6.col-lg-6
+									button.btn.btn-success.btn-block(type="submit") {{_ "save"}}
+				.panel.panel-default
+					.panel-heading
+						h4.panel-title Universes
+					.panel-body
+						.panel.panel-success
+							.panel-heading
+								h4.panel-title {{_ "universesLinkedWithChoice"}}
+							.panel-body
+								.row
+									each universesLinked
+										.col-xs-12.col-sm-6.col-md-6.col-lg-6
+											+universesToRemoveFromChoice
+						.panel.panel-danger
+							.panel-heading
+								h4.panel-title {{_ "universesNotLinkedWithChoice"}}
+							.panel-body
+								.row
+									each universes
+										.col-xs-12.col-sm-6.col-md-6.col-lg-6
+											+universesToAddToChoice
+				.panel.panel-default
+					.panel-heading
+						h4.panel-title Workshops
+					.panel-body
+						.panel.panel-success
+							.panel-heading
+								h4.panel-title {{_ "workshopsLinkedWithChoice"}}
+							.panel-body
+								.row
+									each workshopsLinked
+										.col-xs-12.col-sm-6.col-md-6.col-lg-6
+											+workshopsToRemoveFromChoice
+						.panel.panel-danger
+							.panel-heading
+								h4.panel-title {{_ "workshopsNotLinkedWithChoice"}}
+							.panel-body
+								.row
+									each workshops
+										.col-xs-12.col-sm-6.col-md-6.col-lg-6
+											+workshopsToAddToChoice

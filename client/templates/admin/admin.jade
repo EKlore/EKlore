@@ -2,7 +2,7 @@ template(name="admin")
 	.container
 		if currentUser
 			if isAdmin
-				div#accordion.panel-group(role="tablist" aria-multiselectable="true")
+				#accordion.panel-group(role="tablist" aria-multiselectable="true")
 					+listUniverses
 					+listWorkshops
 					+listQuestionsGroups

@@ -1,4 +1,10 @@
 Template.choice.helpers({
+	idForChoice() {
+		return 'choice_' + this.choiceId;
+	},
+	collapseChoice() {
+		return 'collapse_' + this.choiceId;
+	},
 	universes() {
 		if (!Template.parentData(1).universesLinked || Template.parentData(1).universesLinked.length === 0) {
 			return false;
