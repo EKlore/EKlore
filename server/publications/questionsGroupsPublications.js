@@ -8,8 +8,8 @@ Meteor.publish('allQuestionsGroups', () => {
 	});
 });
 
-Meteor.publish('aQuestionsGroup', (questionGroupId) => {
+Meteor.publish('aQuestionsGroup', (questionsGroupId) => {
 	return QuestionsGroups.find({
-		_id: questionGroupId
+		_id: questionsGroupId
 	});
 });
