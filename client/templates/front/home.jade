@@ -31,7 +31,10 @@ template(name="home")
 					a(href="mailto:contact@fete-eklore.fr") contact@fete-eklore.fr
 			.col-sm-6.col-md6.col-lg-6
 				+map
-	a.btn.btn-primary.btn-lg.btn-block(role="button" href="{{pathFor 'myProfile'}}") {{_ "createYourProfile"}}
+	if currentUser
+		a.btn.btn-warning.btn-lg.btn-block(role="button" href="{{pathFor 'myProfile'}}") {{_ "completeYourProfile"}}
+	else
+		a.btn.btn-primary.btn-lg.btn-block(role="button" href="{{pathFor 'myProfile'}}") {{_ "createYourProfile"}}
 	.panel.panel-default.volunteers
 		.panel-heading
 			h3 {{_ "volunteers"}} {{_ "eklore"}}
