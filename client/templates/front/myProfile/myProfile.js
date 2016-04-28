@@ -38,23 +38,5 @@ Template.myProfile.events({
 				return throwError(error.message);
 			}
 		});
-	},
-	'submit .createNewUser': function(event) {
-		event.preventDefault();
-		const data = {
-			username: $(event.target).find('#createPseudo').val(),
-			email: $(event.target).find('#createEmail').val(),
-			password: $(event.target).find('#createPassword').val()
-		};
-		check(data.username, String);
-		check(data.email, String);
-		check(data.password, String);
-		Accounts.createUser(data);
-	},
-	'submit .userLogIn': function(event) {
-		event.preventDefault();
-		check($(event.target).find('#signInEmail').val(), String);
-		check($(event.target).find('#singInPassword').val(), String);
-		Meteor.loginWithPassword($(event.target).find('#signInEmail').val(), $(event.target).find('#singInPassword').val());
 	}
 });

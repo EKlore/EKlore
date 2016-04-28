@@ -1,0 +1,16 @@
+template(name="signUp")
+	.panel.panel-default
+		.panel-heading
+			h3.panel-title Créez votre compte en 30 secondes !
+		.panel-body
+			form.createNewUser
+				.form-group
+					label(for="pseudo") {{_ "pseudo"}}
+					input#createPseudo.form-control(type="text" required)
+				.form-group
+					label(for="email") {{_ "email"}}
+					input#createEmail.form-control(type="email" required)
+				.form-group
+					label(for="password") {{_ "password"}}
+					input#createPassword.form-control(type="password" required)
+				button.btn.btn-success.btn-block(type="submit") Créer votre compte

@@ -1,0 +1,13 @@
+template(name="signIn")
+	.panel.panel-default
+		.panel-heading
+			h3.panel-title Connectez vous !
+		.panel-body
+			form.userLogIn
+				.form-group
+					label(for="email") {{_ "email"}}
+					input#signInEmail.form-control(type="email" required)
+				.form-group
+					label(for="password") {{_ "password"}}
+					input#singInPassword.form-control(type="password" required)
+				button.btn.btn-success.btn-block(type="submit") Connection
