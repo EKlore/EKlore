@@ -1,6 +1,6 @@
 Template.editEkloreQuestion.helpers({
-	questionGroupData() {
-		return QuestionsGroups.findOne({ _id: this.questionGroupId });
+	questionsGroupData() {
+		return QuestionsGroups.findOne({ _id: this.questionsGroupId });
 	},
 	questionsGroups() {
 		return QuestionsGroups.find({
@@ -97,15 +97,15 @@ Template.editEkloreQuestion.events({
 		event.preventDefault();
 		const data = {
 			ekloreQuestionId: Router.current().params._id,
-			questionGroupId: this._id
+			questionsGroupId: this._id
 		};
-		Meteor.call('linkQuestionGroupToAnEkloreQuestion', data, (error, result) => {
+		Meteor.call('linkQuestionsGroupToAnEkloreQuestion', data, (error, result) => {
 			if (error) {
 				return throwError(error.message);
 			}
 		});
 	},
-	'click #removeQuestionGroupFromEkloreQuestion': function(event) {
+	'click #removeQuestionsGroupFromEkloreQuestion': function(event) {
 		event.preventDefault();
 		const data = {
 			ekloreQuestionId: Router.current().params._id

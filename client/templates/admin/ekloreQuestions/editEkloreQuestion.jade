@@ -71,14 +71,14 @@ template(name="editEkloreQuestion")
 									each workshops
 										.col-xs-12.col-sm-6.col-md-6.col-lg-6
 											+workshopsToAddToEkloreQuestion
-				if questionGroupId
+				if questionsGroupId
 					.panel.panel-success
 						.panel-heading
 							h4.panel-title Groupe de question lié à la question
 						.panel-body
-								with questionGroupData
+								with questionsGroupData
 									p #{title}
-										button#removeQuestionGroupFromEkloreQuestion.btn.pull-rigth.btn-danger {{_ "remove"}}
+										button#removeQuestionsGroupFromEkloreQuestion.btn.pull-rigth.btn-danger {{_ "remove"}}
 				else
 					.panel.panel-danger
 						.panel-heading
