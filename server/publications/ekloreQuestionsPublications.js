@@ -4,7 +4,7 @@ Meteor.publish('allEkloreQuestions', () => {
 			title: 1,
 			version: 1,
 			displayType: 1,
-			questionGroupId: 1
+			questionsGroupId: 1
 		}
 	});
 });
@@ -13,11 +13,12 @@ Meteor.publish('anEkloreQuestion', (ekloreQuestionId) => {
 	return EkloreQuestions.find({ _id: ekloreQuestionId });
 });
 
-Meteor.publish('ekloreQuestionsLinkedToQuestionsGroup', (questionGroupId) => {
-	return EkloreQuestions.find({ questionGroupId }, {
+Meteor.publish('ekloreQuestionsLinkedToQuestionsGroup', (questionsGroupId) => {
+	return EkloreQuestions.find({ questionsGroupId: questionsGroupId }, {
 		fields: {
 			title: 1,
-			questionGroupId: 1
+			questionsGroupId: 1,
+			deprecated: 1
 		}
 	});
 });
