@@ -1,6 +1,12 @@
 Template.myProfile.helpers({
 	questionsGroup() {
-		return QuestionsGroups.find({ deprecated: false }, {
+		let questionsGroupCurrentlyInUser = Meteor.user().profile.questionsGroups;
+		return QuestionsGroups.find({
+			_id: {
+				$nin: questionsGroupCurrentlyInUser
+			},
+			deprecated: false,
+		}, {
 			sort: {
 				title: 1
 			},
@@ -10,6 +16,9 @@ Template.myProfile.helpers({
 				label: 1
 			}
 		});
+	},
+	notAnsweredQuestions() {
+		return UserQuestions.find({ answered: false }).count();
 	},
 	universes() {
 		return Universes.find({}, {
