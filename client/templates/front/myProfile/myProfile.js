@@ -5,7 +5,7 @@ Template.myProfile.helpers({
 			_id: {
 				$nin: questionsGroupCurrentlyInUser
 			},
-			deprecated: false,
+			deprecated: false
 		}, {
 			sort: {
 				title: 1
