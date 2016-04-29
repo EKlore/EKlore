@@ -1,8 +1,6 @@
 Template.editQuestionsGroup.helpers({
 	ekloreQuestionsLinked() {
-		return EkloreQuestions.find({
-			questionGroupId: this._id
-		});
+		return EkloreQuestions.find({ questionsGroupId: this._id });
 	}
 });
 
@@ -10,7 +8,7 @@ Template.editQuestionsGroup.events({
 	'click #save': function(event) {
 		event.preventDefault();
 		const data = {
-			questionGroupId: Router.current().params._id,
+			questionsGroupId: Router.current().params._id,
 			title: $('#questionsGroupTitle').val(),
 			label: $('#questionsGroupLabel').val(),
 			level: Number($('#questionsGroupLevel').val())
@@ -23,7 +21,7 @@ Template.editQuestionsGroup.events({
 		if (!data.title) {
 			return throwError('Title must be filled');
 		}
-		if (!questionsGroupData.label) {
+		if (!data.label) {
 			return throwError('Label must be filled');
 		}
 		if (!data.level) {
