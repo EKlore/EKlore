@@ -1,4 +1,11 @@
 Template.myProfile.helpers({
+	userHasQuestionsGroupsInProfile() {
+		if (!Meteor.user().profile.questionsGroups || Meteor.user().profile.questionsGroups.length === 0) {
+			return false;
+		} else {
+			return true;
+		}
+	},
 	questionsGroup() {
 		let questionsGroupCurrentlyInUser = Meteor.user().profile.questionsGroups;
 		return QuestionsGroups.find({
