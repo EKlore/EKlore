@@ -1,12 +1,11 @@
 Meteor.publish('oneQuestionAtATime', (userId) => {
 	return UserQuestions.find({
-		userId,
+		userId: userId,
 		answered: false,
 		deprecated: false
 	}, {
 		sort: {
-			level: 1,
-			version: 1
+			level: 1
 		},
 		limit: 1
 	});
