@@ -1,0 +1,13 @@
+template(name="answerQuestions")
+	with questionData
+		.panel.panel-default
+			.panel-heading
+				h4 {{_ "question"}} : #{title}
+			.panel-body
+				each choices
+					.radio
+						label
+							input(type="radio" name="choicesForQuestion" id="#{choiceId}" value="#{choiceId}")
+							| #{label}
+			.panel-footer
+				button#validateChoice.btn-block.btn.btn-success(type="button") {{_ "validate"}}
