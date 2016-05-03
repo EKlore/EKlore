@@ -4,15 +4,15 @@ template(name="myProfile")
 			.panel-body
 				if userHasQuestionsGroupsInProfile
 					if notAnsweredQuestions
-						h4 Il vous reste
+						h4 {{_ "youStillHave"}}
 							span.badge #{notAnsweredQuestions}
-							| questions à répondre pour compléter votre profil
-							a.btn.btn-primary(role="button" href="{{pathFor 'answerQuestions'}}") GO !
+							| {{_ "questionsToCompleteYourProfile"}}
+							a.btn.btn-primary(role="button" href="{{pathFor 'answerQuestions'}}") {{_ "go"}}
 					else
 						h4 {{_ "congratsNoMoreQuestions"}}
 						p {{_ "labelToAddQuestionsGroups"}}
 				else
-					p {{_ "addQuestionsGroupsToBegin"}}
+					p {{_ "labelToAddQuestionsGroups"}}
 		.panel.panel-default
 			.panel-heading
 				h3 Votre profil par univers
