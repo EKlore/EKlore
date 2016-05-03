@@ -1,4 +1,4 @@
-Meteor.publish('oneQuestionAtATime', (userId) => {
+Meteor.publish('tenQuestionAtATime', (userId) => {
 	return UserQuestions.find({
 		userId: userId,
 		answered: false,
@@ -7,7 +7,7 @@ Meteor.publish('oneQuestionAtATime', (userId) => {
 		sort: {
 			level: 1
 		},
-		limit: 1
+		limit: 10
 	});
 });
 
