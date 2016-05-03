@@ -93,5 +93,9 @@
 	"question": "Question",
 	"congratsNoMoreQuestions": "Félicitations, vous avez répondu à toutes les questions !",
 	"labelToAddQuestionsGroups": "Ajoutez de nouveaux groupes de questions pour compléter votre profil",
-	"noMoreQuestionsGroupsAvailable": "Tous les groupes de questions disponibles ont déjà été ajoutés à votre profil"
+	"noMoreQuestionsGroupsAvailable": "Tous les groupes de questions disponibles ont déjà été ajoutés à votre profil",
+	"youStillHave": "Il vous reste",
+	"questionsToCompleteYourProfile": "questions à répondre pour compléter votre profil",
+	"returnToProfile": "Retournez à votre profil",
+	"go": "GO !"
 }
