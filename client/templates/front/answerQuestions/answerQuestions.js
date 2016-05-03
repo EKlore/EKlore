@@ -25,6 +25,8 @@ Template.answerQuestions.events({
 		Meteor.call('answerQuestion', data, (error, result) => {
 			if (error) {
 				return throwError(error.message);
+			} else {
+				$('input[name="choicesForQuestion"]:checked').removeAttr('checked');
 			}
 		});
 	}
