@@ -4,9 +4,9 @@ template(name="choice")
 			p.panel-title
 				a(role="button" data-toggle="collapse" data-parent="#accordionChoice" href="##{collapseChoice}" aria-expanded="true" aria-controls="#{collapseChoice}")
 					if label
-						| #{label} : Cliquer pour afficher/cacher
+						| #{label} : {{_ "clickToShowOrHide"}}
 					else
-						| Choix non défini : Cliquer pour afficher/cacher
+						| {{_ "choiceNotDefined"}} : {{_ "clickToShowOrHide"}}
 		.panel-collapse.collapse(role="tabpanel" aria-labelledby="#{idForChoice}" id="#{collapseChoice}")
 			.panel-body
 				.panel.panel-default
@@ -22,7 +22,7 @@ template(name="choice")
 									button.btn.btn-success.btn-block(type="submit") {{_ "save"}}
 				.panel.panel-default
 					.panel-heading
-						h4.panel-title Universes
+						h4.panel-title {{_ "Muniverses"}}
 					.panel-body
 						.panel.panel-success
 							.panel-heading
@@ -42,7 +42,7 @@ template(name="choice")
 											+universesToAddToChoice
 				.panel.panel-default
 					.panel-heading
-						h4.panel-title Workshops
+						h4.panel-title {{_ "Mworkshops"}}
 					.panel-body
 						.panel.panel-success
 							.panel-heading

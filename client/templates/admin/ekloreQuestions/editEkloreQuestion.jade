@@ -26,14 +26,14 @@ template(name="editEkloreQuestion")
 								button#save.btn.btn-success.btn-block {{_ "save"}}
 				.panel.panel-default
 					.panel-heading
-						h4.panel-title Choix
+						h4.panel-title {{_ "choices"}}
 					.panel-body
 						#accordionChoice.panel-group(role="tablist" aria-multiselectable="true")
 							each choices
 								+choice
 				.panel.panel-default
 					.panel-heading
-						h4.panel-title Universes
+						h4.panel-title {{_ "Muniverses"}}
 					.panel-body
 						.panel.panel-success
 							.panel-heading
@@ -53,7 +53,7 @@ template(name="editEkloreQuestion")
 											+universesToAddToEkloreQuestion
 				.panel.panel-default
 					.panel-heading
-						h4.panel-title Workshops
+						h4.panel-title {{_ "Mworkshops"}}
 					.panel-body
 						.panel.panel-success
 							.panel-heading
@@ -74,15 +74,18 @@ template(name="editEkloreQuestion")
 				if questionsGroupId
 					.panel.panel-success
 						.panel-heading
-							h4.panel-title Groupe de question lié à la question
+							h4.panel-title {{_ "questionsGroupLinkedWithEkloreQuestion"}}
 						.panel-body
 								with questionsGroupData
-									p #{title}
-										button#removeQuestionsGroupFromEkloreQuestion.btn.pull-rigth.btn-danger {{_ "remove"}}
+									.col-xs-12.col-sm-12.col-md-12.col-lg-12
+										.panel.panel-default
+											.panel-body
+												p #{title}
+													button#removeQuestionsGroupFromEkloreQuestion.btn.pull-right.btn-danger {{_ "remove"}}
 				else
 					.panel.panel-danger
 						.panel-heading
-							h4.panel-title Groupe de question disponibles
+							h4.panel-title {{_ "questionsGroupsNotLinkedWithEkloreQuestion"}}
 						.panel-body
 							.row
 								each questionsGroups
