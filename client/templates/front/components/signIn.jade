@@ -1,7 +1,7 @@
 template(name="signIn")
 	.panel.panel-default
 		.panel-heading
-			h3.panel-title Connectez vous !
+			h3.panel-title {{_ "signIn"}}
 		.panel-body
 			form.userLogIn
 				.form-group
@@ -10,4 +10,4 @@ template(name="signIn")
 				.form-group
 					label(for="password") {{_ "password"}}
 					input#singInPassword.form-control(type="password" required)
-				button.btn.btn-success.btn-block(type="submit") Connection
+				button.btn.btn-success.btn-block(type="submit") {{_ "connect"}}

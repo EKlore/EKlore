@@ -1,7 +1,7 @@
 template(name="signUp")
 	.panel.panel-default
 		.panel-heading
-			h3.panel-title Créez votre compte en 30 secondes !
+			h3.panel-title {{_ "signUpIn30Sec"}}
 		.panel-body
 			form.createNewUser
 				.form-group
@@ -13,4 +13,4 @@ template(name="signUp")
 				.form-group
 					label(for="password") {{_ "password"}}
 					input#createPassword.form-control(type="password" required)
-				button.btn.btn-success.btn-block(type="submit") Créer votre compte
+				button.btn.btn-success.btn-block(type="submit") {{_ "createAccount"}}
