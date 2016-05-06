@@ -93,15 +93,30 @@ Template.editEkloreQuestion.events({
 			}
 		});
 	},
-	'click .linkToEkloreQuestion': function(event) {
+	'click #linkToEkloreQuestion': function(event) {
 		event.preventDefault();
-		const data = {
-			ekloreQuestionId: Router.current().params._id,
-			questionsGroupId: this._id
-		};
-		Meteor.call('linkQuestionsGroupToAnEkloreQuestion', data, (error, result) => {
+		let questionGroupId = this._id;
+		let questionData = EkloreQuestions.findOne({ _id: Router.current().params._id });
+		questionData.answered = false;
+		questionData.userId = Meteor.userId();
+		questionData.questionId = this._id;
+		delete questionData._id;
+		delete questionData.createdAt;
+		delete questionData.questionsGroupId;
+		Meteor.call('insertQuestion', questionData, (error, result) => {
 			if (error) {
-				return throwError(error.message);
+				return throwError("The question configuration is not valid, please verify, Universes, Workshops and Choices");
+			} else {
+				Meteor.call('removeQuestion', result);
+				const data = {
+					ekloreQuestionId: Router.current().params._id,
+					questionsGroupId: questionGroupId
+				};
+				Meteor.call('linkQuestionsGroupToAnEkloreQuestion', data, (error, result) => {
+					if (error) {
+						return throwError(error.message);
+					}
+				});
 			}
 		});
 	},
