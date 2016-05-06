@@ -105,7 +105,7 @@ Template.editEkloreQuestion.events({
 		delete questionData.questionsGroupId;
 		Meteor.call('insertQuestion', questionData, (error, result) => {
 			if (error) {
-				return throwError("The question configuration is not valid, please verify, Universes, Workshops and Choices");
+				return throwError('The question configuration is not valid, please verify, Universes, Workshops and Choices');
 			} else {
 				Meteor.call('removeQuestion', result);
 				const data = {
