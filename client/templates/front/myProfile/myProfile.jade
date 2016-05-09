@@ -15,20 +15,20 @@ template(name="myProfile")
 					p {{_ "labelToAddQuestionsGroups"}}
 		.panel.panel-default
 			.panel-heading
-				h3 Votre profil par univers
+				h3 {{_ "yourProfileByUniverses"}}
 			.panel-body
 				each universes
 					.col-xs-4.col-sm-3.col-md-2.col-lg-2.univers
-						.circle.center-block 100%
-						p.text-center #{name}
-		.panel.panel-default
+						.circle.center-block #{value} %
+						p.text-center #{_id}
+		//.panel.panel-default
 			.panel-heading
 				h3 Vous n'êtes pas seul... d'autres personnes vous ressemble !
 			.panel-body
 				each universes
 					.col-xs-4.col-sm-3.col-md-2.col-lg-2.univers
 						.circle.center-block 100%
-						p.text-center #{name}
+						p.text-center #{_id}
 		.panel.panel-default
 			.panel-heading
 				h3 Groupe de questions disponibles

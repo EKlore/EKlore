@@ -25,17 +25,46 @@ Template.myProfile.helpers({
 		});
 	},
 	notAnsweredQuestions() {
-		return UserQuestions.find({ answered: false }).count();
+		return UserQuestions.find({
+			userId: Meteor.userId(),
+			answered: false,
+			deprecated: false
+		}).count();
 	},
 	universes() {
-		return Universes.find({}, {
-			sort: {
-				name: 1
-			},
+		let questions = UserQuestions.find({
+			userId: Meteor.userId(),
+			answered: true,
+			deprecated: false
+		}, {
 			fields: {
-				name: 1
+				result: 1
 			}
+		}).fetch();
+		let questionsObject = {};
+		let questionsArray = [];
+		questions.map((cur, index, array) => {
+			cur.result.map((cur1, index1, array1) => {
+				if (cur1.universeId) {
+					if (questionsObject[cur1.universeId]) {
+						questionsObject[cur1.universeId].value += cur1.result;
+						questionsObject[cur1.universeId].long += 1;
+					} else {
+						questionsObject[cur1.universeId] = {
+							value: cur1.result,
+							long: 1
+						};
+					}
+				}
+			});
 		});
+		for (prop in questionsObject) {
+			questionsArray.push({
+				_id: prop,
+				value: lodash.round(questionsObject[prop].value / questionsObject[prop].long * 100, 2)
+			});
+		}
+		return questionsArray;
 	},
 	perc() {
 		return Math.ceil(Math.random() * 100);
