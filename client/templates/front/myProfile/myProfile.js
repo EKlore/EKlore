@@ -6,6 +6,13 @@ Template.myProfile.helpers({
 			return true;
 		}
 	},
+	alreadyAnsweredQuestions() {
+		return UserQuestions.find({
+			userId: Meteor.userId(),
+			answered: true,
+			deprecated: false
+		}).count();
+	},
 	questionsGroup() {
 		let questionsGroupCurrentlyInUser = Meteor.user().profile.questionsGroups;
 		return QuestionsGroups.find({

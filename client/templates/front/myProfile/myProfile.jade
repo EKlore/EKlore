@@ -13,15 +13,16 @@ template(name="myProfile")
 						p {{_ "labelToAddQuestionsGroups"}}
 				else
 					p {{_ "labelToAddQuestionsGroups"}}
-		.panel.panel-default
-			.panel-heading
-				h3 {{_ "yourProfileByUniverses"}}
-			.panel-body
-				.row
-					each universes
-						.col-xs-4.col-sm-3.col-md-2.col-lg-2.vcenter
-							.circle.center-block(style="width: #{valueForCircle}px; height: #{valueForCircle}px;line-height: #{valueForCircle}px;") #{value}%
-							p.text-center #{universeName}
+		if alreadyAnsweredQuestions
+			.panel.panel-default
+				.panel-heading
+					h3 {{_ "yourProfileByUniverses"}}
+				.panel-body
+					.row
+						each universes
+							.col-xs-4.col-sm-3.col-md-2.col-lg-2.vcenter
+								.circle.center-block(style="width: #{valueForCircle}px; height: #{valueForCircle}px;line-height: #{valueForCircle}px;") #{value}%
+								p.text-center #{universeName}
 		//.panel.panel-default
 			.panel-heading
 				h3 Vous n'êtes pas seul... d'autres personnes vous ressemble !
