@@ -80,7 +80,7 @@ Template.myProfile.helpers({
 			} else {
 				return 0;
 			}
-		})
+		});
 		return questionsArray;
 	},
 	universeName() {
