@@ -123,5 +123,6 @@
 	"connect": "Connection",
 	"signUpIn30Sec": "Créez votre compte en 30 secondes !",
 	"pseudo": "Pseudo",
-	"createAccount": "Créer votre compte"
+	"createAccount": "Créer votre compte",
+	"yourProfileByUniverses": "Votre profil par univers"
 }
