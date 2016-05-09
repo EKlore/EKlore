@@ -24,3 +24,18 @@ Meteor.publish('userQuestionsNotAnswered', (userId) => {
 		}
 	});
 });
+
+Meteor.publish('resultForQuestionsAnswered', (userId) => {
+	return UserQuestions.find({
+		userId,
+		answered: true,
+		deprecated: false
+	}, {
+		fields: {
+			userId: 1,
+			answered: 1,
+			deprecated: 1,
+			result: 1
+		}
+	});
+});
