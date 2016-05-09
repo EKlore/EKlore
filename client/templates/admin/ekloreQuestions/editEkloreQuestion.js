@@ -3,11 +3,10 @@ Template.editEkloreQuestion.helpers({
 		return QuestionsGroups.findOne({ _id: this.questionsGroupId });
 	},
 	questionsGroups() {
-		return QuestionsGroups.find({
-			deprecated: false
-		}, {
+		return QuestionsGroups.find({}, {
 			fields: {
-				title: 1
+				title: 1,
+				deprecated: 1
 			}
 		});
 	},

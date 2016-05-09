@@ -80,8 +80,10 @@ template(name="editEkloreQuestion")
 									.col-xs-12.col-sm-12.col-md-12.col-lg-12
 										.panel.panel-default
 											.panel-body
-												p #{title}
+												p {{_ "title"}} : #{title}
 													button#removeQuestionsGroupFromEkloreQuestion.btn.pull-right.btn-danger {{_ "remove"}}
+												p {{_ "deprecated"}}
+													+deprecated
 				else
 					.panel.panel-danger
 						.panel-heading
@@ -92,5 +94,7 @@ template(name="editEkloreQuestion")
 									.col-xs-12.col-sm-6.col-md-6.col-lg-6
 										.panel.panel-default
 											.panel-body
-												p #{title}
+												p {{_ "title"}} : #{title}
 													button.btn#linkToEkloreQuestion.pull-right.btn-success(type="submit") {{_ "linkToEkloreQuestion"}}
+												p {{_ "deprecated"}}
+													+deprecated
