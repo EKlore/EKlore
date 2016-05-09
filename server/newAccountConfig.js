@@ -7,7 +7,8 @@ Accounts.onCreateUser((options, user) => {
 		user.profile = {
 			firstName: '',
 			lastName: '',
-			admin: false
+			admin: false,
+			questionsGroups: []
 		};
 	}
 	return user;
