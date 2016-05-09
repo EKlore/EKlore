@@ -17,21 +17,22 @@ template(name="myProfile")
 			.panel-heading
 				h3 {{_ "yourProfileByUniverses"}}
 			.panel-body
-				each universes
-					.col-xs-4.col-sm-3.col-md-2.col-lg-2.univers
-						.circle.center-block #{value} %
-						p.text-center #{_id}
+				.row
+					each universes
+						.col-xs-4.col-sm-3.col-md-2.col-lg-2.vcenter
+							.circle.center-block(style="width: #{valueForCircle}px; height: #{valueForCircle}px;line-height: #{valueForCircle}px;") #{value}%
+							p.text-center #{universeName}
 		//.panel.panel-default
 			.panel-heading
 				h3 Vous n'êtes pas seul... d'autres personnes vous ressemble !
 			.panel-body
 				each universes
-					.col-xs-4.col-sm-3.col-md-2.col-lg-2.univers
+					.col-xs-4.col-sm-3.col-md-2.col-lg-2
 						.circle.center-block 100%
 						p.text-center #{_id}
 		.panel.panel-default
 			.panel-heading
-				h3 Groupe de questions disponibles
+				h3 {{_ "questionsGroupsAvailable"}}
 			.panel-body
 				.row
 					each questionsGroup
@@ -42,7 +43,7 @@ template(name="myProfile")
 								.panel-body
 									p #{label}
 								.panel-footer
-									a.center-block.addQuestionsGroupToUser.btn.btn-primary(role="button" href="#") Répondre aux questions !
+									a.center-block.addQuestionsGroupToUser.btn.btn-primary(role="button" href="#") {{_ "answerQuestions"}}
 					else
 						.col-xs-12.col-sm-12.col-md-12.col-lg-12
 							p {{_ "noMoreQuestionsGroupsAvailable"}}

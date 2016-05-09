@@ -61,13 +61,27 @@ Template.myProfile.helpers({
 		for (prop in questionsObject) {
 			questionsArray.push({
 				_id: prop,
-				value: lodash.round(questionsObject[prop].value / questionsObject[prop].long * 100, 2)
+				value: lodash.round(questionsObject[prop].value / questionsObject[prop].long * 100, 2),
+				valueForCircle: lodash.round(questionsObject[prop].value / questionsObject[prop].long * 100 / 4 + 75, 0)
 			});
 		}
+		questionsArray.sort((a, b) => {
+			if (a.value < b.value) {
+				return -1;
+			} else if (b.value > a.value) {
+				return 1;
+			} else {
+				return 0;
+			}
+		})
 		return questionsArray;
 	},
-	perc() {
-		return Math.ceil(Math.random() * 100);
+	universeName() {
+		return Universes.findOne({ _id: this._id }, {
+			fields: {
+				name: 1
+			}
+		}).name;
 	}
 });
 
