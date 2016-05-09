@@ -124,5 +124,7 @@
 	"signUpIn30Sec": "Créez votre compte en 30 secondes !",
 	"pseudo": "Pseudo",
 	"createAccount": "Créer votre compte",
-	"yourProfileByUniverses": "Votre profil par univers"
+	"yourProfileByUniverses": "Votre profil par univers",
+	"questionsGroupsAvailable": "Groupe de questions disponibles",
+	"answerQuestions": "Répondre aux questions !"
 }
