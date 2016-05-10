@@ -74,9 +74,9 @@ Template.myProfile.helpers({
 		}
 		questionsArray.sort((a, b) => {
 			if (a.value < b.value) {
-				return -1;
-			} else if (b.value > a.value) {
 				return 1;
+			} else if (a.value > b.value) {
+				return -1;
 			} else {
 				return 0;
 			}
