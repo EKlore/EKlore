@@ -126,5 +126,9 @@
 	"createAccount": "Créer votre compte",
 	"yourProfileByUniverses": "Votre profil par univers",
 	"questionsGroupsAvailable": "Groupe de questions disponibles",
-	"answerQuestions": "Répondre aux questions !"
+	"answerQuestions": "Répondre aux questions !",
+	"yourProgramForTheDay": "Votre programme de la journée",
+	"peopleAreGoingToo": "personnes y vont",
+	"youdontWantToGo": "Ne plus y aller ?",
+	"doYouWantToGo": "J'y vais ?"
 }
