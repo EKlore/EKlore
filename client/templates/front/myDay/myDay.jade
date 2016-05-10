@@ -1,0 +1,33 @@
+template(name="myDay")
+	if currentUser
+		.panel.panel-default
+			.panel-heading
+				h3 {{_ "yourProgramForTheDay"}}
+			.panel-body
+				each workshops
+					.panel.panel-default
+						.panel-heading
+							h4.panel-title {{_ "workshopName"}} : #{name}
+						.panel-body
+							.row
+								.col-xs-12.col-sm-12.col-md-6.col-lg6
+									p {{_ "startDate"}} :
+										span.badge #{dateStart}
+								.col-xs-12.col-sm-12.col-md-6.col-lg6
+									p {{_ "endDate"}} :
+										span.badge #{dateEnd}
+								.col-xs-12.col-sm-12.col-md-6.col-lg6
+									p
+										span.badge #{peopleToGoCount}
+										| {{_ "peopleAreGoingToo"}}
+								.col-xs-12.col-sm-12.col-md-6.col-lg6
+									if isUserAlreadyIn
+										button.removeFromWorkshop.btn.btn-danger(type="button") {{_ "youdontWantToGo"}}
+									else
+										button.goToWorkshop.btn.btn-primary(type="button") {{_ "doYouWantToGo"}}
+	else
+		.row
+			.col-xs-12.col-sm-6.col-md-6.col-lg-6
+				+signUp
+			.col-xs-12.col-sm-6.col-md-6.col-lg-6
+				+signIn
