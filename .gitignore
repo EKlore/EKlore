@@ -1,2 +1,3 @@
-eklore.sublime-project
-eklore.sublime-workspace
+.meteor/local
+.meteor/meteorite
+node_modules/

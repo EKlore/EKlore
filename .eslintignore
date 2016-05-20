@@ -1,4 +1,2 @@
-client/compatibility/**
-client/lib/compatibility/**
-client/lib/bootstrap-datetimepicker.fr.js
+imports/startup/client/compatibility/**
 i18n/**

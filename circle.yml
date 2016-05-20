@@ -7,4 +7,4 @@ dependencies:
 
 test:
   override:
-    - eslint client/ lib/ server/
+    - eslint client/ imports/ server/

@@ -6,15 +6,12 @@
 
 mquandalle:jade
 jquery
-meteorhacks:fast-render
-meteorhacks:subs-manager
 sacha:spin
 tap:i18n
 iron:router
 accounts-password
 stylus
-aldeed:collection2
-standard-minifiers
+aldeed:simple-schema
 meteor-base
 mobile-experience
 mongo
@@ -42,3 +39,5 @@ blaze-html-templates
 templating
 stevezhu:lodash
 doctorpangloss:method-hooks
+standard-minifier-css
+standard-minifier-js
