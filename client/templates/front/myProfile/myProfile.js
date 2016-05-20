@@ -45,7 +45,8 @@ Template.myProfile.helpers({
 			deprecated: false
 		}, {
 			fields: {
-				result: 1
+				result: 1,
+				color: 1
 			}
 		}).fetch();
 		let questionsObject = {};
@@ -59,7 +60,8 @@ Template.myProfile.helpers({
 					} else {
 						questionsObject[cur1.universeId] = {
 							value: cur1.result,
-							long: 1
+							long: 1,
+							color: cur1.color
 						};
 					}
 				}
@@ -69,7 +71,8 @@ Template.myProfile.helpers({
 			questionsArray.push({
 				_id: prop,
 				value: lodash.round(questionsObject[prop].value / questionsObject[prop].long * 100, 2),
-				valueForCircle: lodash.round(questionsObject[prop].value / questionsObject[prop].long * 100 / 4 + 75, 0)
+				valueForCircle: lodash.round(questionsObject[prop].value / questionsObject[prop].long * 100 / 4 + 75, 0),
+				color: questionsObject[prop].color
 			});
 		}
 		questionsArray.sort((a, b) => {

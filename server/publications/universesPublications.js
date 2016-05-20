@@ -11,7 +11,8 @@ Meteor.publish('allUniverses', () => {
 Meteor.publish('allUniversesLinkableToWorkshop', () => {
 	return Universes.find({}, {
 		fields: {
-			name: 1
+			name: 1,
+			color: 1
 		}
 	});
 });

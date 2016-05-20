@@ -19,6 +19,12 @@ template(name="editWorkshop")
 							.form-group
 								label(for="workshopEndDate") {{_ "workshopEndDate"}}
 								input#workshopEndDate.form-control(type="text" value="#{dateEnd}")
+							.form-group
+								label(for="workshopColor") {{_ "workshopColor"}}
+								if color
+									input#workshopColor.form-control(type="color" name="workshopColor" value="#{color}")
+								else
+									input#workshopColor.form-control(type="color" name="workshopColor" value="#3355CC")
 					.panel-footer
 						.row
 							.col-xs-12.col-sm-6.col-md-6.col-lg-6

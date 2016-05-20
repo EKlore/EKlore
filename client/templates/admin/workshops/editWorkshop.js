@@ -34,29 +34,33 @@ Template.editWorkshop.helpers({
 Template.editWorkshop.events({
 	'click #save': function(event) {
 		event.preventDefault();
-		const workshopData = {
+		const data = {
 			workshopId: Router.current().params._id,
 			name: $('#workshopName').val(),
 			description: $('#workshopDescription').val(),
 			dateStart: moment($('#workshopDateStart').val()).toDate(),
-			dateEnd: moment($('#workshopEndDate').val()).toDate()
+			dateEnd: moment($('#workshopEndDate').val()).toDate(),
+			color: $('#workshopColor').val()
 		};
-		if (!workshopData.name) {
+		if (!data.name) {
 			return throwError('Name must be filled');
 		}
-		if (!workshopData.description) {
+		if (!data.description) {
 			return throwError('Label must be filled');
 		}
-		if (!workshopData.dateStart) {
+		if (!data.dateStart) {
 			return throwError('Date start must be filled');
 		}
-		if (!workshopData.dateEnd) {
+		if (!data.dateEnd) {
 			return throwError('Date end must be filled');
 		}
-		if (workshopData.dateEnd < workshopData.dateStart) {
+		if (data.dateEnd < data.dateStart) {
 			return throwError('Date start must be inferior to Date end');
 		}
-		Meteor.call('updateAWorkshop', workshopData, (error, result) => {
+		if (!data.color) {
+			return throwError('Color must be filled');
+		}
+		Meteor.call('updateAWorkshop', data, (error, result) => {
 			if (error) {
 				return throwError(error.message);
 			} else {
