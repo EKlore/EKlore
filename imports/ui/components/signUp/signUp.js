@@ -1,3 +1,9 @@
+import { Template } from 'meteor/templating';
+import { check } from 'meteor/check';
+import { Accounts } from 'meteor/accounts-base';
+
+import './signUp.jade';
+
 Template.signUp.events({
 	'submit .createNewUser': function(event) {
 		event.preventDefault();

@@ -29,12 +29,10 @@ ecmascript
 peerlibrary:reactive-field
 twbs:bootstrap
 ian:accounts-ui-bootstrap-3
-bevanhunt:leaflet
 dburles:collection-helpers
 momentjs:moment
 kadira:debug
 meteorhacks:kadira-profiler
-erasaur:meteor-lodash
 blaze-html-templates
 templating
 stevezhu:lodash

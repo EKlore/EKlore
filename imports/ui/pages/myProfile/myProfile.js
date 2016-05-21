@@ -1,3 +1,26 @@
+import { Meteor } from 'meteor/meteor';
+import { Template } from 'meteor/templating';
+import { lodash } from 'meteor/stevezhu:lodash';
+
+import { UserQuestions } from '../../../api/userQuestions/schema.js';
+import { QuestionsGroups } from '../../../api/questionsGroups/schema.js';
+import { Universes } from '../../../api/universes/schema.js';
+
+import './myProfile.jade';
+import '../../components/signIn/signIn.js';
+import '../../components/signUp/signUp.js';
+
+
+Template.myProfile.onCreated(function() {
+	this.autorun(() => {
+		this.subscribe('allQuestionsGroups');
+		this.subscribe('allUniversesLinkableToWorkshop');
+		this.subscribe('allWorkshopsLinkableToUniverse');
+		this.subscribe('userQuestionsNotAnswered', Meteor.userId());
+		this.subscribe('resultForQuestionsAnswered', Meteor.userId());
+	});
+});
+
 Template.myProfile.helpers({
 	userHasQuestionsGroupsInProfile() {
 		if (!Meteor.user().profile.questionsGroups || Meteor.user().profile.questionsGroups.length === 0) {
@@ -104,7 +127,7 @@ Template.myProfile.events({
 		};
 		Meteor.call('addQuestionsGroupToUser', data, (error, result) => {
 			if (error) {
-				return throwError(error.message);
+				return error.message;
 			}
 		});
 	}

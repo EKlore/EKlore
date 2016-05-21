@@ -1,3 +1,7 @@
+import { Meteor } from 'meteor/meteor';
+
+import { Volunteers } from '../../api/volunteers/schema.js';
+
 Meteor.startup(() => {
 	if (Volunteers.find({}).count() === 0) {
 		var volunteers = [{

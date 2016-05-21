@@ -1,6 +1,16 @@
 import { Router } from 'meteor/iron:router';
 import { loading } from 'meteor/sacha:spin';
 
+// Base components/layouts
+import '../../ui/layouts/layout.js';
+import '../../ui/layouts/adminLayout.jade';
+import '../../ui/components/loading.jade';
+import '../../ui/components/notFound.jade';
+
+// Pages
+import '../../ui/pages/home/home.js';
+import '../../ui/pages/myProfile/myProfile.js';
+
 Router.configure({
 	loadingTemplate: 'loading',
 	notFoundTemplate: 'notFound'
@@ -8,25 +18,12 @@ Router.configure({
 
 Router.route('/', {
 	layoutTemplate: 'layout',
-	name: 'home',
-	waitOn() {
-		return subscriptions.subscribe('allVolunteers');
-	},
-	fastRender: true
+	name: 'home'
 });
 
 Router.route('/myProfile', {
 	layoutTemplate: 'layout',
-	name: 'myProfile',
-	waitOn() {
-		return [
-			subscriptions.subscribe('allQuestionsGroups'),
-			subscriptions.subscribe('allUniversesLinkableToWorkshop'),
-			subscriptions.subscribe('allWorkshopsLinkableToUniverse'),
-			subscriptions.subscribe('userQuestionsNotAnswered', Meteor.userId()),
-			subscriptions.subscribe('resultForQuestionsAnswered', Meteor.userId())
-		];
-	}
+	name: 'myProfile'
 });
 
 Router.route('/answerQuestions', {

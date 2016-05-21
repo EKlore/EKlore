@@ -1,3 +1,8 @@
+import { Template } from 'meteor/templating';
+import { Router } from 'meteor/iron:router';
+
+import './header.jade';
+
 Template.header.helpers({
 	myProfileActive() {
 		if (Router.current().route._path === '/myProfile') {
