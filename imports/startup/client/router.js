@@ -11,6 +11,8 @@ import '../../ui/components/notFound.jade';
 import '../../ui/pages/home/home.js';
 import '../../ui/pages/myProfile/myProfile.js';
 import '../../ui/pages/admin/admin.js';
+import '../../ui/pages/newUniverse/newUniverse.js';
+import '../../ui/pages/editUniverse/editUniverse.js';
 
 Router.configure({
 	loadingTemplate: 'loading',
@@ -60,14 +62,7 @@ Router.route('/admin/universes/new', {
 
 Router.route('/admin/universes/:_id/edit', {
 	layoutTemplate: 'adminLayout',
-	name: 'editUniverse',
-	waitOn() {
-		return [subscriptions.subscribe('anUniverse', this.params._id), subscriptions.subscribe('allWorkshopsLinkableToUniverse')];
-	},
-	data() {
-		return Universes.findOne(this.params._id);
-	},
-	fastRender: true
+	name: 'editUniverse'
 });
 
 Router.route('/admin/workshops/new', {

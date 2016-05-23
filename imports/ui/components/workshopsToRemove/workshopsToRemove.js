@@ -1,3 +1,10 @@
+import { Meteor } from 'meteor/meteor';
+import { Template } from 'meteor/templating';
+
+import { Workshops } from '../../../api/workshops/schema.js';
+
+import './workshopsToRemove.jade';
+
 Template.workshopsToRemove.helpers({
 	workshopData() {
 		return Workshops.findOne(this.workshopId);
@@ -13,11 +20,11 @@ Template.workshopsToRemove.events({
 		};
 		Meteor.call('removeWorkshopFromUniverse', data, (error, result) => {
 			if (error) {
-				return throwError(error.message);
+				return error.message;
 			} else {
 				Meteor.call('removeUniverseFromWorkshop', data, (error, result) => {
 					if (error) {
-						return throwError(error.message);
+						return error.message;
 					}
 				});
 			}

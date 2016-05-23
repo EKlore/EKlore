@@ -1,3 +1,9 @@
+import { Meteor } from 'meteor/meteor';
+import { Template } from 'meteor/templating';
+import { Router } from 'meteor/iron:router';
+
+import './newUniverse.jade';
+
 Template.newUniverse.events({
 	'click #addUniverse': function(event) {
 		event.preventDefault();
@@ -5,16 +11,10 @@ Template.newUniverse.events({
 			name: $('#universeName').val(),
 			label: $('#universeLabel').val()
 		};
-		if (!universe.name) {
-			return throwError('Name must be filled');
-		}
-		if (!universe.label) {
-			return throwError('Label must be filled');
-		}
 		if (universe.name && universe.label) {
 			Meteor.call('addAUniverse', universe, (error, result) => {
 				if (error) {
-					return throwError(error.message);
+					return error.message;
 				} else {
 					Router.go('editUniverse', { _id: result });
 				}

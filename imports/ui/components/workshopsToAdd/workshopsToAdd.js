@@ -1,3 +1,8 @@
+import { Meteor } from 'meteor/meteor';
+import { Template } from 'meteor/templating';
+
+import './workshopsToAdd.jade';
+
 Template.workshopsToAdd.events({
 	'submit .addWorkshopToUniverse': function(event) {
 		event.preventDefault();
@@ -16,11 +21,11 @@ Template.workshopsToAdd.events({
 			} else {
 				Meteor.call('addWorkshopToUniverse', data, (error, result) => {
 					if (error) {
-						return throwError(error.message);
+						return error.message;
 					} else {
 						Meteor.call('addUniverseToWorkshop', data, (error, result) => {
 							if (error) {
-								return throwError(error.message);
+								return error.message;
 							}
 						});
 					}
