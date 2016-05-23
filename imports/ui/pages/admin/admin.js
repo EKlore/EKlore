@@ -1,9 +1,14 @@
+import { Meteor } from 'meteor/meteor';
+import { Template } from 'meteor/templating';
+
+import './admin.jade';
+import '../../components/listUniverses/listUniverses.js';
+import '../../components/listWorkshops/listWorkshops.js';
+import '../../components/listQuestionsGroups/listQuestionsGroups.js';
+import '../../components/listEkloreQuestions/listEkloreQuestions.js';
+
 Template.admin.helpers({
 	isAdmin() {
-		if (Meteor.user().profile.admin) {
-			return true;
-		} else {
-			return false;
-		}
+		return Meteor.user().profile.admin;
 	}
 });

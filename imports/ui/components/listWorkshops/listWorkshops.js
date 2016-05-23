@@ -1,3 +1,15 @@
+import { Template } from 'meteor/templating';
+
+import { Workshops } from '../../../api/workshops/schema.js';
+
+import './listWorkshops.jade';
+
+Template.listWorkshops.onCreated(function() {
+	this.autorun(() => {
+		this.subscribe('allWorkshops');
+	});
+});
+
 Template.listWorkshops.helpers({
 	workshopsCount() {
 		return Workshops.find({}).count();

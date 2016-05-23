@@ -3,13 +3,14 @@ import { loading } from 'meteor/sacha:spin';
 
 // Base components/layouts
 import '../../ui/layouts/layout.js';
-import '../../ui/layouts/adminLayout.jade';
+import '../../ui/layouts/adminLayout.js';
 import '../../ui/components/loading.jade';
 import '../../ui/components/notFound.jade';
 
 // Pages
 import '../../ui/pages/home/home.js';
 import '../../ui/pages/myProfile/myProfile.js';
+import '../../ui/pages/admin/admin.js';
 
 Router.configure({
 	loadingTemplate: 'loading',
@@ -49,16 +50,7 @@ Router.route('/meeting', {
 
 Router.route('/admin', {
 	layoutTemplate: 'adminLayout',
-	name: 'admin',
-	waitOn() {
-		return [
-			subscriptions.subscribe('allUniverses'),
-			subscriptions.subscribe('allWorkshops'),
-			subscriptions.subscribe('allQuestionsGroups'),
-			subscriptions.subscribe('allEkloreQuestions')
-		];
-	},
-	fastRender: true
+	name: 'admin'
 });
 
 Router.route('/admin/universes/new', {
