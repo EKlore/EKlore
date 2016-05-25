@@ -28,7 +28,7 @@ template(name="editUniverse")
 									button#save.btn.btn-success.btn-block {{_ "save"}}
 					.panel.panel-success
 						.panel-heading
-							h4 {{_ "workshopsLinkedWithUniverse"}}
+							p.panel-title {{_ "workshopsLinkedWithUniverse"}}
 						.panel-body
 							.row
 								each workshopsLinked
@@ -36,7 +36,7 @@ template(name="editUniverse")
 										+workshopsToRemove
 					.panel.panel-danger
 						.panel-heading
-							h4 {{_ "workshopsNotLinkedWithUniverse"}}
+							p.panel-title {{_ "workshopsNotLinkedWithUniverse"}}
 						.panel-body
 							.row
 								each workshops

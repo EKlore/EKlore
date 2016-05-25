@@ -1,3 +1,8 @@
+import { Meteor } from 'meteor/meteor';
+import { Template } from 'meteor/templating';
+
+import './universesToAdd.jade';
+
 Template.universesToAdd.events({
 	'submit .addUniverseToWorkshop': function(event) {
 		event.preventDefault();

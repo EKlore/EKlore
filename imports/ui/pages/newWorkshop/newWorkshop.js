@@ -1,17 +1,22 @@
+import { Meteor } from 'meteor/meteor';
+import { Template } from 'meteor/templating';
+import { Router } from 'meteor/iron:router';
+import { Bert } from 'meteor/themeteorchef:bert';
+
+import './newWorkshop.jade';
+
 Template.newWorkshop.onRendered(() => {
-	$('#workshopDateStart').datetimepicker({
+	$('#workshopDateStart').datepicker({
 		format: 'yyyy-mm-dd hh:ii',
 		weekStart: 1,
 		autoclose: true,
-		language: 'fr',
-		minuteStep: 15
+		language: 'fr'
 	});
-	$('#workshopEndDate').datetimepicker({
+	$('#workshopEndDate').datepicker({
 		format: 'yyyy-mm-dd hh:ii',
 		weekStart: 1,
 		autoclose: true,
-		language: 'fr',
-		minuteStep: 15
+		language: 'fr'
 	});
 });
 
@@ -25,23 +30,23 @@ Template.newWorkshop.events({
 			dateEnd: moment($('#workshopEndDate').val()).toDate()
 		};
 		if (!workshop.name) {
-			return throwError('Name must be filled');
+			return Bert.alert('Name must be filled', 'danger', 'growl-top-right');
 		}
 		if (!workshop.description) {
-			return throwError('Description must be filled');
+			return Bert.alert('Description must be filled', 'danger', 'growl-top-right');
 		}
 		if (!workshop.dateStart) {
-			return throwError('Date start must be filled');
+			return Bert.alert('Date start must be filled', 'danger', 'growl-top-right');
 		}
 		if (!workshop.dateEnd) {
-			return throwError('Date end must be filled');
+			return Bert.alert('Date end must be filled', 'danger', 'growl-top-right');
 		}
 		if (workshop.dateEnd < workshop.dateStart) {
-			return throwError('Date start must be inferior to Date end');
+			return Bert.alert('Date start must be inferior to Date end', 'danger', 'growl-top-right');
 		}
 		Meteor.call('addAWorkshop', workshop, (error, result) => {
 			if (error) {
-				return throwError(error.message);
+				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			} else {
 				Router.go('editWorkshop', { _id: result });
 			}

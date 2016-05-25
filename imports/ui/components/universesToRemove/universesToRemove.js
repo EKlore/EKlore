@@ -1,3 +1,10 @@
+import { Meteor } from 'meteor/meteor';
+import { Template } from 'meteor/templating';
+
+import { Universes } from '../../../api/universes/schema.js';
+
+import './universesToRemove.jade';
+
 Template.universesToRemove.helpers({
 	universeData() {
 		return Universes.findOne(this.universeId);

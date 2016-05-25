@@ -30,7 +30,7 @@ Template.editUniverse.helpers({
 });
 
 Template.editUniverse.events({
-	'click #save' (event) {
+	'click #save': function(event) {
 		event.preventDefault();
 		const data = {
 			universeId: Router.current().params._id,

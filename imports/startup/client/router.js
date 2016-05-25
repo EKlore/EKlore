@@ -13,6 +13,8 @@ import '../../ui/pages/myProfile/myProfile.js';
 import '../../ui/pages/admin/admin.js';
 import '../../ui/pages/newUniverse/newUniverse.js';
 import '../../ui/pages/editUniverse/editUniverse.js';
+import '../../ui/pages/newWorkshop/newWorkshop.js';
+import '../../ui/pages/editWorkshop/editWorkshop.js';
 
 Router.configure({
 	loadingTemplate: 'loading',
@@ -72,14 +74,7 @@ Router.route('/admin/workshops/new', {
 
 Router.route('/admin/workshops/:_id/edit', {
 	layoutTemplate: 'adminLayout',
-	name: 'editWorkshop',
-	waitOn() {
-		return [subscriptions.subscribe('aWorkshop', this.params._id), subscriptions.subscribe('allUniversesLinkableToWorkshop')];
-	},
-	data() {
-		return Workshops.findOne(this.params._id);
-	},
-	fastRender: true
+	name: 'editWorkshop'
 });
 
 Router.route('/admin/questionsGroups/new', {
