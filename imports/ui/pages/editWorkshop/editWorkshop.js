@@ -18,17 +18,13 @@ Template.editWorkshop.onCreated(function() {
 });
 
 Template.editWorkshop.onRendered(() => {
-	$('#workshopDateStart').datepicker({
-		format: 'yyyy-mm-dd hh:ii',
-		weekStart: 1,
-		autoclose: true,
-		language: 'fr'
+	this.$('#workshopDateStart').datetimepicker({
+		locale: 'fr',
+		format: 'YYYY-MM-D HH:mm'
 	});
-	$('#workshopEndDate').datepicker({
-		format: 'yyyy-mm-dd hh:ii',
-		weekStart: 1,
-		autoclose: true,
-		language: 'fr'
+	this.$('#workshopEndDate').datetimepicker({
+		locale: 'fr',
+		format: 'YYYY-MM-D HH:mm'
 	});
 });
 

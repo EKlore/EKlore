@@ -13,10 +13,16 @@ template(name="newWorkshop")
 						textarea#workshopDescription.form-control(rows="3")
 					.form-group
 						label(for="workshopDateStart") {{_ "workshopStartDate"}}
-						input#workshopDateStart.form-control(type="text" value="2016-09-24 10:00")
+						.input-group.datetimepicker
+							span.input-group-addon
+								i.glyphicon.glyphicon-calendar
+							input#workshopDateStart.set-due-date.form-control(type="text")
 					.form-group
 						label(for="workshopEndDate") {{_ "workshopEndDate"}}
-						input#workshopEndDate.form-control(type="text" value="2016-09-24 11:00")
+						.input-group.datetimepicker
+							span.input-group-addon
+									i.glyphicon.glyphicon-calendar
+							input#workshopEndDate.set-due-date.form-control(type="text")
 			.panel-footer
 				.row
 					.col-xs-12.col-sm-6.col-md-6.col-lg-6

@@ -6,17 +6,13 @@ import { Bert } from 'meteor/themeteorchef:bert';
 import './newWorkshop.jade';
 
 Template.newWorkshop.onRendered(() => {
-	$('#workshopDateStart').datepicker({
-		format: 'yyyy-mm-dd hh:ii',
-		weekStart: 1,
-		autoclose: true,
-		language: 'fr'
+	this.$('#workshopDateStart').datetimepicker({
+		locale: 'fr',
+		format: 'YYYY-MM-D HH:mm'
 	});
-	$('#workshopEndDate').datepicker({
-		format: 'yyyy-mm-dd hh:ii',
-		weekStart: 1,
-		autoclose: true,
-		language: 'fr'
+	this.$('#workshopEndDate').datetimepicker({
+		locale: 'fr',
+		format: 'YYYY-MM-D HH:mm'
 	});
 });
 

@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { Router } from 'meteor/iron:router';
+import { Bert } from 'meteor/themeteorchef:bert';
 
 import { Universes } from '../../../api/universes/schema.js';
 import { Workshops } from '../../../api/workshops/schema.js';
@@ -38,9 +39,20 @@ Template.editUniverse.events({
 			label: $('#universeLabel').val(),
 			color: $('#universeColor').val()
 		};
+		if (!data.name) {
+			return Bert.alert('Name must be filled', 'danger', 'growl-top-right');
+		}
+		if (!data.label) {
+			return Bert.alert('Label must be filled', 'danger', 'growl-top-right');
+		}
+		if (!data.color) {
+			return Bert.alert('Color must be filled', 'danger', 'growl-top-right');
+		}
 		Meteor.call('updateAUniverse', data, (error, result) => {
 			if (error) {
-				return error.message;
+				return Bert.alert(error.message, 'danger', 'growl-top-right');
+			} else {
+				Bert.alert('Update successful', 'success', 'growl-top-right');
 			}
 		});
 	}

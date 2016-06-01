@@ -6,9 +6,12 @@ import { UserQuestions } from '../userQuestions/schema.js';
 export const Universes = new Mongo.Collection('universes');
 
 Universes.deny({
-	insert() { return true; },
-	update() { return true; },
-	remove() { return true; }
+	insert() {
+		return true; },
+	update() {
+		return true; },
+	remove() {
+		return true; }
 });
 
 let WorkshopSchema = new SimpleSchema({
@@ -34,8 +37,7 @@ Universes.schema = new SimpleSchema({
 	},
 	workshopsLinked: {
 		type: [WorkshopSchema],
-		label: 'List of the linked workshops to the choice',
-		optional: true
+		label: 'List of the linked workshops to the choice'
 	},
 	color: {
 		type: String,
