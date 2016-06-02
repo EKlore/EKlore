@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { Router } from 'meteor/iron:router';
+import { Bert } from 'meteor/themeteorchef:bert';
 
 import './newUniverse.jade';
 
@@ -11,10 +12,16 @@ Template.newUniverse.events({
 			name: $('#universeName').val(),
 			label: $('#universeLabel').val()
 		};
+		if (!data.name) {
+			return Bert.alert('Name must be filled', 'danger', 'growl-top-right');
+		}
+		if (!data.label) {
+			return Bert.alert('Label must be filled', 'danger', 'growl-top-right');
+		}
 		if (universe.name && universe.label) {
 			Meteor.call('addAUniverse', universe, (error, result) => {
 				if (error) {
-					return error.message;
+					return Bert.alert(error.message, 'danger', 'growl-top-right');
 				} else {
 					Router.go('editUniverse', { _id: result });
 				}

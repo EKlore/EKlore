@@ -52,7 +52,7 @@ Template.editUniverse.events({
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			} else {
-				Bert.alert('Update successful', 'success', 'growl-top-right');
+				return Bert.alert('Update successful', 'success', 'growl-top-right');
 			}
 		});
 	}

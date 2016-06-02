@@ -30,7 +30,7 @@ Meteor.methods({
 		check(workshopData.workshopId, String);
 		check(workshopData.matchingPower, Number);
 		return Universes.update({ _id: workshopData.universeId }, {
-			$push: {
+			$addToSet: {
 				workshopsLinked: {
 					workshopId: workshopData.workshopId,
 					matchingPower: workshopData.matchingPower

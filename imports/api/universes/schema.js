@@ -7,11 +7,14 @@ export const Universes = new Mongo.Collection('universes');
 
 Universes.deny({
 	insert() {
-		return true; },
+		return true;
+	},
 	update() {
-		return true; },
+		return true;
+	},
 	remove() {
-		return true; }
+		return true;
+	}
 });
 
 let WorkshopSchema = new SimpleSchema({
@@ -49,8 +52,5 @@ Universes.schema = new SimpleSchema({
 Universes.helpers({
 	questionsLinked() {
 		return UserQuestions.find({ 'universesLinked.universeId': this._id });
-	},
-	workshopsLinkedCount() {
-		return this.workshopsLinked.length;
 	}
 });

@@ -15,6 +15,9 @@ import '../../ui/pages/newUniverse/newUniverse.js';
 import '../../ui/pages/editUniverse/editUniverse.js';
 import '../../ui/pages/newWorkshop/newWorkshop.js';
 import '../../ui/pages/editWorkshop/editWorkshop.js';
+import '../../ui/pages/newQuestionsGroup/newQuestionsGroup.js';
+import '../../ui/pages/editQuestionsGroup/editQuestionsGroup.js';
+import '../../ui/pages/newEkloreQuestion/newEkloreQuestion.js';
 
 Router.configure({
 	loadingTemplate: 'loading',
@@ -84,17 +87,7 @@ Router.route('/admin/questionsGroups/new', {
 
 Router.route('/admin/questionsGroups/:_id/edit', {
 	layoutTemplate: 'adminLayout',
-	name: 'editQuestionsGroup',
-	waitOn() {
-		return [
-			subscriptions.subscribe('aQuestionsGroup', this.params._id),
-			subscriptions.subscribe('ekloreQuestionsLinkedToQuestionsGroup', this.params._id)
-		];
-	},
-	data() {
-		return QuestionsGroups.findOne(this.params._id);
-	},
-	fastRender: true
+	name: 'editQuestionsGroup'
 });
 
 Router.route('/admin/ekloreQuestions/new', {

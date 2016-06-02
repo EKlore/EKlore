@@ -4,9 +4,12 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 export const Workshops = new Mongo.Collection('workshops');
 
 Workshops.deny({
-	insert() { return true; },
-	update() { return true; },
-	remove() { return true; }
+	insert() {
+		return true; },
+	update() {
+		return true; },
+	remove() {
+		return true; }
 });
 
 let UserIdSchema = new SimpleSchema({
@@ -68,9 +71,6 @@ Workshops.schema = new SimpleSchema({
 Workshops.helpers({
 	questionsLinked() {
 		return UserQuestions.find({ 'workshopsLinked.workshopId': this._id });
-	},
-	universesLinkedCount() {
-		return this.universesLinked.length;
 	},
 	peopleToGoCount() {
 		if (this.peopleToGo) {

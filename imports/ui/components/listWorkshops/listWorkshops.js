@@ -18,6 +18,12 @@ Template.listWorkshops.helpers({
 		return Workshops.find({}, {
 			sort: {
 				dateStart: 1
+			},
+			fields: {
+				name: 1,
+				dateStart: 1,
+				dateEnd: 1,
+				universesLinked: 1
 			}
 		});
 	},
@@ -26,5 +32,8 @@ Template.listWorkshops.helpers({
 	},
 	dateEnd() {
 		return moment(this.dateEnd).format('D-MMM H:mm');
+	},
+	universesLinkedCount() {
+		return this.universesLinked.length || 0;
 	}
 });
