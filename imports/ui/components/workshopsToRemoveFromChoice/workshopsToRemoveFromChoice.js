@@ -1,3 +1,11 @@
+import { Meteor } from 'meteor/meteor';
+import { Template } from 'meteor/templating';
+import { Router } from 'meteor/iron:router';
+
+import { Workshops } from '../../../api/workshops/schema.js';
+
+import './workshopsToRemoveFromChoice.jade';
+
 Template.workshopsToRemoveFromChoice.helpers({
 	workshopData() {
 		return Workshops.findOne(this.workshopId);

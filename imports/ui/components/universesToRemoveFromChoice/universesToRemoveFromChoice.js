@@ -1,3 +1,12 @@
+import { Meteor } from 'meteor/meteor';
+import { Template } from 'meteor/templating';
+import { Router } from 'meteor/iron:router';
+import { Bert } from 'meteor/themeteorchef:bert';
+
+import { Universes } from '../../../api/universes/schema.js';
+
+import './universesToRemoveFromChoice.jade';
+
 Template.universesToRemoveFromChoice.helpers({
 	universeData() {
 		return Universes.findOne(this.universeId);

@@ -1,14 +1,15 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
+import { Router } from 'meteor/iron:router';
 import { Bert } from 'meteor/themeteorchef:bert';
 
-import './universesToAdd.jade';
+import './universesToAddToEkloreQuestion.jade';
 
-Template.universesToAdd.events({
-	'submit .addUniverseToWorkshop': function(event) {
+Template.universesToAddToEkloreQuestion.events({
+	'submit .addUniverseToEkloreQuestion': function(event) {
 		event.preventDefault();
 		const data = {
-			workshopId: Router.current().params._id,
+			ekloreQuestionId: Router.current().params._id,
 			universeId: this._id,
 			matchingPower: Number($(event.target).find('.matchingPower').val())
 		};
@@ -20,15 +21,9 @@ Template.universesToAdd.events({
 		} else if (data.matchingPower > 1) {
 			return Bert.alert('The matching power of the universe must be inferior to 1', 'danger', 'growl-top-right');
 		}
-		Meteor.call('addUniverseToWorkshop', data, (error, result) => {
+		Meteor.call('addUniverseToEkloreQuestion', data, (error, result) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
-			} else {
-				Meteor.call('addWorkshopToUniverse', data, (error, result) => {
-					if (error) {
-						return Bert.alert(error.message, 'danger', 'growl-top-right');
-					}
-				});
 			}
 		});
 	}

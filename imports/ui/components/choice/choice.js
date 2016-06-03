@@ -1,3 +1,18 @@
+import { Meteor } from 'meteor/meteor';
+import { Template } from 'meteor/templating';
+import { Router } from 'meteor/iron:router';
+import { lodash } from 'meteor/stevezhu:lodash';
+import { Bert } from 'meteor/themeteorchef:bert';
+
+import { Universes } from '../../../api/universes/schema.js';
+import { Workshops } from '../../../api/workshops/schema.js';
+
+import './choice.jade';
+import '../../components/universesToAddToChoice/universesToAddToChoice.js';
+import '../../components/universesToRemoveFromChoice/universesToRemoveFromChoice.js';
+import '../../components/workshopsToAddToChoice/workshopsToAddToChoice.js';
+import '../../components/workshopsToRemoveFromChoice/workshopsToRemoveFromChoice.js';
+
 Template.choice.helpers({
 	idForChoice() {
 		return 'choice_' + this.choiceId;
@@ -79,13 +94,13 @@ Template.choice.events({
 		};
 		data.choiceIndex = lodash.findIndex(Template.parentData(1).choices, ['choiceId', data.choiceId]);
 		if (!data.label) {
-			return throwError('Label must be filled');
+			return Bert.alert('Label must be filled', 'danger', 'growl-top-right');
 		}
 		Meteor.call('updateAChoice', data, (error, result) => {
 			if (error) {
-				return throwError(error.message);
+				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			} else {
-				return throwError('Update succesful !');
+				return Bert.alert('Update successful', 'success', 'growl-top-right');
 			}
 		});
 	}

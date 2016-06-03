@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
+import { Bert } from 'meteor/themeteorchef:bert';
 
 import { Workshops } from '../../../api/workshops/schema.js';
 
@@ -20,11 +21,11 @@ Template.workshopsToRemove.events({
 		};
 		Meteor.call('removeWorkshopFromUniverse', data, (error, result) => {
 			if (error) {
-				return error.message;
+				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			} else {
 				Meteor.call('removeUniverseFromWorkshop', data, (error, result) => {
 					if (error) {
-						return error.message;
+						return Bert.alert(error.message, 'danger', 'growl-top-right');
 					}
 				});
 			}

@@ -18,6 +18,7 @@ import '../../ui/pages/editWorkshop/editWorkshop.js';
 import '../../ui/pages/newQuestionsGroup/newQuestionsGroup.js';
 import '../../ui/pages/editQuestionsGroup/editQuestionsGroup.js';
 import '../../ui/pages/newEkloreQuestion/newEkloreQuestion.js';
+import '../../ui/pages/editEkloreQuestion/editEkloreQuestion.js';
 
 Router.configure({
 	loadingTemplate: 'loading',
@@ -97,17 +98,5 @@ Router.route('/admin/ekloreQuestions/new', {
 
 Router.route('/admin/ekloreQuestions/:_id/edit', {
 	layoutTemplate: 'adminLayout',
-	name: 'editEkloreQuestion',
-	waitOn() {
-		return [
-			subscriptions.subscribe('anEkloreQuestion', this.params._id),
-			subscriptions.subscribe('allQuestionsGroups'),
-			subscriptions.subscribe('allUniverses'),
-			subscriptions.subscribe('allWorkshops')
-		];
-	},
-	data() {
-		return EkloreQuestions.findOne(this.params._id);
-	},
-	fastRender: true
+	name: 'editEkloreQuestion'
 });

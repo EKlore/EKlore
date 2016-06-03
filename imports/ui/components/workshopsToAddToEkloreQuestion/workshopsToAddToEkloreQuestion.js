@@ -1,14 +1,15 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
+import { Router } from 'meteor/iron:router';
 import { Bert } from 'meteor/themeteorchef:bert';
 
-import './workshopsToAdd.jade';
+import './workshopsToAddToEkloreQuestion.jade';
 
-Template.workshopsToAdd.events({
-	'submit .addWorkshopToUniverse': function(event) {
+Template.workshopsToAddToEkloreQuestion.events({
+	'submit .addWorkshopToEkloreQuestion': function(event) {
 		event.preventDefault();
 		const data = {
-			universeId: Router.current().params._id,
+			ekloreQuestionId: Router.current().params._id,
 			workshopId: this._id,
 			matchingPower: Number($(event.target).find('.matchingPower').val())
 		};
@@ -20,15 +21,9 @@ Template.workshopsToAdd.events({
 		} else if (data.matchingPower > 1) {
 			return Bert.alert('The matching power of the workshop must be inferior to 1', 'danger', 'growl-top-right');
 		}
-		Meteor.call('addWorkshopToUniverse', data, (error, result) => {
+		Meteor.call('addWorkshopToEkloreQuestion', data, (error, result) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
-			} else {
-				Meteor.call('addUniverseToWorkshop', data, (error, result) => {
-					if (error) {
-						return Bert.alert(error.message, 'danger', 'growl-top-right');
-					}
-				});
 			}
 		});
 	}

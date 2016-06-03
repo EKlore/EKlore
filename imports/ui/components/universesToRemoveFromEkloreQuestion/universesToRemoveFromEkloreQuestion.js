@@ -1,3 +1,11 @@
+import { Meteor } from 'meteor/meteor';
+import { Template } from 'meteor/templating';
+import { Router } from 'meteor/iron:router';
+
+import { Universes } from '../../../api/universes/schema.js';
+
+import './universesToRemoveFromEkloreQuestion.jade';
+
 Template.universesToRemoveFromEkloreQuestion.helpers({
 	universeData() {
 		return Universes.findOne(this.universeId);
