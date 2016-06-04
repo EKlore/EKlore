@@ -20,6 +20,11 @@ Template.listQuestionsGroups.helpers({
 		return QuestionsGroups.find({}, {
 			sort: {
 				title: 1
+			},
+			fields: {
+				title: 1,
+				label: 1,
+				deprecated: 1
 			}
 		});
 	},

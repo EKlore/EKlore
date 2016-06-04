@@ -20,6 +20,13 @@ Template.listEkloreQuestions.helpers({
 		return EkloreQuestions.find({}, {
 			sort: {
 				title: 1
+			},
+			fields: {
+				title: 1,
+				version: 1,
+				displayType: 1,
+				questionsGroupId: 1,
+				deprecated: 1
 			}
 		});
 	}
