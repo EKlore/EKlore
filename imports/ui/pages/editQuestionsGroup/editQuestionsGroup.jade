@@ -34,7 +34,4 @@ template(name="editQuestionsGroup")
 										.panel.panel-default
 											.panel-body
 												p #{title}
-													if deprecated
-														button.btn.btn-danger {{_ "deprecated"}}
-													else
-														button.btn.btn-success {{_ "active"}}
+													+deprecated
