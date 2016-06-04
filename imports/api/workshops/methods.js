@@ -36,7 +36,7 @@ Meteor.methods({
 		check(data.universeId, String);
 		check(data.matchingPower, Number);
 		return Workshops.update({ _id: data.workshopId }, {
-			$addToSet: {
+			$push: {
 				universesLinked: {
 					universeId: data.universeId,
 					matchingPower: data.matchingPower
@@ -59,7 +59,7 @@ Meteor.methods({
 		check(data.workshopId, String);
 		check(data.userId, String);
 		return Workshops.update({ _id: data.workshopId }, {
-			$addToSet: {
+			$push: {
 				peopleToGo: {
 					userId: data.userId,
 					enterDate: new Date()
