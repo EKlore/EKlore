@@ -25,7 +25,7 @@ template(name="listUniverses")
 								tr
 									td #{name}
 									td #{label}
-									td #{workshopsLinkedCount}
+									td #{workshopsLinked.length}
 									td
 										a.btn.btn-info(role="button" href="{{pathFor 'editUniverse'}}")
 											span.glyphicon.glyphicon-edit(aria-hidden="true")

@@ -25,8 +25,5 @@ Template.listUniverses.helpers({
 				name: 1
 			}
 		});
-	},
-	workshopsLinkedCount() {
-		return this.workshopsLinked.length || 0;
 	}
 });

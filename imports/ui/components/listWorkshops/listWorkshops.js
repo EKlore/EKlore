@@ -32,8 +32,5 @@ Template.listWorkshops.helpers({
 	},
 	dateEnd() {
 		return moment(this.dateEnd).format('D-MMM H:mm');
-	},
-	universesLinkedCount() {
-		return this.universesLinked.length || 0;
 	}
 });
