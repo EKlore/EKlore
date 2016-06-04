@@ -16,9 +16,9 @@ template(name="choice")
 								label(for="#{choiceId}") {{_ "label"}}
 								input.form-control(id="#{choiceId}" type="text" value="#{label}")
 							.row
-								.col-xs-12.col-sm-6.col-md-6.col-lg-6
+								.col-xs-6.col-sm-6.col-md-6.col-lg-6
 									a.btn.btn-danger.btn-block(role="button" href="{{pathFor 'admin'}}") {{_ "cancel"}}
-								.col-xs-12.col-sm-6.col-md-6.col-lg-6
+								.col-xs-6.col-sm-6.col-md-6.col-lg-6
 									button.btn.btn-success.btn-block(type="submit") {{_ "save"}}
 				.panel.panel-default
 					.panel-heading
