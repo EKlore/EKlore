@@ -8,7 +8,8 @@ Meteor.publish('allEkloreQuestions', () => {
 			title: 1,
 			version: 1,
 			displayType: 1,
-			questionsGroupId: 1
+			questionsGroupId: 1,
+			deprecated: 1
 		}
 	});
 });
