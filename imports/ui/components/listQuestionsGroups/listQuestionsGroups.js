@@ -8,6 +8,7 @@ import './listQuestionsGroups.jade';
 Template.listQuestionsGroups.onCreated(function() {
 	this.autorun(() => {
 		this.subscribe('allQuestionsGroups');
+		this.subscribe('allEkloreQuestionsForCountQuestionsGroups');
 	});
 });
 
@@ -24,7 +25,7 @@ Template.listQuestionsGroups.helpers({
 	},
 	ekloreQuestionsLinkedCount() {
 		return EkloreQuestions.find({
-			questionGroupId: this._id
+			questionsGroupId: this._id
 		}).count();
 	}
 });

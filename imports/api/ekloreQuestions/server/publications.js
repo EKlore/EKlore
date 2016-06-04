@@ -26,3 +26,11 @@ Meteor.publish('ekloreQuestionsLinkedToQuestionsGroup', (questionsGroupId) => {
 		}
 	});
 });
+
+Meteor.publish('allEkloreQuestionsForCountQuestionsGroups', () => {
+	return EkloreQuestions.find({}, {
+		fields: {
+			questionsGroupId: 1
+		}
+	});
+});
