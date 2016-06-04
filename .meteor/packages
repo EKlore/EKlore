@@ -6,15 +6,12 @@
 
 mquandalle:jade
 jquery
-meteorhacks:fast-render
-meteorhacks:subs-manager
 sacha:spin
 tap:i18n
 iron:router
 accounts-password
 stylus
-aldeed:collection2
-standard-minifiers
+aldeed:simple-schema
 meteor-base
 mobile-experience
 mongo
@@ -32,13 +29,15 @@ ecmascript
 peerlibrary:reactive-field
 twbs:bootstrap
 ian:accounts-ui-bootstrap-3
-bevanhunt:leaflet
 dburles:collection-helpers
 momentjs:moment
 kadira:debug
 meteorhacks:kadira-profiler
-erasaur:meteor-lodash
 blaze-html-templates
 templating
 stevezhu:lodash
 doctorpangloss:method-hooks
+standard-minifier-css
+standard-minifier-js
+themeteorchef:bert
+tsega:bootstrap3-datetimepicker

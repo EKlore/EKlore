@@ -1,0 +1,33 @@
+template(name="listWorkshops")
+	.panel.panel-default
+		#listWorkshops.panel-heading
+			h3
+				a(role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseWorkshops" aria-expanded="true" aria-controls="collapseWorkshops") {{_ "workshopList"}}
+					small {{_ "clickToDisplayOrHide"}}
+		#collapseWorkshops.panel-collapse.collapse(role="tabpanel" aria-labelledby="listWorkshops")
+			.panel-body
+				.col-xs-12.col-sm-6.col-md-6.col-lg-6
+					p {{_ "thereAre"}}
+						span.badge #{workshopsCount}
+						| {{_ "workshops"}}.
+				.col-xs-12.col-sm-6.col-md-6.col-lg-6
+					a.pull-right.btn.btn-primary(role="button" href="{{pathFor 'newWorkshop'}}") {{_ "addNewWorkshop"}}
+				if workshopsCount
+					table.table
+						thead
+							tr
+								th {{_ "name"}}
+								th {{_ "universesLinked"}}
+								th {{_ "startDate"}}
+								th {{_ "endDate"}}
+								th {{_"actionEdit"}}
+						tbody
+							each workshop
+								tr
+									td #{name}
+									td #{universesLinked.length}
+									td #{dateStart}
+									td #{dateEnd}
+									td
+										a.btn.btn-info(role="button" href="{{pathFor 'editWorkshop'}}")
+											span.glyphicon.glyphicon-edit(aria-hidden="true")
