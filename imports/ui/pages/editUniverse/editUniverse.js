@@ -21,10 +21,14 @@ Template.editUniverse.helpers({
 	universe() {
 		return Universes.findOne({ _id: Router.current().params._id });
 	},
-	workshops() {
+	workshopsNotLinkedToUniverse() {
+		let arr = [];
+		this.workshopsLinked.map((cur, index, array) => {
+			arr.push(cur.workshopId);
+		});
 		return Workshops.find({
-			'universesLinked.universeId': {
-				$ne: this._id
+			_id: {
+				$nin: arr
 			}
 		});
 	}

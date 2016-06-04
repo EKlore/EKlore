@@ -19,13 +19,13 @@ template(name="editWorkshop")
 									.input-group.datetimepicker
 										span.input-group-addon
 											i.glyphicon.glyphicon-calendar
-										input#workshopDateStart.set-due-date.form-control(type="text" value="#{dateStart}")
+										input#workshopDateStartEdit.set-due-date.form-control(type="text" value="#{dateStart}")
 								.form-group
 									label(for="workshopEndDate") {{_ "workshopEndDate"}}
 									.input-group.datetimepicker
 										span.input-group-addon
 											i.glyphicon.glyphicon-calendar
-										input#workshopEndDate.set-due-date.form-control(type="text" value="#{dateEnd}")
+										input#workshopEndDateEdit.set-due-date.form-control(type="text" value="#{dateEnd}")
 								.form-group
 									label(for="workshopColor") {{_ "workshopColor"}}
 									if color

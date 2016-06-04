@@ -18,11 +18,11 @@ Template.editWorkshop.onCreated(function() {
 });
 
 Template.editWorkshop.onRendered(() => {
-	this.$('#workshopDateStart').datetimepicker({
+	this.$('#workshopDateStartEdit').datetimepicker({
 		locale: 'fr',
 		format: 'YYYY-MM-D HH:mm'
 	});
-	this.$('#workshopEndDate').datetimepicker({
+	this.$('#workshopEndDateEdit').datetimepicker({
 		locale: 'fr',
 		format: 'YYYY-MM-D HH:mm'
 	});
@@ -39,9 +39,13 @@ Template.editWorkshop.helpers({
 		return moment(this.dateEnd).format('YYYY-MM-D HH:mm');
 	},
 	universes() {
+		let arr = [];
+		this.universesLinked.map((cur, index, array) => {
+			arr.push(cur.universeId);
+		});
 		return Universes.find({
-			'workshopsLinked.workshopId': {
-				$ne: this._id
+			_id: {
+				$nin: arr
 			}
 		});
 	}
