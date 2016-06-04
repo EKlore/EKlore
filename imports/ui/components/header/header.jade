@@ -2,19 +2,27 @@ template(name="header")
 	nav.navbar.navbar-default.navbar-fixed-top
 		.container
 			.navbar-header
-				button.navbar-toggle.collapsed(type="button" data-toggle="collapse" data-target="#eklore-navbar" aria-expended="false")
+				button.navbar-toggle.collapsed(type="button" data-toggle="collapse" data-target="#ekloreNavbar" aria-expended="false")
 					span.sr-only {{_ "toggleNav"}}
 					span.icon-bar
 					span.icon-bar
 					span.icon-bar
 				a.navbar-brand(href="{{pathFor 'home'}}") {{_ "eklore"}}
-			#eklore-navbar.collapse.navbar-collapse
+			#ekloreNavbar.collapse.navbar-collapse
 				ul.nav.navbar-nav
-					li(class="#{myProfileActive}")
+					// Visible when header is not collapsed
+					li.hidden-xs(class="#{myProfileActive}")
 						a(href="{{pathFor 'myProfile'}}") {{_ "myProfile"}}
-					li(class="#{myDayActive}")
+					li.hidden-xs(class="#{myDayActive}")
 						a(href="{{pathFor 'myDay'}}") {{_ "myDay"}}
-					li(class="#{meetingActive}")
+					li.hidden-xs(class="#{meetingActive}")
 						a(href="{{pathFor 'meeting'}}") {{_ "meeting"}}
+					// Visible when header is collapsed
+					li.visible-xs(class="#{myProfileActive}")
+						a(href="{{pathFor 'myProfile'}}" data-toggle="collapse", data-target=".navbar-collapse") {{_ "myProfile"}}
+					li.visible-xs(class="#{myDayActive}")
+						a(href="{{pathFor 'myDay'}}" data-toggle="collapse", data-target=".navbar-collapse") {{_ "myDay"}}
+					li.visible-xs(class="#{meetingActive}")
+						a(href="{{pathFor 'meeting'}}" data-toggle="collapse", data-target=".navbar-collapse") {{_ "meeting"}}
 				.nav.navbar-nav.navbar-right
 					+loginButtons

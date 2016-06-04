@@ -16,10 +16,7 @@ template(name="editUniverse")
 									textarea#universeLabel.form-control(rows="3") #{label}
 								.form-group
 									label(for="universeColor") {{_ "universeColor"}}
-									if color
-										input#universeColor.form-control(type="color" name="universeColor" value="#{color}")
-									else
-										input#universeColor.form-control(type="color" name="universeColor" value="#3355CC")
+									input#universeColor.form-control(type="color" name="universeColor" value="#{color}")
 						.panel-footer
 							.row
 								.col-xs-6.col-sm-6.col-md-6.col-lg-6

@@ -1,3 +1,19 @@
+import { Meteor } from 'meteor/meteor';
+import { Template } from 'meteor/templating';
+import { lodash } from 'meteor/stevezhu:lodash';
+import { Bert } from 'meteor/themeteorchef:bert';
+
+import { Workshops } from '../../../api/workshops/schema.js';
+
+import './myDay.jade';
+import '../../components/connect/connect.js';
+
+Template.myDay.onCreated(function() {
+	this.autorun(() => {
+		this.subscribe('allWorkshopsForTheDay');
+	});
+});
+
 Template.myDay.helpers({
 	workshops() {
 		return Workshops.find({}, {
@@ -23,7 +39,7 @@ Template.myDay.helpers({
 });
 
 Template.myDay.events({
-	'click .goToWorkshop' (event) {
+	'click .goToWorkshop': function(event) {
 		event.preventDefault();
 		const data = {
 			userId: Meteor.userId(),
@@ -31,11 +47,11 @@ Template.myDay.events({
 		};
 		Meteor.call('addUserToWorkshop', data, (error, result) => {
 			if (error) {
-				return throwError(error.message);
+				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			}
 		});
 	},
-	'click .removeFromWorkshop' (event) {
+	'click .removeFromWorkshop': function(event) {
 		event.preventDefault();
 		const data = {
 			userId: Meteor.userId(),
@@ -43,7 +59,7 @@ Template.myDay.events({
 		};
 		Meteor.call('removeUserFromWorkshop', data, (error, result) => {
 			if (error) {
-				return throwError(error.message);
+				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			}
 		});
 	}

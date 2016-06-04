@@ -1,14 +1,14 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { lodash } from 'meteor/stevezhu:lodash';
+import { Bert } from 'meteor/themeteorchef:bert';
 
 import { UserQuestions } from '../../../api/userQuestions/schema.js';
 import { QuestionsGroups } from '../../../api/questionsGroups/schema.js';
 import { Universes } from '../../../api/universes/schema.js';
 
 import './myProfile.jade';
-import '../../components/signIn/signIn.js';
-import '../../components/signUp/signUp.js';
+import '../../components/connect/connect.js';
 
 
 Template.myProfile.onCreated(function() {
@@ -23,7 +23,7 @@ Template.myProfile.onCreated(function() {
 
 Template.myProfile.helpers({
 	userHasQuestionsGroupsInProfile() {
-		if (!Meteor.user().profile.questionsGroups || Meteor.user().profile.questionsGroups.length === 0) {
+		if (Meteor.user().profile.questionsGroups.length === 0) {
 			return false;
 		} else {
 			return true;
@@ -36,11 +36,10 @@ Template.myProfile.helpers({
 			deprecated: false
 		}).count();
 	},
-	questionsGroup() {
-		let questionsGroupCurrentlyInUser = Meteor.user().profile.questionsGroups;
+	questionsGroupAvailable() {
 		return QuestionsGroups.find({
 			_id: {
-				$nin: questionsGroupCurrentlyInUser
+				$nin: Meteor.user().profile.questionsGroups
 			},
 			deprecated: false
 		}, {
@@ -48,7 +47,6 @@ Template.myProfile.helpers({
 				title: 1
 			},
 			fields: {
-				deprecated: 1,
 				title: 1,
 				label: 1
 			}
@@ -68,8 +66,7 @@ Template.myProfile.helpers({
 			deprecated: false
 		}, {
 			fields: {
-				result: 1,
-				color: 1
+				result: 1
 			}
 		}).fetch();
 		let questionsObject = {};
@@ -83,8 +80,7 @@ Template.myProfile.helpers({
 					} else {
 						questionsObject[cur1.universeId] = {
 							value: cur1.result,
-							long: 1,
-							color: cur1.color
+							long: 1
 						};
 					}
 				}
@@ -94,8 +90,7 @@ Template.myProfile.helpers({
 			questionsArray.push({
 				_id: prop,
 				value: lodash.round(questionsObject[prop].value / questionsObject[prop].long * 100, 2),
-				valueForCircle: lodash.round(questionsObject[prop].value / questionsObject[prop].long * 100 / 4 + 75, 0),
-				color: questionsObject[prop].color
+				valueForCircle: lodash.round(questionsObject[prop].value / questionsObject[prop].long * 100 / 4 + 75, 0)
 			});
 		}
 		questionsArray.sort((a, b) => {
@@ -109,12 +104,13 @@ Template.myProfile.helpers({
 		});
 		return questionsArray;
 	},
-	universeName() {
+	universeData() {
 		return Universes.findOne({ _id: this._id }, {
 			fields: {
-				name: 1
+				name: 1,
+				color: 1
 			}
-		}).name;
+		});
 	}
 });
 
@@ -127,7 +123,7 @@ Template.myProfile.events({
 		};
 		Meteor.call('addQuestionsGroupToUser', data, (error, result) => {
 			if (error) {
-				return error.message;
+				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			}
 		});
 	}

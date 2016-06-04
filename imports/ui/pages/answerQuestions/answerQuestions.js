@@ -1,3 +1,17 @@
+import { Meteor } from 'meteor/meteor';
+import { Template } from 'meteor/templating';
+import { Bert } from 'meteor/themeteorchef:bert';
+
+import { UserQuestions } from '../../../api/userQuestions/schema.js';
+
+import './answerQuestions.jade';
+
+Template.answerQuestions.onCreated(function() {
+	this.autorun(() => {
+		this.subscribe('tenQuestionAtATime', Meteor.userId());
+	});
+});
+
 Template.answerQuestions.helpers({
 	questionData() {
 		return UserQuestions.findOne({
@@ -20,11 +34,11 @@ Template.answerQuestions.events({
 			choiceSelected: $('input[name="choicesForQuestion"]:checked').val()
 		};
 		if (!data.choiceSelected) {
-			return throwError('You must choose an answer !');
+			return Bert.alert('You must choose an answer !', 'danger', 'growl-top-right');
 		}
 		Meteor.call('answerQuestion', data, (error, result) => {
 			if (error) {
-				return throwError(error.message);
+				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			} else {
 				$('input[name="choicesForQuestion"]:checked').removeAttr('checked');
 			}

@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 
 import { QuestionsGroups } from './schema.js';
-import { EkloreQuestions } from './schema.js';
+import { EkloreQuestions } from '../ekloreQuestions/schema.js';
 
 Meteor.methods({
 	addAQuestionsGroup(data) {

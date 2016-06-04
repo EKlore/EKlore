@@ -26,8 +26,4 @@ template(name="myDay")
 									else
 										button.goToWorkshop.btn.btn-primary(type="button") {{_ "doYouWantToGo"}}
 	else
-		.row
-			.col-xs-12.col-sm-6.col-md-6.col-lg-6
-				+signUp
-			.col-xs-12.col-sm-6.col-md-6.col-lg-6
-				+signIn
+		+connect

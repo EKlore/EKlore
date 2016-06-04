@@ -7,9 +7,8 @@ Meteor.methods({
 	addAUniverse(data) {
 		check(data.name, String);
 		check(data.label, String);
-		if (!data.workshopsLinked) {
-			data.workshopsLinked = [];
-		}
+		data.color = '#3355CC';
+		data.workshopsLinked = [];
 		return Universes.insert(data);
 	},
 	updateAUniverse(data) {

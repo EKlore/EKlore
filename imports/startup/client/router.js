@@ -19,6 +19,8 @@ import '../../ui/pages/newQuestionsGroup/newQuestionsGroup.js';
 import '../../ui/pages/editQuestionsGroup/editQuestionsGroup.js';
 import '../../ui/pages/newEkloreQuestion/newEkloreQuestion.js';
 import '../../ui/pages/editEkloreQuestion/editEkloreQuestion.js';
+import '../../ui/pages/answerQuestions/answerQuestions.js';
+import '../../ui/pages/myDay/myDay.js';
 
 Router.configure({
 	loadingTemplate: 'loading',
@@ -37,18 +39,12 @@ Router.route('/myProfile', {
 
 Router.route('/answerQuestions', {
 	layoutTemplate: 'layout',
-	name: 'answerQuestions',
-	waitOn() {
-		return subscriptions.subscribe('tenQuestionAtATime', Meteor.userId());
-	}
+	name: 'answerQuestions'
 });
 
 Router.route('/myDay', {
 	layoutTemplate: 'layout',
-	name: 'myDay',
-	waitOn() {
-		return subscriptions.subscribe('allWorkshopsForTheDay');
-	}
+	name: 'myDay'
 });
 
 Router.route('/meeting', {

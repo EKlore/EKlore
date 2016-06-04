@@ -8,7 +8,7 @@ import './newUniverse.jade';
 Template.newUniverse.events({
 	'click #addUniverse': function(event) {
 		event.preventDefault();
-		const universe = {
+		const data = {
 			name: $('#universeName').val(),
 			label: $('#universeLabel').val()
 		};
@@ -18,14 +18,12 @@ Template.newUniverse.events({
 		if (!data.label) {
 			return Bert.alert('Label must be filled', 'danger', 'growl-top-right');
 		}
-		if (universe.name && universe.label) {
-			Meteor.call('addAUniverse', universe, (error, result) => {
-				if (error) {
-					return Bert.alert(error.message, 'danger', 'growl-top-right');
-				} else {
-					Router.go('editUniverse', { _id: result });
-				}
-			});
-		}
+		Meteor.call('addAUniverse', data, (error, result) => {
+			if (error) {
+				return Bert.alert(error.message, 'danger', 'growl-top-right');
+			} else {
+				Router.go('editUniverse', { _id: result });
+			}
+		});
 	}
 });

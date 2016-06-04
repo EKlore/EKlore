@@ -5,6 +5,7 @@ Accounts.onCreateUser((options, user) => {
 	if (options.profile) {
 		user.profile = options.profile;
 		user.profile.admin = false;
+		user.profile.questionsGroups = [];
 	} else {
 		user.profile = {
 			firstName: '',
