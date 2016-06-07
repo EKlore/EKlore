@@ -128,9 +128,11 @@
 	"questionsGroupsAvailable": "Groupe de questions disponibles",
 	"answerQuestions": "Répondre aux questions !",
 	"yourProgramForTheDay": "Votre programme de la journée",
-	"peopleAreGoingToo": "personnes y vont",
+	"peopleAreGoingToo": "personne(s) y vont",
 	"youdontWantToGo": "Ne plus y aller ?",
 	"doYouWantToGo": "J'y vais ?",
 	"universeColor": "Couleur de l'univers",
-	"workshopColor": "Couleur de l'atelier"
+	"workshopColor": "Couleur de l'atelier",
+	"seeUniverses": "Découvrez les univers de la FETE EKlore",
+	"moreInformations": "Plus d'informations"
 }
