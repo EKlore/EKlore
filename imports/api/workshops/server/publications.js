@@ -37,3 +37,12 @@ Meteor.publish('aWorkshop', (workshopId) => {
 		_id: workshopId
 	});
 });
+
+Meteor.publish('allWorkshopsToSee', () => {
+	return Workshops.find({}, {
+		fields: {
+			name: 1,
+			description: 1
+		}
+	});
+});

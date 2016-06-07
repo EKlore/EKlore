@@ -5,11 +5,14 @@ export const Workshops = new Mongo.Collection('workshops');
 
 Workshops.deny({
 	insert() {
-		return true; },
+		return true;
+	},
 	update() {
-		return true; },
+		return true;
+	},
 	remove() {
-		return true; }
+		return true;
+	}
 });
 
 let UserIdSchema = new SimpleSchema({

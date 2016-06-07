@@ -3,9 +3,15 @@ import { Mongo } from 'meteor/mongo';
 import { UserQuestions } from '../userQuestions/schema.js';
 
 Meteor.users.deny({
-	insert() { return true; },
-	update() { return true; },
-	remove() { return true; }
+	insert() {
+		return true;
+	},
+	update() {
+		return true;
+	},
+	remove() {
+		return true;
+	}
 });
 
 Meteor.users.helpers({

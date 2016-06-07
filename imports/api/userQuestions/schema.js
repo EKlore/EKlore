@@ -4,9 +4,15 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 export const UserQuestions = new Mongo.Collection('userQuestions');
 
 UserQuestions.deny({
-	insert() { return true; },
-	update() { return true; },
-	remove() { return true; }
+	insert() {
+		return true;
+	},
+	update() {
+		return true;
+	},
+	remove() {
+		return true;
+	}
 });
 
 let UniverseSchema = new SimpleSchema({

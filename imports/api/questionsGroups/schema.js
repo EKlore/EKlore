@@ -4,9 +4,15 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 export const QuestionsGroups = new Mongo.Collection('questionsGroups');
 
 QuestionsGroups.deny({
-	insert() { return true; },
-	update() { return true; },
-	remove() { return true; }
+	insert() {
+		return true;
+	},
+	update() {
+		return true;
+	},
+	remove() {
+		return true;
+	}
 });
 
 QuestionsGroups.schema = new SimpleSchema({

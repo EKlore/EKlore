@@ -4,9 +4,15 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 export const Volunteers = new Mongo.Collection('volunteers');
 
 Volunteers.deny({
-	insert() { return true; },
-	update() { return true; },
-	remove() { return true; }
+	insert() {
+		return true;
+	},
+	update() {
+		return true;
+	},
+	remove() {
+		return true;
+	}
 });
 
 Volunteers.schema = new SimpleSchema({
