@@ -7,16 +7,17 @@ template(name="myDay")
 				each workshops
 					.panel.panel-default
 						.panel-heading
-							h4.panel-title {{_ "workshopName"}} : #{name}
+							a(href="{{pathFor 'workshopDetails'}}")
+								h4.panel-title {{_ "workshopName"}} : #{name}
 						.panel-body
 							.row
-								.col-xs-12.col-sm-12.col-md-6.col-lg6
+								.col-xs-12.col-sm-6.col-md-4.col-lg-4
 									p {{_ "startDate"}} :
 										span.badge #{dateStart}
-								.col-xs-12.col-sm-12.col-md-6.col-lg6
+								.col-xs-12.col-sm-6.col-md-4.col-lg-4
 									p {{_ "endDate"}} :
 										span.badge #{dateEnd}
-								.col-xs-12.col-sm-12.col-md-6.col-lg6
+								.col-xs-12.col-sm-6.col-md-4.col-lg-4
 									p
 										span.badge #{peopleToGoCount}
 										| {{_ "peopleAreGoingToo"}}
