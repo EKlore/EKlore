@@ -21,6 +21,9 @@ import '../../ui/pages/newEkloreQuestion/newEkloreQuestion.js';
 import '../../ui/pages/editEkloreQuestion/editEkloreQuestion.js';
 import '../../ui/pages/answerQuestions/answerQuestions.js';
 import '../../ui/pages/myDay/myDay.js';
+import '../../ui/pages/seeUniverses/seeUniverses.js';
+import '../../ui/pages/workshopDetails/workshopDetails.js';
+
 
 Router.configure({
 	loadingTemplate: 'loading',
@@ -50,6 +53,16 @@ Router.route('/myDay', {
 Router.route('/meeting', {
 	layoutTemplate: 'layout',
 	name: 'meeting'
+});
+
+Router.route('/universes', {
+	layoutTemplate: 'layout',
+	name: 'seeUniverses'
+});
+
+Router.route('/workshop/:_id', {
+	layoutTemplate: 'layout',
+	name: 'workshopDetails'
 });
 
 Router.route('/admin', {
