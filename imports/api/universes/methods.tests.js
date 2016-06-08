@@ -42,5 +42,5 @@ describe('universes methods', function() {
 				});
 			}
 		});
-	})
+	});
 });
