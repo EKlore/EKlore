@@ -28,13 +28,6 @@ Template.workshopDetails.helpers({
 		} else {
 			return false;
 		}
-	},
-	isUserAlreadyIn() {
-		if (lodash.findIndex(this.peopleToGo, ['userId', Meteor.userId()]) !== -1) {
-			return true;
-		} else {
-			return false;
-		}
 	}
 });
 

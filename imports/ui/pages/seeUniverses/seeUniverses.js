@@ -24,7 +24,7 @@ Template.seeUniverses.helpers({
 				label: 1,
 				workshopsLinked: 1
 			}
-		})
+		});
 	},
 	workshops() {
 		let query = [];
