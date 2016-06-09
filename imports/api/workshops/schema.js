@@ -34,6 +34,8 @@ let UniverseSchema = new SimpleSchema({
 	matchingPower: {
 		type: Number,
 		decimal: true,
+		min: 0.01,
+		max: 1,
 		label: 'Matching power or the universe against the question or choice'
 	}
 });

@@ -23,6 +23,8 @@ let UniverseSchema = new SimpleSchema({
 	matchingPower: {
 		type: Number,
 		decimal: true,
+		min: 0.01,
+		max: 1,
 		label: 'Matching power or the universe against the question or choice'
 	}
 });
@@ -35,6 +37,8 @@ let WorkshopSchema = new SimpleSchema({
 	matchingPower: {
 		type: Number,
 		decimal: true,
+		min: 0.01,
+		max: 1,
 		label: 'Matching power or the workshop against the question or choice'
 	}
 });
@@ -69,11 +73,13 @@ let ChoiceSchema = new SimpleSchema({
 EkloreQuestions.schema = new SimpleSchema({
 	level: {
 		type: Number,
-		label: 'Question level'
+		label: 'Question level',
+		min: 0
 	},
 	version: {
 		type: Number,
-		label: 'Question version'
+		label: 'Question version',
+		min: 0
 	},
 	choices: {
 		type: [ChoiceSchema],

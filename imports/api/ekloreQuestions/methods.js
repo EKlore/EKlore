@@ -1,33 +1,35 @@
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
+import { Random } from 'meteor/random';
 
 import { EkloreQuestions } from './schema.js';
 
 Meteor.methods({
 	addAnEkloreQuestion(data) {
-		check(data, Object);
-		check(data.title, String);
-		check(data.level, Number);
-		check(data.displayType, String);
+		let methodSchema = new SimpleSchema({
+			title: { type: String },
+			level: { type: Number }
+			displayType: { type: String }
+		});
+		check(data, methodSchema);
 		data.version = 1;
 		data.deprecated = false;
 		data.createdAt = new Date();
 		data.choices = [];
 		for (let i = 0; i < 4; i++) {
-			let choice = {
-				choiceId: Random.id()
-			};
-			data.choices.push(choice);
+			data.choices.push({ choiceId: Random.id() });
 		}
 		return EkloreQuestions.insert(data);
 	},
 	updateAnEkloreQuestion(data) {
-		check(data, Object);
-		check(data.ekloreQuestionId, String);
-		check(data.title, String);
-		check(data.level, Number);
-		check(data.displayType, String);
-		check(data.deprecated, Boolean);
+		let methodSchema = new SimpleSchema({
+			ekloreQuestionId: { type: String },
+			title: { type: String },
+			level: { type: Number }
+			displayType: { type: String },
+			deprecated: { type: String }
+		});
+		check(data, methodSchema);
 		return EkloreQuestions.update({ _id: data.ekloreQuestionId }, {
 			$set: {
 				title: data.title,

@@ -5,22 +5,26 @@ import { Workshops } from './schema.js';
 
 Meteor.methods({
 	addAWorkshop(data) {
-		check(data.name, String);
-		check(data.description, String);
-		check(data.dateStart, Date);
-		check(data.dateEnd, Date);
-		if (!data.universesLinked) {
-			data.universesLinked = [];
-		}
+		let methodSchema = new SimpleSchema({
+			name: { type: String },
+			description: { type: String },
+			dateStart: { type: Date },
+			dateEnd: { type: Date }
+		});
+		check(data, methodSchema);
+		data.universesLinked = [];
 		return Workshops.insert(data);
 	},
 	updateAWorkshop(data) {
-		check(data.workshopId, String);
-		check(data.name, String);
-		check(data.description, String);
-		check(data.dateStart, Date);
-		check(data.dateEnd, Date);
-		check(data.color, String);
+		let methodSchema = new SimpleSchema({
+			workshopId: { type: String },
+			name: { type: String },
+			description: { type: String },
+			dateStart: { type: Date },
+			dateEnd: { type: Date },
+			color: { type: String }
+		});
+		check(data, methodSchema);
 		return Workshops.update({ _id: data.workshopId }, {
 			$set: {
 				name: data.name,
@@ -32,9 +36,17 @@ Meteor.methods({
 		});
 	},
 	addUniverseToWorkshop(data) {
-		check(data.workshopId, String);
-		check(data.universeId, String);
-		check(data.matchingPower, Number);
+		let methodSchema = new SimpleSchema({
+			workshopId: { type: String },
+			universeId: { type: String },
+			matchingPower: {
+				type: Number,
+				decimal: true,
+				min: 0.01,
+				max: 1
+			}
+		});
+		check(data, methodSchema);
 		return Workshops.update({ _id: data.workshopId }, {
 			$push: {
 				universesLinked: {
@@ -45,8 +57,11 @@ Meteor.methods({
 		});
 	},
 	removeUniverseFromWorkshop(data) {
-		check(data.workshopId, String);
-		check(data.universeId, String);
+		let methodSchema = new SimpleSchema({
+			workshopId: { type: String },
+			universeId: { type: String }
+		});
+		check(data, methodSchema);
 		return Workshops.update({ _id: data.workshopId }, {
 			$pull: {
 				universesLinked: {
@@ -56,8 +71,11 @@ Meteor.methods({
 		});
 	},
 	addUserToWorkshop(data) {
-		check(data.workshopId, String);
-		check(data.userId, String);
+		let methodSchema = new SimpleSchema({
+			workshopId: { type: String },
+			userId: { type: String }
+		});
+		check(data, methodSchema);
 		return Workshops.update({ _id: data.workshopId }, {
 			$push: {
 				peopleToGo: {
@@ -68,8 +86,11 @@ Meteor.methods({
 		});
 	},
 	removeUserFromWorkshop(data) {
-		check(data.workshopId, String);
-		check(data.userId, String);
+		let methodSchema = new SimpleSchema({
+			workshopId: { type: String },
+			userId: { type: String }
+		});
+		check(data, methodSchema);
 		return Workshops.update({ _id: data.workshopId }, {
 			$pull: {
 				peopleToGo: {

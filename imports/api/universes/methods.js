@@ -1,21 +1,28 @@
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
+import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
 import { Universes } from './schema.js';
 
 Meteor.methods({
 	addAUniverse(data) {
-		check(data.name, String);
-		check(data.label, String);
+		let methodSchema = new SimpleSchema({
+			name: { type: String },
+			label: { type: String }
+		});
+		check(data, methodSchema);
 		data.color = '#3355CC';
 		data.workshopsLinked = [];
 		return Universes.insert(data);
 	},
 	updateAUniverse(data) {
-		check(data.universeId, String);
-		check(data.name, String);
-		check(data.label, String);
-		check(data.color, String);
+		let methodSchema = new SimpleSchema({
+			universeId: { type: String },
+			name: { type: String },
+			label: { type: String },
+			color: { type: String }
+		});
+		check(data, methodSchema);
 		return Universes.update({ _id: data.universeId }, {
 			$set: {
 				name: data.name,
@@ -24,26 +31,37 @@ Meteor.methods({
 			}
 		});
 	},
-	addWorkshopToUniverse(workshopData) {
-		check(workshopData.universeId, String);
-		check(workshopData.workshopId, String);
-		check(workshopData.matchingPower, Number);
-		return Universes.update({ _id: workshopData.universeId }, {
+	addWorkshopToUniverse(data) {
+		let methodSchema = new SimpleSchema({
+			universeId: { type: String },
+			workshopId: { type: String },
+			matchingPower: {
+				type: Number,
+				decimal: true,
+				min: 0.01,
+				max: 1
+			}
+		});
+		check(data, methodSchema);
+		return Universes.update({ _id: data.universeId }, {
 			$push: {
 				workshopsLinked: {
-					workshopId: workshopData.workshopId,
-					matchingPower: workshopData.matchingPower
+					workshopId: data.workshopId,
+					matchingPower: data.matchingPower
 				}
 			}
 		});
 	},
-	removeWorkshopFromUniverse(workshopData) {
-		check(workshopData.universeId, String);
-		check(workshopData.workshopId, String);
-		return Universes.update({ _id: workshopData.universeId }, {
+	removeWorkshopFromUniverse(data) {
+		let methodSchema = new SimpleSchema({
+			universeId: { type: String },
+			workshopId: { type: String }
+		});
+		check(data, methodSchema);
+		return Universes.update({ _id: data.universeId }, {
 			$pull: {
 				workshopsLinked: {
-					workshopId: workshopData.workshopId
+					workshopId: data.workshopId
 				}
 			}
 		});

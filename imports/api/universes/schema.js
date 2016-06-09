@@ -25,6 +25,8 @@ let WorkshopSchema = new SimpleSchema({
 	matchingPower: {
 		type: Number,
 		decimal: true,
+		min: 0.01,
+		max: 1,
 		label: 'Matching power or the workshop against the question or choice'
 	}
 });
