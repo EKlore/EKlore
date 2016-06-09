@@ -41,4 +41,3 @@ standard-minifier-css
 standard-minifier-js
 themeteorchef:bert
 tsega:bootstrap3-datetimepicker
-dispatch:mocha-phantomjs
