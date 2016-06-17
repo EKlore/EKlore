@@ -1,26 +1,29 @@
 template(name="workshopDetails")
-	with workshop
-		.panel.panel-default
-			.panel-heading
-				h4 #{name}
-			.panel-body
-				p #{description}
-				.panel.panel-default
-					.panel-body
-						.row
-							.col-xs-12.col-sm-4.col-md-4.col-lg-4
-								p {{_ "startDate"}} :
-									span.badge #{dateStart}
-							.col-xs-12.col-sm-4.col-md-4.col-lg-4
-								p {{_ "endDate"}} :
-									span.badge #{dateEnd}
-							.col-xs-12.col-sm-4.col-md-4.col-lg-4
-								p
-									span.badge #{peopleToGoCount}
-									| {{_ "peopleAreGoingToo"}}
-							if currentUser
-								.col-xs-12.col-sm-12.col-md-6.col-lg6
-										if isUserAlreadyIn
-											button.removeFromWorkshop.btn.btn-danger(type="button") {{_ "youdontWantToGo"}}
-										else
-											button.goToWorkshop.btn.btn-primary(type="button") {{_ "doYouWantToGo"}}
+	if Template.subscriptionsReady
+		with workshop
+			.panel.panel-default
+				.panel-heading
+					h4 #{name}
+				.panel-body
+					p #{description}
+					.panel.panel-default
+						.panel-body
+							.row
+								.col-xs-12.col-sm-4.col-md-4.col-lg-4
+									p {{_ "startDate"}} :
+										span.badge #{dateStart}
+								.col-xs-12.col-sm-4.col-md-4.col-lg-4
+									p {{_ "endDate"}} :
+										span.badge #{dateEnd}
+								.col-xs-12.col-sm-4.col-md-4.col-lg-4
+									p
+										span.badge #{peopleToGoCount}
+										| {{_ "peopleAreGoingToo"}}
+								if currentUser
+									.col-xs-12.col-sm-12.col-md-6.col-lg6
+											if isUserAlreadyIn
+												button.removeFromWorkshop.btn.btn-danger(type="button") {{_ "youdontWantToGo"}}
+											else
+												button.goToWorkshop.btn.btn-primary(type="button") {{_ "doYouWantToGo"}}
+	else
+		+spinner

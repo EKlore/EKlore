@@ -1,4 +1,5 @@
 import { Template } from 'meteor/templating';
+import 'meteor/sacha:spin';
 
 import { QuestionsGroups } from '../../../api/questionsGroups/schema.js';
 import { EkloreQuestions } from '../../../api/ekloreQuestions/schema.js';

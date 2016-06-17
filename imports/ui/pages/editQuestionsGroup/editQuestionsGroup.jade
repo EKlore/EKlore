@@ -1,37 +1,40 @@
 template(name="editQuestionsGroup")
-	.container
-		with questionsGroup
-			.panel.panel-default
-				.panel-heading
-					h3 {{_ "questionsGroupEdition"}} : #{title}
-				.panel-body
-					.panel.panel-default
-						.panel-body
-							form
-								.form-group
-									label(for="questionsGroupTitle") {{_ "questionsGroupTitle"}}
-									input#questionsGroupTitle.form-control(type="text" value="#{title}")
-								.form-group
-									label(for="questionsGroupLabel") {{_ "questionsGroupLabel"}}
-									textarea#questionsGroupLabel.form-control(rows="3") #{label}
-								.form-group
-									label(for="questionsGroupLevel") {{_ "questionsGroupLevel"}}
-									input#questionsGroupLevel.form-control(type="number" min="2" max="100" step="1" value="#{level}")
-								+editDeprecated
-						.panel-footer
-							.row
-								.col-xs-6.col-sm-6.col-md-6.col-lg-6
-									a.btn.btn-danger.btn-block(role="button" href="{{pathFor 'admin'}}") {{_ "cancel"}}
-								.col-xs-6.col-sm-6.col-md-6.col-lg-6
-									button#save.btn.btn-success.btn-block {{_ "save"}}
-					.panel.panel-success
-						.panel-heading
-							h4 {{_ "ekloreQuestionsLinkedToQuestionsGroup"}}
-						.panel-body
-							.row
-								each ekloreQuestionsLinked
-									.col-xs-12.col-sm-6.col-md-6.col-lg-6
-										.panel.panel-default
-											.panel-body
-												p #{title}
-													+deprecated
+	if Template.subscriptionsReady
+		.container
+			with questionsGroup
+				.panel.panel-default
+					.panel-heading
+						h3 {{_ "questionsGroupEdition"}} : #{title}
+					.panel-body
+						.panel.panel-default
+							.panel-body
+								form
+									.form-group
+										label(for="questionsGroupTitle") {{_ "questionsGroupTitle"}}
+										input#questionsGroupTitle.form-control(type="text" value="#{title}")
+									.form-group
+										label(for="questionsGroupLabel") {{_ "questionsGroupLabel"}}
+										textarea#questionsGroupLabel.form-control(rows="3") #{label}
+									.form-group
+										label(for="questionsGroupLevel") {{_ "questionsGroupLevel"}}
+										input#questionsGroupLevel.form-control(type="number" min="2" max="100" step="1" value="#{level}")
+									+editDeprecated
+							.panel-footer
+								.row
+									.col-xs-6.col-sm-6.col-md-6.col-lg-6
+										a.btn.btn-danger.btn-block(role="button" href="{{pathFor 'admin'}}") {{_ "cancel"}}
+									.col-xs-6.col-sm-6.col-md-6.col-lg-6
+										button#save.btn.btn-success.btn-block {{_ "save"}}
+						.panel.panel-success
+							.panel-heading
+								h4 {{_ "ekloreQuestionsLinkedToQuestionsGroup"}}
+							.panel-body
+								.row
+									each ekloreQuestionsLinked
+										.col-xs-12.col-sm-6.col-md-6.col-lg-6
+											.panel.panel-default
+												.panel-body
+													p #{title}
+														+deprecated
+	else
+		+spinner

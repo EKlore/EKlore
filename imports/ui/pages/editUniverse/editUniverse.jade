@@ -1,41 +1,44 @@
 template(name="editUniverse")
-	.container
-		with universe
-			.panel.panel-default
-				.panel-heading
-					h3 {{_ "universeEdition"}} : #{name}
-				.panel-body
-					.panel.panel-default
-						.panel-body
-							form
-								.form-group
-									label(for="universeName") {{_ "universeName"}}
-									input#universeName.form-control(type="text" value="#{name}")
-								.form-group
-									label(for="universeLabel") {{_ "universeLabel"}}
-									textarea#universeLabel.form-control(rows="3") #{label}
-								.form-group
-									label(for="universeColor") {{_ "universeColor"}}
-									input#universeColor.form-control(type="color" name="universeColor" value="#{color}")
-						.panel-footer
-							.row
-								.col-xs-6.col-sm-6.col-md-6.col-lg-6
-									a.btn.btn-danger.btn-block(role="button" href="{{pathFor 'admin'}}") {{_ "cancel"}}
-								.col-xs-6.col-sm-6.col-md-6.col-lg-6
-									button#save.btn.btn-success.btn-block {{_ "save"}}
-					.panel.panel-success
-						.panel-heading
-							p.panel-title {{_ "workshopsLinkedWithUniverse"}}
-						.panel-body
-							.row
-								each workshopsLinked
-									.col-xs-12.col-sm-6.col-md-6.col-lg-6
-										+workshopsToRemove
-					.panel.panel-danger
-						.panel-heading
-							p.panel-title {{_ "workshopsNotLinkedWithUniverse"}}
-						.panel-body
-							.row
-								each workshopsNotLinkedToUniverse
-									.col-xs-12.col-sm-6.col-md-6.col-lg-6
-										+workshopsToAdd
+	if Template.subscriptionsReady
+		.container
+			with universe
+				.panel.panel-default
+					.panel-heading
+						h3 {{_ "universeEdition"}} : #{name}
+					.panel-body
+						.panel.panel-default
+							.panel-body
+								form
+									.form-group
+										label(for="universeName") {{_ "universeName"}}
+										input#universeName.form-control(type="text" value="#{name}")
+									.form-group
+										label(for="universeLabel") {{_ "universeLabel"}}
+										textarea#universeLabel.form-control(rows="3") #{label}
+									.form-group
+										label(for="universeColor") {{_ "universeColor"}}
+										input#universeColor.form-control(type="color" name="universeColor" value="#{color}")
+							.panel-footer
+								.row
+									.col-xs-6.col-sm-6.col-md-6.col-lg-6
+										a.btn.btn-danger.btn-block(role="button" href="{{pathFor 'admin'}}") {{_ "cancel"}}
+									.col-xs-6.col-sm-6.col-md-6.col-lg-6
+										button#save.btn.btn-success.btn-block {{_ "save"}}
+						.panel.panel-success
+							.panel-heading
+								p.panel-title {{_ "workshopsLinkedWithUniverse"}}
+							.panel-body
+								.row
+									each workshopsLinked
+										.col-xs-12.col-sm-6.col-md-6.col-lg-6
+											+workshopsToRemove
+						.panel.panel-danger
+							.panel-heading
+								p.panel-title {{_ "workshopsNotLinkedWithUniverse"}}
+							.panel-body
+								.row
+									each workshopsNotLinkedToUniverse
+										.col-xs-12.col-sm-6.col-md-6.col-lg-6
+											+workshopsToAdd
+	else
+		+spinner

@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { lodash } from 'meteor/stevezhu:lodash';
 import { Bert } from 'meteor/themeteorchef:bert';
+import 'meteor/sacha:spin';
 
 import { Workshops } from '../../../api/workshops/schema.js';
 

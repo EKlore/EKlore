@@ -1,5 +1,6 @@
 import { Template } from 'meteor/templating';
 import { Router } from 'meteor/iron:router';
+import 'meteor/ian:accounts-ui-bootstrap-3';
 
 import './header.jade';
 

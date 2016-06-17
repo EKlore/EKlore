@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
+import 'meteor/sacha:spin';
 
 import { Universes } from '../../../api/universes/schema.js';
 import { Workshops } from '../../../api/workshops/schema.js';

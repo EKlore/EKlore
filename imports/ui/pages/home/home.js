@@ -1,4 +1,5 @@
 import { Template } from 'meteor/templating';
+import 'meteor/sacha:spin';
 
 import { Volunteers } from '../../../api/volunteers/schema.js';
 

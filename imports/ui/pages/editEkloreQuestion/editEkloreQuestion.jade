@@ -1,101 +1,104 @@
 template(name="editEkloreQuestion")
-	.container
-		with ekloreQuestion
-			.panel.panel-default
-				.panel-heading
-					h3 {{_ "questionEdition"}} : #{title}
-				.panel-body
-					.panel.panel-default
-						.panel-body
-							form
-								.form-group
-									label(for="ekloreQuestionTitle") {{_ "ekloreQuestionTitle"}}
-									input#ekloreQuestionTitle.form-control(type="text" value="#{title}")
-								.form-group
-									label(for="ekloreQuestionLevel") {{_ "ekloreQuestionLevel"}}
-									input#ekloreQuestionLevel.form-control(type="number" min="2" max="100" step="1" value="#{level}")
+	if Template.subscriptionsReady
+		.container
+			with ekloreQuestion
+				.panel.panel-default
+					.panel-heading
+						h3 {{_ "questionEdition"}} : #{title}
+					.panel-body
+						.panel.panel-default
+							.panel-body
+								form
+									.form-group
+										label(for="ekloreQuestionTitle") {{_ "ekloreQuestionTitle"}}
+										input#ekloreQuestionTitle.form-control(type="text" value="#{title}")
+									.form-group
+										label(for="ekloreQuestionLevel") {{_ "ekloreQuestionLevel"}}
+										input#ekloreQuestionLevel.form-control(type="number" min="2" max="100" step="1" value="#{level}")
+									.row
+										.col-xs-6.col-sm-6.col-md-6.col-lg-6
+											+editDeprecated
+										.col-xs-6.col-sm-6.col-md-6.col-lg-6
+											+editDisplayType
+							.panel-footer
 								.row
 									.col-xs-6.col-sm-6.col-md-6.col-lg-6
-										+editDeprecated
+										a.btn.btn-danger.btn-block(role="button" href="{{pathFor 'admin'}}") {{_ "cancel"}}
 									.col-xs-6.col-sm-6.col-md-6.col-lg-6
-										+editDisplayType
-						.panel-footer
-							.row
-								.col-xs-6.col-sm-6.col-md-6.col-lg-6
-									a.btn.btn-danger.btn-block(role="button" href="{{pathFor 'admin'}}") {{_ "cancel"}}
-								.col-xs-6.col-sm-6.col-md-6.col-lg-6
-									button#save.btn.btn-success.btn-block {{_ "save"}}
-					.panel.panel-default
-						.panel-heading
-							h4.panel-title {{_ "choices"}}
-						.panel-body
-							#accordionChoice.panel-group(role="tablist" aria-multiselectable="true")
-								each choices
-									+choice
-					.panel.panel-default
-						.panel-heading
-							h4.panel-title {{_ "Muniverses"}}
-						.panel-body
+										button#save.btn.btn-success.btn-block {{_ "save"}}
+						.panel.panel-default
+							.panel-heading
+								h4.panel-title {{_ "choices"}}
+							.panel-body
+								#accordionChoice.panel-group(role="tablist" aria-multiselectable="true")
+									each choices
+										+choice
+						.panel.panel-default
+							.panel-heading
+								h4.panel-title {{_ "Muniverses"}}
+							.panel-body
+								.panel.panel-success
+									.panel-heading
+										h4.panel-title {{_ "universesLinkedWithEkloreQuestion"}}
+									.panel-body
+										.row
+											each universesLinked
+												.col-xs-12.col-sm-6.col-md-6.col-lg-6
+													+universesToRemoveFromEkloreQuestion
+								.panel.panel-danger
+									.panel-heading
+										h4.panel-title {{_ "universesNotLinkedWithEkloreQuestion"}}
+									.panel-body
+										.row
+											each universes
+												.col-xs-12.col-sm-6.col-md-6.col-lg-6
+													+universesToAddToEkloreQuestion
+						.panel.panel-default
+							.panel-heading
+								h4.panel-title {{_ "Mworkshops"}}
+							.panel-body
+								.panel.panel-success
+									.panel-heading
+										h4.panel-title {{_ "workshopsLinkedWithEkloreQuestion"}}
+									.panel-body
+										.row
+											each workshopsLinked
+												.col-xs-12.col-sm-6.col-md-6.col-lg-6
+													+workshopsToRemoveFromEkloreQuestion
+								.panel.panel-danger
+									.panel-heading
+										h4.panel-title {{_ "workshopsNotLinkedWithEkloreQuestion"}}
+									.panel-body
+										.row
+											each workshops
+												.col-xs-12.col-sm-6.col-md-6.col-lg-6
+													+workshopsToAddToEkloreQuestion
+						if questionsGroupId
 							.panel.panel-success
 								.panel-heading
-									h4.panel-title {{_ "universesLinkedWithEkloreQuestion"}}
+									h4.panel-title {{_ "questionsGroupLinkedWithEkloreQuestion"}}
 								.panel-body
-									.row
-										each universesLinked
-											.col-xs-12.col-sm-6.col-md-6.col-lg-6
-												+universesToRemoveFromEkloreQuestion
+										with questionsGroupData
+											.col-xs-12.col-sm-12.col-md-12.col-lg-12
+												.panel.panel-default
+													.panel-body
+														p {{_ "title"}} : #{title}
+															button#removeQuestionsGroupFromEkloreQuestion.btn.pull-right.btn-danger {{_ "remove"}}
+														p {{_ "deprecated"}}
+															+deprecated
+						else
 							.panel.panel-danger
 								.panel-heading
-									h4.panel-title {{_ "universesNotLinkedWithEkloreQuestion"}}
+									h4.panel-title {{_ "questionsGroupsNotLinkedWithEkloreQuestion"}}
 								.panel-body
 									.row
-										each universes
+										each questionsGroups
 											.col-xs-12.col-sm-6.col-md-6.col-lg-6
-												+universesToAddToEkloreQuestion
-					.panel.panel-default
-						.panel-heading
-							h4.panel-title {{_ "Mworkshops"}}
-						.panel-body
-							.panel.panel-success
-								.panel-heading
-									h4.panel-title {{_ "workshopsLinkedWithEkloreQuestion"}}
-								.panel-body
-									.row
-										each workshopsLinked
-											.col-xs-12.col-sm-6.col-md-6.col-lg-6
-												+workshopsToRemoveFromEkloreQuestion
-							.panel.panel-danger
-								.panel-heading
-									h4.panel-title {{_ "workshopsNotLinkedWithEkloreQuestion"}}
-								.panel-body
-									.row
-										each workshops
-											.col-xs-12.col-sm-6.col-md-6.col-lg-6
-												+workshopsToAddToEkloreQuestion
-					if questionsGroupId
-						.panel.panel-success
-							.panel-heading
-								h4.panel-title {{_ "questionsGroupLinkedWithEkloreQuestion"}}
-							.panel-body
-									with questionsGroupData
-										.col-xs-12.col-sm-12.col-md-12.col-lg-12
-											.panel.panel-default
-												.panel-body
-													p {{_ "title"}} : #{title}
-														button#removeQuestionsGroupFromEkloreQuestion.btn.pull-right.btn-danger {{_ "remove"}}
-													p {{_ "deprecated"}}
-														+deprecated
-					else
-						.panel.panel-danger
-							.panel-heading
-								h4.panel-title {{_ "questionsGroupsNotLinkedWithEkloreQuestion"}}
-							.panel-body
-								.row
-									each questionsGroups
-										.col-xs-12.col-sm-6.col-md-6.col-lg-6
-											.panel.panel-default
-												.panel-body
-													p {{_ "title"}} : #{title}
-														button.btn#linkToEkloreQuestion.pull-right.btn-primary(type="submit") {{_ "linkToEkloreQuestion"}}
-													p {{_ "deprecated"}}
-														+deprecated
+												.panel.panel-default
+													.panel-body
+														p {{_ "title"}} : #{title}
+															button.btn#linkToEkloreQuestion.pull-right.btn-primary(type="submit") {{_ "linkToEkloreQuestion"}}
+														p {{_ "deprecated"}}
+															+deprecated
+	else
+		+spinner

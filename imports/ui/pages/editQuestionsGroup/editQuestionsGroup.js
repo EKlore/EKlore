@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { Router } from 'meteor/iron:router';
 import { Bert } from 'meteor/themeteorchef:bert';
+import 'meteor/sacha:spin';
 
 import { EkloreQuestions } from '../../../api/ekloreQuestions/schema.js';
 import { QuestionsGroups } from '../../../api/questionsGroups/schema.js';

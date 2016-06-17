@@ -1,10 +1,8 @@
 import { Router } from 'meteor/iron:router';
-import { loading } from 'meteor/sacha:spin';
 
 // Base components/layouts
 import '../../ui/layouts/layout.js';
 import '../../ui/layouts/adminLayout.js';
-import '../../ui/components/loading.jade';
 import '../../ui/components/notFound.jade';
 
 // Pages
@@ -26,7 +24,6 @@ import '../../ui/pages/workshopDetails/workshopDetails.js';
 
 
 Router.configure({
-	loadingTemplate: 'loading',
 	notFoundTemplate: 'notFound'
 });
 

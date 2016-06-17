@@ -1,37 +1,40 @@
 template(name="listEkloreQuestions")
-	.panel.panel-default
-		#listEkloreQuestions.panel-heading(role="tab")
-			h3
-				a(role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEkloreQuestions" aria-expanded="true" aria-controls="collapseEkloreQuestions") {{_ "ekloreQuestionsList"}}
-					small {{_ "clickToDisplayOrHide"}}
-		#collapseEkloreQuestions.panel-collapse.collapse(role="tabpanel" aria-labelledby="listEkloreQuestions")
-			.panel-body
-				.col-xs-12.col-sm-6.col-md-6.col-lg-6
-					p {{_ "thereAre"}}
-						span.badge #{ekloreQuestionsCount}
-						| {{_ "ekloreQuestions"}}.
-				.col-xs-12.col-sm-6.col-md-6.col-lg-6
-					a.pull-right.btn.btn-primary(role="button" href="{{pathFor 'newEkloreQuestion'}}") {{_ "addNewEkloreQuestion"}}
-				if ekloreQuestionsCount
-					table.table
-						thead
-							tr
-								th {{_ "title"}}
-								th {{_ "version"}}
-								th {{_ "displayType"}}
-								th {{_ "deprecated"}}
-								th {{_ "linkedToQuestionsGroup"}}
-								th {{_"actionEdit"}}
-						tbody
-							each ekloreQuestions
+	if Template.subscriptionsReady
+		.panel.panel-default
+			#listEkloreQuestions.panel-heading(role="tab")
+				h3
+					a(role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseEkloreQuestions" aria-expanded="true" aria-controls="collapseEkloreQuestions") {{_ "ekloreQuestionsList"}}
+						small {{_ "clickToDisplayOrHide"}}
+			#collapseEkloreQuestions.panel-collapse.collapse(role="tabpanel" aria-labelledby="listEkloreQuestions")
+				.panel-body
+					.col-xs-12.col-sm-6.col-md-6.col-lg-6
+						p {{_ "thereAre"}}
+							span.badge #{ekloreQuestionsCount}
+							| {{_ "ekloreQuestions"}}.
+					.col-xs-12.col-sm-6.col-md-6.col-lg-6
+						a.pull-right.btn.btn-primary(role="button" href="{{pathFor 'newEkloreQuestion'}}") {{_ "addNewEkloreQuestion"}}
+					if ekloreQuestionsCount
+						table.table
+							thead
 								tr
-									td #{title}
-									td #{version}
-									td #{displayType}
-									td
-										+deprecated
-									td
-										+linkedToQuestionsGroup
-									td
-										a.btn.btn-info(role="button" href="{{pathFor 'editEkloreQuestion'}}")
-											span.glyphicon.glyphicon-edit(aria-hidden="true")
+									th {{_ "title"}}
+									th {{_ "version"}}
+									th {{_ "displayType"}}
+									th {{_ "deprecated"}}
+									th {{_ "linkedToQuestionsGroup"}}
+									th {{_"actionEdit"}}
+							tbody
+								each ekloreQuestions
+									tr
+										td #{title}
+										td #{version}
+										td #{displayType}
+										td
+											+deprecated
+										td
+											+linkedToQuestionsGroup
+										td
+											a.btn.btn-info(role="button" href="{{pathFor 'editEkloreQuestion'}}")
+												span.glyphicon.glyphicon-edit(aria-hidden="true")
+	else
+		+spinner
