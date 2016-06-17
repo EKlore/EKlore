@@ -27,7 +27,7 @@ Template.newEkloreQuestion.helpers({
 			return false;
 		}
 	}
-})
+});
 
 Template.newEkloreQuestion.events({
 	'click #addEkloreQuestion': function(event) {
