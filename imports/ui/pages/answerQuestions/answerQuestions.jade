@@ -6,11 +6,20 @@ template(name="answerQuestions")
 					.panel-heading
 						h4 {{_ "question"}} : #{title}
 					.panel-body
-						each choices
-							.radio
-								label
-									input(type="radio" name="choicesForQuestion" id="#{choiceId}" value="#{choiceId}")
-									| #{label}
+						if questionTypeRadio
+							each choices
+								.radio
+									label
+										input(type="radio" name="choicesForQuestion" id="#{choiceId}" value="#{choiceId}")
+										| #{label}
+						else
+							.row
+								.col-xs-1.col-sm-1.col-md1.col-lg-1
+									p 1
+								.col-xs-10.col-sm-10.col-md10.col-lg-10
+									input#answerForRange(name="answerForRange" type="range" min="1" max="10" step="1" value="5")
+								.col-xs-1.col-sm-1.col-md1.col-lg-1
+									p 10
 					.panel-footer
 						button#validateChoice.btn-block.btn.btn-success(type="button") {{_ "validate"}}
 		else
@@ -19,3 +28,4 @@ template(name="answerQuestions")
 					h4 {{_ "congratsNoMoreQuestions"}}
 						a.btn.btn-primary(role="button" href="{{pathFor 'myProfile'}}") {{_ "returnToProfile"}}
 	else
+		+spinner
