@@ -23,7 +23,9 @@ let UniverseSchema = new SimpleSchema({
 	matchingPower: {
 		type: Number,
 		decimal: true,
-		label: 'Matching power or the universe against the question or choice'
+		label: 'Matching power or the universe against the question or choice',
+		min: 0.01,
+		max: 1
 	}
 });
 
@@ -35,7 +37,9 @@ let WorkshopSchema = new SimpleSchema({
 	matchingPower: {
 		type: Number,
 		decimal: true,
-		label: 'Matching power or the workshop against the question or choice'
+		label: 'Matching power or the workshop against the question or choice',
+		min: 0.01,
+		max: 1
 	}
 });
 
@@ -48,18 +52,15 @@ let ChoiceSchema = new SimpleSchema({
 		type: String,
 		label: 'tradID via i18n'
 	},
-	pictureSource: {
-		type: String,
-		label: 'Url or image path',
-		optional: true
-	},
 	universesLinked: {
 		type: [UniverseSchema],
-		label: 'List of the linked universes to the choice'
+		label: 'List of the linked universes to the choice',
+		minCount: 1
 	},
 	workshopsLinked: {
 		type: [WorkshopSchema],
-		label: 'List of the linked workshops to the choice'
+		label: 'List of the linked workshops to the choice',
+		minCount: 1
 	}
 });
 
@@ -96,15 +97,18 @@ UserQuestions.schema = new SimpleSchema({
 	},
 	level: {
 		type: Number,
-		label: 'Question level'
+		label: 'Question level',
+		min: 1
 	},
 	version: {
 		type: Number,
-		label: 'Question version'
+		label: 'Question version',
+		min: 1
 	},
 	choices: {
 		type: [ChoiceSchema],
-		label: 'Choices list'
+		label: 'Choices list',
+		minCount: 2
 	},
 	choiceSelected: {
 		type: String,
@@ -117,11 +121,13 @@ UserQuestions.schema = new SimpleSchema({
 	},
 	universesLinked: {
 		type: [UniverseSchema],
-		label: 'List of the linked universe to the question'
+		label: 'List of the linked universe to the question',
+		minCount: 1
 	},
 	workshopsLinked: {
 		type: [WorkshopSchema],
-		label: 'List of the linked workshops to the question'
+		label: 'List of the linked workshops to the question',
+		minCount: 1
 	},
 	answerDate: {
 		type: Date,
@@ -131,7 +137,7 @@ UserQuestions.schema = new SimpleSchema({
 	displayType: {
 		type: String,
 		label: 'Question display',
-		allowedValues: ['text', 'picture']
+		allowedValues: ['scale', 'yesNo', 'qcm']
 	},
 	title: {
 		type: String,

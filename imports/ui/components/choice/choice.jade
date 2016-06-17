@@ -7,19 +7,25 @@ template(name="choice")
 						| #{label} : {{_ "clickToShowOrHide"}}
 					else
 						| {{_ "choiceNotDefined"}} : {{_ "clickToShowOrHide"}}
+				.pull-right
+					if displayTypeQcm
+						button.removeChoiceFromEkloreQuestion.btn.btn-danger.btn-xs {{_ "removeChoiceFromEkloreQuestion"}}
+					if ifChoiceValid
+						button.btn.btn-success.btn-xs(type="button")
+							span.glyphicon.glyphicon-ok(aria-hidden="true")
+					else
+						button.btn.btn-warning.btn-xs(type="button")
+							span.glyphicon.glyphicon-warning-sign(aria-hidden="true")
 		.panel-collapse.collapse(role="tabpanel" aria-labelledby="#{idForChoice}" id="#{collapseChoice}")
 			.panel-body
-				.panel.panel-default
-					.panel-body
-						form.saveLabel
-							.form-group
-								label(for="#{choiceId}") {{_ "label"}}
-								input.form-control(id="#{choiceId}" type="text" value="#{label}")
-							.row
-								.col-xs-6.col-sm-6.col-md-6.col-lg-6
-									a.btn.btn-danger.btn-block(role="button" href="{{pathFor 'admin'}}") {{_ "cancel"}}
-								.col-xs-6.col-sm-6.col-md-6.col-lg-6
-									button.btn.btn-success.btn-block(type="submit") {{_ "save"}}
+				if displayTypeQcm
+					.panel.panel-default
+						.panel-body
+							form.saveLabel
+								.form-group
+									label(for="#{choiceId}") {{_ "label"}}
+									input.form-control(id="#{choiceId}" type="text" value="#{label}")
+								button.btn.btn-success.btn-block(type="submit") {{_ "save"}}
 				.panel.panel-default
 					.panel-heading
 						h4.panel-title {{_ "Muniverses"}}

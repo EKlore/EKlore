@@ -53,11 +53,6 @@ let ChoiceSchema = new SimpleSchema({
 		label: 'tradID via i18n',
 		optional: true
 	},
-	pictureSource: {
-		type: String,
-		label: 'Url or image path',
-		optional: true
-	},
 	universesLinked: {
 		type: [UniverseSchema],
 		label: 'List of the linked universes to the choice',
@@ -79,7 +74,7 @@ EkloreQuestions.schema = new SimpleSchema({
 	version: {
 		type: Number,
 		label: 'Question version',
-		min: 0
+		min: 1
 	},
 	choices: {
 		type: [ChoiceSchema],
@@ -108,7 +103,7 @@ EkloreQuestions.schema = new SimpleSchema({
 	displayType: {
 		type: String,
 		label: 'Question display',
-		allowedValues: ['text', 'picture']
+		allowedValues: ['scale', 'yesNo', 'qcm']
 	},
 	title: {
 		type: String,

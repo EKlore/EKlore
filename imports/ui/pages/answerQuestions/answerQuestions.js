@@ -24,6 +24,13 @@ Template.answerQuestions.helpers({
 				level: 1
 			}
 		});
+	},
+	questionTypeRadio() {
+		if (this.displayType === 'qcm' || this.displayType === 'yesNo') {
+			return true;
+		} else {
+			return false;
+		}
 	}
 });
 
@@ -31,9 +38,18 @@ Template.answerQuestions.events({
 	'click #validateChoice': function(event) {
 		event.preventDefault();
 		const data = {
-			userQuestionId: this._id,
-			choiceSelected: $('input[name="choicesForQuestion"]:checked').val()
+			userQuestionId: this._id
 		};
+		if (this.displayType === 'qcm' || this.displayType === 'yesNo') {
+			data.choiceSelected = $('input[name="choicesForQuestion"]:checked').val();
+		} else {
+			let answer = $('#answerForRange').val();
+			this.choices.map((cur, index, array) => {
+				if (cur.label === answer) {
+					return data.choiceSelected = cur.choiceId;
+				}
+			});
+		}
 		if (!data.choiceSelected) {
 			return Bert.alert('You must choose an answer !', 'danger', 'growl-top-right');
 		}
@@ -42,6 +58,7 @@ Template.answerQuestions.events({
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			} else {
 				$('input[name="choicesForQuestion"]:checked').removeAttr('checked');
+				$('#answerForRange').val('5');
 			}
 		});
 	}
