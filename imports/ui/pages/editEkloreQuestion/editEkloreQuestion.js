@@ -8,6 +8,7 @@ import { Universes } from '../../../api/universes/schema.js';
 import { Workshops } from '../../../api/workshops/schema.js';
 import { EkloreQuestions } from '../../../api/ekloreQuestions/schema.js';
 import { QuestionsGroups } from '../../../api/questionsGroups/schema.js';
+import { validateScaleEkloreQuestion, validateYesNoEkloreQuestion, validateQcmEkloreQuestion } from '../../../startup/client/lib/sharedFunctions.js';
 
 import './editEkloreQuestion.jade';
 import '../../components/choice/choice.js';
@@ -29,6 +30,19 @@ Template.editEkloreQuestion.onCreated(function() {
 Template.editEkloreQuestion.helpers({
 	ekloreQuestion() {
 		return EkloreQuestions.findOne({ _id: Router.current().params._id });
+	},
+	isEkloreQuestionValid() {
+		let that = JSON.parse(JSON.stringify(this));
+		that.questionId = this._id;
+		delete that.createdAt;
+		delete that.questionsGroupId;
+		if (this.displayType === 'scale') {
+			return validateScaleEkloreQuestion(that);
+		} else if (this.displayType === 'yesNo') {
+			return validateYesNoEkloreQuestion(that);
+		} else if (this.displayType === 'qcm') {
+			return validateQcmEkloreQuestion(that);
+		}
 	},
 	questionsGroupData() {
 		return QuestionsGroups.findOne({ _id: this.questionsGroupId });
@@ -120,28 +134,13 @@ Template.editEkloreQuestion.events({
 	},
 	'click #linkToEkloreQuestion': function(event) {
 		event.preventDefault();
-		let questionGroupId = this._id;
-		let questionData = EkloreQuestions.findOne({ _id: Router.current().params._id });
-		questionData.answered = false;
-		questionData.userId = Meteor.userId();
-		questionData.questionId = this._id;
-		delete questionData._id;
-		delete questionData.createdAt;
-		delete questionData.questionsGroupId;
-		Meteor.call('insertQuestion', questionData, (error, result) => {
+		const data = {
+			ekloreQuestionId: Router.current().params._id,
+			questionsGroupId: this._id
+		};
+		Meteor.call('linkQuestionsGroupToAnEkloreQuestion', data, (error, result) => {
 			if (error) {
-				return Bert.alert('The question configuration is not valid, please verify, Universes, Workshops and Choices', 'danger', 'growl-top-right');
-			} else {
-				Meteor.call('removeQuestion', result);
-				const data = {
-					ekloreQuestionId: Router.current().params._id,
-					questionsGroupId: questionGroupId
-				};
-				Meteor.call('linkQuestionsGroupToAnEkloreQuestion', data, (error, result) => {
-					if (error) {
-						return Bert.alert(error.message, 'danger', 'growl-top-right');
-					}
-				});
+				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			}
 		});
 	},
