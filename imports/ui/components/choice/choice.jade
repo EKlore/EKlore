@@ -7,8 +7,15 @@ template(name="choice")
 						| #{label} : {{_ "clickToShowOrHide"}}
 					else
 						| {{_ "choiceNotDefined"}} : {{_ "clickToShowOrHide"}}
-				if displayTypeQcm
-					button.removeChoiceFromEkloreQuestion.btn.btn-danger.pull-right.btn-xs {{_ "removeChoiceFromEkloreQuestion"}}
+				.pull-right
+					if displayTypeQcm
+						button.removeChoiceFromEkloreQuestion.btn.btn-danger.btn-xs {{_ "removeChoiceFromEkloreQuestion"}}
+					if ifChoiceValid
+						button.btn.btn-success.btn-xs(type="button")
+							span.glyphicon.glyphicon-ok(aria-hidden="true")
+					else
+						button.btn.btn-warning.btn-xs(type="button")
+							span.glyphicon.glyphicon-warning-sign(aria-hidden="true")
 		.panel-collapse.collapse(role="tabpanel" aria-labelledby="#{idForChoice}" id="#{collapseChoice}")
 			.panel-body
 				if displayTypeQcm

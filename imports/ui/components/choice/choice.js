@@ -6,6 +6,7 @@ import { Bert } from 'meteor/themeteorchef:bert';
 
 import { Universes } from '../../../api/universes/schema.js';
 import { Workshops } from '../../../api/workshops/schema.js';
+import { validateChoiceEkloreQuestion } from '../../../startup/client/lib/sharedFunctions.js';
 
 import './choice.jade';
 import '../../components/universesToAddToChoice/universesToAddToChoice.js';
@@ -19,6 +20,9 @@ Template.choice.helpers({
 	},
 	collapseChoice() {
 		return 'collapse_' + this.choiceId;
+	},
+	ifChoiceValid() {
+		return validateChoiceEkloreQuestion(this);
 	},
 	displayTypeQcm() {
 		if (Template.parentData(1).displayType === 'qcm') {
