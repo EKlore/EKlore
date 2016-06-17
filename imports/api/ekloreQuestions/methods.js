@@ -6,18 +6,38 @@ import { EkloreQuestions } from './schema.js';
 
 Meteor.methods({
 	addAnEkloreQuestion(data) {
+		function yesNoChoices() {
+			return [{
+				choiceId: Random.id(),
+				label: 'yes'
+			}, {
+				choiceId: Random.id(),
+				label: 'no'
+			}];
+		}
+
+		function scaleChoices() {
+			let arr = [];
+			for (let i = 0; i < 10; i++) {
+				arr.push({ choiceId: Random.id(), label: i + 1 });
+			}
+			return arr;
+		}
+
 		let methodSchema = new SimpleSchema({
 			title: { type: String },
 			level: { type: Number },
-			displayType: { type: String }
+			displayType: { type: String, allowedValues: ['scale', 'yesNo', 'qcm'] }
 		});
 		check(data, methodSchema);
 		data.version = 1;
 		data.deprecated = false;
 		data.createdAt = new Date();
 		data.choices = [];
-		for (let i = 0; i < 4; i++) {
-			data.choices.push({ choiceId: Random.id() });
+		if (data.displayType === 'scale') {
+			data.choices = scaleChoices();
+		} else if (data.displayType === 'yesNo') {
+			data.choices = yesNoChoices();
 		}
 		return EkloreQuestions.insert(data);
 	},
@@ -26,7 +46,6 @@ Meteor.methods({
 			ekloreQuestionId: { type: String },
 			title: { type: String },
 			level: { type: Number },
-			displayType: { type: String },
 			deprecated: { type: String }
 		});
 		check(data, methodSchema);
@@ -34,8 +53,7 @@ Meteor.methods({
 			$set: {
 				title: data.title,
 				level: data.level,
-				deprecated: data.deprecated,
-				displayType: data.displayType
+				deprecated: data.deprecated
 			},
 			$inc: {
 				version: 1
@@ -190,6 +208,33 @@ Meteor.methods({
 			},
 			$inc: {
 				version: 1
+			}
+		});
+	},
+	addChoiceToEkloreQuestion(data) {
+		let methodSchema = new SimpleSchema({
+			ekloreQuestionId: { type: String }
+		});
+		check(data, methodSchema);
+		return EkloreQuestions.update({ _id: data.ekloreQuestionId }, {
+			$push: {
+				choices: {
+					choiceId: Random.id()
+				}
+			}
+		});
+	},
+	removeChoiceFromEkloreQuestion(data) {
+		let methodSchema = new SimpleSchema({
+			ekloreQuestionId: { type: String },
+			choiceId: { type: String }
+		});
+		check(data, methodSchema);
+		return EkloreQuestions.update({ _id: data.ekloreQuestionId }, {
+			$pull: {
+				choices: {
+					choiceId: data.choiceId
+				}
 			}
 		});
 	}

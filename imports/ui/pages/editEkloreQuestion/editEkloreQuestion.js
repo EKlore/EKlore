@@ -12,7 +12,6 @@ import { QuestionsGroups } from '../../../api/questionsGroups/schema.js';
 import './editEkloreQuestion.jade';
 import '../../components/choice/choice.js';
 import '../../components/editDeprecated/editDeprecated.jade';
-import '../../components/editDisplayType/editDisplayType.js';
 import '../../components/universesToAddToEkloreQuestion/universesToAddToEkloreQuestion.js';
 import '../../components/universesToRemoveFromEkloreQuestion/universesToRemoveFromEkloreQuestion.js';
 import '../../components/workshopsToAddToEkloreQuestion/workshopsToAddToEkloreQuestion.js';
@@ -29,7 +28,7 @@ Template.editEkloreQuestion.onCreated(function() {
 
 Template.editEkloreQuestion.helpers({
 	ekloreQuestion() {
-		return EkloreQuestions.findOne(Router.current().params._id);
+		return EkloreQuestions.findOne({ _id: Router.current().params._id });
 	},
 	questionsGroupData() {
 		return QuestionsGroups.findOne({ _id: this.questionsGroupId });
@@ -42,8 +41,8 @@ Template.editEkloreQuestion.helpers({
 			}
 		});
 	},
-	displayTypeText() {
-		if (this.displayType === 'text') {
+	displayTypeQcm() {
+		if (this.displayType === 'qcm') {
 			return true;
 		} else {
 			return false;
@@ -102,11 +101,6 @@ Template.editEkloreQuestion.events({
 		} else if ($('input[name="deprecated"]:checked').val() === 'deprecated') {
 			data.deprecated = true;
 		}
-		if ($('input[name="displayType"]:checked').val() === 'text') {
-			data.displayType = 'text';
-		} else if ($('input[name="displayType"]:checked').val() === 'picture') {
-			data.displayType = 'picture';
-		}
 		if (!data.title) {
 			return Bert.alert('Title must be filled', 'danger', 'growl-top-right');
 		}
@@ -157,6 +151,17 @@ Template.editEkloreQuestion.events({
 			ekloreQuestionId: Router.current().params._id
 		};
 		Meteor.call('unlikQuestionGroupFromEkloreQuestion', data, (error, result) => {
+			if (error) {
+				return Bert.alert(error.message, 'danger', 'growl-top-right');
+			}
+		});
+	},
+	'click #addAChoice': function(event) {
+		event.preventDefault();
+		const data = {
+			ekloreQuestionId: Router.current().params._id
+		};
+		Meteor.call('addChoiceToEkloreQuestion', data, (error, result) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			}

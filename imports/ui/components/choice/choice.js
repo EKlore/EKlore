@@ -20,6 +20,13 @@ Template.choice.helpers({
 	collapseChoice() {
 		return 'collapse_' + this.choiceId;
 	},
+	displayTypeQcm() {
+		if (Template.parentData(1).displayType === 'qcm') {
+			return true;
+		} else {
+			return false;
+		}
+	},
 	universes() {
 		if (!Template.parentData(1).universesLinked || Template.parentData(1).universesLinked.length === 0) {
 			return false;
@@ -101,6 +108,18 @@ Template.choice.events({
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			} else {
 				return Bert.alert('Update successful', 'success', 'growl-top-right');
+			}
+		});
+	},
+	'click .removeChoiceFromEkloreQuestion': function(event) {
+		event.preventDefault();
+		const data = {
+			ekloreQuestionId: Router.current().params._id,
+			choiceId: this.choiceId
+		};
+		Meteor.call('removeChoiceFromEkloreQuestion', data, (error, result) => {
+			if (error) {
+				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			}
 		});
 	}

@@ -5,30 +5,6 @@ import { Bert } from 'meteor/themeteorchef:bert';
 
 import './newEkloreQuestion.jade';
 
-Template.newEkloreQuestion.helpers({
-	displayTypeScale() {
-		if ($('input[name="displayType"]:checked').val() === 'scale') {
-			return true;
-		} else {
-			return false;
-		}
-	},
-	displayTypeYesNo() {
-		if ($('input[name="displayType"]:checked').val() === 'yesNo') {
-			return true;
-		} else {
-			return false;
-		}
-	},
-	displayTypeQcm() {
-		if ($('input[name="displayType"]:checked').val() === 'qcm') {
-			return true;
-		} else {
-			return false;
-		}
-	}
-});
-
 Template.newEkloreQuestion.events({
 	'click #addEkloreQuestion': function(event) {
 		event.preventDefault();
@@ -36,10 +12,12 @@ Template.newEkloreQuestion.events({
 			title: $('#ekloreQuestionTitle').val(),
 			level: Number($('#ekloreQuestionLevel').val())
 		};
-		if ($('input[name="displayType"]:checked').val() === 'text') {
-			data.displayType = 'text';
-		} else if ($('input[name="displayType"]:checked').val() === 'picture') {
-			data.displayType = 'picture';
+		if ($('input[name="displayType"]:checked').val() === 'scale') {
+			data.displayType = 'scale';
+		} else if ($('input[name="displayType"]:checked').val() === 'yesNo') {
+			data.displayType = 'yesNo';
+		} else if ($('input[name="displayType"]:checked').val() === 'qcm') {
+			data.displayType = 'qcm';
 		}
 		if (!data.title) {
 			return Bert.alert('Title must be filled', 'danger', 'growl-top-right');
