@@ -8,7 +8,7 @@ Meteor.methods({
 	addAnEkloreQuestion(data) {
 		let methodSchema = new SimpleSchema({
 			title: { type: String },
-			level: { type: Number }
+			level: { type: Number },
 			displayType: { type: String }
 		});
 		check(data, methodSchema);
@@ -25,7 +25,7 @@ Meteor.methods({
 		let methodSchema = new SimpleSchema({
 			ekloreQuestionId: { type: String },
 			title: { type: String },
-			level: { type: Number }
+			level: { type: Number },
 			displayType: { type: String },
 			deprecated: { type: String }
 		});
