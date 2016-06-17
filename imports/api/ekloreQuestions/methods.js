@@ -19,7 +19,7 @@ Meteor.methods({
 		function scaleChoices() {
 			let arr = [];
 			for (let i = 0; i < 10; i++) {
-				arr.push({ choiceId: Random.id(), label: i + 1 });
+				arr.push({ choiceId: Random.id(), label: i + 1 + '' });
 			}
 			return arr;
 		}
@@ -46,7 +46,7 @@ Meteor.methods({
 			ekloreQuestionId: { type: String },
 			title: { type: String },
 			level: { type: Number },
-			deprecated: { type: String }
+			deprecated: { type: Boolean }
 		});
 		check(data, methodSchema);
 		return EkloreQuestions.update({ _id: data.ekloreQuestionId }, {
@@ -61,9 +61,11 @@ Meteor.methods({
 		});
 	},
 	linkQuestionsGroupToAnEkloreQuestion(data) {
-		check(data, Object);
-		check(data.questionsGroupId, String);
-		check(data.ekloreQuestionId, String);
+		let methodSchema = new SimpleSchema({
+			questionsGroupId: { type: String },
+			ekloreQuestionId: { type: String }
+		});
+		check(data, methodSchema);
 		return EkloreQuestions.update({ _id: data.ekloreQuestionId }, {
 			$set: {
 				questionsGroupId: data.questionsGroupId

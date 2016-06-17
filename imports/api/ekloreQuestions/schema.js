@@ -74,7 +74,7 @@ EkloreQuestions.schema = new SimpleSchema({
 	version: {
 		type: Number,
 		label: 'Question version',
-		min: 0
+		min: 1
 	},
 	choices: {
 		type: [ChoiceSchema],
