@@ -134,5 +134,8 @@
 	"universeColor": "Couleur de l'univers",
 	"workshopColor": "Couleur de l'atelier",
 	"seeUniverses": "Découvrez les univers de la FETE EKlore",
-	"moreInformations": "Plus d'informations"
+	"moreInformations": "Plus d'informations",
+	"scale1To10": "Echelle de 1 à 10",
+	"yesNo": "Oui ou Non",
+	"qcm": "QCM"
 }

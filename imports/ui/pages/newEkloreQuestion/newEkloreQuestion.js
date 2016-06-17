@@ -5,6 +5,30 @@ import { Bert } from 'meteor/themeteorchef:bert';
 
 import './newEkloreQuestion.jade';
 
+Template.newEkloreQuestion.helpers({
+	displayTypeScale() {
+		if ($('input[name="displayType"]:checked').val() === 'scale') {
+			return true;
+		} else {
+			return false;
+		}
+	},
+	displayTypeYesNo() {
+		if ($('input[name="displayType"]:checked').val() === 'yesNo') {
+			return true;
+		} else {
+			return false;
+		}
+	},
+	displayTypeQcm() {
+		if ($('input[name="displayType"]:checked').val() === 'qcm') {
+			return true;
+		} else {
+			return false;
+		}
+	}
+})
+
 Template.newEkloreQuestion.events({
 	'click #addEkloreQuestion': function(event) {
 		event.preventDefault();
