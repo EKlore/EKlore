@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 import { Random } from 'meteor/random';
+import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
 import { EkloreQuestions } from './schema.js';
 
@@ -87,7 +88,7 @@ Meteor.methods({
 		let methodSchema = new SimpleSchema({
 			workshopId: { type: String },
 			ekloreQuestionId: { type: String },
-			matchingPower: { type: Number }
+			matchingPower: { type: Number, decimal: true, min: 0.01, max: 1 }
 		});
 		check(data, methodSchema);
 		return EkloreQuestions.update({ _id: data.ekloreQuestionId }, {
@@ -117,7 +118,7 @@ Meteor.methods({
 		let methodSchema = new SimpleSchema({
 			universeId: { type: String },
 			ekloreQuestionId: { type: String },
-			matchingPower: { type: Number }
+			matchingPower: { type: Number, decimal: true, min: 0.01, max: 1 }
 		});
 		check(data, methodSchema);
 		return EkloreQuestions.update({ _id: data.ekloreQuestionId }, {
@@ -144,12 +145,14 @@ Meteor.methods({
 		});
 	},
 	addUniverseToChoice(data) {
-		check(data, Object);
-		check(data.ekloreQuestionId, String);
-		check(data.choiceId, String);
-		check(data.universeId, String);
-		check(data.matchingPower, Number);
-		check(data.choiceIndex, Number);
+		let methodSchema = new SimpleSchema({
+			universeId: { type: String },
+			choiceId: { type: String },
+			ekloreQuestionId: { type: String },
+			matchingPower: { type: Number, decimal: true, min: 0.01, max: 1 },
+			choiceIndex: { type: Number, min: 0 }
+		});
+		check(data, methodSchema);
 		let pos = 'choices.' + data.choiceIndex + '.universesLinked';
 		return EkloreQuestions.update({ _id: data.ekloreQuestionId }, {
 			$push: {
@@ -161,11 +164,13 @@ Meteor.methods({
 		});
 	},
 	removeUniverseFromChoice(data) {
-		check(data, Object);
-		check(data.ekloreQuestionId, String);
-		check(data.choiceId, String);
-		check(data.universeId, String);
-		check(data.choiceIndex, Number);
+		let methodSchema = new SimpleSchema({
+			universeId: { type: String },
+			choiceId: { type: String },
+			ekloreQuestionId: { type: String },
+			choiceIndex: { type: Number, min: 0 }
+		});
+		check(data, methodSchema);
 		let pos = 'choices.' + data.choiceIndex + '.universesLinked';
 		return EkloreQuestions.update({ _id: data.ekloreQuestionId }, {
 			$pull: {
@@ -176,12 +181,14 @@ Meteor.methods({
 		});
 	},
 	addWorkshopToChoice(data) {
-		check(data, Object);
-		check(data.ekloreQuestionId, String);
-		check(data.choiceId, String);
-		check(data.workshopId, String);
-		check(data.matchingPower, Number);
-		check(data.choiceIndex, Number);
+		let methodSchema = new SimpleSchema({
+			workshopId: { type: String },
+			choiceId: { type: String },
+			ekloreQuestionId: { type: String },
+			matchingPower: { type: Number, decimal: true, min: 0.01, max: 1 },
+			choiceIndex: { type: Number, min: 0 }
+		});
+		check(data, methodSchema);
 		let pos = 'choices.' + data.choiceIndex + '.workshopsLinked';
 		return EkloreQuestions.update({ _id: data.ekloreQuestionId }, {
 			$push: {
@@ -193,11 +200,13 @@ Meteor.methods({
 		});
 	},
 	removeWorkshopFromChoice(data) {
-		check(data, Object);
-		check(data.ekloreQuestionId, String);
-		check(data.choiceId, String);
-		check(data.workshopId, String);
-		check(data.choiceIndex, Number);
+		let methodSchema = new SimpleSchema({
+			workshopId: { type: String },
+			choiceId: { type: String },
+			ekloreQuestionId: { type: String },
+			choiceIndex: { type: Number, min: 0 }
+		});
+		check(data, methodSchema);
 		let pos = 'choices.' + data.choiceIndex + '.workshopsLinked';
 		return EkloreQuestions.update({ _id: data.ekloreQuestionId }, {
 			$pull: {
@@ -208,11 +217,13 @@ Meteor.methods({
 		});
 	},
 	updateAChoice(data) {
-		check(data, Object);
-		check(data.ekloreQuestionId, String);
-		check(data.label, String);
-		check(data.choiceIndex, Number);
-		check(data.choiceId, String);
+		let methodSchema = new SimpleSchema({
+			label: { type: String },
+			choiceId: { type: String },
+			ekloreQuestionId: { type: String },
+			choiceIndex: { type: Number, min: 0 }
+		});
+		check(data, methodSchema);
 		let pos = 'choices.' + data.choiceIndex + '.label';
 		return EkloreQuestions.update({ _id: data.ekloreQuestionId }, {
 			$set: {

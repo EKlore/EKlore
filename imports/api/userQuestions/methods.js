@@ -1,32 +1,33 @@
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
+import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
 import { UserQuestions } from './schema.js';
 
 Meteor.methods({
 	insertQuestion(data) {
-		check(data, Object);
-		check(data.title, String);
-		check(data.level, Number);
-		check(data.displayType, String);
-		check(data.version, Number);
-		check(data.deprecated, Boolean);
-		check(data.choices, Array);
-		check(data.universesLinked, Array);
-		check(data.workshopsLinked, Array);
-		check(data.answered, Boolean);
-		check(data.userId, String);
-		check(data.questionId, String);
+		let methodSchema = new SimpleSchema({
+			title: { type: String },
+			level: { type: Number, min: 1 },
+			displayType: { type: String, allowedValues: ['yesNo', 'qcm', 'scale'] },
+			version: { type: Number, min: 1 },
+			deprecated: { type: Boolean },
+			choices: { type: Array, minCount: 2 },
+			universesLinked: { type: Array, minCount: 1 },
+			workshopsLinked: { type: Array, minCount: 1 },
+			answered: { type: Boolean },
+			userId: { type: String },
+			questionId: { type: String }
+		});
+		check(data, methodSchema);
 		return UserQuestions.insert(data);
 	},
-	removeQuestion(data) {
-		check(data, String);
-		return UserQuestions.remove({ _id: data });
-	},
 	answerQuestion(data) {
-		check(data, Object);
-		check(data.userQuestionId, String);
-		check(data.choiceSelected, String);
+		let methodSchema = new SimpleSchema({
+			userQuestionId: { type: String },
+			choiceSelected: { type: String }
+		});
+		check(data, methodSchema);
 		return UserQuestions.update({ _id: data.userQuestionId }, {
 			$set: {
 				choiceSelected: data.choiceSelected,
@@ -36,9 +37,11 @@ Meteor.methods({
 		});
 	},
 	saveQuestionResult(data) {
-		check(data, Object);
-		check(data._id, String);
-		check(data.result, Array);
+		let methodSchema = new SimpleSchema({
+			_id: { type: String },
+			result: { type: Array }
+		});
+		check(data, methodSchema);
 		check(data.result[0], Object);
 		check(data.result[0].result, Number);
 		if (data.result[0].universeId) {
@@ -53,4 +56,3 @@ Meteor.methods({
 		});
 	}
 });
-
