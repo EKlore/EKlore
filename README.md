@@ -3,6 +3,8 @@
 This is the web app of the **FETE EKlore**. `FETE` means **FE**stival des **T**alents et de l'**E**mploi.
 The event will take place at the `Cité des métiers` of Paris (France) on october 3rd 2016.
 
+For more information about the `EKlore` association [go to the website](http://eklore.fr/)
+
 ## The app features
 
 * Display the `FETE` informations
