@@ -73,8 +73,10 @@ Meteor.methods({
 		});
 	},
 	unlikQuestionGroupFromEkloreQuestion(data) {
-		check(data, Object);
-		check(data.ekloreQuestionId, String);
+		let methodSchema = new SimpleSchema({
+			ekloreQuestionId: { type: String }
+		});
+		check(data, methodSchema);
 		return EkloreQuestions.update({ _id: data.ekloreQuestionId }, {
 			$unset: {
 				questionsGroupId: ''
@@ -82,10 +84,12 @@ Meteor.methods({
 		});
 	},
 	addWorkshopToEkloreQuestion(data) {
-		check(data, Object);
-		check(data.ekloreQuestionId, String);
-		check(data.workshopId, String);
-		check(data.matchingPower, Number);
+		let methodSchema = new SimpleSchema({
+			workshopId: { type: String },
+			ekloreQuestionId: { type: String },
+			matchingPower: { type: Number }
+		});
+		check(data, methodSchema);
 		return EkloreQuestions.update({ _id: data.ekloreQuestionId }, {
 			$push: {
 				workshopsLinked: {
@@ -96,9 +100,11 @@ Meteor.methods({
 		});
 	},
 	removeWorkshopFromEkloreQuestion(data) {
-		check(data, Object);
-		check(data.ekloreQuestionId, String);
-		check(data.workshopId, String);
+		let methodSchema = new SimpleSchema({
+			workshopId: { type: String },
+			ekloreQuestionId: { type: String }
+		});
+		check(data, methodSchema);
 		return EkloreQuestions.update({ _id: data.ekloreQuestionId }, {
 			$pull: {
 				workshopsLinked: {
@@ -108,10 +114,12 @@ Meteor.methods({
 		});
 	},
 	addUniverseToEkloreQuestion(data) {
-		check(data, Object);
-		check(data.ekloreQuestionId, String);
-		check(data.universeId, String);
-		check(data.matchingPower, Number);
+		let methodSchema = new SimpleSchema({
+			universeId: { type: String },
+			ekloreQuestionId: { type: String },
+			matchingPower: { type: Number }
+		});
+		check(data, methodSchema);
 		return EkloreQuestions.update({ _id: data.ekloreQuestionId }, {
 			$push: {
 				universesLinked: {
@@ -122,9 +130,11 @@ Meteor.methods({
 		});
 	},
 	removeUniverseFromEkloreQuestion(data) {
-		check(data, Object);
-		check(data.ekloreQuestionId, String);
-		check(data.universeId, String);
+		let methodSchema = new SimpleSchema({
+			universeId: { type: String },
+			ekloreQuestionId: { type: String }
+		});
+		check(data, methodSchema);
 		return EkloreQuestions.update({ _id: data.ekloreQuestionId }, {
 			$pull: {
 				universesLinked: {
