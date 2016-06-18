@@ -35,12 +35,7 @@ Meteor.methods({
 		let methodSchema = new SimpleSchema({
 			universeId: { type: String },
 			workshopId: { type: String },
-			matchingPower: {
-				type: Number,
-				decimal: true,
-				min: 0.01,
-				max: 1
-			}
+			matchingPower: { type: Number, decimal: true, min: 0.01, max: 1 }
 		});
 		check(data, methodSchema);
 		return Universes.update({ _id: data.universeId }, {

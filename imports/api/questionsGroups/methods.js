@@ -1,25 +1,32 @@
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
+import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
 import { QuestionsGroups } from './schema.js';
 import { EkloreQuestions } from '../ekloreQuestions/schema.js';
 
 Meteor.methods({
 	addAQuestionsGroup(data) {
-		check(data.title, String);
-		check(data.label, String);
-		check(data.level, Number);
+		let methodSchema = new SimpleSchema({
+			title: { type: String },
+			level: { type: Number },
+			label: { type: String }
+		});
+		check(data, methodSchema);
 		data.version = 1;
 		data.deprecated = false;
 		data.createdAt = new Date();
 		return QuestionsGroups.insert(data);
 	},
 	updateAQuestionsGroup(data) {
-		check(data.questionsGroupId, String);
-		check(data.title, String);
-		check(data.label, String);
-		check(data.level, Number);
-		check(data.deprecated, Boolean);
+		let methodSchema = new SimpleSchema({
+			questionsGroupId: { type: String },
+			title: { type: String },
+			level: { type: Number },
+			label: { type: String },
+			deprecated: { type: Boolean }
+		});
+		check(data, methodSchema);
 		return QuestionsGroups.update({ _id: data.questionsGroupId }, {
 			$set: {
 				title: data.title,
@@ -33,8 +40,11 @@ Meteor.methods({
 		});
 	},
 	addQuestionsGroupToUser(data) {
-		check(data.questionsGroupId, String);
-		check(data.userId, String);
+		let methodSchema = new SimpleSchema({
+			questionsGroupId: { type: String },
+			userId: { type: String }
+		});
+		check(data, methodSchema);
 		const ekloreQuestionsForUser = EkloreQuestions.find({
 			deprecated: false,
 			questionsGroupId: data.questionsGroupId
@@ -48,6 +58,6 @@ Meteor.methods({
 			delete cur.questionsGroupId;
 			Meteor.call('insertQuestion', cur);
 		});
-		Meteor.call('addQuestionsGroup', data);
+		Meteor.call('addQuestionsGroupIntoUser', data);
 	}
 });
