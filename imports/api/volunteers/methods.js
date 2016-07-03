@@ -9,7 +9,8 @@ Meteor.methods({
 		let methodSchema = new SimpleSchema({
 			firstName: { type: String },
 			lastName: { type: String },
-			pictureUrl: { type: String, optional: true }
+			pictureUrl: { type: String, optional: true },
+			functionInFete: { type: String, optional: true }
 		});
 		check(data, methodSchema);
 		if (!data.pictureUrl) {

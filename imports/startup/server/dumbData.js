@@ -1,3 +1,5 @@
+/*eslint no-console: "off"*/
+
 import { Meteor } from 'meteor/meteor';
 
 import { Volunteers } from '../../api/volunteers/schema.js';
@@ -19,12 +21,15 @@ Meteor.startup(() => {
 			lastName: 'Thurneyssen',
 			functionInFete: 'Responsable programmation'
 		}];
-		for (var j = 0; j < volunteers.length; j++) {
-			Meteor.call('addAVolunteer', volunteers[j], (error, result) => {
+		console.log('begin volunteers adding');
+		volunteers.map((cur, index, array) => {
+			return Meteor.call('addAVolunteer', cur, (error, result) => {
 				if (error) {
-					return throwError(error.message);
+					return console.log(error.message);
+				} else {
+					console.log('addVolunteer : ' + cur.firstName + ' ' + cur.lastName + ' : Done');
 				}
 			});
-		}
+		});
 	}
 });
