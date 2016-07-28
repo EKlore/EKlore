@@ -17,6 +17,19 @@ Meteor.methods({
 			}];
 		}
 
+		function qcmDefaultChoices() {
+			return [{
+				choiceId: Random.id(),
+				label: 'Oui'
+			}, {
+				choiceId: Random.id(),
+				label: 'Non'
+			}, {
+				choiceId: Random.id(),
+				label: 'Ne sait pas'
+			}];
+		}
+
 		function scaleChoices() {
 			let arr = [];
 			for (let i = 0; i < 10; i++) {
@@ -28,7 +41,7 @@ Meteor.methods({
 		let methodSchema = new SimpleSchema({
 			title: { type: String },
 			level: { type: Number },
-			displayType: { type: String, allowedValues: ['scale', 'yesNo', 'qcm'] }
+			displayType: { type: String, allowedValues: ['scale', 'yesNo', 'qcm', 'qcmDefault'] }
 		});
 		check(data, methodSchema);
 		data.version = 1;
@@ -39,6 +52,9 @@ Meteor.methods({
 			data.choices = scaleChoices();
 		} else if (data.displayType === 'yesNo') {
 			data.choices = yesNoChoices();
+		} else if (data.displayType === 'qcmDefault') {
+			data.choices = qcmDefaultChoices();
+			data.displayType = 'qcm';
 		}
 		return EkloreQuestions.insert(data);
 	},
