@@ -290,195 +290,191 @@ Meteor.startup(() => {
 			displayType: 'qcmDefault'
 		}];
 		let questionsMotivations = [{
-				title: 'Sur une échelle de 1 à 10, quel est votre degré de conscience de vos motivations ?',
-				level: 38,
-				displayType: 'scale'
-			}, {
-				title: 'Vous souhaitez : Un job alimentaire ?',
-				level: 39,
-				displayType: 'qcmDefault'
-			}, {
-				title: 'Vous souhaitez accroître vos savoirs faire ?',
-				level: 40,
-				displayType: 'qcmDefault'
-			}, {
-				title: 'Vous souhaitez apporter votre pierre à une construction collective ?',
-				level: 41,
-				displayType: 'qcmDefault'
-			}, {
-				title: 'Vous souhaitez AVOIR la satisfaction d’un travail accompli ?',
-				level: 42,
-				displayType: 'qcmDefault'
-			}, {
-				title: 'Vous souhaitez EVOLUER vers du management ?',
-				level: 43,
-				displayType: 'qcmDefault'
-			}, {
-				title: 'Vous souhaitez EVOLUER vers de l’expertise ?',
-				level: 44,
-				displayType: 'qcmDefault'
-			}, {
-				title: 'Vous souhaitez PROGRESSER en autonomie ?',
-				level: 45,
-				displayType: 'qcmDefault'
-			}, {
-				title: 'Vous souhaitez ETRE entrepreneur',
-				level: 46,
-				displayType: 'qcmDefault'
-			}, {
-				title: 'Pour vous, un équilibre de vie passe par : Un équilibre de la vie sociale ?',
-				level: 47,
-				displayType: 'qcmDefault'
-			}, {
-				title: 'Pour vous, un équilibre de vie passe par : Son Logement ?',
-				level: 48,
-				displayType: 'qcmDefault'
-			}, {
-				title: 'Pour vous, un équilibre de vie passe par : Un équilibre de la vie financière ?',
-				level: 49,
-				displayType: 'qcmDefault'
-			}, {
-				title: 'Pour vous, un équilibre de vie passe par : Un équilibre de la vie familiale ?',
-				level: 50,
-				displayType: 'qcmDefault'
-			}, {
-				title: 'Pour vous, un équilibre de vie passe par : Un équilibre santé ?',
-				level: 51,
-				displayType: 'qcmDefault'
-			}, {
-				title: 'Pour vous, un équilibre de vie passe par : Un équilibre spirituel ?',
-				level: 52,
-				displayType: 'qcmDefault'
-			}, {
-				title: 'Pour vous, un équilibre de vie passe par : Un équilibre de la vie professionnelle ?',
-				level: 53,
-				displayType: 'qcmDefault'
-			}, {
-				title: 'Sur une échelle de 1 à 10 vos motivations sont-elles bien en phase avec vos compétences et les points forts de votre comportement ?',
-				level: 54,
-				displayType: 'scale'
-			}, {
-				title: 'Après avoir répondu à ces questions comment évaluez-vous les connaissances que vous avez de vous-même (1 à 10) ?',
-				level: 55,
-				displayType: 'scale'
-			}, {
-				title: 'Quel est votre degré de connaissance du contenu du poste que vous visez (1 à 10) ?',
-				level: 56,
-				displayType: 'scale'
-			}, {
-				title: 'Etes-vous capable de nommer ce poste précisément ?',
-				level: 57,
-				displayType: 'yesNo'
-			}, {
-				title: 'Connaissez-vous l’environnement de travail de ce type de poste (bureau, open space, atelier…) ?',
-				level: 58,
-				displayType: 'yesNo'
-			}, {
-				title: 'Savez à qui le poste est rattaché  (titre du responsable) ?',
-				level: 59,
-				displayType: 'yesNo'
-			}, {
-				title: 'Avez-vous déjà identifié le secteur d’activité que vous visez (services, industrie,  transport, assurances, medias…) ?',
-				level: 60,
-				displayType: 'qcmDefault'
-			}, {
-				title: 'Avez-vous identifié à quel pôle fonctionnel appartient le poste que vous visez (marketing, finance, ressource humaine, commercial, production…) ?',
-				level: 61,
-				displayType: 'qcmDefault'
-			}, {
-				title: 'Avez-vous identifié le mode de travail du poste que vous visez : fonctionnement hiérarchique, transverse, matriciel… ?',
-				level: 62,
-				displayType: 'qcmDefault'
-			}
-			/*, {
-						title: 'Parmis les types d’entreprises suivants, choisissez laquelle vous attire le plus ?',
-						level: 63,
-						displayType: 'qcm'
-					}, {
-						title: 'Avez-vous une idée de la taille de l’entreprise que vous visez ?',
-						level: 64,
-						displayType: 'qcm'
-					}, {
-						title: 'Avez-vous une préférence de culture d’entreprise ?',
-						level: 65,
-						displayType: 'qcm'
-					}, {
-						title: 'Avez-vous réfléchi à votre statut ?',
-						level: 66,
-						displayType: 'qcm'
-					}, {
-						title: 'A quand remonte votre dernière formation ?',
-						level: 67,
-						displayType: 'qcm'
-					}*/
-			, {
-				title: 'Tous les métiers évoluent, pouvez-vous mesurer la force du changement qui impacte le poste que vous visez ?',
-				level: 68,
-				displayType: 'qcmDefault'
-			}, {
-				title: 'En général, est-il facile pour vous d’aller chercher de l’information ?',
-				level: 69,
-				displayType: 'yesNo'
-			}
-			/*, {
-						title: 'Allez-vous chercher de l’information régulièrement ?',
-						level: 70,
-						displayType: 'qcm'
-					}*/
-			, {
-				title: 'Menez-vous régulièrement une veille professionnelle sur vos compétences ?',
-				level: 71,
-				displayType: 'qcmDefault'
-			}, {
-				title: 'Êtes-vous attentif aux innovations qui touchent vos centres d’intérêts ?',
-				level: 72,
-				displayType: 'yesNo'
-			}, {
-				title: 'Utilisez-vous le web collaboratif (réseaux sociaux, internet…) ?',
-				level: 73,
-				displayType: 'yesNo'
-			}, {
-				title: 'Sollicitez-vous votre réseau personnel pour aller chercher l’information ?',
-				level: 74,
-				displayType: 'qcmDefault'
-			}, {
-				title: 'Sollicitez-vous votre réseau professionnel pour aller chercher de l’information ?',
-				level: 75,
-				displayType: 'qcmDefault'
-			}, {
-				title: 'Pouvez-vous provoquer une rencontre avec une personne que vous ne connaissez pas forcément mais qui vous intéresse fortement ?',
-				level: 76,
-				displayType: 'qcmDefault'
-			}, {
-				title: 'Votre projet professionnel correspond-t-il à vos valeurs ?',
-				level: 77,
-				displayType: 'scale'
-			}, {
-				title: 'Sur une échelle de 1 à 10, vous sentez vous en phase avec les valeurs des entreprises dans lesquelles vous visez un poste ?',
-				level: 78,
-				displayType: 'scale'
-			}, {
-				title: 'Vous êtes-vous déjà mis à la place de la personne qui va vous recruter ?',
-				level: 79,
-				displayType: 'yesNo'
-			}, {
-				title: 'Avez-vous identifié des personnes avec qui vous souhaitez vraiment travailler ?',
-				level: 80,
-				displayType: 'qcmDefault'
-			}, {
-				title: 'Sur une échelle de 1 à 10, en règle générale avez-vous eu le sentiment d’être efficace lors de vos précédentes expériences professionnelles ?',
-				level: 81,
-				displayType: 'scale'
-			}, {
-				title: 'Sur une échelle de 1 à 10, pouvez-vous noter l’image que vous avez de vous-même ?',
-				level: 82,
-				displayType: 'scale'
-			}, {
-				title: 'Avez-vous un Mojo (une phrase qui vous représente) ?',
-				level: 83,
-				displayType: 'yesNo'
-			}
-		];
+			title: 'Sur une échelle de 1 à 10, quel est votre degré de conscience de vos motivations ?',
+			level: 38,
+			displayType: 'scale'
+		}, {
+			title: 'Vous souhaitez : Un job alimentaire ?',
+			level: 39,
+			displayType: 'qcmDefault'
+		}, {
+			title: 'Vous souhaitez accroître vos savoirs faire ?',
+			level: 40,
+			displayType: 'qcmDefault'
+		}, {
+			title: 'Vous souhaitez apporter votre pierre à une construction collective ?',
+			level: 41,
+			displayType: 'qcmDefault'
+		}, {
+			title: 'Vous souhaitez AVOIR la satisfaction d’un travail accompli ?',
+			level: 42,
+			displayType: 'qcmDefault'
+		}, {
+			title: 'Vous souhaitez EVOLUER vers du management ?',
+			level: 43,
+			displayType: 'qcmDefault'
+		}, {
+			title: 'Vous souhaitez EVOLUER vers de l’expertise ?',
+			level: 44,
+			displayType: 'qcmDefault'
+		}, {
+			title: 'Vous souhaitez PROGRESSER en autonomie ?',
+			level: 45,
+			displayType: 'qcmDefault'
+		}, {
+			title: 'Vous souhaitez ETRE entrepreneur',
+			level: 46,
+			displayType: 'qcmDefault'
+		}, {
+			title: 'Pour vous, un équilibre de vie passe par : Un équilibre de la vie sociale ?',
+			level: 47,
+			displayType: 'qcmDefault'
+		}, {
+			title: 'Pour vous, un équilibre de vie passe par : Son Logement ?',
+			level: 48,
+			displayType: 'qcmDefault'
+		}, {
+			title: 'Pour vous, un équilibre de vie passe par : Un équilibre de la vie financière ?',
+			level: 49,
+			displayType: 'qcmDefault'
+		}, {
+			title: 'Pour vous, un équilibre de vie passe par : Un équilibre de la vie familiale ?',
+			level: 50,
+			displayType: 'qcmDefault'
+		}, {
+			title: 'Pour vous, un équilibre de vie passe par : Un équilibre santé ?',
+			level: 51,
+			displayType: 'qcmDefault'
+		}, {
+			title: 'Pour vous, un équilibre de vie passe par : Un équilibre spirituel ?',
+			level: 52,
+			displayType: 'qcmDefault'
+		}, {
+			title: 'Pour vous, un équilibre de vie passe par : Un équilibre de la vie professionnelle ?',
+			level: 53,
+			displayType: 'qcmDefault'
+		}, {
+			title: 'Sur une échelle de 1 à 10 vos motivations sont-elles bien en phase avec vos compétences et les points forts de votre comportement ?',
+			level: 54,
+			displayType: 'scale'
+		}, {
+			title: 'Après avoir répondu à ces questions comment évaluez-vous les connaissances que vous avez de vous-même (1 à 10) ?',
+			level: 55,
+			displayType: 'scale'
+		}, {
+			title: 'Quel est votre degré de connaissance du contenu du poste que vous visez (1 à 10) ?',
+			level: 56,
+			displayType: 'scale'
+		}, {
+			title: 'Etes-vous capable de nommer ce poste précisément ?',
+			level: 57,
+			displayType: 'yesNo'
+		}, {
+			title: 'Connaissez-vous l’environnement de travail de ce type de poste (bureau, open space, atelier…) ?',
+			level: 58,
+			displayType: 'yesNo'
+		}, {
+			title: 'Savez à qui le poste est rattaché  (titre du responsable) ?',
+			level: 59,
+			displayType: 'yesNo'
+		}, {
+			title: 'Avez-vous déjà identifié le secteur d’activité que vous visez (services, industrie,  transport, assurances, medias…) ?',
+			level: 60,
+			displayType: 'qcmDefault'
+		}, {
+			title: 'Avez-vous identifié à quel pôle fonctionnel appartient le poste que vous visez (marketing, finance, ressource humaine, commercial, production…) ?',
+			level: 61,
+			displayType: 'qcmDefault'
+		}, {
+			title: 'Avez-vous identifié le mode de travail du poste que vous visez : fonctionnement hiérarchique, transverse, matriciel… ?',
+			level: 62,
+			displayType: 'qcmDefault'
+		}, {
+			title: 'Tous les métiers évoluent, pouvez-vous mesurer la force du changement qui impacte le poste que vous visez ?',
+			level: 68,
+			displayType: 'qcmDefault'
+		}, {
+			title: 'En général, est-il facile pour vous d’aller chercher de l’information ?',
+			level: 69,
+			displayType: 'yesNo'
+		}, {
+			title: 'Menez-vous régulièrement une veille professionnelle sur vos compétences ?',
+			level: 71,
+			displayType: 'qcmDefault'
+		}, {
+			title: 'Êtes-vous attentif aux innovations qui touchent vos centres d’intérêts ?',
+			level: 72,
+			displayType: 'yesNo'
+		}, {
+			title: 'Utilisez-vous le web collaboratif (réseaux sociaux, internet…) ?',
+			level: 73,
+			displayType: 'yesNo'
+		}, {
+			title: 'Sollicitez-vous votre réseau personnel pour aller chercher l’information ?',
+			level: 74,
+			displayType: 'qcmDefault'
+		}, {
+			title: 'Sollicitez-vous votre réseau professionnel pour aller chercher de l’information ?',
+			level: 75,
+			displayType: 'qcmDefault'
+		}, {
+			title: 'Pouvez-vous provoquer une rencontre avec une personne que vous ne connaissez pas forcément mais qui vous intéresse fortement ?',
+			level: 76,
+			displayType: 'qcmDefault'
+		}, {
+			title: 'Votre projet professionnel correspond-t-il à vos valeurs ?',
+			level: 77,
+			displayType: 'scale'
+		}, {
+			title: 'Sur une échelle de 1 à 10, vous sentez vous en phase avec les valeurs des entreprises dans lesquelles vous visez un poste ?',
+			level: 78,
+			displayType: 'scale'
+		}, {
+			title: 'Vous êtes-vous déjà mis à la place de la personne qui va vous recruter ?',
+			level: 79,
+			displayType: 'yesNo'
+		}, {
+			title: 'Avez-vous identifié des personnes avec qui vous souhaitez vraiment travailler ?',
+			level: 80,
+			displayType: 'qcmDefault'
+		}, {
+			title: 'Sur une échelle de 1 à 10, en règle générale avez-vous eu le sentiment d’être efficace lors de vos précédentes expériences professionnelles ?',
+			level: 81,
+			displayType: 'scale'
+		}, {
+			title: 'Sur une échelle de 1 à 10, pouvez-vous noter l’image que vous avez de vous-même ?',
+			level: 82,
+			displayType: 'scale'
+		}, {
+			title: 'Avez-vous un Mojo (une phrase qui vous représente) ?',
+			level: 83,
+			displayType: 'yesNo'
+		}];
+		/*, {
+			title: 'Parmis les types d’entreprises suivants, choisissez laquelle vous attire le plus ?',
+			level: 63,
+			displayType: 'qcm'
+		}, {
+			title: 'Avez-vous une idée de la taille de l’entreprise que vous visez ?',
+			level: 64,
+			displayType: 'qcm'
+		}, {
+			title: 'Avez-vous une préférence de culture d’entreprise ?',
+			level: 65,
+			displayType: 'qcm'
+		}, {
+			title: 'Avez-vous réfléchi à votre statut ?',
+			level: 66,
+			displayType: 'qcm'
+		}, {
+			title: 'A quand remonte votre dernière formation ?',
+			level: 67,
+			displayType: 'qcm'
+		}, {
+			title: 'Allez-vous chercher de l’information régulièrement ?',
+			level: 70,
+			displayType: 'qcm'
+		}*/
 		const qG1 = QuestionsGroups.findOne({ level: 1 }, {
 			fields: {
 				_id: 1,
