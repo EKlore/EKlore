@@ -61,15 +61,7 @@ Template.myProfile.helpers({
 		}).count();
 	},
 	universes() {
-		let questions = UserQuestions.find({
-			userId: Meteor.userId(),
-			answered: true,
-			deprecated: false
-		}, {
-			fields: {
-				result: 1
-			}
-		}).fetch();
+		let questions = UserQuestions.find({ userId: Meteor.userId(), answered: true, deprecated: false }, { fields: { result: 1 } }).fetch();
 		let questionsObject = {};
 		let questionsArray = [];
 		questions.map((cur, index, array) => {

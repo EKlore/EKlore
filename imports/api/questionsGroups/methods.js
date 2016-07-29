@@ -56,7 +56,7 @@ Meteor.methods({
 			delete cur._id;
 			delete cur.createdAt;
 			delete cur.questionsGroupId;
-			Meteor.call('insertQuestion', cur);
+			return Meteor.call('insertQuestion', cur);
 		});
 		Meteor.call('addQuestionsGroupIntoUser', data);
 	}

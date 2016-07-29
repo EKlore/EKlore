@@ -6,15 +6,29 @@ import { UserQuestions } from './schema.js';
 
 Meteor.methods({
 	insertQuestion(data) {
+		let UniverseSchema = new SimpleSchema({
+			universeId: { type: String },
+			matchingPower: { type: Number, decimal: true, min: 0.01, max: 1 }
+		});
+		let WorkshopSchema = new SimpleSchema({
+			workshopId: { type: String },
+			matchingPower: { type: Number, decimal: true, min: 0.01, max: 1 }
+		});
+		let ChoicesSchema = new SimpleSchema({
+			choiceId: { type: String },
+			label: { type: String },
+			universesLinked: { type: [UniverseSchema], minCount: 1 },
+			workshopsLinked: { type: [WorkshopSchema], minCount: 1 }
+		});
 		let methodSchema = new SimpleSchema({
 			title: { type: String },
 			level: { type: Number, min: 1 },
 			displayType: { type: String, allowedValues: ['yesNo', 'qcm', 'scale'] },
 			version: { type: Number, min: 1 },
 			deprecated: { type: Boolean },
-			choices: { type: Array, minCount: 2 },
-			universesLinked: { type: Array, minCount: 1 },
-			workshopsLinked: { type: Array, minCount: 1 },
+			choices: { type: [ChoicesSchema], minCount: 2 },
+			universesLinked: { type: [UniverseSchema], minCount: 1 },
+			workshopsLinked: { type: [WorkshopSchema], minCount: 1 },
 			answered: { type: Boolean },
 			userId: { type: String },
 			questionId: { type: String }
@@ -37,9 +51,14 @@ Meteor.methods({
 		});
 	},
 	saveQuestionResult(data) {
+		let ResultSchema = new SimpleSchema({
+			universeId: { type: String, optional: true },
+			workshopId: { type: String, optional: true },
+			result: { type: Number, decimal: true }
+		});
 		let methodSchema = new SimpleSchema({
 			_id: { type: String },
-			result: { type: Array }
+			result: { type: [ResultSchema] }
 		});
 		check(data, methodSchema);
 		check(data.result[0], Object);
