@@ -24,6 +24,43 @@ Template.myDay.helpers({
 			}
 		});
 	},
+	universes() {
+		let questions = UserQuestions.find({ userId: Meteor.userId(), answered: true, deprecated: false }, { fields: { result: 1 } }).fetch();
+		let questionsObject = {};
+		let questionsArray = [];
+		questions.map((cur, index, array) => {
+			cur.result.map((cur1, index1, array1) => {
+				if (cur1.universeId) {
+					if (questionsObject[cur1.universeId]) {
+						questionsObject[cur1.universeId].value += cur1.result;
+						questionsObject[cur1.universeId].long += 1;
+					} else {
+						questionsObject[cur1.universeId] = {
+							value: cur1.result,
+							long: 1
+						};
+					}
+				}
+			});
+		});
+		for (prop in questionsObject) {
+			questionsArray.push({
+				_id: prop,
+				value: lodash.round(questionsObject[prop].value / questionsObject[prop].long * 100, 2),
+				valueForCircle: lodash.round(questionsObject[prop].value / questionsObject[prop].long * 100 / 4 + 75, 0)
+			});
+		}
+		questionsArray.sort((a, b) => {
+			if (a.value < b.value) {
+				return 1;
+			} else if (a.value > b.value) {
+				return -1;
+			} else {
+				return 0;
+			}
+		});
+		return questionsArray;
+	},
 	dateStart() {
 		return moment(this.dateStart).format('H:mm');
 	},

@@ -5,19 +5,19 @@ template(name="myProfile")
 				.panel-body
 					if userHasQuestionsGroupsInProfile
 						if notAnsweredQuestions
-							h4 {{_ "youStillHave"}}
+							p.lead {{_ "youStillHave"}}
 								span.badge #{notAnsweredQuestions}
 								| {{_ "questionsToCompleteYourProfile"}}
 								a.btn.btn-primary(role="button" href="{{pathFor 'answerQuestions'}}") {{_ "go"}}
 						else
-							h4 {{_ "congratsNoMoreQuestions"}}
+							p.lead {{_ "congratsNoMoreQuestions"}}
 							p {{_ "labelToAddQuestionsGroups"}}
 					else
 						p {{_ "labelToAddQuestionsGroups"}}
 			if alreadyAnsweredQuestions
 				.panel.panel-default
 					.panel-heading
-						h3 {{_ "yourProfileByUniverses"}}
+						p.panel-title {{_ "yourProfileByUniverses"}}
 					.panel-body
 						.row
 							each universes
@@ -34,7 +34,7 @@ template(name="myProfile")
 							p.text-center #{_id}
 			.panel.panel-default
 				.panel-heading
-					h3 {{_ "questionsGroupsAvailable"}}
+					p.panel-title {{_ "questionsGroupsAvailable"}}
 				.panel-body
 					.row
 						each questionsGroupAvailable

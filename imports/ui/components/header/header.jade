@@ -15,14 +15,14 @@ template(name="header")
 						a(href="{{pathFor 'myProfile'}}") {{_ "myProfile"}}
 					li.hidden-xs(class="#{myDayActive}")
 						a(href="{{pathFor 'myDay'}}") {{_ "myDay"}}
-					li.hidden-xs(class="#{meetingActive}")
+					//li.hidden-xs(class="#{meetingActive}")
 						a(href="{{pathFor 'meeting'}}") {{_ "meeting"}}
 					// Visible when header is collapsed
 					li.visible-xs(class="#{myProfileActive}")
 						a(href="{{pathFor 'myProfile'}}" data-toggle="collapse", data-target=".navbar-collapse") {{_ "myProfile"}}
 					li.visible-xs(class="#{myDayActive}")
 						a(href="{{pathFor 'myDay'}}" data-toggle="collapse", data-target=".navbar-collapse") {{_ "myDay"}}
-					li.visible-xs(class="#{meetingActive}")
+					//li.visible-xs(class="#{meetingActive}")
 						a(href="{{pathFor 'meeting'}}" data-toggle="collapse", data-target=".navbar-collapse") {{_ "meeting"}}
 				.nav.navbar-nav.navbar-right
 					+loginButtons

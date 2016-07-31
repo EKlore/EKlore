@@ -4,8 +4,9 @@ template(name="answerQuestions")
 			with questionData
 				.panel.panel-default
 					.panel-heading
-						h4 {{_ "question"}} : #{title}
+						p.panel-title {{_ "newQuestion"}}
 					.panel-body
+						p.lead #{title}
 						if questionTypeRadio
 							each choices
 								.radio

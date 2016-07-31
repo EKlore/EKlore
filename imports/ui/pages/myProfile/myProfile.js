@@ -96,6 +96,7 @@ Template.myProfile.helpers({
 			}
 		});
 		return questionsArray;
+
 	},
 	universeData() {
 		return Universes.findOne({ _id: this._id }, {

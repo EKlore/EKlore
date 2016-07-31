@@ -68,7 +68,7 @@ Workshops.schema = new SimpleSchema({
 	},
 	color: {
 		type: String,
-		label: 'Universe color',
+		label: 'Workshop color',
 		optional: true
 	}
 });
