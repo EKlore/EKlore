@@ -8,7 +8,7 @@ template(name="myProfile")
 							p.lead {{_ "youStillHave"}}
 								span.badge #{notAnsweredQuestions}
 								| {{_ "questionsToCompleteYourProfile"}}
-								a.btn.btn-primary(role="button" href="{{pathFor 'answerQuestions'}}") {{_ "go"}}
+							a.btn.btn-primary(role="button" href="{{pathFor 'answerQuestions'}}") {{_ "go"}}
 						else
 							p.lead {{_ "congratsNoMoreQuestions"}}
 							p {{_ "labelToAddQuestionsGroups"}}

@@ -138,5 +138,7 @@
 	"scale": "Echelle de 1 à 10",
 	"yesNo": "Oui ou Non",
 	"qcm": "QCM",
-	"save": "Enregistrer"
+	"save": "Enregistrer",
+	"yourPersonalisedProgramForTheDay": "Votre parcours personnalisé pour la journée",
+	"yourMatchingRate": "Votre taux de matching"
 }

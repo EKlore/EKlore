@@ -16,7 +16,6 @@ Template.myProfile.onCreated(function() {
 	this.autorun(() => {
 		this.subscribe('allQuestionsGroups');
 		this.subscribe('allUniversesLinkableToWorkshop');
-		this.subscribe('allWorkshopsLinkableToUniverse');
 		this.subscribe('userQuestionsNotAnswered', Meteor.userId());
 		this.subscribe('resultForQuestionsAnswered', Meteor.userId());
 	});

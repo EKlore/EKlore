@@ -3,30 +3,37 @@ template(name="myDay")
 		if currentUser
 			.panel.panel-default
 				.panel-heading
-					p.panel-title {{_ "yourProgramForTheDay"}}
+					p.panel-title {{_ "yourPersonalisedProgramForTheDay"}}
 				.panel-body
-					each workshops
+					each customWorkshops
 						.panel.panel-default
 							.panel-heading
 								a(href="{{pathFor 'workshopDetails'}}")
-									p.panel-title {{_ "workshopName"}} : #{name}
+									p.panel-title {{_ "workshopName"}} : #{workshopData.name}
 							.panel-body
-								.row
-									.col-xs-12.col-sm-6.col-md-4.col-lg-4
-										p {{_ "startDate"}} :
-											span.badge #{dateStart}
-									.col-xs-12.col-sm-6.col-md-4.col-lg-4
-										p {{_ "endDate"}} :
-											span.badge #{dateEnd}
-									.col-xs-12.col-sm-6.col-md-4.col-lg-4
-										p
-											span.badge #{peopleToGoCount}
-											| {{_ "peopleAreGoingToo"}}
-									.col-xs-12.col-sm-12.col-md-6.col-lg6
-										if isUserAlreadyIn
-											button.removeFromWorkshop.btn.btn-danger(type="button") {{_ "youdontWantToGo"}}
-										else
-											button.goToWorkshop.btn.btn-primary(type="button") {{_ "doYouWantToGo"}}
+								p.lead {{_ "yourMatchingRate"}} :
+									strong #{value} %
+								p {{_ "description"}} : #{workshopData.description}
+								with workshopData
+									.panel.panel-default
+										.panel-body
+											.row
+												.col-xs-12.col-sm-6.col-md-4.col-lg-4
+													p {{_ "startDate"}} :
+														span.badge #{dateStart}
+												.col-xs-12.col-sm-6.col-md-4.col-lg-4
+													p {{_ "endDate"}} :
+														span.badge #{dateEnd}
+												.col-xs-12.col-sm-6.col-md-4.col-lg-4
+													p
+														span.badge #{peopleToGoCount}
+														| {{_ "peopleAreGoingToo"}}
+							.panel-footer
+								with workshopData
+									if isUserAlreadyIn
+										button.removeFromWorkshop.btn.btn-danger(type="button") {{_ "youdontWantToGo"}}
+									else
+										button.goToWorkshop.btn.btn-primary(type="button") {{_ "doYouWantToGo"}}
 		else
 			+connect
 	else

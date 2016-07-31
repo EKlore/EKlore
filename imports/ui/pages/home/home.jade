@@ -5,14 +5,14 @@ template(name="home")
 				small {{_ "feteAcronym"}}
 		.panel.panel-default
 			.panel-heading
-				h3 {{_ "presentationFete"}}
+				p.panel-title {{_ "presentationFete"}}
 			.panel-body
 				p BLA BLA BLA
 				p BLA BLA BLA
 		a.btn.btn-info.btn-lg.btn-block.seeUniverses(role="button" href="{{pathFor 'seeUniverses'}}") {{_ "seeUniverses"}}
 		.panel.panel-default
 			.panel-heading
-				h3 {{_ "localisationAndSchedule"}}
+				p.panel-title {{_ "localisationAndSchedule"}}
 			.panel-body
 				.col-xs-12.col-sm-6.col-md6.col-lg-6
 					.address.adresse
@@ -39,7 +39,7 @@ template(name="home")
 			a.btn.btn-primary.btn-lg.btn-block(role="button" href="{{pathFor 'myProfile'}}") {{_ "createYourProfile"}}
 		.panel.panel-default.volunteers
 			.panel-heading
-				h3 {{_ "volunteers"}} {{_ "eklore"}}
+				p.panel-title {{_ "volunteers"}} {{_ "eklore"}}
 					small {{_ "withoutThemNothingIsPossible"}}
 			.panel-body
 				.row
