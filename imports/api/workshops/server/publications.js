@@ -17,6 +17,7 @@ Meteor.publish('allWorkshopsForTheDay', () => {
 	return Workshops.find({}, {
 		fields: {
 			name: 1,
+			description: 1,
 			dateStart: 1,
 			dateEnd: 1,
 			peopleToGo: 1

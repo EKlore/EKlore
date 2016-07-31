@@ -3,7 +3,7 @@ template(name="workshopDetails")
 		with workshop
 			.panel.panel-default
 				.panel-heading
-					h4 #{name}
+					p.panel-title #{name}
 				.panel-body
 					p #{description}
 					.panel.panel-default
@@ -19,11 +19,11 @@ template(name="workshopDetails")
 									p
 										span.badge #{peopleToGoCount}
 										| {{_ "peopleAreGoingToo"}}
-								if currentUser
-									.col-xs-12.col-sm-12.col-md-6.col-lg6
-											if isUserAlreadyIn
-												button.removeFromWorkshop.btn.btn-danger(type="button") {{_ "youdontWantToGo"}}
-											else
-												button.goToWorkshop.btn.btn-primary(type="button") {{_ "doYouWantToGo"}}
+				if currentUser
+					.panel-footer
+						if isUserAlreadyIn
+							button.removeFromWorkshop.btn.btn-danger(type="button") {{_ "youdontWantToGo"}}
+						else
+							button.goToWorkshop.btn.btn-primary(type="button") {{_ "doYouWantToGo"}}
 	else
 		+spinner

@@ -16,7 +16,6 @@ Template.myProfile.onCreated(function() {
 	this.autorun(() => {
 		this.subscribe('allQuestionsGroups');
 		this.subscribe('allUniversesLinkableToWorkshop');
-		this.subscribe('allWorkshopsLinkableToUniverse');
 		this.subscribe('userQuestionsNotAnswered', Meteor.userId());
 		this.subscribe('resultForQuestionsAnswered', Meteor.userId());
 	});
@@ -61,15 +60,7 @@ Template.myProfile.helpers({
 		}).count();
 	},
 	universes() {
-		let questions = UserQuestions.find({
-			userId: Meteor.userId(),
-			answered: true,
-			deprecated: false
-		}, {
-			fields: {
-				result: 1
-			}
-		}).fetch();
+		let questions = UserQuestions.find({ userId: Meteor.userId(), answered: true, deprecated: false }, { fields: { result: 1 } }).fetch();
 		let questionsObject = {};
 		let questionsArray = [];
 		questions.map((cur, index, array) => {
@@ -104,6 +95,7 @@ Template.myProfile.helpers({
 			}
 		});
 		return questionsArray;
+
 	},
 	universeData() {
 		return Universes.findOne({ _id: this._id }, {

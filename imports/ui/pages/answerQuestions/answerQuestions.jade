@@ -4,8 +4,9 @@ template(name="answerQuestions")
 			with questionData
 				.panel.panel-default
 					.panel-heading
-						h4 {{_ "question"}} : #{title}
+						p.panel-title {{_ "newQuestion"}}
 					.panel-body
+						p.lead #{title}
 						if questionTypeRadio
 							each choices
 								.radio
@@ -14,11 +15,11 @@ template(name="answerQuestions")
 										| #{label}
 						else
 							.row
-								.col-xs-1.col-sm-1.col-md1.col-lg-1
+								.col-xs-1.col-sm-1.col-md-1.col-lg-1
 									p 1
-								.col-xs-10.col-sm-10.col-md10.col-lg-10
+								.col-xs-8.col-sm-8.col-md-8.col-lg-8
 									input#answerForRange(name="answerForRange" type="range" min="1" max="10" step="1" value="5")
-								.col-xs-1.col-sm-1.col-md1.col-lg-1
+								.col-xs-1.col-sm-1.col-md-1.col-lg-1
 									p 10
 					.panel-footer
 						button#validateChoice.btn-block.btn.btn-success(type="button") {{_ "validate"}}

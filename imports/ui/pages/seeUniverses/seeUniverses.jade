@@ -3,7 +3,7 @@ template(name = "seeUniverses")
 		each universes
 			.panel.panel-default
 				.panel-heading
-					h4 #{name}
+					p.panel-title #{name}
 				.panel-body
 					p #{label}
 					.panel.panel-default
@@ -14,9 +14,8 @@ template(name = "seeUniverses")
 								each workshops
 									.col-xs-12.col-sm-6.col-md-6.col-lg-6
 										.panel.panel-default
-											.panel-heading
-												h3.panel-title #{name}
 											.panel-body
+												p.lead #{name}
 												p #{description}
 												a.btn.btn-primary(role="button" href="{{pathFor 'workshopDetails'}}") {{_ "moreInformations"}}
 	else
