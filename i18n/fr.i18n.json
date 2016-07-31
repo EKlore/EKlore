@@ -1,7 +1,7 @@
 {
 	"eklore": "EKlore",
 	"fete": "FETE",
-	"feteAcronym": "FEstival des Talents et de l'Emploi",
+	"feteAcronym": "Festival EKlore des Talents et de l'Emploi",
 	"404": "Désolé, nous ne trouvons pas de page à cette adresse...",
 	"toggleNav": "Basculer la navigation",
 	"presentationFete": "FETE ? Mais qu'est-ce donc ?",
@@ -32,7 +32,7 @@
 	"createYourProfile": "Créez vous aussi votre profil et venez faire la FETE avec nous !",
 	"volunteers": "Bénévoles",
 	"withoutThemNothingIsPossible": "Sans eux FETE n'existerait pas !",
-	"dateFete": "Le 3 octobre 2016",
+	"dateFete": "Lundi 3 octobre 2016",
 	"hourFete": "De 10h à 23h30",
 	"addNewWorkshop": "Ajouter un nouvel atelier",
 	"addNewUniverse": "Ajouter un nouvel univers",
@@ -149,5 +149,7 @@
 	"workshopFormat": "Format de l'atelier",
 	"workshopSpeaker": "Intervenant de l'atelier",
 	"visitPartnerWebsite": "Voir le site du partenaire",
-	"youNeedToCompleteYourProfile": "Votre parcours personnalisé s'affichera lorsque vous aurez commencé à répondre aux questions de votre profil"
+	"youNeedToCompleteYourProfile": "Votre parcours personnalisé s'affichera lorsque vous aurez commencé à répondre aux questions de votre profil",
+	"removeChoiceFromEkloreQuestion": "Supprimer ce choix",
+	"addAChoice": "Ajouter un choix"
 }
