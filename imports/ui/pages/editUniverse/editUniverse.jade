@@ -16,6 +16,21 @@ template(name="editUniverse")
 										label(for="universeLabel") {{_ "universeLabel"}}
 										textarea#universeLabel.form-control(rows="3") #{label}
 									.form-group
+										label(for="universePartner") {{_ "universePartner"}}
+										input#universePartner.form-control(type="text" value="#{partner}")
+									.form-group
+										label(for="universePartnerLogo") {{_ "universePartnerLogo"}}
+										input#universePartnerLogo.form-control(type="text" value="#{partnerLogo}")
+									.form-group
+										label(for="universePartnerDescription") {{_ "universePartnerDescription"}}
+										textarea#universePartnerDescription.form-control(rows="3") #{partnerDescription}
+									.form-group
+										label(for="universePartnerWebsite") {{_ "universePartnerWebsite"}}
+										input#universePartnerWebsite.form-control(type="text" value="#{partnerWebsite}")
+									.form-group
+										label(for="universeLocation") {{_ "universeLocation"}}
+										input#universeLocation.form-control(type="text" value="#{location}")
+									.form-group
 										label(for="universeColor") {{_ "universeColor"}}
 										input#universeColor.form-control(type="color" name="universeColor" value="#{color}")
 							.panel-footer

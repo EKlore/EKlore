@@ -59,9 +59,11 @@ Template.editWorkshop.events({
 			workshopId: Router.current().params._id,
 			name: $('#workshopName').val(),
 			description: $('#workshopDescription').val(),
-			dateStart: moment($('#workshopDateStart').val()).toDate(),
-			dateEnd: moment($('#workshopEndDate').val()).toDate(),
-			color: $('#workshopColor').val()
+			dateStart: moment($('#workshopDateStartEdit').val(), 'YYYY-MM-D HH:mm').toDate(),
+			dateEnd: moment($('#workshopEndDateEdit').val(), 'YYYY-MM-D HH:mm').toDate(),
+			color: $('#workshopColor').val(),
+			format: $('#workshopFormat').val(),
+			speaker: $('#workshopSpeaker').val()
 		};
 		if (!data.name) {
 			return Bert.alert('Name must be filled', 'danger', 'growl-top-right');

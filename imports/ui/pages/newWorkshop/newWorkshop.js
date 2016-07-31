@@ -22,8 +22,8 @@ Template.newWorkshop.events({
 		const data = {
 			name: $('#workshopName').val(),
 			description: $('#workshopDescription').val(),
-			dateStart: moment($('#workshopDateStart').val()).toDate(),
-			dateEnd: moment($('#workshopEndDate').val()).toDate()
+			dateStart: moment($('#workshopDateStart').val(), 'YYYY-MM-D HH:mm').toDate(),
+			dateEnd: moment($('#workshopEndDate').val(), 'YYYY-MM-D HH:mm').toDate()
 		};
 		if (!data.name) {
 			return Bert.alert('Name must be filled', 'danger', 'growl-top-right');

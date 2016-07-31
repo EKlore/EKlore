@@ -34,6 +34,9 @@ template(name="myDay")
 										button.removeFromWorkshop.btn.btn-danger(type="button") {{_ "youdontWantToGo"}}
 									else
 										button.goToWorkshop.btn.btn-primary(type="button") {{_ "doYouWantToGo"}}
+					else
+						p.lead {{_ "youNeedToCompleteYourProfile"}}
+						a.btn.btn-warning(role="button" href="{{pathFor 'myProfile'}}") {{_ "go"}}
 		else
 			+connect
 	else

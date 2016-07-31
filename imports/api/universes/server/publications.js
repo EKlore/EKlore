@@ -7,6 +7,11 @@ Meteor.publish('allUniverses', () => {
 		fields: {
 			name: 1,
 			label: 1,
+			partner: 1,
+			partnerLogo: 1,
+			partnerDescription: 1,
+			partnerWebsite: 1,
+			location: 1,
 			workshopsLinked: 1
 		}
 	});

@@ -15,19 +15,29 @@ Meteor.methods({
 		data.workshopsLinked = [];
 		return Universes.insert(data);
 	},
-	updateAUniverse(data) {
+	updateAnUniverse(data) {
 		let methodSchema = new SimpleSchema({
 			universeId: { type: String },
 			name: { type: String },
 			label: { type: String },
-			color: { type: String }
+			color: { type: String },
+			partner: { type: String, optional: true },
+			partnerLogo: { type: String, optional: true },
+			partnerDescription: { type: String, optional: true },
+			partnerWebsite: { type: String, optional: true },
+			location: { type: String, optional: true }
 		});
 		check(data, methodSchema);
 		return Universes.update({ _id: data.universeId }, {
 			$set: {
 				name: data.name,
 				label: data.label,
-				color: data.color
+				color: data.color,
+				partner: data.partner,
+				partnerLogo: data.partnerLogo,
+				partnerDescription: data.partnerDescription,
+				partnerWebsite: data.partnerWebsite,
+				location: data.location
 			}
 		});
 	},

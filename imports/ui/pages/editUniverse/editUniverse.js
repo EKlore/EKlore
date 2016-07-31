@@ -42,7 +42,12 @@ Template.editUniverse.events({
 			universeId: Router.current().params._id,
 			name: $('#universeName').val(),
 			label: $('#universeLabel').val(),
-			color: $('#universeColor').val()
+			color: $('#universeColor').val(),
+			partner: $('#universePartner').val(),
+			partnerLogo: $('#universePartnerLogo').val(),
+			partnerDescription: $('#universePartnerDescription').val(),
+			partnerWebsite: $('#universePartnerWebsite').val(),
+			location: $('#universeLocation').val()
 		};
 		if (!data.name) {
 			return Bert.alert('Name must be filled', 'danger', 'growl-top-right');
@@ -53,7 +58,7 @@ Template.editUniverse.events({
 		if (!data.color) {
 			return Bert.alert('Color must be filled', 'danger', 'growl-top-right');
 		}
-		Meteor.call('updateAUniverse', data, (error, result) => {
+		Meteor.call('updateAnUniverse', data, (error, result) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			} else {

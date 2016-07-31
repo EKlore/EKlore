@@ -5,7 +5,10 @@ template(name="workshopDetails")
 				.panel-heading
 					p.panel-title #{name}
 				.panel-body
-					p #{description}
+					p.lead #{description}
+					p {{_ "workshopSpeaker"}} :
+						strong #{speaker}
+					p {{_ "workshopFormat"}} : #{format}
 					.panel.panel-default
 						.panel-body
 							.row

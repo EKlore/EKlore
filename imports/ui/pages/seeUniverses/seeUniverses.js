@@ -23,6 +23,11 @@ Template.seeUniverses.helpers({
 			fields: {
 				name: 1,
 				label: 1,
+				partner: 1,
+				partnerLogo: 1,
+				partnerDescription: 1,
+				partnerWebsite: 1,
+				location: 1,
 				workshopsLinked: 1
 			}
 		});
@@ -42,7 +47,9 @@ Template.seeUniverses.helpers({
 			},
 			fields: {
 				name: 1,
-				description: 1
+				description: 1,
+				speaker: 1,
+				format: 1
 			}
 		});
 	}

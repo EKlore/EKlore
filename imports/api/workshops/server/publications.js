@@ -43,7 +43,9 @@ Meteor.publish('allWorkshopsToSee', () => {
 	return Workshops.find({}, {
 		fields: {
 			name: 1,
-			description: 1
+			description: 1,
+			speaker: 1,
+			format: 1
 		}
 	});
 });

@@ -23,7 +23,9 @@ Meteor.methods({
 			description: { type: String },
 			dateStart: { type: Date },
 			dateEnd: { type: Date },
-			color: { type: String }
+			color: { type: String },
+			format: { type: String, optional: true },
+			speaker: { type: String, optional: true }
 		});
 		check(data, methodSchema);
 		return Workshops.update({ _id: data.workshopId }, {
@@ -32,7 +34,9 @@ Meteor.methods({
 				description: data.description,
 				dateStart: data.dateStart,
 				dateEnd: data.dateEnd,
-				color: data.color
+				color: data.color,
+				format: data.format,
+				speaker: data.speaker
 			}
 		});
 	},

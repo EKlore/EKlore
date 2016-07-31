@@ -70,6 +70,16 @@ Workshops.schema = new SimpleSchema({
 		type: String,
 		label: 'Workshop color',
 		optional: true
+	},
+	format: {
+		type: String,
+		label: 'Workshop\'s format',
+		optional: true
+	},
+	speaker: {
+		type: String,
+		label: 'Workshop\'s speaker',
+		optional: true
 	}
 });
 

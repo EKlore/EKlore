@@ -48,6 +48,31 @@ Universes.schema = new SimpleSchema({
 		type: String,
 		label: 'Universe color',
 		optional: true
+	},
+	partner: {
+		type: String,
+		label: 'Partner\'s name',
+		optional: true
+	},
+	partnerLogo: {
+		type: String,
+		label: 'Partner\'s logo',
+		optional: true
+	},
+	partnerDescription: {
+		type: String,
+		label: 'Partner\'s description',
+		optional: true
+	},
+	partnerWebsite: {
+		type: String,
+		label: 'Partner\'s website url',
+		optional: true
+	},
+	location: {
+		type: String,
+		label: 'Universe\'s location',
+		optional: true
 	}
 });
 

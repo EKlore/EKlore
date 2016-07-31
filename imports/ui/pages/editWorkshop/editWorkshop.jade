@@ -28,6 +28,12 @@ template(name="editWorkshop")
 												i.glyphicon.glyphicon-calendar
 											input#workshopEndDateEdit.set-due-date.form-control(type="text" value="#{dateEnd}")
 									.form-group
+										label(for="workshopFormat") {{_ "workshopFormat"}}
+										input#workshopFormat.form-control(type="text" value="#{format}")
+									.form-group
+										label(for="workshopSpeaker") {{_ "workshopSpeaker"}}
+										input#workshopSpeaker.form-control(type="text" value="#{speaker}")
+									.form-group
 										label(for="workshopColor") {{_ "workshopColor"}}
 										if color
 											input#workshopColor.form-control(type="color" name="workshopColor" value="#{color}")

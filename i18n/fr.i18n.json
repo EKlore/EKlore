@@ -32,8 +32,8 @@
 	"createYourProfile": "Créez vous aussi votre profil et venez faire la FETE avec nous !",
 	"volunteers": "Bénévoles",
 	"withoutThemNothingIsPossible": "Sans eux FETE n'existerait pas !",
-	"dateFete": "24 septembre 2016 ou 1 octobre 2016",
-	"hourFete": "De 10h à 18h",
+	"dateFete": "Le 3 octobre 2016",
+	"hourFete": "De 10h à 23h30",
 	"addNewWorkshop": "Ajouter un nouvel atelier",
 	"addNewUniverse": "Ajouter un nouvel univers",
 	"workshopName": "Nom de l'atelier",
@@ -140,5 +140,14 @@
 	"qcm": "QCM",
 	"save": "Enregistrer",
 	"yourPersonalisedProgramForTheDay": "Votre parcours personnalisé pour la journée",
-	"yourMatchingRate": "Votre taux de matching"
+	"yourMatchingRate": "Votre taux de matching",
+	"universePartner": "Partenaire de l'univers",
+	"universePartnerLogo": "Logo du partenaire",
+	"universePartnerDescription": "Description du partenaire",
+	"universePartnerWebsite": "Site internet du partenaire",
+	"universeLocation": "Emplacement de l'univers lors de la FETE",
+	"workshopFormat": "Format de l'atelier",
+	"workshopSpeaker": "Intervenant de l'atelier",
+	"visitPartnerWebsite": "Voir le site du partenaire",
+	"youNeedToCompleteYourProfile": "Votre parcours personnalisé s'affichera lorsque vous aurez commencé à répondre aux questions de votre profil"
 }
