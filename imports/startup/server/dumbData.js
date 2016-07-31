@@ -99,7 +99,7 @@ Meteor.startup(() => {
 				}
 			});
 		});
-		let uniData = Universes.find({}, { fields: { _id: 1 } });
+		/*let uniData = Universes.find({}, { fields: { _id: 1 } });
 		let workData = Workshops.find({}, { fields: { _id: 1 } });
 		uniData.map((cur, index, array) => {
 			return workData.map((cur1, index1, array1) => {
@@ -116,7 +116,7 @@ Meteor.startup(() => {
 				Meteor.call('addUniverseToWorkshop', data);
 				console.log(`addUniverseToWorkshop : ${data.workshopId} ${data.universeId} ${data.matchingPower} Done`);
 			});
-		});
+		});*/
 	}
 	if (QuestionsGroups.find({}).count() === 0) {
 		let questionsGroups = [{
@@ -446,11 +446,6 @@ Meteor.startup(() => {
 			level: 82,
 			displayType: 'scale'
 		}, {
-			title: 'Avez-vous un Mojo (une phrase qui vous représente) ?',
-			level: 83,
-			displayType: 'yesNo'
-		}];
-		/*, {
 			title: 'Parmis les types d’entreprises suivants, choisissez laquelle vous attire le plus ?',
 			level: 63,
 			displayType: 'qcm'
@@ -474,7 +469,11 @@ Meteor.startup(() => {
 			title: 'Allez-vous chercher de l’information régulièrement ?',
 			level: 70,
 			displayType: 'qcm'
-		}*/
+		}, {
+			title: 'Avez-vous un Mojo (une phrase qui vous représente) ?',
+			level: 83,
+			displayType: 'yesNo'
+		}];
 		const qG1 = QuestionsGroups.findOne({ level: 1 }, {
 			fields: {
 				_id: 1,
@@ -523,7 +522,7 @@ Meteor.startup(() => {
 				}
 			});
 		});
-		let questData = EkloreQuestions.find({}, { fields: { _id: 1, choices: 1 } });
+		/*let questData = EkloreQuestions.find({}, { fields: { _id: 1, choices: 1 } });
 		let uniData = Universes.find({}, { fields: { _id: 1 } });
 		let workData = Workshops.find({}, { fields: { _id: 1 } });
 		questData.map((cur, index, array) => {
@@ -579,6 +578,6 @@ Meteor.startup(() => {
 					console.log(`addUniverseToChoice : ${data.universeId} ${data.choiceId} ${data.ekloreQuestionId} ${data.matchingPower} ${data.choiceIndex} Done`);
 				});
 			});
-		});
+		});*/
 	}
 });
