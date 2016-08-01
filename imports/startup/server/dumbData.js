@@ -96,25 +96,208 @@ Meteor.startup(() => {
 			location: ''
 		}];
 		let workshops = [{
-			name: 'J\'identifie mes talents',
-			description: 'Identifier ses talents et clarifier ses envies',
+			name: 'Je fais mon bilan de compétence',
+			description: 'Je fais mon bilan de compétence',
 			dateStart: new Date(2016, 9, 3, 10, 0, 0),
-			dateEnd: new Date(2016, 9, 3, 11, 0, 0)
+			dateEnd: new Date(2016, 9, 3, 11, 0, 0),
+			format: '',
+			speaker: 'Jean-Louis Ferrein (Adelphis) & Lucas Lecompte (Adelphis)'
 		}, {
-			name: 'J\'apprends à pitcher',
-			description: 'Préparation au pitch',
-			dateStart: new Date(2016, 9, 3, 11, 0, 0),
-			dateEnd: new Date(2016, 9, 3, 12, 30, 0)
+			name: 'Je veux changer de métier, c\'est possible ?',
+			description: 'Je veux changer de métier, c\'est possible ?',
+			dateStart: new Date(2016, 9, 3, 11, 15, 0),
+			dateEnd: new Date(2016, 9, 3, 12, 30, 0),
+			format: '',
+			speaker: 'SoManyWays'
 		}, {
-			name: 'Artistes, artisans, artisans d\'art : ils se racontent',
-			description: 'Discussion et témoignages d’un artiste , un artisan , un artisan d\'art qui reviennent sur leur parcours respectifs',
+			name: 'Je veux tester un job, comment faire ?',
+			description: 'Je veux tester un job, comment faire ?',
+			dateStart: new Date(2016, 9, 3, 13, 0, 0),
+			dateEnd: new Date(2016, 9, 3, 14, 15, 0),
+			format: '',
+			speaker: 'Bloomr & Viemonjob'
+		}, {
+			name: 'J’apprends à utiliser le mindmapping pour organiser ma reconversion',
+			description: 'J’apprends à utiliser le mindmapping pour organiser ma reconversion',
+			dateStart: new Date(2016, 9, 3, 14, 30, 0),
+			dateEnd: new Date(2016, 9, 3, 15, 30, 0),
+			format: '',
+			speaker: 'Nicolas De Kermadec (thinkmapping)'
+		}, {
+			name: 'Réussir grâce à mes talents',
+			description: 'Réussir grâce à mes talents',
 			dateStart: new Date(2016, 9, 3, 10, 0, 0),
-			dateEnd: new Date(2016, 9, 3, 11, 30, 0)
+			dateEnd: new Date(2016, 9, 3, 11, 30, 0),
+			format: '',
+			speaker: 'Thierry Dubois (Savoir-Faire & Associés)'
+		}, {
+			name: 'Pitch & Storytelling : se présenter en entretien',
+			description: 'Pitch & Storytelling : se présenter en entretien',
+			dateStart: new Date(2016, 9, 3, 11, 45, 0),
+			dateEnd: new Date(2016, 9, 3, 12, 45, 0),
+			format: '',
+			speaker: 'Béatrice Doradoux (EKlore)'
+		}, {
+			name: 'Chercher un emploi en 2016...',
+			description: 'Chercher un emploi en 2016...',
+			dateStart: new Date(2016, 9, 3, 12, 45, 0),
+			dateEnd: new Date(2016, 9, 3, 13, 30, 0),
+			format: '',
+			speaker: 'Nicolas Galita (Link Humans)'
+		}, {
+			name: 'Je recrute mon « boss »',
+			description: 'Je recrute mon « boss »',
+			dateStart: new Date(2016, 9, 3, 14, 0, 0),
+			dateEnd: new Date(2016, 9, 3, 15, 0, 0),
+			format: '',
+			speaker: 'Celica Thellier (Meilleures-Entreprises.com) & Jeremy Cledat (Welcome to the Jungle)'
+		}, {
+			name: 'Etre heureux au travail, c’est possible !',
+			description: 'Etre heureux au travail, c’est possible !',
+			dateStart: new Date(2016, 9, 3, 15, 0, 0),
+			dateEnd: new Date(2016, 9, 3, 16, 0, 0),
+			format: '',
+			speaker: 'Kevin Bourgeois (Supermood) & Alexandre Jost (La Fabrique Spinoza)'
+		}, {
+			name: 'Artistes & artisans d\'art : ils se racontent',
+			description: 'Artistes & artisans d\'art : ils se racontent',
+			dateStart: new Date(2016, 9, 3, 10, 0, 0),
+			dateEnd: new Date(2016, 9, 3, 11, 30, 0),
+			format: '',
+			speaker: 'Olivier Wahl & May Pham Vansuu (Artdulaque) & Florent Thurneyssen (Smarin)'
 		}, {
 			name: 'De mon rêve au développement de mon projet',
-			description: 'Lors de cet atelier par petits groupes nos intervenants vous donneront des clefs pour développer votre projet autour des trois thèmes suivants : - Qui je suis et où je veux aller ? - Comment trouver des financements ? - Les outils indispensables pour communiquer',
+			description: 'De mon rêve au développement de mon projet',
+			dateStart: new Date(2016, 9, 3, 12, 0, 0),
+			dateEnd: new Date(2016, 9, 3, 13, 30, 0),
+			format: '',
+			speaker: 'Nicolas Agnez (Agnez-artgallery.com) & Pierre Escarra (L’atelier Houdart) & Olivier Sanch (hellomerci) & Liza Bergara (histoiredartisan)'
+		}, {
+			name: 'Je trouve des espaces pour créer et rejoindre un collectif',
+			description: 'Je trouve des espaces pour créer et rejoindre un collectif',
+			dateStart: new Date(2016, 9, 3, 14, 0, 0),
+			dateEnd: new Date(2016, 9, 3, 15, 30, 0),
+			format: '',
+			speaker: 'Laure Nouraout (La fabrique de la danse) & Nicolas Bard (ICI Montreuil) & Jérémie Triaire (Collectif Prémices)'
+		}, {
+			name: 'Je participe à une Œuvre d’art',
+			description: 'Je participe à une Œuvre d’art',
+			dateStart: new Date(2016, 9, 3, 10, 0, 0),
+			dateEnd: new Date(2016, 9, 3, 16, 0, 0),
+			format: '',
+			speaker: 'Conception Rafael Cherkaski'
+		}, {
+			name: 'Qui se cachent derrière les Surdoués / Autistes Aspergers / Handicapés ?',
+			description: 'Qui se cachent derrière les Surdoués / Autistes Aspergers / Handicapés ?',
+			dateStart: new Date(2016, 9, 3, 10, 0, 0),
+			dateEnd: new Date(2016, 9, 3, 11, 0, 0),
+			format: '',
+			speaker: 'Anne Montgermont (handireseau) & Liliya Reshetnyak (Taonity Project) & Matthieu Lassagne (Coaching et Douance) & Ryad Lebib (expert)'
+		}, {
+			name: 'Des recruteurs audacieux témoignent',
+			description: 'Des recruteurs audacieux témoignent',
+			dateStart: new Date(2016, 9, 3, 11, 15, 0),
+			dateEnd: new Date(2016, 9, 3, 12, 15, 0),
+			format: '',
+			speaker: 'Louis Lépine & Hervé Ferro & Ryad Lebib (expert)'
+		}, {
+			name: 'Imaginons ensemble un recrutement équitable',
+			description: 'Imaginons ensemble un recrutement équitable',
+			dateStart: new Date(2016, 9, 3, 12, 45, 0),
+			dateEnd: new Date(2016, 9, 3, 13, 45, 0),
+			format: '',
+			speaker: 'Sophie Barbet-Massin (Rhéatis) & Ryad Lebib (expert)'
+		}, {
+			name: 'La biodiversité des talents : un enjeu de croissance en entreprise ?',
+			description: 'La biodiversité des talents : un enjeu de croissance en entreprise ?',
+			dateStart: new Date(2016, 9, 3, 14, 0, 0),
+			dateEnd: new Date(2016, 9, 3, 15, 30, 0),
+			format: '',
+			speaker: 'Krisztina Wighardt & Ryad Lebib (expert)'
+		}, {
+			name: 'Bisounours ou Requins : faut-il choisir ?',
+			description: 'Bisounours ou Requins : faut-il choisir ?',
+			dateStart: new Date(2016, 9, 3, 10, 0, 0),
+			dateEnd: new Date(2016, 9, 3, 11, 15, 0),
+			format: '',
+			speaker: 'Raphael Benda (Axa Atout Cœur) & Roxane Julien (Fullmobs) & Félix --- (Stagiaires Sans Frontières)'
+		}, {
+			name: 'Et le fric dans tout ça ? Travailler dans l’Economie Sociale et Solidaire (ESS) et gagner sa vie ?',
+			description: 'Et le fric dans tout ça ? Travailler dans l’Economie Sociale et Solidaire (ESS) et gagner sa vie ?',
 			dateStart: new Date(2016, 9, 3, 11, 30, 0),
-			dateEnd: new Date(2016, 9, 3, 12, 30, 0)
+			dateEnd: new Date(2016, 9, 3, 12, 45, 0),
+			format: '',
+			speaker: 'Vitamine T & Groupe SOS (Ou) Login’s & Sarah Pedrozza (Hello Tomorrow)'
+		}, {
+			name: 'Réconcilier raison et passion avec l’entrepreneuriat social',
+			description: 'Réconcilier raison et passion avec l’entrepreneuriat social',
+			dateStart: new Date(2016, 9, 3, 13, 15, 0),
+			dateEnd: new Date(2016, 9, 3, 14, 30, 0),
+			format: '',
+			speaker: 'Violaine & Adèle Galey (Ticketforchange) & Autres ?'
+		}, {
+			name: 'Entreprise : grands méchants ou acteurs du changement ?',
+			description: 'Entreprise : grands méchants ou acteurs du changement ?',
+			dateStart: new Date(2016, 9, 3, 14, 45, 0),
+			dateEnd: new Date(2016, 9, 3, 16, 0, 0),
+			format: '',
+			speaker: 'Elodie Parre (Terreos) & Thibault Brière (Groupe Hervé)'
+		}, {
+			name: 'Le monde dont je rêve pour demain',
+			description: 'Le monde dont je rêve pour demain',
+			dateStart: new Date(2016, 9, 3, 10, 0, 0),
+			dateEnd: new Date(2016, 9, 3, 11, 30, 0),
+			format: '',
+			speaker: 'Jean-Baptiste Brochier (iSustainabledev)'
+		}, {
+			name: 'Réenchanter le monde de l’entreprise',
+			description: 'Réenchanter le monde de l’entreprise',
+			dateStart: new Date(2016, 9, 3, 11, 45, 0),
+			dateEnd: new Date(2016, 9, 3, 12, 45, 0),
+			format: '',
+			speaker: 'Vincent Avanzi ( La plume du futur)'
+		}, {
+			name: 'Altruisme et bienveillance : la nouvelle tendance ?',
+			description: 'Altruisme et bienveillance : la nouvelle tendance ?',
+			dateStart: new Date(2016, 9, 3, 13, 15, 0),
+			dateEnd: new Date(2016, 9, 3, 14, 45, 0),
+			format: '',
+			speaker: 'Alizée Thurneyssen'
+		}, {
+			name: 'Le management du XXIème siècle',
+			description: 'Le management du XXIème siècle',
+			dateStart: new Date(2016, 9, 3, 15, 0, 0),
+			dateEnd: new Date(2016, 9, 3, 16, 0, 0),
+			format: '',
+			speaker: 'Bernard Rohmer (MOM21)'
+		}, {
+			name: 'Je lève mes freins à l’entrepreneuriat',
+			description: 'Je lève mes freins à l’entrepreneuriat',
+			dateStart: new Date(2016, 9, 3, 10, 0, 0),
+			dateEnd: new Date(2016, 9, 3, 11, 0, 0),
+			format: '',
+			speaker: 'Bruno Albanese & Enrico Ughetto (Lien Qualité) & Pierre Yves Fabre (Le Gourmet Pro) & Laure Morot & Olivier Rerolle (ArtLuxury Experience) & Ariane Tytgat (ANTConseil)'
+		}, {
+			name: 'Quand mes révoltes nourrissent mes idées',
+			description: 'Quand mes révoltes nourrissent mes idées',
+			dateStart: new Date(2016, 9, 3, 11, 15, 0),
+			dateEnd: new Date(2016, 9, 3, 12, 15, 0),
+			format: '',
+			speaker: 'Bruno Albanese & Enrico Ughetto (Lien Qualité) & Pierre Yves Fabre (Le Gourmet Pro) & Laure Morot & Olivier Rerolle (ArtLuxury Experience) & Ariane Tytgat (ANTConseil)'
+		}, {
+			name: 'Je formalise mon projet',
+			description: 'Je formalise mon projet',
+			dateStart: new Date(2016, 9, 3, 12, 45, 0),
+			dateEnd: new Date(2016, 9, 3, 13, 45, 0),
+			format: '',
+			speaker: 'Bruno Albanese & Enrico Ughetto (Lien Qualité) & Pierre Yves Fabre (Le Gourmet Pro) & Laure Morot & Olivier Rerolle (ArtLuxury Experience) & Ariane Tytgat (ANTConseil)'
+		}, {
+			name: 'Je challenge mon projet',
+			description: 'Je challenge mon projet',
+			dateStart: new Date(2016, 9, 3, 14, 0, 0),
+			dateEnd: new Date(2016, 9, 3, 16, 0, 0),
+			format: '',
+			speaker: 'Bruno Albanese & Enrico Ughetto (Lien Qualité) & Pierre Yves Fabre (Le Gourmet Pro) & Laure Morot & Olivier Rerolle (ArtLuxury Experience) & Ariane Tytgat (ANTConseil)'
 		}];
 		universes.map((cur, index, array) => {
 			return Meteor.call('addAUniverse', cur, (error, result) => {
