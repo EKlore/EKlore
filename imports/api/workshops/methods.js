@@ -10,7 +10,9 @@ Meteor.methods({
 			name: { type: String },
 			description: { type: String },
 			dateStart: { type: Date },
-			dateEnd: { type: Date }
+			dateEnd: { type: Date },
+			format: { type: String, optional: true },
+			speaker: { type: String, optional: true }
 		});
 		check(data, methodSchema);
 		data.universesLinked = [];

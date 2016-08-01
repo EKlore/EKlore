@@ -8,7 +8,12 @@ Meteor.methods({
 	addAUniverse(data) {
 		let methodSchema = new SimpleSchema({
 			name: { type: String },
-			label: { type: String }
+			label: { type: String },
+			partner: { type: String, optional: true },
+			partnerLogo: { type: String, optional: true },
+			partnerDescription: { type: String, optional: true },
+			partnerWebsite: { type: String, optional: true },
+			location: { type: String, optional: true }
 		});
 		check(data, methodSchema);
 		data.color = '#3355CC';
