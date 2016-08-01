@@ -1,3 +1,4 @@
 .meteor/local
+.meteor/dev_bundle
 .meteor/meteorite
 node_modules/
