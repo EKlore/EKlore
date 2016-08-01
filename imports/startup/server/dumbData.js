@@ -39,26 +39,61 @@ Meteor.startup(() => {
 	}
 	if (Universes.find({}).count() === 0 && Workshops.find({}).count() === 0) {
 		let universes = [{
-			name: 'ARTI',
-			label: 'ARTI'
+			name: 'Art et Artisanat',
+			label: 'L’art et l’artisanat invitent dans cet univers tous ceux qui veulent en vivre. Dans notre monde en mutation, l’artiste et l’artisan doivent se réinventer tout en préservant et en transmettant leur héritage. Trouver des espaces de création, des financements, des collaborations... dans cet univers nous vous offrons des outils concrets pour aller au bout de votre vocation.',
+			partner: 'Startisanat',
+			partnerLogo: 'universes/startisanat.jpg',
+			partnerDescription: 'Sartisanat accompagne les personnes dans leurs projets d\'orientation ou de réorientation professionnelle dans les métiers de l\'artisanat et de la création. Ils favorisent par ailleurs la découverte et l\'initiation aux savoir-faire artisanaux et artistiques.',
+			partnerWebsite: 'http://www.startisanat.org/',
+			location: ''
 		}, {
-			name: 'AUDA',
-			label: 'AUDA'
+			name: 'Personnes extra-ordinaires',
+			label: 'AUDA',
+			partner: 'Taonity Project',
+			partnerLogo: 'universes/taonity_project.jpg',
+			partnerDescription: 'Taonity Project a pour but de favoriser, harmoniser et rendre plus productive et épanouissante la collaboration entre l\'Entreprise et les Personnes à haut potentiel intellectuel, au syndrome d\'Asperger, ou autisme de haut niveau.',
+			partnerWebsite: 'http://taonity-project.com/',
+			location: ''
 		}, {
-			name: 'DEM1',
-			label: 'DEM1'
+			name: 'Travail de Demain',
+			label: 'Nous rêvons tous d’un monde du travail plus juste, plus doux et plus responsable... mais qui a dit que ce rêve ne pouvait pas devenir réalité ? Venez penser avec nous le travail de demain, entre poésie, bienveillance et courage !',
+			partner: 'La société Civile',
+			partnerLogo: '',
+			partnerDescription: 'Des citoyens se mobilisent pour vous faire penser et rêver l’avenir !',
+			partnerWebsite: '',
+			location: ''
 		}, {
-			name: 'ENTR',
-			label: 'ENTR'
+			name: 'Entrepreneuriat',
+			label: 'Vous rêvez d’entreprendre mais il vous manque idées, « méthodo » et réseau ? Venez faire le grand saut ! Tout au long de la journée nous vous proposerons un parcours interactif pour trouver le projet qui vous ressemble.',
+			partner: 'Audace',
+			partnerLogo: '/universes/audace.gif',
+			partnerDescription: 'Audace forme et prépare les personnes ayant envie d\'entreprendre sans avoir de projet défini.',
+			partnerWebsite: 'http://www.campus-audace.com/',
+			location: ''
 		}, {
-			name: 'FORM',
-			label: 'FORM'
+			name: 'Reconversion',
+			label: 'L’univers de la reconversion n’est pas que l’univers de la deuxième chance, du “Plan B”, car rien n’indique qu’il doive s’agir d’un plan par défaut : venez découvrir les outils et les initiatives disponibles pour une reconversion positive !',
+			partner: 'WorkUp',
+			partnerLogo: 'universes/workUp.png',
+			partnerDescription: 'Que vous soyez à la recherche d\'un emploi, en reconversion, en poste ou en création d\'entreprise, WorkUp veut vous donner toutes les informations et les bons outils pour vous accompagner dans votre réflexion et vous aider à trouver le job qui vous convient.',
+			partnerWebsite: 'http://www.workuper.com/',
+			location: ''
 		}, {
-			name: 'SALA',
-			label: 'SALA'
+			name: 'Salariat',
+			label: 'Dans cet univers, nous réenchanterons la recherche d’emploi et bouleverserons les présupposés ! Pour nous, chaque candidat est unique, et surtout, nous pensons que le recrutement devrait se faire dans les deux sens. Venez retrouver confiance, découvrir vos talents et apprenez à mettre en valeur votre personnalité !',
+			partner: 'Whire',
+			partnerLogo: 'universes/whire.png',
+			partnerDescription: 'Whire existe pour offrir une meilleure lisibilité du marché de l\'emploi, aux candidats comme aux recruteurs. Moitié agence, moitié start-up, ils utilisent la technologie et le design pour répondre à la frustration des utilisateurs et leur offrir de meilleures prises de décision.',
+			partnerWebsite: 'http://www.whire.me/',
+			location: ''
 		}, {
-			name: 'SENS',
-			label: 'SENS'
+			name: 'Sens',
+			label: 'Qu’elle est exaltante la sensation que son travail a un impact positif, qu’il nous correspond pleinement, que l’énergie dépensée sert une cause! Dans cet univers, nous vous aiderons à découvrir ce qui peut faire sens pour vous, quel que soit le chemin à emprunter : bénévolat, économie sociale et solidaire, intrapreneuriat, développement durable ...',
+			partner: 'TicketforChange',
+			partnerLogo: 'universes/ticket_for_change.png',
+			partnerDescription: 'Vous avez envie de transformer la société par l\'entrepreunariat ou l\'intrapreunariat ? Vous avez déjà une idée mais vous ne savez pas par où commencer ? TicketforChange vous offre un programme unique pour approfondir, tester et lancer votre idée pour changer le monde !',
+			partnerWebsite: 'http://www.ticketforchange.org/',
+			location: ''
 		}];
 		let workshops = [{
 			name: 'J\'identifie mes talents',
@@ -99,7 +134,7 @@ Meteor.startup(() => {
 				}
 			});
 		});
-		/*let uniData = Universes.find({}, { fields: { _id: 1 } });
+		let uniData = Universes.find({}, { fields: { _id: 1 } });
 		let workData = Workshops.find({}, { fields: { _id: 1 } });
 		uniData.map((cur, index, array) => {
 			return workData.map((cur1, index1, array1) => {
@@ -116,7 +151,7 @@ Meteor.startup(() => {
 				Meteor.call('addUniverseToWorkshop', data);
 				console.log(`addUniverseToWorkshop : ${data.workshopId} ${data.universeId} ${data.matchingPower} Done`);
 			});
-		});*/
+		});
 	}
 	if (QuestionsGroups.find({}).count() === 0) {
 		let questionsGroups = [{
@@ -522,7 +557,7 @@ Meteor.startup(() => {
 				}
 			});
 		});
-		/*let questData = EkloreQuestions.find({}, { fields: { _id: 1, choices: 1 } });
+		let questData = EkloreQuestions.find({}, { fields: { _id: 1, choices: 1 } });
 		let uniData = Universes.find({}, { fields: { _id: 1 } });
 		let workData = Workshops.find({}, { fields: { _id: 1 } });
 		questData.map((cur, index, array) => {
@@ -578,6 +613,6 @@ Meteor.startup(() => {
 					console.log(`addUniverseToChoice : ${data.universeId} ${data.choiceId} ${data.ekloreQuestionId} ${data.matchingPower} ${data.choiceIndex} Done`);
 				});
 			});
-		});*/
+		});
 	}
 });
