@@ -133,7 +133,7 @@
 	"doYouWantToGo": "J'y vais ?",
 	"universeColor": "Couleur de l'univers",
 	"workshopColor": "Couleur de l'atelier",
-	"seeUniverses": "Découvrez les univers de la FETE EKlore",
+	"seeUniverses": "Découvrez les univers de la FETE",
 	"moreInformations": "Plus d'informations",
 	"scale": "Echelle de 1 à 10",
 	"yesNo": "Oui ou Non",
@@ -151,5 +151,6 @@
 	"visitPartnerWebsite": "Voir le site du partenaire",
 	"youNeedToCompleteYourProfile": "Votre parcours personnalisé s'affichera lorsque vous aurez commencé à répondre aux questions de votre profil",
 	"removeChoiceFromEkloreQuestion": "Supprimer ce choix",
-	"addAChoice": "Ajouter un choix"
+	"addAChoice": "Ajouter un choix",
+	"feteLocation": "Emplacement de la FETE"
 }

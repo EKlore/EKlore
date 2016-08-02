@@ -27,6 +27,6 @@ template(name="answerQuestions")
 			.panel.panel-default
 				.panel-body
 					h4 {{_ "congratsNoMoreQuestions"}}
-						a.btn.btn-primary(role="button" href="{{pathFor 'myProfile'}}") {{_ "returnToProfile"}}
+					a.btn.btn-primary(role="button" href="{{pathFor 'myProfile'}}") {{_ "returnToProfile"}}
 	else
 		+spinner

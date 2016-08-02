@@ -50,7 +50,7 @@ template(name="editEkloreQuestion")
 							.panel-heading
 								h4.panel-title {{_ "universesLinkedWithEkloreQuestion"}}
 							.panel-body
-								.row
+								.row(style="display:flex; flex-wrap: wrap;")
 									each universesLinked
 										.col-xs-12.col-sm-6.col-md-6.col-lg-6
 											+universesToRemoveFromEkloreQuestion
@@ -58,7 +58,7 @@ template(name="editEkloreQuestion")
 							.panel-heading
 								h4.panel-title {{_ "universesNotLinkedWithEkloreQuestion"}}
 							.panel-body
-								.row
+								.row(style="display:flex; flex-wrap: wrap;")
 									each universes
 										.col-xs-12.col-sm-6.col-md-6.col-lg-6
 											+universesToAddToEkloreQuestion
@@ -70,7 +70,7 @@ template(name="editEkloreQuestion")
 							.panel-heading
 								h4.panel-title {{_ "workshopsLinkedWithEkloreQuestion"}}
 							.panel-body
-								.row
+								.row(style="display:flex; flex-wrap: wrap;")
 									each workshopsLinked
 										.col-xs-12.col-sm-6.col-md-6.col-lg-6
 											+workshopsToRemoveFromEkloreQuestion
@@ -78,7 +78,7 @@ template(name="editEkloreQuestion")
 							.panel-heading
 								h4.panel-title {{_ "workshopsNotLinkedWithEkloreQuestion"}}
 							.panel-body
-								.row
+								.row(style="display:flex; flex-wrap: wrap;")
 									each workshops
 										.col-xs-12.col-sm-6.col-md-6.col-lg-6
 											+workshopsToAddToEkloreQuestion
@@ -101,7 +101,7 @@ template(name="editEkloreQuestion")
 							.panel-heading
 								h4.panel-title {{_ "questionsGroupsNotLinkedWithEkloreQuestion"}}
 							.panel-body
-								.row
+								.row(style="display:flex; flex-wrap: wrap;")
 									each questionsGroups
 										.col-xs-12.col-sm-6.col-md-6.col-lg-6
 											.panel.panel-default

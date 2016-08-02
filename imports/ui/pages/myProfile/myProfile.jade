@@ -19,11 +19,13 @@ template(name="myProfile")
 					.panel-heading
 						p.panel-title {{_ "yourProfileByUniverses"}}
 					.panel-body
-						.row
+						.row(style="display:flex; flex-wrap: wrap;")
 							each universes
-								.col-xs-6.col-sm-3.col-md-2.col-lg-2.vcenter
+								.col-xs-6.col-sm-4.col-md-3.col-lg-3.vcenter
 									.circle.center-block(style="width: #{valueForCircle}px; height: #{valueForCircle}px;line-height: #{valueForCircle}px; background: #{universeData.color}") #{value}%
 									p.text-center #{universeData.name}
+					.panel-footer
+						a.btn.btn-primary(role="button" href="{{pathFor 'seeUniverses'}}") {{_ "seeUniverses"}}
 			//.panel.panel-default
 				.panel-heading
 					h3 Vous n'êtes pas seul... d'autres personnes vous ressemble !
@@ -36,16 +38,14 @@ template(name="myProfile")
 				.panel-heading
 					p.panel-title {{_ "questionsGroupsAvailable"}}
 				.panel-body
-					.row
+					.row(style="display:flex; flex-wrap: wrap;")
 						each questionsGroupAvailable
 							.col-xs-12.col-sm-6.col-md-6.col-lg-6
 								.panel.panel-default
-									.panel-heading
-										h4.panel-title #{title}
 									.panel-body
+										p.lead #{title}
 										p #{label}
-									.panel-footer
-										a.center-block.addQuestionsGroupToUser.btn.btn-primary(role="button" href="#") {{_ "answerQuestions"}}
+										a.addQuestionsGroupToUser.btn.btn-primary(role="button" href="#") {{_ "answerQuestions"}}
 						else
 							.col-xs-12.col-sm-12.col-md-12.col-lg-12
 								p {{_ "noMoreQuestionsGroupsAvailable"}}

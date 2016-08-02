@@ -49,7 +49,7 @@ template(name="editWorkshop")
 							.panel-heading
 								p.panel-title {{_ "universesLinkedWithWorkshop"}}
 							.panel-body
-								.row
+								.row(style="display:flex; flex-wrap: wrap;")
 									each universesLinked
 										.col-xs-12.col-sm-6.col-md-6.col-lg-6
 											+universesToRemove
@@ -57,7 +57,7 @@ template(name="editWorkshop")
 							.panel-heading
 								p.panel-title {{_ "universesNotLinkedWithWorkshop"}}
 							.panel-body
-								.row
+								.row(style="display:flex; flex-wrap: wrap;")
 									each universes
 										.col-xs-12.col-sm-6.col-md-6.col-lg-6
 											+universesToAdd

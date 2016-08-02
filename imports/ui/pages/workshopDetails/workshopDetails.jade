@@ -13,14 +13,14 @@ template(name="workshopDetails")
 						.panel-body
 							.row
 								.col-xs-12.col-sm-4.col-md-4.col-lg-4
-									p {{_ "startDate"}} :
-										span.badge #{dateStart}
+									p.lead {{_ "startDate"}} :
+										span.label.label-default #{dateStart}
 								.col-xs-12.col-sm-4.col-md-4.col-lg-4
-									p {{_ "endDate"}} :
-										span.badge #{dateEnd}
+									p.lead {{_ "endDate"}} :
+										span.label.label-default #{dateEnd}
 								.col-xs-12.col-sm-4.col-md-4.col-lg-4
-									p
-										span.badge #{peopleToGoCount}
+									p.lead
+										span.label.label-default #{peopleToGoCount}
 										| {{_ "peopleAreGoingToo"}}
 				if currentUser
 					.panel-footer
