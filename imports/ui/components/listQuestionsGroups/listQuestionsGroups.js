@@ -33,5 +33,8 @@ Template.listQuestionsGroups.helpers({
 		return EkloreQuestions.find({
 			questionsGroupId: this._id
 		}).count();
+	},
+	myIndex(index) {
+		return index + 1;
 	}
 });

@@ -17,20 +17,68 @@ template(name="listEkloreQuestions")
 						table.table
 							thead
 								tr
+									th #
 									th {{_ "title"}}
-									th {{_ "version"}}
-									th {{_ "displayType"}}
 									th {{_ "deprecated"}}
+									th {{_ "displayType"}}
+									th {{_ "universesLinked"}}
+									th {{_ "workshopsLinked"}}
+									th {{_ "nbChoices"}}
+									th {{_ "nbChoicesOK"}}
 									th {{_ "linkedToQuestionsGroup"}}
 									th {{_"actionEdit"}}
 							tbody
 								each ekloreQuestions
 									tr
+										td {{myIndex @index}}
 										td #{title}
-										td #{version}
-										td #{displayType}
 										td
 											+deprecated
+										td
+											h4
+												span.label.label-default #{displayType}
+										if universesLinked
+											td
+												a.btn.btn-success(role="button" href="#")
+													strong #{universesLinked.length}
+										else
+											td
+												a.btn.btn-danger(role="button" href="#")
+													strong #{universesLinked.length}
+										if workshopsLinked
+											td
+												a.btn.btn-success(role="button" href="#")
+													strong #{workshopsLinked.length}
+										else
+											td
+												a.btn.btn-danger(role="button" href="#")
+													strong #{workshopsLinked.length}
+										if moreThanOneChoice
+											td
+												a.btn.btn-success(role="button" href="#")
+													strong #{choices.length}
+										else
+											if choices
+												td
+													a.btn.btn-warning(role="button" href="#")
+														strong #{choices.length}
+											else
+												td
+													a.btn.btn-danger(role="button" href="#")
+														strong #{choices.length}
+										if isEkloreQuestionValid
+											td
+												a.btn.btn-success(role="button" href="#")
+													span.glyphicon.glyphicon-ok(aria-hidden="true")
+										else
+											if oneChoiceAtLeastIsOK
+												td
+													a.btn.btn-warning(role="button" href="#")
+														strong #{oneChoiceAtLeastIsOK}
+											else
+												td
+													a.btn.btn-danger(role="button" href="#")
+														span.glyphicon.glyphicon-remove(aria-hidden="true")
 										td
 											+linkedToQuestionsGroup
 										td

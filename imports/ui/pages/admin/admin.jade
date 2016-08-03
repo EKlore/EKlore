@@ -1,13 +1,12 @@
 template(name="admin")
-	.container
-		if currentUser
-			if isAdmin
-				#accordion.panel-group(role="tablist" aria-multiselectable="true")
-					+listUniverses
-					+listWorkshops
-					+listQuestionsGroups
-					+listEkloreQuestions
-			else
-				h1 {{_ "circulateThereIsNothingToSee"}}
+	if currentUser
+		if isAdmin
+			#accordion.panel-group(role="tablist" aria-multiselectable="true")
+				+listUniverses
+				+listWorkshops
+				+listQuestionsGroups
+				+listEkloreQuestions
 		else
 			h1 {{_ "circulateThereIsNothingToSee"}}
+	else
+		h1 {{_ "circulateThereIsNothingToSee"}}

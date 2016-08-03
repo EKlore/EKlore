@@ -112,9 +112,9 @@
 	"universesLinkedWithEkloreQuestion": "Univers liés à la question EKlore",
 	"universesNotLinkedWithEkloreQuestion": "Univers non liés à la question EKlore",
 	"workshopsLinkedWithEkloreQuestion": "Ateliers liés à la question EKlore",
-	"workshopsNotLinkedWithEkloreQuestion": "Atliers non liés à la question EKlore",
-	"displayType": "Mode d'affichage",
-	"linkedToQuestionsGroup": "Lié à un groupe de questions ?",
+	"workshopsNotLinkedWithEkloreQuestion": "Ateliers non liés à la question EKlore",
+	"displayType": "Affichage",
+	"linkedToQuestionsGroup": "Lié à un grp de Q ?",
 	"version": "N° de version",
 	"displayTypeText": "Affichage texte",
 	"displayTypePicture": "Affichage image",
@@ -152,5 +152,7 @@
 	"youNeedToCompleteYourProfile": "Votre parcours personnalisé s'affichera lorsque vous aurez commencé à répondre aux questions de votre profil",
 	"removeChoiceFromEkloreQuestion": "Supprimer ce choix",
 	"addAChoice": "Ajouter un choix",
-	"feteLocation": "Emplacement de la FETE"
+	"feteLocation": "Emplacement de la FETE",
+	"nbChoices": "Choix",
+	"nbChoicesOK": "Choix OK"
 }

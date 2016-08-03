@@ -56,6 +56,8 @@ Meteor.methods({
 			data.choices = qcmDefaultChoices();
 			data.displayType = 'qcm';
 		}
+		data.universesLinked = [];
+		data.workshopsLinked = [];
 		return EkloreQuestions.insert(data);
 	},
 	updateAnEkloreQuestion(data) {

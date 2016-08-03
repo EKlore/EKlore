@@ -17,6 +17,7 @@ template(name="listUniverses")
 						table.table
 							thead
 								tr
+									th #
 									th {{_ "name"}}
 									th {{_ "label"}}
 									th {{_ "workshopsLinked"}}
@@ -24,9 +25,17 @@ template(name="listUniverses")
 							tbody
 								each universe
 									tr
+										td {{myIndex @index}}
 										td #{name}
 										td #{label}
-										td #{workshopsLinked.length}
+										if workshopsLinked
+											td
+												a.btn.btn-success(role="button" href="#")
+													strong #{workshopsLinked.length}
+										else
+											td
+												a.btn.btn-danger(role="button" href="#")
+													strong #{workshopsLinked.length}
 										td
 											a.btn.btn-info(role="button" href="{{pathFor 'editUniverse'}}")
 												span.glyphicon.glyphicon-edit(aria-hidden="true")

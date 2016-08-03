@@ -17,6 +17,7 @@ template(name="listWorkshops")
 						table.table
 							thead
 								tr
+									th #
 									th {{_ "name"}}
 									th {{_ "universesLinked"}}
 									th {{_ "startDate"}}
@@ -25,10 +26,22 @@ template(name="listWorkshops")
 							tbody
 								each workshop
 									tr
+										td {{myIndex @index}}
 										td #{name}
-										td #{universesLinked.length}
-										td #{dateStart}
-										td #{dateEnd}
+										if universesLinked
+											td
+												a.btn.btn-success(role="button" href="#")
+													strong #{universesLinked.length}
+										else
+											td
+												a.btn.btn-danger(role="button" href="#")
+													strong #{universesLinked.length}
+										td
+											h4
+												span.label.label-default #{dateStart}
+										td
+											h4
+												span.label.label-default #{dateEnd}
 										td
 											a.btn.btn-info(role="button" href="{{pathFor 'editWorkshop'}}")
 												span.glyphicon.glyphicon-edit(aria-hidden="true")

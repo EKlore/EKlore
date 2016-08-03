@@ -29,9 +29,12 @@ Template.listWorkshops.helpers({
 		});
 	},
 	dateStart() {
-		return moment(this.dateStart).format('D-MMM H:mm');
+		return moment(this.dateStart).format('H:mm');
 	},
 	dateEnd() {
-		return moment(this.dateEnd).format('D-MMM H:mm');
+		return moment(this.dateEnd).format('H:mm');
+	},
+	myIndex(index) {
+		return index + 1;
 	}
 });

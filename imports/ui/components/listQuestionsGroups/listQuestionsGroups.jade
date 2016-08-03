@@ -17,6 +17,7 @@ template(name="listQuestionsGroups")
 						table.table
 							thead
 								tr
+									th #
 									th {{_ "title"}}
 									th {{_ "label"}}
 									th {{_ "deprecated"}}
@@ -25,11 +26,19 @@ template(name="listQuestionsGroups")
 							tbody
 								each questionsGroup
 									tr
+										td {{myIndex @index}}
 										td #{title}
 										td #{label}
 										td
 											+deprecated
-										td #{ekloreQuestionsLinkedCount}
+										if ekloreQuestionsLinkedCount
+											td
+												a.btn.btn-info(role="button" href="#")
+													strong #{ekloreQuestionsLinkedCount}
+										else
+											td
+												a.btn.btn-warning(role="button" href="#")
+													strong #{ekloreQuestionsLinkedCount}
 										td
 											a.btn.btn-info(role="button" href="{{pathFor 'editQuestionsGroup'}}")
 												span.glyphicon.glyphicon-edit(aria-hidden="true")

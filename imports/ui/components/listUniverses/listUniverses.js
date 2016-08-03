@@ -26,5 +26,8 @@ Template.listUniverses.helpers({
 				name: 1
 			}
 		});
+	},
+	myIndex(index) {
+		return index + 1;
 	}
 });

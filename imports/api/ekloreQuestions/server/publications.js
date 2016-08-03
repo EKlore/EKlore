@@ -9,7 +9,10 @@ Meteor.publish('allEkloreQuestions', () => {
 			version: 1,
 			displayType: 1,
 			questionsGroupId: 1,
-			deprecated: 1
+			deprecated: 1,
+			universesLinked: 1,
+			workshopsLinked: 1,
+			choices: 1
 		}
 	});
 });

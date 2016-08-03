@@ -58,7 +58,7 @@ export const validateQcmEkloreQuestion = function(data) {
 	const qcmUserQuestionSchema = new SimpleSchema({
 		_id: { type: String },
 		questionId: { type: String },
-		level: { type: Number, min: 1 },
+		level: { type: Number, min: 1, optional: true },
 		choices: { type: [ChoiceSchema], minCount: 3 },
 		deprecated: { type: Boolean },
 		universesLinked: { type: [UniverseSchema], minCount: 1 },
