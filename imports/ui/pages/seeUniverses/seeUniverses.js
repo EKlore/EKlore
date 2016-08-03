@@ -35,7 +35,9 @@ Template.seeUniverses.helpers({
 	workshops() {
 		let query = [];
 		this.workshopsLinked.map((cur, index, array) => {
-			query.push(cur.workshopId);
+			if (cur.matchingPower === 1) {
+				query.push(cur.workshopId);
+			}
 		});
 		return Workshops.find({
 			_id: {
