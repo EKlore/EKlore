@@ -154,5 +154,6 @@
 	"addAChoice": "Ajouter un choix",
 	"feteLocation": "Emplacement de la FETE",
 	"nbChoices": "Choix",
-	"nbChoicesOK": "Choix OK"
+	"nbChoicesOK": "Choix OK",
+	"return": "Retour"
 }
