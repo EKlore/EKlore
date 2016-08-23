@@ -1,5 +1,7 @@
 template(name="myDay")
 	if Template.subscriptionsReady
+		.page-header
+			h1 {{_ "myDay"}}
 		if currentUser
 			.panel.panel-default
 				.panel-heading

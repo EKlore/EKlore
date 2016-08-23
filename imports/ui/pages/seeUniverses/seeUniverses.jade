@@ -1,5 +1,7 @@
 template(name = "seeUniverses")
 	if Template.subscriptionsReady
+		.page-header
+			h1 {{_ "seeUniverses"}}
 		each universes
 			.panel.panel-default
 				.panel-heading

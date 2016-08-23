@@ -1,5 +1,7 @@
 template(name="myProfile")
 	if Template.subscriptionsReady
+		.page-header
+			h1 {{_ "myProfile"}}
 		if currentUser
 			.panel.panel-default
 				.panel-body
