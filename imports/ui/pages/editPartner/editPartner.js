@@ -81,7 +81,7 @@ Template.editPartner.events({
 			partnerId: Router.current().params._id,
 			firstName: $('#partnerFirstName').val(),
 			lastName: $('#partnerLastName').val(),
-			pictureUrl: $('#partnerPictureUrl').val(),
+			pictureUrl: $('#partnerPictureUrl').val()
 		};
 		if (!data.lastName) {
 			return Bert.alert('LastName must be filled', 'danger', 'growl-top-right');
@@ -116,7 +116,7 @@ Template.universesToAddToPartner.events({
 		event.preventDefault();
 		const data = {
 			partnerId: Router.current().params._id,
-			universeId: this._id,
+			universeId: this._id
 		};
 		Meteor.call('addUniverseToPartner', data, (error, result) => {
 			if (error) {
@@ -146,7 +146,7 @@ Template.workshopsToAddToPartner.events({
 		event.preventDefault();
 		const data = {
 			partnerId: Router.current().params._id,
-			workshopId: this._id,
+			workshopId: this._id
 		};
 		Meteor.call('addWorkshopToPartner', data, (error, result) => {
 			if (error) {

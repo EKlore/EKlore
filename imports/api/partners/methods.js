@@ -30,7 +30,7 @@ Meteor.methods({
 			partnerId: { type: String },
 			firstName: { type: String, optional: true },
 			lastName: { type: String },
-			pictureUrl: { type: String, optional: true },
+			pictureUrl: { type: String, optional: true }
 		});
 		check(data, methodSchema);
 		return Partners.update({ _id: data.partnerId }, {
@@ -44,7 +44,7 @@ Meteor.methods({
 	addUniverseToPartner(data) {
 		let methodSchema = new SimpleSchema({
 			universeId: { type: String },
-			partnerId: { type: String },
+			partnerId: { type: String }
 		});
 		check(data, methodSchema);
 		return Partners.update({ _id: data.partnerId }, {
@@ -72,7 +72,7 @@ Meteor.methods({
 	addWorkshopToPartner(data) {
 		let methodSchema = new SimpleSchema({
 			workshopId: { type: String },
-			partnerId: { type: String },
+			partnerId: { type: String }
 		});
 		check(data, methodSchema);
 		return Partners.update({ _id: data.partnerId }, {
