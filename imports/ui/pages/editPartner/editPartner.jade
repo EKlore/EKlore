@@ -1,0 +1,92 @@
+template(name="editPartner")
+	if Template.subscriptionsReady
+		.container
+			with partner
+				.panel.panel-default
+					.panel-heading
+						h3 {{_ "universeEdition"}} : #{firstName} #{lastName}
+					.panel-body
+						.panel.panel-default
+							.panel-body
+								form
+									.form-group
+										label(for="partnerFirstName") {{_ "partnerFirstName"}}
+										input#partnerFirstName.form-control(type="text" value="#{firstName}")
+									.form-group
+										label(for="partnerLastName") {{_ "partnerLastName"}}
+										input#partnerLastName.form-control(type="text" value="#{lastName}")
+									.form-group
+										label(for="partnerPictureUrl") {{_ "partnerPictureUrl"}}
+										input#partnerPictureUrl.form-control(type="text" value="#{pictureUrl}")
+							.panel-footer
+								.row
+									.col-xs-6.col-sm-6.col-md-6.col-lg-6
+										a.btn.btn-info.btn-block(role="button" href="{{pathFor 'admin'}}") {{_ "return"}}
+									.col-xs-6.col-sm-6.col-md-6.col-lg-6
+										button#save.btn.btn-success.btn-block {{_ "save"}}
+						.panel.panel-default
+							.panel-heading
+								h4.panel-title {{_ "Muniverses"}}
+							.panel-body
+								.panel.panel-success
+									.panel-heading
+										h4.panel-title {{_ "universesLinkedWithEkloreQuestion"}}
+									.panel-body
+										.row(style="display:flex; flex-wrap: wrap;")
+											each universesLinked
+												.col-xs-12.col-sm-6.col-md-6.col-lg-6
+													+universesToRemoveFromPartner
+								.panel.panel-danger
+									.panel-heading
+										h4.panel-title {{_ "universesNotLinkedWithEkloreQuestion"}}
+									.panel-body
+										.row(style="display:flex; flex-wrap: wrap;")
+											each universes
+												.col-xs-12.col-sm-6.col-md-6.col-lg-6
+													+universesToAddToPartner
+						.panel.panel-default
+							.panel-heading
+								h4.panel-title {{_ "Mworkshops"}}
+							.panel-body
+								.panel.panel-success
+									.panel-heading
+										h4.panel-title {{_ "workshopsLinkedWithEkloreQuestion"}}
+									.panel-body
+										.row(style="display:flex; flex-wrap: wrap;")
+											each workshopsLinked
+												.col-xs-12.col-sm-6.col-md-6.col-lg-6
+													+workshopsToRemoveFromPartner
+								.panel.panel-danger
+									.panel-heading
+										h4.panel-title {{_ "workshopsNotLinkedWithEkloreQuestion"}}
+									.panel-body
+										.row(style="display:flex; flex-wrap: wrap;")
+											each workshops
+												.col-xs-12.col-sm-6.col-md-6.col-lg-6
+													+workshopsToAddToPartner
+	else
+		+spinner
+
+template(name="universesToRemoveFromPartner")
+	.panel.panel-default
+		.panel-body
+			p #{universeData.name}
+			button.btn.btn-danger(type="submit") {{_ "remove"}}
+
+template(name="universesToAddToPartner")
+	.panel.panel-default
+		.panel-body
+			p.panel-title #{name}
+			button.btn.btn-success(type="submit") {{_ "add"}}
+
+template(name="workshopsToRemoveFromPartner")
+	.panel.panel-default
+		.panel-body
+			p #{workshopData.name}
+			button.btn.btn-danger(type="submit") {{_ "remove"}}
+
+template(name="workshopsToAddToPartner")
+	.panel.panel-default
+		.panel-body
+			p.panel-title #{name}
+			button.btn.btn-success(type="submit") {{_ "add"}}

@@ -6,6 +6,7 @@ import '../../components/listUniverses/listUniverses.js';
 import '../../components/listWorkshops/listWorkshops.js';
 import '../../components/listQuestionsGroups/listQuestionsGroups.js';
 import '../../components/listEkloreQuestions/listEkloreQuestions.js';
+import '../../components/listPartners/listPartners.js';
 
 Template.admin.helpers({
 	isAdmin() {

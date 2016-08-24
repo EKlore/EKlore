@@ -34,7 +34,7 @@ ejson@1.0.12
 email@1.0.15
 fastclick@1.0.12
 fortawesome:fontawesome@4.4.0_1
-fourseven:scss@3.3.3_3
+fourseven:scss@3.8.0_1
 geojson-utils@1.0.9
 hot-code-push@1.0.4
 html-tools@1.0.10
@@ -104,12 +104,12 @@ spacebars-compiler@1.0.12
 srp@1.0.9
 standard-minifier-css@1.0.8
 standard-minifier-js@1.0.8
-stevezhu:lodash@4.13.1
+stevezhu:lodash@4.15.0
 stylus@2.512.4
 tap:i18n@1.8.2
 templating@1.1.13
 templating-tools@1.0.4
-themeteorchef:bert@2.1.0
+themeteorchef:bert@2.1.1
 tracker@1.0.14
 tsega:bootstrap3-datetimepicker@4.17.37_1
 twbs:bootstrap@3.3.6

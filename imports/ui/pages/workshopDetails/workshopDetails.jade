@@ -6,8 +6,6 @@ template(name="workshopDetails")
 					p.panel-title #{name}
 				.panel-body
 					p.lead #{description}
-					p {{_ "workshopSpeaker"}} :
-						strong #{speaker}
 					p {{_ "workshopFormat"}} : #{format}
 					.panel.panel-default
 						.panel-body
@@ -22,6 +20,20 @@ template(name="workshopDetails")
 									p.lead
 										span.label.label-default #{peopleToGoCount}
 										| {{_ "peopleAreGoingToo"}}
+					.panel.panel-default
+						.panel-heading
+							p.panel-title {{_ "workshopSpeaker"}}
+						.panel-body
+							.row
+								each partners
+									.col-xs-12.col-sm-6.col-md-4.col-lg3
+										.thumbnail
+											img(src="#{pictureUrl}")
+											.caption
+												if firstName
+													h4 #{firstName} #{lastName}
+												else
+													h4  #{lastName}
 				if currentUser
 					.panel-footer
 						if isUserAlreadyIn

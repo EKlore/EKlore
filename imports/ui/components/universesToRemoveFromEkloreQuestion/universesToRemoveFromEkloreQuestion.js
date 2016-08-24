@@ -21,7 +21,7 @@ Template.universesToRemoveFromEkloreQuestion.events({
 		};
 		Meteor.call('removeUniverseFromEkloreQuestion', data, (error, result) => {
 			if (error) {
-				return throwError(error.message);
+				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			}
 		});
 	}

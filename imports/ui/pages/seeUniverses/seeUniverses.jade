@@ -16,7 +16,7 @@ template(name = "seeUniverses")
 							.thumbnail
 								img(src="#{partnerLogo}" alt="#{partner}")
 								.caption
-									h3 #{partner}
+									h3 {{_ "universePartner"}} : #{partner}
 									p #{partnerDescription}
 									p
 										a.btn.btn-primary(href="#{partnerWebsite}" target="blank" role="button") {{_ "visitPartnerWebsite"}}
