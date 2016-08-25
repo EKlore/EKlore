@@ -1,9 +1,9 @@
 template(name="workshopDetails")
 	if Template.subscriptionsReady
 		with workshop
+			.page-header
+				h1 #{name}
 			.panel.panel-default
-				.panel-heading
-					p.panel-title #{name}
 				.panel-body
 					p.lead #{description}
 					p {{_ "workshopFormat"}} : #{format}

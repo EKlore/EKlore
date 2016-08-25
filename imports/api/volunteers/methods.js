@@ -14,7 +14,7 @@ Meteor.methods({
 		});
 		check(data, methodSchema);
 		if (!data.pictureUrl) {
-			data.pictureUrl = '/volunteers/no_picture.jpeg';
+			data.pictureUrl = '/no_picture.gif';
 		}
 		return Volunteers.insert(data);
 	}

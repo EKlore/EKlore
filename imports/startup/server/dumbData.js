@@ -8,6 +8,7 @@ import { Universes } from '../../api/universes/schema.js';
 import { EkloreQuestions } from '../../api/ekloreQuestions/schema.js';
 import { QuestionsGroups } from '../../api/questionsGroups/schema.js';
 import { Workshops } from '../../api/workshops/schema.js';
+import { Partners } from '../../api/partners/schema.js';
 
 Meteor.startup(() => {
 	if (Volunteers.find({}).count() === 0) {
@@ -37,6 +38,22 @@ Meteor.startup(() => {
 			});
 		});
 	}
+	/*if (Partners.find({}).count() === 0) {
+		let partners = [{
+			name: 'xxx',
+			pictureUrl: '/partners/xxx.jpg'
+		}];
+		console.log('begin partners adding');
+		partners.map((cur, index, array) => {
+			return Meteor.call('addAPartner', cur, (error, result) => {
+				if (error) {
+					return console.log(error.message);
+				} else {
+					console.log(`addAVolunteer : ${cur.name} Done`);
+				}
+			});
+		});
+	}*/
 	if (Universes.find({}).count() === 0 && Workshops.find({}).count() === 0) {
 		let universes = [{
 			name: 'Art et Artisanat',
