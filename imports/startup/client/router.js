@@ -21,6 +21,8 @@ import '../../ui/pages/answerQuestions/answerQuestions.js';
 import '../../ui/pages/myDay/myDay.js';
 import '../../ui/pages/seeUniverses/seeUniverses.js';
 import '../../ui/pages/workshopDetails/workshopDetails.js';
+import '../../ui/pages/newPartner/newPartner.js';
+import '../../ui/pages/editPartner/editPartner.js';
 
 
 Router.configure({
@@ -75,6 +77,16 @@ Router.route('/admin/universes/new', {
 Router.route('/admin/universes/:_id/edit', {
 	layoutTemplate: 'adminLayout',
 	name: 'editUniverse'
+});
+
+Router.route('/admin/partners/new', {
+	layoutTemplate: 'adminLayout',
+	name: 'newPartner'
+});
+
+Router.route('/admin/partners/:_id/edit', {
+	layoutTemplate: 'adminLayout',
+	name: 'editPartner'
 });
 
 Router.route('/admin/workshops/new', {

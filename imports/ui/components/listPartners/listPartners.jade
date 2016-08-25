@@ -1,0 +1,30 @@
+template(name="listPartners")
+	if Template.subscriptionsReady
+		.panel.panel-default
+			#listPartners.panel-heading(role="tab")
+				h3
+					a(role="button" data-toggle="collapse" data-parent="#accordion" href="#collapsePartners" aria-expanded="true" aria-controls="collapsePartners") {{_ "PartnersList"}}
+						small {{_ "clickToDisplayOrHide"}}
+			#collapsePartners.panel-collapse.collapse(role="tabpanel" aria-labelledby="listPartners")
+				.panel-body
+					.col-xs-12.col-sm-6.col-md-6.col-lg-6
+						p {{_ "thereAre"}}
+							span.badge #{partnersCount}
+							| {{_ "questionsGroups"}}.
+					.col-xs-12.col-sm-6.col-md-6.col-lg-6
+						a.pull-right.btn.btn-primary(role="button" href="{{pathFor 'newPartner'}}") {{_ "addNewPartner"}}
+					if partnersCount
+						.row
+							each partners
+								.col-xs-12.col-sm-6.col-md-4.col-lg-3
+									.thumbnail
+										img(src="#{pictureUrl}")
+										.caption
+											if firstName
+												h4 #{firstName} #{lastName}
+											else
+												h4  #{lastName}
+											a.btn.btn-info(role="button" href="{{pathFor 'editPartner'}}")
+												span.glyphicon.glyphicon-edit(aria-hidden="true")
+	else
+		+spinner

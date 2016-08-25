@@ -4,12 +4,14 @@ import { lodash } from 'meteor/stevezhu:lodash';
 import 'meteor/sacha:spin';
 
 import { Workshops } from '../../../api/workshops/schema.js';
+import { Partners } from '../../../api/partners/schema.js';
 
 import './workshopDetails.jade';
 
 Template.workshopDetails.onCreated(function() {
 	this.autorun(() => {
 		this.subscribe('aWorkshop', Router.current().params._id);
+		this.subscribe('allPartnersForWorkshop', Router.current().params._id);
 	});
 });
 
@@ -29,6 +31,13 @@ Template.workshopDetails.helpers({
 		} else {
 			return false;
 		}
+	},
+	partners() {
+		return Partners.find({
+			workshopsLinked: {
+				workshopId: Router.current().params._id
+			}
+		});
 	}
 });
 
