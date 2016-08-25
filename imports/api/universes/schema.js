@@ -59,6 +59,11 @@ Universes.schema = new SimpleSchema({
 		label: 'Partner\'s logo',
 		optional: true
 	},
+	universeLogo: {
+		type: String,
+		label: 'Universe\'s logo',
+		optional: true
+	},
 	partnerDescription: {
 		type: String,
 		label: 'Partner\'s description',

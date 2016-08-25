@@ -37,7 +37,13 @@ Partners.schema = new SimpleSchema({
 	},
 	lastName: {
 		type: String,
-		label: 'Volunteer lastname'
+		label: 'Volunteer lastname',
+		optional: true
+	},
+	companyName: {
+		type: String,
+		label: 'Volunteer lastname',
+		optional: true
 	},
 	pictureUrl: {
 		type: String,

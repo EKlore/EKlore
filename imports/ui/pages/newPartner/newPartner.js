@@ -10,11 +10,9 @@ Template.newPartner.events({
 		event.preventDefault();
 		const data = {
 			firstName: $('#partnerFirstName').val(),
-			lastName: $('#partnerLastName').val()
+			lastName: $('#partnerLastName').val(),
+			companyName: $('#partnerCompanyName').val()
 		};
-		if (!data.lastName) {
-			return Bert.alert('Last name must be filled', 'danger', 'growl-top-right');
-		}
 		Meteor.call('addAPartner', data, (error, result) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');

@@ -7,19 +7,22 @@ template(name = "seeUniverses")
 				.panel-heading
 					p.panel-title #{name}
 				.panel-body
+					.thumbnail
+						img(src="#{universeLogo}" alt="#{name}")
 					.row
 						.col-xs-12.col-sm-12.col-md-6.col-lg-6
 							p {{_ "description"}} : #{label}
 							p {{_ "universeLocation"}} :
 								strong #{location}
 						.col-xs-12.col-sm-12.col-md-6.col-lg-6
-							.thumbnail
-								img(src="#{partnerLogo}" alt="#{partner}")
-								.caption
-									h3 {{_ "universePartner"}} : #{partner}
-									p #{partnerDescription}
-									p
-										a.btn.btn-primary(href="#{partnerWebsite}" target="blank" role="button") {{_ "visitPartnerWebsite"}}
+							each partners
+								.thumbnail
+									img(src="#{pictureUrl}" alt="#{companyName}")
+									.caption
+										h3 {{_ "universePartner"}} : #{companyName}
+										p #{partnerDescription}
+										p
+											a.btn.btn-primary(href="#{partnerWebsite}" target="blank" role="button") {{_ "visitPartnerWebsite"}}
 					.panel.panel-default
 						.panel-heading
 							p.panel-title {{_ "workshopsLinkedWithUniverse"}}

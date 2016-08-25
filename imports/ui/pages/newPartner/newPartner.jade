@@ -10,7 +10,10 @@ template(name="newPartner")
 						input#partnerFirstName.form-control(type="text")
 					.form-group
 						label(for="partnerLastName") {{_ "partnerLastName"}}
-						input#partnerLastName.form-control(type="text" required)
+						input#partnerLastName.form-control(type="text")
+					.form-group
+						label(for="partnerCompanyName") {{_ "partnerCompanyName"}}
+						input#partnerCompanyName.form-control(type="text")
 			.panel-footer
 				.row
 					.col-xs-6.col-sm-6.col-md-6.col-lg-6

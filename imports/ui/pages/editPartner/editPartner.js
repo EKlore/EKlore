@@ -81,11 +81,9 @@ Template.editPartner.events({
 			partnerId: Router.current().params._id,
 			firstName: $('#partnerFirstName').val(),
 			lastName: $('#partnerLastName').val(),
+			companyName: $('#partnerCompanyName').val(),
 			pictureUrl: $('#partnerPictureUrl').val()
 		};
-		if (!data.lastName) {
-			return Bert.alert('LastName must be filled', 'danger', 'growl-top-right');
-		}
 		Meteor.call('updateAPartner', data, (error, result) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');

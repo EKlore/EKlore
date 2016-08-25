@@ -8,7 +8,8 @@ Meteor.methods({
 	addAPartner(data) {
 		let methodSchema = new SimpleSchema({
 			firstName: { type: String, optional: true },
-			lastName: { type: String },
+			lastName: { type: String, optional: true },
+			companyName: { type: String, optional: true },
 			pictureUrl: { type: String, optional: true },
 			universesLinked: { type: [String], optional: true },
 			workshopsLinked: { type: [String], optional: true }
@@ -29,7 +30,8 @@ Meteor.methods({
 		let methodSchema = new SimpleSchema({
 			partnerId: { type: String },
 			firstName: { type: String, optional: true },
-			lastName: { type: String },
+			companyName: { type: String, optional: true },
+			lastName: { type: String, optional: true },
 			pictureUrl: { type: String, optional: true }
 		});
 		check(data, methodSchema);

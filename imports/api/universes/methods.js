@@ -11,6 +11,7 @@ Meteor.methods({
 			label: { type: String },
 			partner: { type: String, optional: true },
 			partnerLogo: { type: String, optional: true },
+			universeLogo: { type: String, optional: true },
 			partnerDescription: { type: String, optional: true },
 			partnerWebsite: { type: String, optional: true },
 			location: { type: String, optional: true }
@@ -28,6 +29,7 @@ Meteor.methods({
 			color: { type: String },
 			partner: { type: String, optional: true },
 			partnerLogo: { type: String, optional: true },
+			universeLogo: { type: String, optional: true },
 			partnerDescription: { type: String, optional: true },
 			partnerWebsite: { type: String, optional: true },
 			location: { type: String, optional: true }
@@ -40,6 +42,7 @@ Meteor.methods({
 				color: data.color,
 				partner: data.partner,
 				partnerLogo: data.partnerLogo,
+				universeLogo: data.universeLogo,
 				partnerDescription: data.partnerDescription,
 				partnerWebsite: data.partnerWebsite,
 				location: data.location

@@ -45,6 +45,7 @@ Template.editUniverse.events({
 			color: $('#universeColor').val(),
 			partner: $('#universePartner').val(),
 			partnerLogo: $('#universePartnerLogo').val(),
+			universeLogo: $('#universeLogo').val(),
 			partnerDescription: $('#universePartnerDescription').val(),
 			partnerWebsite: $('#universePartnerWebsite').val(),
 			location: $('#universeLocation').val()

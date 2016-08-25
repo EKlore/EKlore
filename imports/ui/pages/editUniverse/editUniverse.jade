@@ -16,6 +16,9 @@ template(name="editUniverse")
 										label(for="universeLabel") {{_ "universeLabel"}}
 										textarea#universeLabel.form-control(rows="3") #{label}
 									.form-group
+										label(for="universeLogo") {{_ "universeLogo"}}
+										input#universeLogo.form-control(type="text" value="#{universeLogo}")
+									.form-group
 										label(for="universePartner") {{_ "universePartner"}}
 										input#universePartner.form-control(type="text" value="#{partner}")
 									.form-group

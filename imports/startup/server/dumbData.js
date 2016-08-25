@@ -38,10 +38,24 @@ Meteor.startup(() => {
 			});
 		});
 	}
-	/*if (Partners.find({}).count() === 0) {
+	if (Partners.find({}).count() === 0) {
 		let partners = [{
-			name: 'xxx',
-			pictureUrl: '/partners/xxx.jpg'
+			firstName: 'Alizée',
+			lastName: 'Thurneyssen',
+			pictureUrl: '/partners/alizee_thurneyssen.jpg'
+		}, {
+			firstName: 'Lucas',
+			lastName: 'Lecompte',
+			companyName: 'Adelphis',
+			pictureUrl: '/partners/lucas_lecompte.jpg'
+		}, {
+			firstName: 'Jean-Louis',
+			lastName: 'Ferrein',
+			companyName: 'Adelphis',
+			pictureUrl: '/partners/jean_louis-ferrein.jpg'
+		}, {
+			companyName: 'WorkUp',
+			pictureUrl: '/partners/workUp.png'
 		}];
 		console.log('begin partners adding');
 		partners.map((cur, index, array) => {
@@ -49,11 +63,11 @@ Meteor.startup(() => {
 				if (error) {
 					return console.log(error.message);
 				} else {
-					console.log(`addAVolunteer : ${cur.name} Done`);
+					console.log(`addAPartner : ${cur.firstName} ${cur.lastName} ${cur.companyName} Done`);
 				}
 			});
 		});
-	}*/
+	}
 	if (Universes.find({}).count() === 0 && Workshops.find({}).count() === 0) {
 		let universes = [{
 			name: 'Art et Artisanat',

@@ -14,6 +14,14 @@ Meteor.publish('allPartnersForWorkshop', (workshopId) => {
 	});
 });
 
+Meteor.publish('allPartnersForUniverses', () => {
+	return Partners.find({
+		universesLinked: {
+			$size: 1
+		}
+	});
+});
+
 Meteor.publish('aPartner', (partnerId) => {
 	return Partners.find({ _id: partnerId });
 });

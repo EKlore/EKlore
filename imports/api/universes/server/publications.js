@@ -9,6 +9,7 @@ Meteor.publish('allUniverses', () => {
 			label: 1,
 			partner: 1,
 			partnerLogo: 1,
+			universeLogo: 1,
 			partnerDescription: 1,
 			partnerWebsite: 1,
 			location: 1,
