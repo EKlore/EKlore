@@ -7,6 +7,8 @@ template(name="home")
 			.panel-heading
 				p.panel-title {{_ "presentationFete"}}
 			.panel-body
+				.thumbnail
+					img(src="/pictures/banniere.jpg" alt="{{_ 'feteAcronym'}}")
 				p BLA BLA BLA
 				p BLA BLA BLA
 		a.btn.btn-primary.btn-block.seeUniverses(role="button" href="{{pathFor 'seeUniverses'}}") {{_ "seeUniverses"}}
