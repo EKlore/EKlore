@@ -16,26 +16,27 @@ template(name="listPartners")
 					if partnersCount
 						.row
 							each partners
-								.media
-									.media-left
-										img.media-object(src="#{pictureUrl}")
-									.media-body
-										if firstName
-											if companyName
-												h4.media-heading #{firstName} #{lastName}
-												p #{companyName}
-											else
-												h4.media-heading #{firstName} #{lastName}
-										else
-											if lastName
+								.col-xs-12.col-sm-6.col-md-4.col-lg-3
+									.media
+										.media-left.media-top
+											img.media-object(src="#{pictureUrl}")
+										.media-body
+											if firstName
 												if companyName
-													h4.media-heading  #{lastName}
+													h4.media-heading #{firstName} #{lastName}
 													p #{companyName}
 												else
-													h4.media-heading  #{lastName}
+													h4.media-heading #{firstName} #{lastName}
 											else
-												h4.media-heading  #{companyName}
-										a.btn.btn-info(role="button" href="{{pathFor 'editPartner'}}")
-											span.glyphicon.glyphicon-edit(aria-hidden="true")
+												if lastName
+													if companyName
+														h4.media-heading  #{lastName}
+														p #{companyName}
+													else
+														h4.media-heading  #{lastName}
+												else
+													h4.media-heading  #{companyName}
+											a.btn.btn-info(role="button" href="{{pathFor 'editPartner'}}")
+												span.glyphicon.glyphicon-edit(aria-hidden="true")
 	else
 		+spinner
