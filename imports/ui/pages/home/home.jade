@@ -8,8 +8,11 @@ template(name="home")
 				p.panel-title {{_ "presentationFete"}}
 			.panel-body
 				.col-xs-12.col-sm-6.col-md6.col-lg-6
-					p BLA BLA BLA
-					p BLA BLA BLA
+					p {{_ "feteDescription1"}}
+					p {{_ "feteDescription2"}}
+					p
+						a.btn.btn-default(role="button" href="{{pathFor 'aboutFete'}}") {{_ "moreInfos"}}
+						a.btn.btn-primary(role="button" href="{{pathFor 'aboutEklore'}}") {{_ "aboutEklore"}}
 				.col-xs-12.col-sm-6.col-md6.col-lg-6
 					.thumbnail
 						img(src="/pictures/banniere.jpg" alt="{{_ 'feteAcronym'}}")
@@ -47,7 +50,7 @@ template(name="home")
 			.panel-body
 				.row(style="display:flex; flex-wrap: wrap;")
 					each volunteersList
-						.col-xs-6.col-sm-6.col-md-4.col-lg-3
+						.col-xs-6.col-sm-4.col-md-2.col-lg-2
 							.thumbnail
 								img(src="#{pictureUrl}" alt="#{firstName} #{lastName}")
 								.caption

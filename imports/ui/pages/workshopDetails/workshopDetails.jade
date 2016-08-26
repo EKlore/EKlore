@@ -3,42 +3,40 @@ template(name="workshopDetails")
 		with workshop
 			.page-header
 				h1 #{name}
+			p.lead #{description}
+			p {{_ "workshopFormat"}} : #{format}
 			.panel.panel-default
 				.panel-body
-					p.lead #{description}
-					p {{_ "workshopFormat"}} : #{format}
-					.panel.panel-default
-						.panel-body
-							.row
-								.col-xs-12.col-sm-4.col-md-4.col-lg-4
-									p.lead {{_ "startDate"}} :
-										span.label.label-default #{dateStart}
-								.col-xs-12.col-sm-4.col-md-4.col-lg-4
-									p.lead {{_ "endDate"}} :
-										span.label.label-default #{dateEnd}
-								.col-xs-12.col-sm-4.col-md-4.col-lg-4
-									p.lead
-										span.label.label-default #{peopleToGoCount}
-										| {{_ "peopleAreGoingToo"}}
-					.panel.panel-default
-						.panel-heading
-							p.panel-title {{_ "workshopSpeaker"}}
-						.panel-body
-							.row
-								each partners
-									.col-xs-12.col-sm-6.col-md-4.col-lg3
-										.thumbnail
-											img(src="#{pictureUrl}")
-											.caption
-												if firstName
-													h4 #{firstName} #{lastName}
-												else
-													h4  #{lastName}
+					.row
+						.col-xs-12.col-sm-4.col-md-4.col-lg-4
+							p.lead {{_ "startDate"}} :
+								span.label.label-default #{dateStart}
+						.col-xs-12.col-sm-4.col-md-4.col-lg-4
+							p.lead {{_ "endDate"}} :
+								span.label.label-default #{dateEnd}
+						.col-xs-12.col-sm-4.col-md-4.col-lg-4
+							p.lead
+								span.label.label-default #{peopleToGoCount}
+								| {{_ "peopleAreGoingToo"}}
 				if currentUser
 					.panel-footer
 						if isUserAlreadyIn
 							button.removeFromWorkshop.btn.btn-danger(type="button") {{_ "youdontWantToGo"}}
 						else
 							button.goToWorkshop.btn.btn-primary(type="button") {{_ "doYouWantToGo"}}
+			.panel.panel-default
+				.panel-heading
+					p.panel-title {{_ "workshopSpeaker"}}
+				.panel-body
+					.row
+						each partners
+							.col-xs-6.col-sm-6.col-md-4.col-lg3
+								.thumbnail
+									img(src="#{pictureUrl}")
+									.caption
+										if firstName
+											h4 #{firstName} #{lastName}
+										else
+											h4  #{lastName}
 	else
 		+spinner

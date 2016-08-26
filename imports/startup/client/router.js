@@ -23,6 +23,8 @@ import '../../ui/pages/seeUniverses/seeUniverses.js';
 import '../../ui/pages/workshopDetails/workshopDetails.js';
 import '../../ui/pages/newPartner/newPartner.js';
 import '../../ui/pages/editPartner/editPartner.js';
+import '../../ui/pages/aboutFete/aboutFete.js';
+import '../../ui/pages/aboutEklore/aboutEklore.js';
 
 
 Router.configure({
@@ -32,6 +34,16 @@ Router.configure({
 Router.route('/', {
 	layoutTemplate: 'layout',
 	name: 'home'
+});
+
+Router.route('/aboutFETE', {
+	layoutTemplate: 'layout',
+	name: 'aboutFete'
+});
+
+Router.route('/aboutEKlore', {
+	layoutTemplate: 'layout',
+	name: 'aboutEklore'
 });
 
 Router.route('/myProfile', {

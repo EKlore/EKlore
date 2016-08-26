@@ -11,7 +11,7 @@ template(name = "seeUniverses")
 						img(src="#{universeLogo}" alt="#{name}")
 					.row
 						.col-xs-12.col-sm-12.col-md-6.col-lg-6
-							p {{_ "description"}} : #{label}
+							p #{label}
 							p {{_ "universeLocation"}} :
 								strong #{location}
 						.col-xs-12.col-sm-12.col-md-6.col-lg-6
@@ -34,9 +34,6 @@ template(name = "seeUniverses")
 											.panel-body
 												p.lead #{name}
 												p #{description}
-												p {{_ "workshopSpeaker"}} :
-													strong #{speaker}
-												p {{_ "workshopFormat"}} : #{format}
 												a.btn.btn-primary(role="button" href="{{pathFor 'workshopDetails'}}") {{_ "moreInformations"}}
 	else
 		+spinner
