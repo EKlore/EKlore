@@ -4,16 +4,16 @@ template(name="editPartner")
 			with partner
 				.panel.panel-default
 					.panel-heading
-						h3 {{_ "universeEdition"}} : #{firstName} #{lastName}
+						h3 {{_ "partnerEdition"}} : #{firstName} #{lastName}
 					.panel-body
 						.panel.panel-default
 							.panel-body
 								form
 									.form-group
-										label(for="partnerFirstName") {{_ "partnerFirstName"}}
+										label(for="partnerFirstName") {{_ "firstName"}}
 										input#partnerFirstName.form-control(type="text" value="#{firstName}")
 									.form-group
-										label(for="partnerLastName") {{_ "partnerLastName"}}
+										label(for="partnerLastName") {{_ "lastName"}}
 										input#partnerLastName.form-control(type="text" value="#{lastName}")
 									.form-group
 										label(for="partnerCompanyName") {{_ "partnerCompanyName"}}
@@ -22,7 +22,7 @@ template(name="editPartner")
 										label(for="partnerPictureUrl") {{_ "partnerPictureUrl"}}
 										input#partnerPictureUrl.form-control(type="text" value="#{pictureUrl}")
 									.form-group
-										label(for="partnerDescription") {{_ "partnerDescription"}}
+										label(for="partnerDescription") {{_ "description"}}
 										textarea#partnerDescription.form-control(rows="3") #{description}
 							.panel-footer
 								.row
@@ -36,7 +36,7 @@ template(name="editPartner")
 							.panel-body
 								.panel.panel-success
 									.panel-heading
-										h4.panel-title {{_ "universesLinkedWithEkloreQuestion"}}
+										h4.panel-title {{_ "universesLinkedWithPartner"}}
 									.panel-body
 										.row(style="display:flex; flex-wrap: wrap;")
 											each universesLinked
@@ -44,7 +44,7 @@ template(name="editPartner")
 													+universesToRemoveFromPartner
 								.panel.panel-danger
 									.panel-heading
-										h4.panel-title {{_ "universesNotLinkedWithEkloreQuestion"}}
+										h4.panel-title {{_ "universesNotLinkedWithPartner"}}
 									.panel-body
 										.row(style="display:flex; flex-wrap: wrap;")
 											each universes
@@ -56,7 +56,7 @@ template(name="editPartner")
 							.panel-body
 								.panel.panel-success
 									.panel-heading
-										h4.panel-title {{_ "workshopsLinkedWithEkloreQuestion"}}
+										h4.panel-title {{_ "workshopsLinkedWithParner"}}
 									.panel-body
 										.row(style="display:flex; flex-wrap: wrap;")
 											each workshopsLinked
@@ -64,7 +64,7 @@ template(name="editPartner")
 													+workshopsToRemoveFromPartner
 								.panel.panel-danger
 									.panel-heading
-										h4.panel-title {{_ "workshopsNotLinkedWithEkloreQuestion"}}
+										h4.panel-title {{_ "workshopsNotLinkedWithParner"}}
 									.panel-body
 										.row(style="display:flex; flex-wrap: wrap;")
 											each workshops

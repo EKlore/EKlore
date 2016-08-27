@@ -10,7 +10,7 @@ template(name="listPartners")
 					.col-xs-12.col-sm-6.col-md-6.col-lg-6
 						p {{_ "thereAre"}}
 							span.badge #{partnersCount}
-							| {{_ "questionsGroups"}}.
+							| {{_ "partners"}}.
 					.col-xs-12.col-sm-6.col-md-6.col-lg-6
 						a.pull-right.btn.btn-primary(role="button" href="{{pathFor 'newPartner'}}") {{_ "addNewPartner"}}
 					if partnersCount
@@ -20,24 +20,18 @@ template(name="listPartners")
 									.panel.panel-default
 										.panel-heading
 											if firstName
-												if companyName
-													p.panel-title #{firstName} #{lastName}
-														small #{companyName}
-												else
-													p.panel-title #{firstName} #{lastName}
+												p.panel-title #{firstName} #{lastName}
 											else
 												if lastName
-													if companyName
-														p.panel-title  #{lastName}
-															small #{companyName}
-													else
-														p.panel-title  #{lastName}
+													p.panel-title  #{lastName}
 												else
 													p.panel-title  #{companyName}
 										.panel-body
 											.thumbnail
-												img(src="#{pictureUrl}")
+												img.partnerPicture(src="#{pictureUrl}")
 												.caption
+													if companyName
+														h4 #{companyName}
 													a.btn.btn-info(role="button" href="{{pathFor 'editPartner'}}")
 														span.glyphicon.glyphicon-edit(aria-hidden="true")
 	else

@@ -22,6 +22,10 @@ Template.listPartners.helpers({
 				lastName: 1,
 				companyName: 1,
 				picture: 1
+			},
+			sort: {
+				lastname: 1,
+				companyName: 1
 			}
 		});
 	},

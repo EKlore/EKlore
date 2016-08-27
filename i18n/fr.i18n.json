@@ -113,6 +113,10 @@
 	"universesNotLinkedWithEkloreQuestion": "Univers non liés à la question EKlore",
 	"workshopsLinkedWithEkloreQuestion": "Ateliers liés à la question EKlore",
 	"workshopsNotLinkedWithEkloreQuestion": "Ateliers non liés à la question EKlore",
+	"universesLinkedWithPartner": "Univers liés au partenaire",
+	"universesNotLinkedWithPartner": "Univers non liés au partenaire",
+	"workshopsLinkedWithPartner": "Ateliers liés au partenaire",
+	"workshopsNotLinkedWithPartner": "Ateliers non liés au partenaire",
 	"displayType": "Affichage",
 	"linkedToQuestionsGroup": "Lié à un grp de Q ?",
 	"version": "N° de version",
@@ -178,5 +182,11 @@
 	"quote2": "Ce que la chenille appelle catastrophe se nomme en réalité papillon.",
 	"quote2Source": "Richard Bach",
 	"quote3": "Là où nos talents rejoignent les besoins du monde.",
-	"quote3Source": "Aristote"
+	"quote3Source": "Aristote",
+	"partnersList": "Les partenaires",
+	"partners": "partenaires",
+	"addAPartner": "Ajouter un partenaire",
+	"partnerCompanyName": "Entreprise du partenaire",
+	"partnerPictureUrl": "Photo du partenaire",
+	"partnerEdition": "Edition du partenaire"
 }
