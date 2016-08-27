@@ -24,6 +24,9 @@ template(name="editPartner")
 									.form-group
 										label(for="partnerDescription") {{_ "description"}}
 										textarea#partnerDescription.form-control(rows="3") #{description}
+									.form-group
+										label(for="partnerWebsite") {{_ "partnerWebsite"}}
+										input#partnerWebsite.form-control(type="text" value="#{website}")
 							.panel-footer
 								.row
 									.col-xs-6.col-sm-6.col-md-6.col-lg-6

@@ -64,11 +64,5 @@ Template.seeUniverses.helpers({
 				universeId: this._id
 			}
 		});
-	},
-	partnerDescription() {
-		return Template.parentData().partnerDescription;
-	},
-	partnerWebsite() {
-		return Template.parentData().partnerWebsite;
 	}
 });
