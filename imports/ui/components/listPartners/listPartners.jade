@@ -17,26 +17,28 @@ template(name="listPartners")
 						.row
 							each partners
 								.col-xs-12.col-sm-6.col-md-4.col-lg-3
-									.media
-										.media-left.media-top
-											img.media-object(src="#{pictureUrl}")
-										.media-body
+									.panel.panel-default
+										.panel-heading
 											if firstName
 												if companyName
-													h4.media-heading #{firstName} #{lastName}
-													p #{companyName}
+													p.panel-title #{firstName} #{lastName}
+														small #{companyName}
 												else
-													h4.media-heading #{firstName} #{lastName}
+													p.panel-title #{firstName} #{lastName}
 											else
 												if lastName
 													if companyName
-														h4.media-heading  #{lastName}
-														p #{companyName}
+														p.panel-title  #{lastName}
+															small #{companyName}
 													else
-														h4.media-heading  #{lastName}
+														p.panel-title  #{lastName}
 												else
-													h4.media-heading  #{companyName}
-											a.btn.btn-info(role="button" href="{{pathFor 'editPartner'}}")
-												span.glyphicon.glyphicon-edit(aria-hidden="true")
+													p.panel-title  #{companyName}
+										.panel-body
+											.thumbnail
+												img(src="#{pictureUrl}")
+												.caption
+													a.btn.btn-info(role="button" href="{{pathFor 'editPartner'}}")
+														span.glyphicon.glyphicon-edit(aria-hidden="true")
 	else
 		+spinner
