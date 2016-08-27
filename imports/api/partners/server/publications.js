@@ -8,7 +8,7 @@ Meteor.publish('allPartners', () => {
 			firstName: 1,
 			lastName: 1,
 			companyName: 1,
-			picture: 1
+			pictureUrl: 1
 		}
 	});
 });

@@ -24,7 +24,7 @@ Template.listPartners.helpers({
 				pictureUrl: 1
 			},
 			sort: {
-				lastname: 1,
+				lastName: 1,
 				companyName: 1
 			}
 		});
