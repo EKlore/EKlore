@@ -32,17 +32,22 @@ let UniverseSchema = new SimpleSchema({
 Partners.schema = new SimpleSchema({
 	firstName: {
 		type: String,
-		label: 'Volunteer firstname',
+		label: 'Partner\s firstname',
 		optional: true
 	},
 	lastName: {
 		type: String,
-		label: 'Volunteer lastname',
+		label: 'Partner\s lastname',
 		optional: true
 	},
 	companyName: {
 		type: String,
-		label: 'Volunteer lastname',
+		label: 'Partner\s company name',
+		optional: true
+	},
+	description: {
+		type: String,
+		label: 'Partner\s description',
 		optional: true
 	},
 	pictureUrl: {

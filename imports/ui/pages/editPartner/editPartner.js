@@ -82,6 +82,7 @@ Template.editPartner.events({
 			firstName: $('#partnerFirstName').val(),
 			lastName: $('#partnerLastName').val(),
 			companyName: $('#partnerCompanyName').val(),
+			description: $('#partnerDescription').val(),
 			pictureUrl: $('#partnerPictureUrl').val()
 		};
 		Meteor.call('updateAPartner', data, (error, result) => {

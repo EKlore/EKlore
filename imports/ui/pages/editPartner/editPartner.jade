@@ -21,6 +21,9 @@ template(name="editPartner")
 									.form-group
 										label(for="partnerPictureUrl") {{_ "partnerPictureUrl"}}
 										input#partnerPictureUrl.form-control(type="text" value="#{pictureUrl}")
+									.form-group
+										label(for="partnerDescription") {{_ "partnerDescription"}}
+										input#partnerDescription.form-control(type="text" value="#{description}")
 							.panel-footer
 								.row
 									.col-xs-6.col-sm-6.col-md-6.col-lg-6

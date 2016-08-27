@@ -11,7 +11,8 @@ Template.newPartner.events({
 		const data = {
 			firstName: $('#partnerFirstName').val(),
 			lastName: $('#partnerLastName').val(),
-			companyName: $('#partnerCompanyName').val()
+			companyName: $('#partnerCompanyName').val(),
+			description: $('#partnerDescription').val()
 		};
 		Meteor.call('addAPartner', data, (error, result) => {
 			if (error) {
