@@ -9,11 +9,7 @@ Meteor.methods({
 		let methodSchema = new SimpleSchema({
 			firstName: { type: String, optional: true },
 			lastName: { type: String, optional: true },
-			companyName: { type: String, optional: true },
-			description: { type: String, optional: true },
-			pictureUrl: { type: String, optional: true },
-			universesLinked: { type: [String], optional: true },
-			workshopsLinked: { type: [String], optional: true }
+			companyName: { type: String, optional: true }
 		});
 		check(data, methodSchema);
 		if (!data.pictureUrl) {
@@ -31,9 +27,10 @@ Meteor.methods({
 		let methodSchema = new SimpleSchema({
 			partnerId: { type: String },
 			firstName: { type: String, optional: true },
+			lastName: { type: String, optional: true },
 			companyName: { type: String, optional: true },
 			description: { type: String, optional: true },
-			lastName: { type: String, optional: true },
+			website: { type: String, optional: true },
 			pictureUrl: { type: String, optional: true }
 		});
 		check(data, methodSchema);
@@ -41,6 +38,9 @@ Meteor.methods({
 			$set: {
 				firstName: data.firstName,
 				lastName: data.lastName,
+				companyName: data.companyName,
+				description: data.description,
+				website: data.website,
 				pictureUrl: data.pictureUrl
 			}
 		});

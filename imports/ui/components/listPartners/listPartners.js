@@ -16,7 +16,14 @@ Template.listPartners.helpers({
 		return Partners.find({}).count();
 	},
 	partners() {
-		return Partners.find({}, {});
+		return Partners.find({}, {
+			fields: {
+				firstName: 1,
+				lastName: 1,
+				companyName: 1,
+				picture: 1
+			}
+		});
 	},
 	myIndex(index) {
 		return index + 1;

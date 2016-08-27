@@ -55,6 +55,11 @@ Partners.schema = new SimpleSchema({
 		label: 'User choice',
 		optional: true
 	},
+	website: {
+		type: String,
+		label: 'Partner\'s website url',
+		optional: true
+	},
 	universesLinked: {
 		type: [UniverseSchema],
 		label: 'List of the linked universes to the partner',

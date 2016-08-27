@@ -23,7 +23,7 @@ template(name="editPartner")
 										input#partnerPictureUrl.form-control(type="text" value="#{pictureUrl}")
 									.form-group
 										label(for="partnerDescription") {{_ "partnerDescription"}}
-										input#partnerDescription.form-control(type="text" value="#{description}")
+										textarea#partnerDescription.form-control(rows="3") #{description}
 							.panel-footer
 								.row
 									.col-xs-6.col-sm-6.col-md-6.col-lg-6

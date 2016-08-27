@@ -3,7 +3,14 @@ import { Meteor } from 'meteor/meteor';
 import { Partners } from '../schema.js';
 
 Meteor.publish('allPartners', () => {
-	return Partners.find({});
+	return Partners.find({}, {
+		fields: {
+			firstName: 1,
+			lastName: 1,
+			companyName: 1,
+			picture: 1
+		}
+	});
 });
 
 Meteor.publish('allPartnersForWorkshop', (workshopId) => {
