@@ -70,7 +70,7 @@ Template.universesToRemoveFromPartner.helpers({
 
 Template.workshopsToRemoveFromPartner.helpers({
 	workshopData() {
-		return Universes.findOne(this.workshopId);
+		return Workshops.findOne(this.workshopId);
 	}
 });
 
