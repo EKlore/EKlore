@@ -33,5 +33,10 @@ Volunteers.schema = new SimpleSchema({
 		type: String,
 		label: 'Volunteer function in FETE',
 		optional: true
+	},
+	level: {
+		type: Number,
+		label: 'Volunteer level',
+		min: 1
 	}
 });

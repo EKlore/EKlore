@@ -25,6 +25,14 @@ import '../../ui/pages/newPartner/newPartner.js';
 import '../../ui/pages/editPartner/editPartner.js';
 import '../../ui/pages/aboutFete/aboutFete.js';
 import '../../ui/pages/aboutEklore/aboutEklore.js';
+import '../../ui/pages/listUniverses/listUniverses.js';
+import '../../ui/pages/listWorkshops/listWorkshops.js';
+import '../../ui/pages/listPartners/listPartners.js';
+import '../../ui/pages/listQuestionsGroups/listQuestionsGroups.js';
+import '../../ui/pages/listEkloreQuestions/listEkloreQuestions.js';
+import '../../ui/pages/listVolunteers/listVolunteers.js';
+import '../../ui/pages/editVolunteer/editVolunteer.js';
+import '../../ui/pages/newVolunteer/newVolunteer.js';
 
 
 Router.configure({
@@ -81,6 +89,11 @@ Router.route('/admin', {
 	name: 'admin'
 });
 
+Router.route('/admin/universes', {
+	layoutTemplate: 'adminLayout',
+	name: 'listUniverses'
+});
+
 Router.route('/admin/universes/new', {
 	layoutTemplate: 'adminLayout',
 	name: 'newUniverse'
@@ -89,6 +102,11 @@ Router.route('/admin/universes/new', {
 Router.route('/admin/universes/:_id/edit', {
 	layoutTemplate: 'adminLayout',
 	name: 'editUniverse'
+});
+
+Router.route('/admin/partners', {
+	layoutTemplate: 'adminLayout',
+	name: 'listPartners'
 });
 
 Router.route('/admin/partners/new', {
@@ -101,6 +119,11 @@ Router.route('/admin/partners/:_id/edit', {
 	name: 'editPartner'
 });
 
+Router.route('/admin/workshops', {
+	layoutTemplate: 'adminLayout',
+	name: 'listWorkshops'
+});
+
 Router.route('/admin/workshops/new', {
 	layoutTemplate: 'adminLayout',
 	name: 'newWorkshop'
@@ -109,6 +132,11 @@ Router.route('/admin/workshops/new', {
 Router.route('/admin/workshops/:_id/edit', {
 	layoutTemplate: 'adminLayout',
 	name: 'editWorkshop'
+});
+
+Router.route('/admin/questionsGroups', {
+	layoutTemplate: 'adminLayout',
+	name: 'listQuestionsGroups'
 });
 
 Router.route('/admin/questionsGroups/new', {
@@ -121,6 +149,11 @@ Router.route('/admin/questionsGroups/:_id/edit', {
 	name: 'editQuestionsGroup'
 });
 
+Router.route('/admin/ekloreQuestions', {
+	layoutTemplate: 'adminLayout',
+	name: 'listEkloreQuestions'
+});
+
 Router.route('/admin/ekloreQuestions/new', {
 	layoutTemplate: 'adminLayout',
 	name: 'newEkloreQuestion'
@@ -129,4 +162,19 @@ Router.route('/admin/ekloreQuestions/new', {
 Router.route('/admin/ekloreQuestions/:_id/edit', {
 	layoutTemplate: 'adminLayout',
 	name: 'editEkloreQuestion'
+});
+
+Router.route('/admin/volunteers', {
+	layoutTemplate: 'adminLayout',
+	name: 'listVolunteers'
+});
+
+Router.route('/admin/volunteers/new', {
+	layoutTemplate: 'adminLayout',
+	name: 'newVolunteer'
+});
+
+Router.route('/admin/volunteers/:_id/edit', {
+	layoutTemplate: 'adminLayout',
+	name: 'editVolunteer'
 });

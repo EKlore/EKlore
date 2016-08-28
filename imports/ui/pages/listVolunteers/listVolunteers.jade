@@ -1,0 +1,28 @@
+template(name="listVolunteers")
+	if Template.subscriptionsReady
+		.panel.panel-default
+			.panel-heading(role="tab")
+				p.panel-title {{_ "partnersList"}}
+			.panel-body
+				.row
+					.col-xs-12.col-sm-6.col-md-6.col-lg-6
+						p {{_ "thereAre"}}
+							span.badge #{volunteersCount}
+							| {{_ "partners"}}.
+					.col-xs-12.col-sm-6.col-md-6.col-lg-6
+						a.pull-right.btn.btn-primary(role="button" href="{{pathFor 'newVolunteer'}}") {{_ "addAPartner"}}
+				if volunteersCount
+					.row(style="display:flex; flex-wrap: wrap;")
+						each volunteers
+							.col-xs-12.col-sm-6.col-md-4.col-lg-3
+								.thumbnail
+									img.partnerPicture(src="#{pictureUrl}")
+									.caption
+										if firstName
+											h3 #{firstName} #{lastName}
+										else
+											h3 #{lastName}
+										a.btn.btn-info(role="button" href="{{pathFor 'editVolunteer'}}")
+											span.glyphicon.glyphicon-edit(aria-hidden="true")
+	else
+		+spinner

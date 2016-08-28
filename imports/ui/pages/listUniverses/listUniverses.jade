@@ -1,0 +1,40 @@
+template(name="listUniverses")
+	if Template.subscriptionsReady
+		.panel.panel-default
+			.panel-heading(role="tab")
+				p.panel-title {{_ "universeList"}}
+			.panel-body
+				.col-xs-12.col-sm-6.col-md-6.col-lg-6
+					p {{_ "thereAre"}}
+						span.badge #{universesCount}
+						| {{_ "universes"}}.
+				.col-xs-12.col-sm-6.col-md-6.col-lg-6
+					a.pull-right.btn.btn-primary(role="button" href="{{pathFor 'newUniverse'}}") {{_ "addNewUniverse"}}
+				if universesCount
+					table.table
+						thead
+							tr
+								th #
+								th {{_ "name"}}
+								th {{_ "label"}}
+								th {{_ "workshopsLinked"}}
+								th {{_"actionEdit"}}
+						tbody
+							each universe
+								tr
+									td {{myIndex @index}}
+									td #{name}
+									td #{label}
+									if workshopsLinked
+										td
+											a.btn.btn-success(role="button" href="#")
+												strong #{workshopsLinked.length}
+									else
+										td
+											a.btn.btn-danger(role="button" href="#")
+												strong #{workshopsLinked.length}
+									td
+										a.btn.btn-info(role="button" href="{{pathFor 'editUniverse'}}")
+											span.glyphicon.glyphicon-edit(aria-hidden="true")
+	else
+		+spinner

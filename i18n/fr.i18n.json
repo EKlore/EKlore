@@ -188,5 +188,12 @@
 	"addAPartner": "Ajouter un partenaire",
 	"partnerCompanyName": "Entreprise du partenaire",
 	"partnerPictureUrl": "Photo du partenaire",
-	"partnerEdition": "Edition du partenaire"
+	"partnerEdition": "Edition du partenaire",
+	"listUniverses": "Voir les univers",
+	"listWorkshops": "Voir les ateliers",
+	"listQuestionsGroups": "Voir les groupes de questions",
+	"listEkloreQuestions": "Voir les questions EKlore",
+	"listPartners": "Voir les partenaires et intervenants d'ateliers",
+	"listVolunteers": "Voir les bénévoles",
+	"volunteerPictureUrl": "Photo du bénévole"
 }

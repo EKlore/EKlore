@@ -14,7 +14,12 @@ Template.home.onCreated(function() {
 
 Template.home.helpers({
 	volunteersList() {
-		return Volunteers.find({});
+		return Volunteers.find({}, {
+			sort: {
+				level: 1,
+				lastName: 1
+			}
+		});
 	}
 });
 

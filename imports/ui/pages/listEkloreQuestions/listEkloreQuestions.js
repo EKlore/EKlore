@@ -5,8 +5,8 @@ import { EkloreQuestions } from '../../../api/ekloreQuestions/schema.js';
 import { validateScaleEkloreQuestion, validateYesNoEkloreQuestion, validateQcmEkloreQuestion, validateChoiceEkloreQuestion } from '../../../startup/client/lib/sharedFunctions.js';
 
 import './listEkloreQuestions.jade';
-import '../deprecated/deprecated.jade';
-import '../linkedToQuestionsGroup/linkedToQuestionsGroup.jade';
+import '../../components/deprecated/deprecated.jade';
+import '../../components/linkedToQuestionsGroup/linkedToQuestionsGroup.jade';
 
 Template.listEkloreQuestions.onCreated(function() {
 	this.autorun(() => {

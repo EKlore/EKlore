@@ -1,0 +1,25 @@
+template(name="newVolunteer")
+	.container
+		.panel.panel-default
+			.panel-heading
+				h3 {{_ "addAVolunteer"}}
+			.panel-body
+				form
+					.form-group
+						label(for="volunteerFirstName") {{_ "firstName"}}
+						input#volunteerFirstName.form-control(type="text")
+					.form-group
+						label(for="volunteerLastName") {{_ "lastName"}}
+						input#volunteerLastName.form-control(type="text")
+					.form-group
+						label(for="volunteerPictureUrl") {{_ "volunteerPictureUrl"}}
+						input#volunteerPictureUrl.form-control(type="text")
+					.form-group
+						label(for="volunteerFunctionInFete") {{_ "volunterrFunctionInFete"}}
+						input#volunteerFunctionInFete.form-control(type="text")
+			.panel-footer
+				.row
+					.col-xs-6.col-sm-6.col-md-6.col-lg-6
+						a.btn.btn-danger.btn-block(role="button" href="{{pathFor 'listVolunteers'}}") {{_ "cancel"}}
+					.col-xs-6.col-sm-6.col-md-6.col-lg-6
+						button#addVolunteer.btn.btn-success.btn-block {{_ "validate"}}

@@ -1,0 +1,43 @@
+template(name="listQuestionsGroups")
+	if Template.subscriptionsReady
+		.panel.panel-default
+			.panel-heading(role="tab")
+				p.panel-title {{_ "questionsGroupsList"}}
+			.panel-body
+				.col-xs-12.col-sm-6.col-md-6.col-lg-6
+					p {{_ "thereAre"}}
+						span.badge #{questionsGroupsCount}
+						| {{_ "questionsGroups"}}.
+				.col-xs-12.col-sm-6.col-md-6.col-lg-6
+					a.pull-right.btn.btn-primary(role="button" href="{{pathFor 'newQuestionsGroup'}}") {{_ "addNewQuestionsGroup"}}
+				if questionsGroupsCount
+					table.table
+						thead
+							tr
+								th #
+								th {{_ "title"}}
+								th {{_ "label"}}
+								th {{_ "deprecated"}}
+								th {{_ "ekloreQuestionsLinkedCount"}}
+								th {{_"actionEdit"}}
+						tbody
+							each questionsGroup
+								tr
+									td {{myIndex @index}}
+									td #{title}
+									td #{label}
+									td
+										+deprecated
+									if ekloreQuestionsLinkedCount
+										td
+											a.btn.btn-info(role="button" href="#")
+												strong #{ekloreQuestionsLinkedCount}
+									else
+										td
+											a.btn.btn-warning(role="button" href="#")
+												strong #{ekloreQuestionsLinkedCount}
+									td
+										a.btn.btn-info(role="button" href="{{pathFor 'editQuestionsGroup'}}")
+											span.glyphicon.glyphicon-edit(aria-hidden="true")
+	else
+		+spinner
