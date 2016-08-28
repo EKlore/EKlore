@@ -21,6 +21,7 @@ Template.listVolunteers.helpers({
 				firstName: 1,
 				lastName: 1,
 				pictureUrl: 1,
+				functionInFete: 1,
 				level: 1
 			},
 			sort: {
