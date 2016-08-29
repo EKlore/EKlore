@@ -22,7 +22,7 @@ export const validateScaleEkloreQuestion = function(data) {
 	const scaleUserQuestionSchema = new SimpleSchema({
 		_id: { type: String },
 		questionId: { type: String },
-		level: { type: Number, min: 1 },
+		level: { type: Number, min: 1, optional: true },
 		choices: { type: [ChoiceSchema], minCount: 10, maxCount: 10 },
 		deprecated: { type: Boolean },
 		universesLinked: { type: [UniverseSchema], minCount: 1 },
@@ -42,7 +42,7 @@ export const validateYesNoEkloreQuestion = function(data) {
 	const yesNoUserQuestionSchema = new SimpleSchema({
 		_id: { type: String },
 		questionId: { type: String },
-		level: { type: Number, min: 1 },
+		level: { type: Number, min: 1, optional: true },
 		choices: { type: [ChoiceSchema], minCount: 2, maxCount: 2 },
 		deprecated: { type: Boolean },
 		universesLinked: { type: [UniverseSchema], minCount: 1 },
