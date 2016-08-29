@@ -13,7 +13,7 @@ template(name = "seeUniverses")
 						each partners
 							.col-xs-12.col-sm-12.col-md-6.col-lg-6
 								.thumbnail
-									img(src="#{pictureUrl}" alt="#{companyName}")
+									img.universePartnersPicture(src="#{pictureUrl}" alt="#{companyName}")
 									.caption
 										h3 {{_ "universePartner"}} : #{companyName}
 										p #{description}
