@@ -195,5 +195,8 @@
 	"listEkloreQuestions": "Voir les questions EKlore",
 	"listPartners": "Voir les partenaires et intervenants d'ateliers",
 	"listVolunteers": "Voir les bénévoles",
-	"volunteerPictureUrl": "Photo du bénévole"
+	"volunteerPictureUrl": "Photo du bénévole",
+	"volunteersLevel1": "Bénévoles sans qui FETE n'existerait pas !",
+	"volunteersLevel2": "Bénévoles qui ont activement participés au succès de FETE !",
+	"volunteersLevel3": "Encore un grand merci à ces bénévoles !"
 }

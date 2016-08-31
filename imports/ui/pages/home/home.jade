@@ -46,15 +46,38 @@ template(name="home")
 			a.btn.btn-primary.btn-block(role="button" href="{{pathFor 'myProfile'}}") {{_ "createYourProfile"}}
 		.panel.panel-default.volunteers
 			.panel-heading
-				p.panel-title {{_ "volunteers"}} {{_ "eklore"}} : {{_ "withoutThemNothingIsPossible"}}
+				p.panel-title {{_ "volunteersLevel1"}}
 			.panel-body
 				.row(style="display:flex; flex-wrap: wrap;")
-					each volunteersList
+					each volunteersListLevel1
 						.col-xs-6.col-sm-4.col-md-2.col-lg-2
 							.thumbnail
 								img.img-circle.partnerPicture(src="#{pictureUrl}" alt="#{firstName} #{lastName}")
 								.caption
 									h4 #{firstName} #{lastName}
 									em #{functionInFete}
+		.panel.panel-default.volunteers
+			.panel-heading
+				p.panel-title {{_ "volunteersLevel2"}}
+			.panel-body
+				.row(style="display:flex; flex-wrap: wrap;")
+					each volunteersListLevel2
+						.col-xs-6.col-sm-4.col-md-2.col-lg-2
+							.thumbnail
+								img.img-circle.partnerPicture(src="#{pictureUrl}" alt="#{firstName} #{lastName}")
+								.caption
+									h4 #{firstName} #{lastName}
+									em #{functionInFete}
+		.panel.panel-default.volunteers
+			.panel-heading
+				p.panel-title {{_ "volunteersLevel3"}}
+			.panel-body
+				.row(style="display:flex; flex-wrap: wrap;")
+					each volunteersListLevel3
+						.col-xs-6.col-sm-4.col-md-2.col-lg-2
+							.thumbnail
+								img.img-circle.partnerPicture(src="#{pictureUrl}" alt="#{firstName} #{lastName}")
+								.caption
+									h4 #{firstName} #{lastName}
 	else
 		+spinner

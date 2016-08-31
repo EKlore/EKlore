@@ -13,10 +13,29 @@ Template.home.onCreated(function() {
 });
 
 Template.home.helpers({
-	volunteersList() {
-		return Volunteers.find({}, {
+	volunteersListLevel1() {
+		return Volunteers.find({
+			level: 1
+		}, {
 			sort: {
-				level: 1,
+				lastName: 1
+			}
+		});
+	},
+	volunteersListLevel2() {
+		return Volunteers.find({
+			level: 2
+		}, {
+			sort: {
+				lastName: 1
+			}
+		});
+	},
+	volunteersListLevel3() {
+		return Volunteers.find({
+			level: 3
+		}, {
+			sort: {
 				lastName: 1
 			}
 		});
