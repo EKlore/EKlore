@@ -31,9 +31,9 @@ Template.home.helpers({
 			}
 		});
 	},
-	volunteersListLevel3() {
+	volunteersListLevel99() {
 		return Volunteers.find({
-			level: 3
+			level: 99
 		}, {
 			sort: {
 				lastName: 1
