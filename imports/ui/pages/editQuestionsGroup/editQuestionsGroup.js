@@ -50,7 +50,7 @@ Template.editQuestionsGroup.events({
 		if (!data.level) {
 			return Bert.alert('Level must be filled', 'danger', 'growl-top-right');
 		}
-		if (data.level < 2) {
+		if (data.level < 1) {
 			return Bert.alert('The level must be superior to 1', 'danger', 'growl-top-right');
 		}
 		Meteor.call('updateAQuestionsGroup', data, (error, result) => {

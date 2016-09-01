@@ -17,7 +17,7 @@ template(name="editQuestionsGroup")
 										textarea#questionsGroupLabel.form-control(rows="3") #{label}
 									.form-group
 										label(for="questionsGroupLevel") {{_ "questionsGroupLevel"}}
-										input#questionsGroupLevel.form-control(type="number" min="2" max="100" step="1" value="#{level}")
+										input#questionsGroupLevel.form-control(type="number" min="1" max="100" step="1" value="#{level}")
 									+editDeprecated
 							.panel-footer
 								.row
