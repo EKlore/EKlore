@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 import { Random } from 'meteor/random';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
+import { lodash } from 'meteor/stevezhu:lodash';
 
 import { EkloreQuestions } from './schema.js';
 
@@ -278,5 +279,71 @@ Meteor.methods({
 				}
 			}
 		});
+	},
+	fillChoices(ekloreQuestionId, mode) {
+		check(ekloreQuestionId, String);
+		check(mode, String);
+		let data = EkloreQuestions.findOne({ _id: ekloreQuestionId }, { fields: { choices: 1 } });
+		let newChoices = [];
+		let choice1 = data.choices[0];
+		let choice10 = data.choices[9];
+		if (mode === 'extreme') {
+			data.choices.map((cur, index, array) => {
+				if (index === 0 || index === 9) {
+					newChoices.push(cur);
+				} else {
+					cur.universesLinked = [];
+					cur.workshopsLinked = [];
+					if (index < 5) {
+						choice1.universesLinked.map((cur1, index1, array1) => {
+							let data = {
+								universeId: cur1.universeId,
+								matchingPower: lodash.round(cur1.matchingPower - lodash.round(index / 10, 1), 2)
+							};
+							if (data.matchingPower > 0) {
+								cur.universesLinked.push(data);
+							}
+						});
+						choice1.workshopsLinked.map((cur2, index2, array2) => {
+							let data = {
+								workshopId: cur2.workshopId,
+								matchingPower: lodash.round(cur2.matchingPower - lodash.round(index / 10, 1), 2)
+							};
+							if (data.matchingPower > 0) {
+								cur.workshopsLinked.push(data);
+							}
+						});
+					} else {
+						choice10.universesLinked.map((cur3, index3, array3) => {
+							let data = {
+								universeId: cur3.universeId,
+								matchingPower: lodash.round(cur3.matchingPower - lodash.round(0.9 - index / 10, 1), 2)
+							};
+							if (data.matchingPower > 0) {
+								cur.universesLinked.push(data);
+							}
+						});
+						choice10.workshopsLinked.map((cur4, index4, array4) => {
+							let data = {
+								workshopId: cur4.workshopId,
+								matchingPower: lodash.round(cur4.matchingPower - lodash.round(0.9 - index / 10, 1), 2)
+							};
+							if (data.matchingPower > 0) {
+								cur.workshopsLinked.push(data);
+							}
+						});
+					}
+					newChoices.push(cur);
+				}
+			});
+			return EkloreQuestions.update({ _id: ekloreQuestionId }, {
+				$set: {
+					choices: newChoices
+				}
+			});
+		} else if (mode === 'linear') {
+			return false;
+		}
+		return true;
 	}
 });
