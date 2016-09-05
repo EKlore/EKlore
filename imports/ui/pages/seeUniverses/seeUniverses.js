@@ -54,7 +54,8 @@ Template.seeUniverses.helpers({
 				name: 1,
 				description: 1,
 				dateStart: 1,
-				dateEnd: 1
+				dateEnd: 1,
+				peopleToGo: 1
 			}
 		});
 	},
