@@ -19,8 +19,9 @@ template(name="aboutEklore")
 		p {{_ "quote3"}}
 		footer {{_ "quote3Source"}}
 	section
-		a.btn.btn-default.btn-block(role="button" href="{{pathFor 'seeUniverses'}}") {{_ "seeUniverses"}}
-		if currentUser
-			a.btn.btn-warning.btn-block(role="button" href="{{pathFor 'myProfile'}}") {{_ "completeYourProfile"}}
-		else
-			a.btn.btn-primary.btn-block(role="button" href="{{pathFor 'myProfile'}}") {{_ "createYourProfile"}}
+		p
+			a.btn.btn-primary(role="button" href="{{pathFor 'seeUniverses'}}") {{_ "seeUniverses"}}
+			//if currentUser
+				a.btn.btn-warning(role="button" href="{{pathFor 'myProfile'}}") {{_ "completeYourProfile"}}
+			//else
+				a.btn.btn-primary(role="button" href="{{pathFor 'myProfile'}}") {{_ "createYourProfile"}}
