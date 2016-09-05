@@ -15,16 +15,18 @@ Template.home.onCreated(function() {
 Template.home.helpers({
 	volunteersListLevel1() {
 		return Volunteers.find({
-			level: 1
+			level: {
+				$lt: 10
+			}
 		}, {
 			sort: {
-				lastName: 1
+				level: 1
 			}
 		});
 	},
-	volunteersListLevel2() {
+	volunteersListLevel10() {
 		return Volunteers.find({
-			level: 2
+			level: 10
 		}, {
 			sort: {
 				lastName: 1
