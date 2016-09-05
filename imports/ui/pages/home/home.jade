@@ -64,7 +64,7 @@ template(name="home")
 					each volunteersListLevel2
 						.col-xs-6.col-sm-4.col-md-2.col-lg-2
 							.thumbnail
-								img.img-circle.partnerPicture(src="#{pictureUrl}" alt="#{firstName} #{lastName}")
+								img.partnerPicture(src="#{pictureUrl}" alt="#{firstName} #{lastName}")
 								.caption
 									h4 #{firstName} #{lastName}
 									em #{functionInFete}
@@ -76,7 +76,7 @@ template(name="home")
 					each volunteersListLevel99
 						.col-xs-6.col-sm-4.col-md-2.col-lg-2
 							.thumbnail
-								img.img-circle.partnerPicture(src="#{pictureUrl}" alt="#{firstName} #{lastName}")
+								img.partnerPicture(src="#{pictureUrl}" alt="#{firstName} #{lastName}")
 								.caption
 									h4 #{firstName} #{lastName}
 	else
