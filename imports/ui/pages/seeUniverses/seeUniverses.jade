@@ -30,6 +30,19 @@ template(name = "seeUniverses")
 											.panel-body
 												p.lead #{name}
 												p #{description}
+												.panel.panel-default
+													.panel-body
+														.row
+															.col-xs-12.col-sm-4.col-md-4.col-lg-4
+																p.lead {{_ "startDate"}} :
+																	span.label.label-default #{dateStart}
+															.col-xs-12.col-sm-4.col-md-4.col-lg-4
+																p.lead {{_ "endDate"}} :
+																	span.label.label-default #{dateEnd}
+															.col-xs-12.col-sm-4.col-md-4.col-lg-4
+																p.lead
+																	span.label.label-default #{peopleToGoCount}
+																	| {{_ "peopleAreGoingToo"}}
 												a.btn.btn-primary(role="button" href="{{pathFor 'workshopDetails'}}") {{_ "moreInformations"}}
 	else
 		+spinner

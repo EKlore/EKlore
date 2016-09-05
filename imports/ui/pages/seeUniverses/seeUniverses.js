@@ -48,13 +48,13 @@ Template.seeUniverses.helpers({
 			}
 		}, {
 			sort: {
-				name: 1
+				dateStart: 1
 			},
 			fields: {
 				name: 1,
 				description: 1,
-				speaker: 1,
-				format: 1
+				dateStart: 1,
+				dateEnd: 1
 			}
 		});
 	},
@@ -64,5 +64,11 @@ Template.seeUniverses.helpers({
 				universeId: this._id
 			}
 		});
-	}
+	},
+	dateStart() {
+		return moment(this.dateStart).format('H:mm');
+	},
+	dateEnd() {
+		return moment(this.dateEnd).format('H:mm');
+	},
 });
