@@ -71,5 +71,5 @@ Template.seeUniverses.helpers({
 	},
 	dateEnd() {
 		return moment(this.dateEnd).format('H:mm');
-	},
+	}
 });
