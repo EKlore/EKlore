@@ -4,14 +4,14 @@ sitemaps.add('/sitemap.xml', function() {
 	// required: page
 	// optional: lastmod, changefreq, priority, xhtmlLinks, images, videos
 	return [{
-		page: '/',
+		page: 'http://festivaleklore.fr/',
 		lastmod: '2016-09-05T21:40-02:00',
 		images: [{
 			loc: '/pictures/banniere.jpg',
 			title: 'Festival EKlore des Talents et de l\'Emploi'
 		}]
 	}, {
-		page: '/aboutFETE',
+		page: 'http://festivaleklore.fr/aboutFETE',
 		lastmod: '2016-09-05T21:40-02:00'
 	}, {
 		page: '/aboutEKlore',
