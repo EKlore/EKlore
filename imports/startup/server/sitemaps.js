@@ -7,38 +7,38 @@ sitemaps.add('/sitemap.xml', function() {
 		page: 'http://festivaleklore.fr/',
 		lastmod: '2016-09-05T21:40-02:00',
 		images: [{
-			loc: '/pictures/banniere.jpg',
+			loc: 'http://festivaleklore.fr/pictures/banniere.jpg',
 			title: 'Festival EKlore des Talents et de l\'Emploi'
 		}]
 	}, {
 		page: 'http://festivaleklore.fr/aboutFETE',
 		lastmod: '2016-09-05T21:40-02:00'
 	}, {
-		page: '/aboutEKlore',
+		page: 'http://festivaleklore.fr/aboutEKlore',
 		lastmod: '2016-09-05T21:40-02:00'
 	}, {
-		page: '/universes',
+		page: 'http://festivaleklore.fr/universes',
 		lastmod: '2016-09-05T21:40-02:00',
 		images: [{
-			loc: '/universes/art_artisanat.png',
+			loc: 'http://festivaleklore.fr/universes/art_artisanat.png',
 			title: 'Univers Art et Artisanat'
 		}, {
-			loc: '/universes/entrepreunariat.png',
+			loc: 'http://festivaleklore.fr/universes/entrepreunariat.png',
 			title: 'Univers Eutrepreunariat'
 		}, {
-			loc: '/universes/personnes_extra.png',
+			loc: 'http://festivaleklore.fr/universes/personnes_extra.png',
 			title: 'Univers Personnes Extra-Ordinaires'
 		}, {
-			loc: '/universes/reconversion.png',
+			loc: 'http://festivaleklore.fr/universes/reconversion.png',
 			title: 'Univers Reconversion'
 		}, {
-			loc: '/universes/salariat.png',
+			loc: 'http://festivaleklore.fr/universes/salariat.png',
 			title: 'Univers Salariat'
 		}, {
-			loc: '/universes/sens.png',
+			loc: 'http://festivaleklore.fr/universes/sens.png',
 			title: 'Univers Sens'
 		}, {
-			loc: '/universes/travail_demain.png',
+			loc: 'http://festivaleklore.fr/universes/travail_demain.png',
 			title: 'Univers Travail de Demain'
 		}]
 	}];
