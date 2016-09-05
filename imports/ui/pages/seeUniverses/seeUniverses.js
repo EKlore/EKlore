@@ -66,6 +66,7 @@ Template.seeUniverses.helpers({
 		});
 	},
 	dateStart() {
+		console.log(this);
 		return moment(this.dateStart).format('H:mm');
 	},
 	dateEnd() {

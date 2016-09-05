@@ -34,13 +34,13 @@ template(name = "seeUniverses")
 													.panel-body
 														.row
 															.col-xs-12.col-sm-4.col-md-4.col-lg-4
-																p.lead {{_ "startDate"}} :
+																p {{_ "startDate"}} :
 																	span.label.label-default #{dateStart}
 															.col-xs-12.col-sm-4.col-md-4.col-lg-4
-																p.lead {{_ "endDate"}} :
+																p {{_ "endDate"}} :
 																	span.label.label-default #{dateEnd}
 															.col-xs-12.col-sm-4.col-md-4.col-lg-4
-																p.lead
+																p
 																	span.label.label-default #{peopleToGoCount}
 																	| {{_ "peopleAreGoingToo"}}
 												a.btn.btn-primary(role="button" href="{{pathFor 'workshopDetails'}}") {{_ "moreInformations"}}

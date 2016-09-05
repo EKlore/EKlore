@@ -44,8 +44,8 @@ Meteor.publish('allWorkshopsToSee', () => {
 		fields: {
 			name: 1,
 			description: 1,
-			speaker: 1,
-			format: 1
+			dateStart: 1,
+			dateEnd: 1
 		}
 	});
 });
