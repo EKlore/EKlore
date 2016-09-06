@@ -12,6 +12,13 @@ Template.header.helpers({
 			return false;
 		}
 	},
+	seeUniversesActive() {
+		if (Router.current().route._path === '/universes') {
+			return 'active';
+		} else {
+			return false;
+		}
+	},
 	myDayActive() {
 		if (Router.current().route._path === '/myDay') {
 			return 'active';

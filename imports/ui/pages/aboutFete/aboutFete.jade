@@ -1,24 +1,27 @@
 template(name="aboutFete")
-	.page-header
-		h1 {{_ "presentationFete"}}
-	section
-		p {{_ "feteDescription1"}}
-		p {{_ "feteDescription2"}}
-	section
-		p {{_ "feteDescription3"}}
-	blockquote
-		p {{_ "quote1"}}
-		footer {{_ "quote1Source"}}
-	section
-		p {{_ "feteDescription4"}}
-	section
-		p {{_ "feteDescription5"}}
-	section
-		p {{_ "feteDescription6"}}
-	section
-		p
-			a.btn.btn-primary(role="button" href="{{pathFor 'seeUniverses'}}") {{_ "seeUniverses"}}
-			//if currentUser
-				a.btn.btn-warning(role="button" href="{{pathFor 'myProfile'}}") {{_ "completeYourProfile"}}
-			//else
-				a.btn.btn-primary(role="button" href="{{pathFor 'myProfile'}}") {{_ "createYourProfile"}}
+	.container-fluid.blue2
+			img.center-block.img-logo(src="/pictures/logo.png" alt="{{_ 'feteAcronym'}}")
+			h3.text-center {{_ 'feteAcronym'}}
+		.container
+			h1.text-center.feteTitle.marg-bot-50.text-uppercase {{_ "presentationFete"}}
+			section
+				p {{_ "feteDescription1"}}
+				p {{_ "feteDescription2"}}
+			section
+				p {{_ "feteDescription3"}}
+			blockquote
+				p {{_ "quote1"}}
+				footer {{_ "quote1Source"}}
+			section
+				p {{_ "feteDescription4"}}
+			section
+				p {{_ "feteDescription5"}}
+			section
+				p {{_ "feteDescription6"}}
+			section
+				p.text-center
+					a.btn.btn-eklore(role="button" href="{{pathFor 'seeUniverses'}}") {{_ "seeUniverses"}}
+					//if currentUser
+						a.btn.btn-warning(role="button" href="{{pathFor 'myProfile'}}") {{_ "completeYourProfile"}}
+					//else
+						a.btn.btn-primary(role="button" href="{{pathFor 'myProfile'}}") {{_ "createYourProfile"}}
