@@ -108,7 +108,8 @@ Template.myProfile.helpers({
 });
 
 Template.myProfile.events({
-	'click .addQuestionsGroupToUser': function(event) {
+	'click .addQuestionsGroupToUser': function(event, template) {
+		$('#' + this._id).hide();
 		event.preventDefault();
 		const data = {
 			questionsGroupId: this._id,
@@ -116,6 +117,7 @@ Template.myProfile.events({
 		};
 		Meteor.call('addQuestionsGroupToUser', data, (error, result) => {
 			if (error) {
+				$('#' + this._id).show();
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			}
 		});
