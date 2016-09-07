@@ -26,8 +26,8 @@ Template.header.helpers({
 			return false;
 		}
 	},
-	meetingActive() {
-		if (Router.current().route._path === '/meeting') {
+	seeUniversesActive() {
+		if (Router.current().route._path === '/universes') {
 			return 'active';
 		} else {
 			return false;
