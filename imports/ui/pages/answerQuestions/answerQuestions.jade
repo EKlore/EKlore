@@ -10,7 +10,7 @@ template(name="answerQuestions")
 						.row
 							each choices
 								.col-xs-4.col-sm-4.col-md-4.col-lg-4
-									.radio
+									.radio.text-center
 										label
 											input(type="radio" name="choicesForQuestion" id="#{choiceId}" value="#{choiceId}")
 											| #{label}

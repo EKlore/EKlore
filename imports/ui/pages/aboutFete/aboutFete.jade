@@ -2,31 +2,31 @@ template(name="aboutFete")
 	.container-fluid.blue2
 		img.center-block.img-logo(src="/pictures/logo.png" alt="{{_ 'feteAcronym'}}")
 		h3.text-center {{_ 'feteAcronym'}}
-		.container
-			h1.text-center.feteTitle.marg-bot-50.text-uppercase {{_ "presentationFete"}}
-			section
-				p {{_ "feteDescription1"}}
-				p {{_ "feteDescription2"}}
-			section
-				p {{_ "feteDescription3"}}
-			blockquote
-				p {{_ "quote1"}}
-				footer {{_ "quote1Source"}}
-			section
-				p {{_ "feteDescription4"}}
-			section
-				p {{_ "feteDescription5"}}
-			section
-				p {{_ "feteDescription6"}}
-			section
-				p.text-center
-					.row
-						.col-xs-12.col-sm-12.col-md-6.col-lg-6
-							p.text-center
-								a.btn.btn-eklore(role="button" href="{{pathFor 'seeUniverses'}}") {{_ "seeUniverses"}}
-						.col-xs-12.col-sm-12.col-md-6.col-lg-6
-							p.text-center
-								if currentUser
-									a.btn.btn-eklore.marg-20(role="button" href="{{pathFor 'myProfile'}}") {{_ "completeYourProfile"}}
-								else
-									a.btn.btn-eklore.marg-20(role="button" href="{{pathFor 'myProfile'}}") {{_ "createYourProfile"}}
+	.container
+		h1.text-center.feteTitle.marg-bot-50.text-uppercase {{_ "presentationFete"}}
+		section
+			p {{_ "feteDescription1"}}
+			p {{_ "feteDescription2"}}
+		section
+			p {{_ "feteDescription3"}}
+		blockquote
+			p {{_ "quote1"}}
+			footer {{_ "quote1Source"}}
+		section
+			p {{_ "feteDescription4"}}
+		section
+			p {{_ "feteDescription5"}}
+		section
+			p {{_ "feteDescription6"}}
+		section
+			p.text-center
+				.row
+					.col-xs-12.col-sm-12.col-md-6.col-lg-6
+						p.text-center
+							a.btn.btn-eklore.marg-bot-20.marg-top-20(role="button" href="{{pathFor 'seeUniverses'}}") {{_ "seeUniverses"}}
+					.col-xs-12.col-sm-12.col-md-6.col-lg-6
+						p.text-center
+							if currentUser
+								a.btn.btn-eklore.marg-bot-20.marg-top-20(role="button" href="{{pathFor 'myProfile'}}") {{_ "completeYourProfile"}}
+							else
+								a.btn.btn-eklore.marg-bot-20.marg-top-20(role="button" href="{{pathFor 'myProfile'}}") {{_ "createYourProfile"}}

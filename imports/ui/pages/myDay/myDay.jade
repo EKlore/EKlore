@@ -27,12 +27,12 @@ template(name="myDay")
 									p.text-center
 										with workshopData
 											if isUserAlreadyIn
-												button.removeFromWorkshop.btn.btn-eklore-danger(type="button") {{_ "youdontWantToGo"}}
+												button.removeFromWorkshop.btn.btn-eklore-danger.marg-bottom-20(type="button") {{_ "youdontWantToGo"}}
 											else
-												button.goToWorkshop.btn.btn-eklore(type="button") {{_ "doYouWantToGo"}}
+												button.goToWorkshop.btn.btn-eklore.marg-bottom-20(type="button") {{_ "doYouWantToGo"}}
 								.col-xs-12.col-sm-12.col-md-6.col-lg-6
 									p.text-center
-										a.btn.btn-eklore.marg-20(role="button" href="{{pathFor 'workshopDetails'}}") {{_ "moreInformations"}}
+										a.btn.btn-eklore.marg-bottom-20(role="button" href="{{pathFor 'workshopDetails'}}") {{_ "moreInformations"}}
 			else
 				p.lead {{_ "youNeedToCompleteYourProfile"}}
 				a.btn.btn-warning(role="button" href="{{pathFor 'myProfile'}}") {{_ "go"}}

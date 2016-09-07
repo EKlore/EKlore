@@ -29,7 +29,7 @@ template(name="home")
 							if currentUser
 								a.btn.btn-eklore.marg-bot-30(role="button" href="{{pathFor 'myProfile'}}") {{_ "completeYourProfile"}}
 							else
-								a.btn.btn-eklore.marg-30(role="button" href="{{pathFor 'myProfile'}}") {{_ "createYourProfile"}}
+								a.btn.btn-eklore.marg-bot-30(role="button" href="{{pathFor 'myProfile'}}") {{_ "createYourProfile"}}
 		.container-fluid.grey2
 			h2.text-center.feteTitle.marg-bot-30.text-uppercase {{_ "localisationAndSchedule"}}
 			.container
@@ -51,6 +51,8 @@ template(name="home")
 							strong {{_ "contact"}}
 							br
 							a(href="mailto:contact@fete-eklore.fr") contact@fete-eklore.fr
+						p
+							a.btn.btn-eklore.marg-bot-10(role="button" target="blank" href="https://www.weezevent.com/festival-eklore-des-talents-et-de-l-emploi") {{_ "linkTicketing"}}
 						//p#cityMapperButton
 							a(href='https://citymapper.com/go/m1zr64' target="_blank")
 								img(src="https://static.citymapper.com/img/embed/GetMeThere_Citymapper.png" alt="Get directions with Citymapper")
