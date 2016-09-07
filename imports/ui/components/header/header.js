@@ -25,12 +25,5 @@ Template.header.helpers({
 		} else {
 			return false;
 		}
-	},
-	seeUniversesActive() {
-		if (Router.current().route._path === '/universes') {
-			return 'active';
-		} else {
-			return false;
-		}
 	}
 });
