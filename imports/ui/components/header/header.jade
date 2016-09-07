@@ -11,16 +11,16 @@ template(name="header")
 			#ekloreNavbar.collapse.navbar-collapse
 				ul.nav.navbar-nav
 					li.hidden-xs(class="#{seeUniversesActive}")
-						a.white-lin(href="{{pathFor 'seeUniverses'}}") {{_ "universes"}}
-					//li.hidden-xs(class="#{myProfileActive}")
+						a(href="{{pathFor 'seeUniverses'}}") {{_ "universes"}}
+					li.hidden-xs(class="#{myProfileActive}")
 						a(href="{{pathFor 'myProfile'}}") {{_ "myProfile"}}
-					//li.hidden-xs(class="#{myDayActive}")
+					li.hidden-xs(class="#{myDayActive}")
 						a(href="{{pathFor 'myDay'}}") {{_ "myDay"}}
 					li.visible-xs(class="#{seeUniversesActive}")
 						a(href="{{pathFor 'seeUniverses'}}" data-toggle="collapse", data-target=".navbar-collapse") {{_ "universes"}}
-					//li.visible-xs(class="#{myProfileActive}")
+					li.visible-xs(class="#{myProfileActive}")
 						a(href="{{pathFor 'myProfile'}}" data-toggle="collapse", data-target=".navbar-collapse") {{_ "myProfile"}}
-					//li.visible-xs(class="#{myDayActive}")
+					li.visible-xs(class="#{myDayActive}")
 						a(href="{{pathFor 'myDay'}}" data-toggle="collapse", data-target=".navbar-collapse") {{_ "myDay"}}
 				.nav.navbar-nav.navbar-right
 					+loginButtons

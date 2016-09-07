@@ -30,6 +30,13 @@ Template.myDay.helpers({
 			}
 		});
 	},
+	workshopColor(index) {
+		if (index % 2 !== 0) {
+			return 'grey2';
+		} else {
+			return false;
+		}
+	},
 	customWorkshops() {
 		let questions = UserQuestions.find({ userId: Meteor.userId(), answered: true, deprecated: false }, { fields: { result: 1 } }).fetch();
 		let questionsObject = {};

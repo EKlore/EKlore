@@ -2,17 +2,20 @@ template(name="workshopDetails")
 	if Template.subscriptionsReady
 		with workshop
 			.jumbotron.blue2
-				h2.text-center.text-uppercase {{_ "discoverWorkshop"}}
+				h3.text-center.text-uppercase {{_ "discoverWorkshop"}}
 			.container
-				h2.text-center.text-uppercase.marg-20
+				h3.text-center.text-uppercase.marg-20
 					strong #{name}
 				h4.text-center #{description}
-				p.text-center {{_ "startDate"}} :
-					span.label.label-default #{dateStart}
-				p.text-center {{_ "endDate"}} :
-					span.label.label-default #{dateEnd}
-				p.text-center {{_ "peopleAreGoingToo"}}
-					span.label.label-default #{peopleToGoCount}
+				p.text-center
+					strong {{_ "startDate"}} :
+					| #{dateStart}
+				p.text-center
+					strong {{_ "endDate"}} :
+					| #{dateEnd}
+				p.text-center
+					strong {{_ "peopleAreGoingToo"}} :
+					| #{peopleToGoCount}
 				if currentUser
 					if isUserAlreadyIn
 						button.removeFromWorkshop.btn.btn-eklore.center-block(type="button") {{_ "youdontWantToGo"}}
@@ -20,7 +23,7 @@ template(name="workshopDetails")
 						button.goToWorkshop.btn.btn-eklore.center-block(type="button") {{_ "doYouWantToGo"}}
 			.container-fluid.grey2.marg-top-20
 				.container
-					h2.text-center.text-uppercase {{_ "workshopSpeaker"}}
+					h3.text-center.text-uppercase {{_ "workshopSpeaker"}}
 					.row(style="display:flex; flex-wrap: wrap;")
 						each partners
 							.col-xs-6.col-sm-6.col-md-4.col-lg3

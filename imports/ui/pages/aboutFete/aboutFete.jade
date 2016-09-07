@@ -20,8 +20,13 @@ template(name="aboutFete")
 				p {{_ "feteDescription6"}}
 			section
 				p.text-center
-					a.btn.btn-eklore(role="button" href="{{pathFor 'seeUniverses'}}") {{_ "seeUniverses"}}
-					//if currentUser
-						a.btn.btn-warning(role="button" href="{{pathFor 'myProfile'}}") {{_ "completeYourProfile"}}
-					//else
-						a.btn.btn-primary(role="button" href="{{pathFor 'myProfile'}}") {{_ "createYourProfile"}}
+					.row
+						.col-xs-12.col-sm-12.col-md-6.col-lg-6
+							p.text-center
+								a.btn.btn-eklore(role="button" href="{{pathFor 'seeUniverses'}}") {{_ "seeUniverses"}}
+						.col-xs-12.col-sm-12.col-md-6.col-lg-6
+							p.text-center
+								if currentUser
+									a.btn.btn-eklore.marg-20(role="button" href="{{pathFor 'myProfile'}}") {{_ "completeYourProfile"}}
+								else
+									a.btn.btn-eklore.marg-20(role="button" href="{{pathFor 'myProfile'}}") {{_ "createYourProfile"}}

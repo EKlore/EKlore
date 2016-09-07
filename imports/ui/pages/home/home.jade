@@ -10,17 +10,26 @@ template(name="home")
 					p {{_ "feteDescription1"}}
 					p {{_ "feteDescription2"}}
 					.row
-						.col-xs-6.col-sm-6.col-md-5.col-lg-5.col-md-offset-1.col-lg-offset-1
+						.col-xs-6.col-sm-6.col-md-6.col-lg-6
 							p.text-center
-								a.btn.btn-eklore.marg-20(role="button" href="{{pathFor 'aboutFete'}}") {{_ "moreInfos"}}
-						.col-xs-6.col-sm-6.col-md-5.col-lg-5
+								a.btn.btn-eklore.marg-bot-10(role="button" href="{{pathFor 'aboutFete'}}") {{_ "moreInfos"}}
+						.col-xs-6.col-sm-6.col-md-6.col-lg-6
 							p.text-center
-								a.btn.btn-eklore.marg-20(role="button" href="{{pathFor 'aboutEklore'}}") {{_ "aboutEklore"}}
+								a.btn.btn-eklore.marg-bot-10(role="button" href="{{pathFor 'aboutEklore'}}") {{_ "aboutEklore"}}
 				.col-xs-12.col-sm-6.col-md-6.col-lg-6
 					.thumbnail
 						img(src="/pictures/banniere.jpg" alt="{{_ 'feteAcronym'}}")
 			p.text-center
-				a.btn.btn-eklore.marg-30(role="button" href="{{pathFor 'seeUniverses'}}") {{_ "seeUniverses"}}
+				.row
+					.col-xs-12.col-sm-12.col-md-6.col-lg-6
+						p.text-center
+							a.btn.btn-eklore.marg-bot-30(role="button" href="{{pathFor 'seeUniverses'}}") {{_ "seeUniverses"}}
+					.col-xs-12.col-sm-12.col-md-6.col-lg-6
+						p.text-center
+							if currentUser
+								a.btn.btn-eklore.marg-bot-30(role="button" href="{{pathFor 'myProfile'}}") {{_ "completeYourProfile"}}
+							else
+								a.btn.btn-eklore.marg-30(role="button" href="{{pathFor 'myProfile'}}") {{_ "createYourProfile"}}
 		.container-fluid.grey2
 			h2.text-center.feteTitle.marg-bot-30.text-uppercase {{_ "localisationAndSchedule"}}
 			.container
@@ -47,12 +56,8 @@ template(name="home")
 								img(src="https://static.citymapper.com/img/embed/GetMeThere_Citymapper.png" alt="Get directions with Citymapper")
 					.col-xs-12.col-sm-6.col-md6.col-lg-6
 						+map
-			//if currentUser
-				a.btn.btn-warning.btn-block(role="button" href="{{pathFor 'myProfile'}}") {{_ "completeYourProfile"}}
-			//else
-				a.btn.btn-primary.btn-block(role="button" href="{{pathFor 'myProfile'}}") {{_ "createYourProfile"}}
 		.container
-			h1.text-center.feteTitle.marg-bot-50.text-uppercase{{_ "volunteersLevel1"}}
+			h2.text-center.marg-bot-50.text-uppercase {{_ "volunteersLevel1"}}
 			.row(style="display:flex; flex-wrap: wrap;")
 				each volunteersListLevel1
 					.col-xs-6.col-sm-4.col-md-3.col-lg-3
@@ -62,7 +67,7 @@ template(name="home")
 								h4.text-center #{firstName} #{lastName}
 								p.text-center
 									em #{functionInFete}
-			h1.text-center.feteTitle.marg-bot-50.text-uppercase {{_ "volunteersLevel2"}}
+			h2.text-center.marg-bot-50.text-uppercase {{_ "volunteersLevel2"}}
 			.row(style="display:flex; flex-wrap: wrap;")
 				each volunteersListLevel10
 					.col-xs-6.col-sm-4.col-md-2.col-lg-2
@@ -72,7 +77,7 @@ template(name="home")
 								h4.text-center #{firstName} #{lastName}
 								p.text-center
 									em #{functionInFete}
-			h1.text-center.feteTitle.marg-bot-50.text-uppercase {{_ "volunteersLevel3"}}
+			h2.text-center.marg-bot-50.text-uppercase {{_ "volunteersLevel3"}}
 			.row(style="display:flex; flex-wrap: wrap;")
 				each volunteersListLevel99
 					.col-xs-6.col-sm-4.col-md-2.col-lg-2

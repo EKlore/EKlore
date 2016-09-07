@@ -122,10 +122,10 @@
 	"version": "N° de version",
 	"displayTypeText": "Affichage texte",
 	"displayTypePicture": "Affichage image",
-	"completeYourProfile": "Complétez votre profil",
-	"signIn": "Connectez vous !",
+	"completeYourProfile": "Répondez à notre questionnaire",
+	"signIn": "Connectez vous",
 	"connect": "Connection",
-	"signUpIn30Sec": "Créez votre compte en 30 secondes !",
+	"signUpIn30Sec": "Créez votre compte",
 	"pseudo": "Pseudo",
 	"createAccount": "Créer votre compte",
 	"yourProfileByUniverses": "Votre profil par univers",
@@ -199,5 +199,6 @@
 	"volunteerPictureUrl": "Photo du bénévole",
 	"volunteersLevel1": "Bénévoles sans qui FETE n'existerait pas !",
 	"volunteersLevel2": "Bénévoles qui ont activement participés au succès de FETE !",
-	"volunteersLevel3": "Encore un grand merci à ces bénévoles !"
+	"volunteersLevel3": "Encore un grand merci à ces bénévoles !",
+	"seeMyDay": "Découvrez votre parcours personnalisé"
 }

@@ -1,56 +1,51 @@
 template(name="myProfile")
 	if Template.subscriptionsReady
-		.page-header
-			h1 {{_ "myProfile"}}
+		.jumbotron.blue2
+			h2.text-center.text-uppercase {{_ "myProfile"}}
 		if currentUser
-			.panel.panel-default
-				.panel-body
+			.container-fluid
+				.container
 					if userHasQuestionsGroupsInProfile
 						if notAnsweredQuestions
-							p.lead {{_ "youStillHave"}}
+							h4.text-center.text-uppercase {{_ "youStillHave"}}
 								span.badge #{notAnsweredQuestions}
 								| {{_ "questionsToCompleteYourProfile"}}
-							a.btn.btn-primary(role="button" href="{{pathFor 'answerQuestions'}}") {{_ "go"}}
+							p.text-center
+								a.btn.btn-eklore(role="button" href="{{pathFor 'answerQuestions'}}") {{_ "go"}}
 						else
-							p.lead {{_ "congratsNoMoreQuestions"}}
-							p {{_ "labelToAddQuestionsGroups"}}
+							h4.text-center.text-uppercase {{_ "congratsNoMoreQuestions"}}
+							p.text-center {{_ "labelToAddQuestionsGroups"}}
 					else
-						p {{_ "labelToAddQuestionsGroups"}}
+						h4.text-center.text-uppercase {{_ "labelToAddQuestionsGroups"}}
+			.container-fluid.grey2.padd-bot-20
+				.container
+					h3.text-center.text-uppercase {{_ "questionsGroupsAvailable"}}
+					.row(style="display:flex; flex-wrap: wrap;")
+						each questionsGroupAvailable
+							.col-xs-12.col-sm-6.col-md-6.col-lg-6
+								h4.text-center
+									strong #{title}
+								p.text-center
+									a.addQuestionsGroupToUser.btn.btn-eklore(role="button" href="#") {{_ "answerQuestions"}}
+						else
+							.col-xs-12.col-sm-12.col-md-12.col-lg-12
+								p {{_ "noMoreQuestionsGroupsAvailable"}}
 			if alreadyAnsweredQuestions
-				.panel.panel-default
-					.panel-heading
-						p.panel-title {{_ "yourProfileByUniverses"}}
-					.panel-body
+				.container-fluid
+					.container
+						h3.text-center.text-uppercase {{_ "yourProfileByUniverses"}}
 						.row(style="display:flex; flex-wrap: wrap;")
 							each universes
 								.col-xs-6.col-sm-4.col-md-3.col-lg-3.vcenter
 									.circle.center-block(style="width: #{valueForCircle}px; height: #{valueForCircle}px;line-height: #{valueForCircle}px; background: #{universeData.color}") #{value}%
 									p.text-center #{universeData.name}
-					.panel-footer
-						a.btn.btn-primary(role="button" href="{{pathFor 'seeUniverses'}}") {{_ "seeUniverses"}}
-			//.panel.panel-default
-				.panel-heading
-					h3 Vous n'êtes pas seul... d'autres personnes vous ressemble !
-				.panel-body
-					each universes
-						.col-xs-4.col-sm-3.col-md-2.col-lg-2
-							.circle.center-block 100%
-							p.text-center #{_id}
-			.panel.panel-default
-				.panel-heading
-					p.panel-title {{_ "questionsGroupsAvailable"}}
-				.panel-body
-					.row(style="display:flex; flex-wrap: wrap;")
-						each questionsGroupAvailable
-							.col-xs-12.col-sm-6.col-md-6.col-lg-6
-								.panel.panel-default
-									.panel-body
-										p.lead #{title}
-										p #{label}
-										a.addQuestionsGroupToUser.btn.btn-primary(role="button" href="#") {{_ "answerQuestions"}}
-						else
-							.col-xs-12.col-sm-12.col-md-12.col-lg-12
-								p {{_ "noMoreQuestionsGroupsAvailable"}}
+						.row
+							.col-xs-12.col-sm-12.col-md-6.col-lg-6
+								p.text-center
+									a.btn.btn-eklore.marg-20(role="button" href="{{pathFor 'myDay'}}") {{_ "seeMyDay"}}
+							.col-xs-12.col-sm-12.col-md-6.col-lg-6
+								p.text-center
+									a.btn.btn-eklore.marg-20(role="button" href="{{pathFor 'seeUniverses'}}") {{_ "seeUniverses"}}
 		else
 			+connect
 	else
