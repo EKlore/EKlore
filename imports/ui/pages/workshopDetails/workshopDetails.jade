@@ -32,7 +32,11 @@ template(name="workshopDetails")
 									.caption
 										if firstName
 											h4.text-center #{firstName} #{lastName}
+											if companyName
+												p.text-center #{companyName}
 										else
 											h4.text-center  #{lastName}
+											if companyName
+												p.text-center #{companyName}
 	else
 		+spinner
