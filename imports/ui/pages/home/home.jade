@@ -42,9 +42,9 @@ template(name="home")
 						a.btn.btn-primary(role="button" target="blank" href="https://www.weezevent.com/festival-eklore-des-talents-et-de-l-emploi") {{_ "linkTicketing"}}
 				.col-xs-12.col-sm-6.col-md6.col-lg-6
 					+map
-		//if currentUser
+		if currentUser
 			a.btn.btn-warning.btn-block(role="button" href="{{pathFor 'myProfile'}}") {{_ "completeYourProfile"}}
-		//else
+		else
 			a.btn.btn-primary.btn-block(role="button" href="{{pathFor 'myProfile'}}") {{_ "createYourProfile"}}
 		.panel.panel-default.volunteers
 			.panel-heading

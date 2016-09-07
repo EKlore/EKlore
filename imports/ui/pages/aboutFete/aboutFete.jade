@@ -18,7 +18,7 @@ template(name="aboutFete")
 	section
 		p
 			a.btn.btn-primary(role="button" href="{{pathFor 'seeUniverses'}}") {{_ "seeUniverses"}}
-			//if currentUser
+			if currentUser
 				a.btn.btn-warning(role="button" href="{{pathFor 'myProfile'}}") {{_ "completeYourProfile"}}
-			//else
+			else
 				a.btn.btn-primary(role="button" href="{{pathFor 'myProfile'}}") {{_ "createYourProfile"}}
