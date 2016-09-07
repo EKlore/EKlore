@@ -74,5 +74,49 @@ Meteor.methods({
 				result: data.result
 			}
 		});
+	},
+	deleteDoublons() {
+		let users = Meteor.users.find({}, {
+			fields: {
+				_id: 1
+			}
+		}).fetch();
+		users.map((cur, index, array) => {
+			let questionsForUser = UserQuestions.find({ userId: cur._id }, {
+				fields: {
+					_id: 1,
+					answered: 1,
+					questionId: 1
+				},
+				sort: {
+					questionId: 1
+				}
+			}).fetch();
+			let lastQuestion = { _id: null, questionId: null, answered: null };
+			questionsForUser.map((cur1, index, array) => {
+				if (lastQuestion._id === null) {
+					lastQuestion._id = cur1._id;
+					lastQuestion.questionId = cur1.questionId;
+					lastQuestion.answered = cur1.answered;
+				} else {
+					if (lastQuestion.questionId === cur1.questionId && lastQuestion.answered === cur1.answered) {
+						UserQuestions.remove({ _id: cur1._id });
+					} else if (lastQuestion.questionId === cur1.questionId && lastQuestion.answered !== cur1.answered) {
+						if (lastQuestion.answered === false) {
+							UserQuestions.remove({ _id: lastQuestion._id });
+							lastQuestion._id = cur1._id;
+							lastQuestion.questionId = cur1.questionId;
+							lastQuestion.answered = cur1.answered;
+						} else {
+							UserQuestions.remove({ _id: cur1._id });
+						}
+					} else if (lastQuestion.questionId !== cur1.questionId) {
+						lastQuestion._id = cur1._id;
+						lastQuestion.questionId = cur1.questionId;
+						lastQuestion.answered = cur1.answered;
+					}
+				}
+			});
+		});
 	}
 });
