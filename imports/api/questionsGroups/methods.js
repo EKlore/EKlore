@@ -53,6 +53,7 @@ Meteor.methods({
 			cur.answered = false;
 			cur.userId = data.userId;
 			cur.questionId = cur._id;
+			cur.questionGroupId = data.questionsGroupId;
 			delete cur._id;
 			delete cur.createdAt;
 			delete cur.questionsGroupId;

@@ -147,5 +147,10 @@ UserQuestions.schema = new SimpleSchema({
 		type: [ResultSchema],
 		label: 'Question result  via Choice x Question univers & workshop matching power',
 		optional: true
+	},
+	questionGroupId: {
+		type: String,
+		label: 'questionGroup\s ID',
+		optional: true
 	}
 });

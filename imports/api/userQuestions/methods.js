@@ -31,7 +31,8 @@ Meteor.methods({
 			workshopsLinked: { type: [WorkshopSchema], minCount: 1 },
 			answered: { type: Boolean },
 			userId: { type: String },
-			questionId: { type: String }
+			questionId: { type: String },
+			questionGroupId: { type: String }
 		});
 		check(data, methodSchema);
 		return UserQuestions.insert(data);

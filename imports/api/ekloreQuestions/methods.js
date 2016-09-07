@@ -5,6 +5,7 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 import { lodash } from 'meteor/stevezhu:lodash';
 
 import { EkloreQuestions } from './schema.js';
+import { UserQuestions } from '../userQuestions/schema.js';
 
 Meteor.methods({
 	addAnEkloreQuestion(data) {
@@ -344,6 +345,22 @@ Meteor.methods({
 		} else if (mode === 'linear') {
 			return false;
 		}
+		return true;
+	},
+	regulQuestionGroupId() {
+		let data = EkloreQuestions.find({}, {
+			fields: {
+				_id: 1,
+				questionsGroupId: 1
+			}
+		}).fetch();
+		data.map((cur, index, array) => {
+			return UserQuestions.update({ questionId: cur._id }, {
+				$set: {
+					questionGroupId: cur.questionsGroupId
+				}
+			}, { multi: true });
+		});
 		return true;
 	}
 });
