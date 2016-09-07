@@ -2,31 +2,32 @@ template(name="answerQuestions")
 	if Template.subscriptionsReady
 		if questionData
 			with questionData
-				.panel.panel-default
-					.panel-heading
-						p.panel-title {{_ "newQuestion"}}
-					.panel-body
-						p.lead #{title}
-						if questionTypeRadio
+				.jumbotron.blue2
+					h2.text-center.text-uppercase {{_ "newQuestion"}}
+				.container
+					p.lead.text-center #{title}
+					if questionTypeRadio
+						.row
 							each choices
-								.radio
-									label
-										input(type="radio" name="choicesForQuestion" id="#{choiceId}" value="#{choiceId}")
-										| #{label}
-						else
-							.row
-								.col-xs-1.col-sm-1.col-md-1.col-lg-1
-									p 1
-								.col-xs-8.col-sm-8.col-md-8.col-lg-8
-									input#answerForRange(name="answerForRange" type="range" min="1" max="10" step="1" value="5")
-								.col-xs-1.col-sm-1.col-md-1.col-lg-1
-									p 10
-					.panel-footer
-						button#validateChoice.btn-block.btn.btn-success(type="button") {{_ "validate"}}
+								.col-xs-4.col-sm-4.col-md-4.col-lg-4
+									.radio
+										label
+											input(type="radio" name="choicesForQuestion" id="#{choiceId}" value="#{choiceId}")
+											| #{label}
+					else
+						.row
+							.col-xs-1.col-sm-1.col-md-1.col-lg-1
+								p.text-right 1
+							.col-xs-9.col-sm-9.col-md-9.col-lg-9
+								input#answerForRange(name="answerForRange" type="range" min="1" max="10" step="1" value="5")
+							.col-xs-1.col-sm-1.col-md-1.col-lg-1
+								p.text-left 10
+					p.text-center.marg-top-20
+						button#validateChoice.btn.btn-eklore(type="button") {{_ "validate"}}
 		else
-			.panel.panel-default
-				.panel-body
-					h4 {{_ "congratsNoMoreQuestions"}}
-					a.btn.btn-primary(role="button" href="{{pathFor 'myProfile'}}") {{_ "returnToProfile"}}
+			.jumbotron.blue2
+				h3.text-center.text-uppercase {{_ "congratsNoMoreQuestions"}}
+				p.text-center.marg-top-20
+					a.btn.btn-eklore(role="button" href="{{pathFor 'myProfile'}}") {{_ "returnToProfile"}}
 	else
 		+spinner

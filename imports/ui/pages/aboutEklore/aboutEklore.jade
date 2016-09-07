@@ -1,27 +1,35 @@
 template(name="aboutEklore")
-	.page-header
-		h1 {{_ "eklorePresentationTitle"}}
-	section
-		p {{_ "eklorePresentation1"}}
-	section
-		p {{_ "eklorePresentation2"}}
-	section
-		p {{_ "eklorePresentation3"}}
-		p {{_ "eklorePresentation3Demi"}}
-	blockquote
-		p {{_ "quote2"}}
-		footer {{_ "quote2Source"}}
-	section
-		p {{_ "eklorePresentation4"}}
-	section
-		p {{_ "eklorePresentation5"}}
-	blockquote
-		p {{_ "quote3"}}
-		footer {{_ "quote3Source"}}
-	section
-		p
-			a.btn.btn-primary(role="button" href="{{pathFor 'seeUniverses'}}") {{_ "seeUniverses"}}
-			if currentUser
-				a.btn.btn-warning(role="button" href="{{pathFor 'myProfile'}}") {{_ "completeYourProfile"}}
-			else
-				a.btn.btn-primary(role="button" href="{{pathFor 'myProfile'}}") {{_ "createYourProfile"}}
+	.container-fluid.blue2
+		img.center-block.img-logo(src="/pictures/logo.png" alt="{{_ 'feteAcronym'}}")
+		h3.text-center {{_ 'feteAcronym'}}
+		.container
+			h1.text-center.feteTitle.marg-bot-50.text-uppercase {{_ "eklorePresentationTitle"}}
+			section
+				p {{_ "eklorePresentation1"}}
+			section
+				p {{_ "eklorePresentation2"}}
+			section
+				p {{_ "eklorePresentation3"}}
+				p {{_ "eklorePresentation3Demi"}}
+			blockquote
+				p {{_ "quote2"}}
+				footer {{_ "quote2Source"}}
+			section
+				p {{_ "eklorePresentation4"}}
+			section
+				p {{_ "eklorePresentation5"}}
+			blockquote
+				p {{_ "quote3"}}
+				footer {{_ "quote3Source"}}
+			section
+				p.text-center
+					.row
+						.col-xs-12.col-sm-12.col-md-6.col-lg-6
+							p.text-center
+								a.btn.btn-eklore.marg-20(role="button" href="{{pathFor 'seeUniverses'}}") {{_ "seeUniverses"}}
+						.col-xs-12.col-sm-12.col-md-6.col-lg-6
+							p.text-center
+								if currentUser
+									a.btn.btn-eklore.marg-20(role="button" href="{{pathFor 'myProfile'}}") {{_ "completeYourProfile"}}
+								else
+									a.btn.btn-eklore.marg-20(role="button" href="{{pathFor 'myProfile'}}") {{_ "createYourProfile"}}

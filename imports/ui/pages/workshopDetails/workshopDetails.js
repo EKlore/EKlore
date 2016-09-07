@@ -37,6 +37,10 @@ Template.workshopDetails.helpers({
 			workshopsLinked: {
 				workshopId: Router.current().params._id
 			}
+		}, {
+			sort: {
+				lastName: 1
+			}
 		});
 	}
 });

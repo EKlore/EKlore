@@ -1,48 +1,43 @@
 template(name = "seeUniverses")
 	if Template.subscriptionsReady
-		.page-header
-			h1 {{_ "seeUniverses"}}
+		.jumbotron.blue2
+			h2.text-center.text-uppercase
+				strong {{_ "seeUniverses"}}
 		each universes
-			.panel.panel-default
-				.panel-heading
-					p.panel-title #{name}
-				.panel-body
-					.thumbnail
-						img(src="#{universeLogo}" alt="#{name}")
-					.row
-						each partners
-							.col-xs-12.col-sm-12.col-md-6.col-lg-6
-								.thumbnail
-									img.universePartnersPicture(src="#{pictureUrl}" alt="#{companyName}")
-									.caption
-										h3 {{_ "universePartner"}} : #{companyName}
-										p #{description}
-										p
-											a.btn.btn-primary(href="#{website}" target="blank" role="button") {{_ "visitPartnerWebsite"}}
-					.panel.panel-default
-						.panel-heading
-							p.panel-title {{_ "workshopsLinkedWithUniverse"}}
-						.panel-body
-							.row(style="display:flex; flex-wrap: wrap;")
-								each workshops
-									.col-xs-12.col-sm-6.col-md-6.col-lg-6
-										.panel.panel-default
-											.panel-body
-												p.lead #{name}
-												p #{description}
-												.panel.panel-default
-													.panel-body
-														.row
-															.col-xs-12.col-sm-6.col-md-6.col-lg-6
-																p {{_ "startDate"}} :
-																	span.label.label-default #{dateStart}
-															.col-xs-12.col-sm-6.col-md-6.col-lg-6
-																p {{_ "endDate"}} :
-																	span.label.label-default #{dateEnd}
-															.col-xs-12.col-sm-6.col-md-6.col-lg-6
-																p
-																	span.label.label-default #{peopleToGoCount}
-																	| {{_ "peopleAreGoingToo"}}
-												a.btn.btn-primary(role="button" href="{{pathFor 'workshopDetails'}}") {{_ "moreInformations"}}
+			.container
+				h2.text-center.text-uppercase #{name}
+				.thumbnail
+					img(src="#{universeLogo}" alt="#{name}")
+				.row
+					each partners
+						.col-xs-12.col-sm-12.col-md-8.col-lg-8.col-md-offset-2.col-lg-offset-2
+							.thumbnail
+								img.universePartnersPicture(src="#{pictureUrl}" alt="#{companyName}")
+								.caption
+									h3.text-center
+										strong {{_ "universePartner"}} : #{companyName}
+									p.text-center #{description}
+									p.text-center
+										a.btn.btn-eklore(href="#{website}" target="blank" role="button") {{_ "visitPartnerWebsite"}}
+			.container-fluid.grey2
+				.container
+					h2.text-center.text-uppercase {{_ "workshopsLinkedWithUniverse"}}
+					.row(style="display:flex; flex-wrap: wrap;")
+						each workshops
+							.marg-bot-20.col-xs-12.col-sm-6.col-md-6.col-lg-6
+								h4.text-center
+									strong #{name}
+								p.text-center #{description}
+								p.text-center
+									strong {{_ "startDate"}} :
+									| #{dateStart}
+								p.text-center
+									strong {{_ "endDate"}} :
+									| #{dateEnd}
+								p.text-center
+									strong {{_ "peopleAreGoingToo"}} :
+									| #{peopleToGoCount}
+								p.text-center
+									a.btn.btn-eklore(role="button" href="{{pathFor 'workshopDetails'}}") {{_ "moreInformations"}}
 	else
 		+spinner

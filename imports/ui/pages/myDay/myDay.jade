@@ -1,44 +1,41 @@
 template(name="myDay")
 	if Template.subscriptionsReady
-		.page-header
-			h1 {{_ "myDay"}}
+		.jumbotron.blue2
+			h3.text-center.text-uppercase {{_ "yourPersonalisedProgramForTheDay"}}
 		if currentUser
-			.panel.panel-default
-				.panel-heading
-					p.panel-title {{_ "yourPersonalisedProgramForTheDay"}}
-				.panel-body
-					each customWorkshops
-						.panel.panel-default
-							.panel-heading
-								a(href="{{pathFor 'workshopDetails'}}")
-									p.panel-title {{_ "workshopName"}} : #{workshopData.name}
-							.panel-body
-								p.lead {{_ "yourMatchingRate"}} :
-									strong #{value} %
-								p {{_ "description"}} : #{workshopData.description}
-								with workshopData
-									.panel.panel-default
-										.panel-body
-											.row
-												.col-xs-12.col-sm-6.col-md-4.col-lg-4
-													p.lead {{_ "startDate"}} :
-														span.label.label-default #{dateStart}
-												.col-xs-12.col-sm-6.col-md-4.col-lg-4
-													p.lead {{_ "endDate"}} :
-														span.label.label-default #{dateEnd}
-												.col-xs-12.col-sm-6.col-md-4.col-lg-4
-													p.lead
-														span.label.label-default #{peopleToGoCount}
-														| {{_ "peopleAreGoingToo"}}
-							.panel-footer
-								with workshopData
-									if isUserAlreadyIn
-										button.removeFromWorkshop.btn.btn-danger(type="button") {{_ "youdontWantToGo"}}
-									else
-										button.goToWorkshop.btn.btn-primary(type="button") {{_ "doYouWantToGo"}}
-					else
-						p.lead {{_ "youNeedToCompleteYourProfile"}}
-						a.btn.btn-warning(role="button" href="{{pathFor 'myProfile'}}") {{_ "go"}}
+			each customWorkshops
+				.container-fluid.padd-top-20(class="{{workshopColor  @index}}")
+					.container
+						h4.text-center.text-uppercase
+							strong #{workshopData.name}
+						p.lead.text-center {{_ "yourMatchingRate"}} :
+							strong #{value} %
+						p.text-center #{workshopData.description}
+						with workshopData
+							p.text-center
+								strong {{_ "startDate"}} :
+								| #{dateStart}
+							p.text-center
+								strong {{_ "endDate"}} :
+								| #{dateEnd}
+							p.text-center
+								strong {{_ "peopleAreGoingToo"}} :
+								| #{peopleToGoCount}
+						p.text-center
+							.row
+								.col-xs-12.col-sm-12.col-md-6.col-lg-6
+									p.text-center
+										with workshopData
+											if isUserAlreadyIn
+												button.removeFromWorkshop.btn.btn-eklore-danger(type="button") {{_ "youdontWantToGo"}}
+											else
+												button.goToWorkshop.btn.btn-eklore(type="button") {{_ "doYouWantToGo"}}
+								.col-xs-12.col-sm-12.col-md-6.col-lg-6
+									p.text-center
+										a.btn.btn-eklore.marg-20(role="button" href="{{pathFor 'workshopDetails'}}") {{_ "moreInformations"}}
+			else
+				p.lead {{_ "youNeedToCompleteYourProfile"}}
+				a.btn.btn-warning(role="button" href="{{pathFor 'myProfile'}}") {{_ "go"}}
 		else
 			+connect
 	else

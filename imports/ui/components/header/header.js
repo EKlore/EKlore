@@ -12,15 +12,15 @@ Template.header.helpers({
 			return false;
 		}
 	},
-	myDayActive() {
-		if (Router.current().route._path === '/myDay') {
+	seeUniversesActive() {
+		if (Router.current().route._path === '/universes') {
 			return 'active';
 		} else {
 			return false;
 		}
 	},
-	seeUniversesActive() {
-		if (Router.current().route._path === '/universes') {
+	myDayActive() {
+		if (Router.current().route._path === '/myDay') {
 			return 'active';
 		} else {
 			return false;

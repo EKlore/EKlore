@@ -1,41 +1,38 @@
 template(name="workshopDetails")
 	if Template.subscriptionsReady
 		with workshop
-			.page-header
-				h1 #{name}
-			p.lead #{description}
-			.panel.panel-default
-				.panel-body
-					.row
-						.col-xs-12.col-sm-4.col-md-4.col-lg-4
-							p.lead {{_ "startDate"}} :
-								span.label.label-default #{dateStart}
-						.col-xs-12.col-sm-4.col-md-4.col-lg-4
-							p.lead {{_ "endDate"}} :
-								span.label.label-default #{dateEnd}
-						.col-xs-12.col-sm-4.col-md-4.col-lg-4
-							p.lead
-								span.label.label-default #{peopleToGoCount}
-								| {{_ "peopleAreGoingToo"}}
+			.jumbotron.blue2
+				h3.text-center.text-uppercase {{_ "discoverWorkshop"}}
+			.container
+				h3.text-center.text-uppercase.marg-20
+					strong #{name}
+				h4.text-center #{description}
+				p.text-center
+					strong {{_ "startDate"}} :
+					| #{dateStart}
+				p.text-center
+					strong {{_ "endDate"}} :
+					| #{dateEnd}
+				p.text-center
+					strong {{_ "peopleAreGoingToo"}} :
+					| #{peopleToGoCount}
 				if currentUser
-					.panel-footer
-						if isUserAlreadyIn
-							button.removeFromWorkshop.btn.btn-danger(type="button") {{_ "youdontWantToGo"}}
-						else
-							button.goToWorkshop.btn.btn-primary(type="button") {{_ "doYouWantToGo"}}
-			.panel.panel-default
-				.panel-heading
-					p.panel-title {{_ "workshopSpeaker"}}
-				.panel-body
-					.row
+					if isUserAlreadyIn
+						button.removeFromWorkshop.btn.btn-eklore.center-block(type="button") {{_ "youdontWantToGo"}}
+					else
+						button.goToWorkshop.btn.btn-eklore.center-block(type="button") {{_ "doYouWantToGo"}}
+			.container-fluid.grey2.marg-top-20
+				.container
+					h3.text-center.text-uppercase {{_ "workshopSpeaker"}}
+					.row(style="display:flex; flex-wrap: wrap;")
 						each partners
 							.col-xs-6.col-sm-6.col-md-4.col-lg3
 								.thumbnail
 									img(src="#{pictureUrl}")
 									.caption
 										if firstName
-											h4 #{firstName} #{lastName}
+											h4.text-center #{firstName} #{lastName}
 										else
-											h4  #{lastName}
+											h4.text-center  #{lastName}
 	else
 		+spinner

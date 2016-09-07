@@ -1,85 +1,89 @@
 template(name="home")
 	if Template.subscriptionsReady
-		.page-header
-			h1 {{_ "fete"}}
-				small {{_ "feteAcronym"}}
-		.panel.panel-default
-			.panel-heading
-				p.panel-title {{_ "presentationFete"}}
-			.panel-body
+		.container-fluid.blue2
+			img.center-block.img-logo(src="/pictures/logo.png" alt="{{_ 'feteAcronym'}}")
+			h3.text-center {{_ 'feteAcronym'}}
+		.container
+			h1.text-center.feteTitle.marg-bot-50.text-uppercase {{_ "presentationFete"}}
+			.row
 				.col-xs-12.col-sm-6.col-md6.col-lg-6
 					p {{_ "feteDescription1"}}
 					p {{_ "feteDescription2"}}
-					p
-						a.btn.btn-default(role="button" href="{{pathFor 'aboutFete'}}") {{_ "moreInfos"}}
-						a.btn.btn-primary(role="button" href="{{pathFor 'aboutEklore'}}") {{_ "aboutEklore"}}
-				.col-xs-12.col-sm-6.col-md6.col-lg-6
+					.row
+						.col-xs-6.col-sm-6.col-md-6.col-lg-6
+							p.text-center
+								a.btn.btn-eklore.marg-bot-10(role="button" href="{{pathFor 'aboutFete'}}") {{_ "moreInfos"}}
+						.col-xs-6.col-sm-6.col-md-6.col-lg-6
+							p.text-center
+								a.btn.btn-eklore.marg-bot-10(role="button" href="{{pathFor 'aboutEklore'}}") {{_ "aboutEklore"}}
+				.col-xs-12.col-sm-6.col-md-6.col-lg-6
 					.thumbnail
 						img(src="/pictures/banniere.jpg" alt="{{_ 'feteAcronym'}}")
-		a.btn.btn-primary.btn-block.seeUniverses(role="button" href="{{pathFor 'seeUniverses'}}") {{_ "seeUniverses"}}
-		.panel.panel-default
-			.panel-heading
-				p.panel-title {{_ "localisationAndSchedule"}}
-			.panel-body
-				.col-xs-12.col-sm-6.col-md6.col-lg-6
-					address
-						strong {{_ "fete"}} {{_ "eklore"}}
-						br
-						| Cité des Métiers
-						br
-						| 30 Avenue Corentin Cariou
-						br
-						| 75019 Paris
-					address
-						strong {{_ "dateFete"}}
-						br
-						| {{_ "hourFete"}}
-					address
-						strong {{_ "contact"}}
-						br
-						a(href="mailto:contact@fete-eklore.fr") contact@fete-eklore.fr
-					p
-						a.btn.btn-primary(role="button" target="blank" href="https://www.weezevent.com/festival-eklore-des-talents-et-de-l-emploi") {{_ "linkTicketing"}}
-				.col-xs-12.col-sm-6.col-md6.col-lg-6
-					+map
-		if currentUser
-			a.btn.btn-warning.btn-block(role="button" href="{{pathFor 'myProfile'}}") {{_ "completeYourProfile"}}
-		else
-			a.btn.btn-primary.btn-block(role="button" href="{{pathFor 'myProfile'}}") {{_ "createYourProfile"}}
-		.panel.panel-default.volunteers
-			.panel-heading
-				p.panel-title {{_ "volunteersLevel1"}}
-			.panel-body
-				.row(style="display:flex; flex-wrap: wrap;")
-					each volunteersListLevel1
-						.col-xs-6.col-sm-4.col-md-3.col-lg-3
-							.thumbnail
-								img.partnerPicture(src="#{pictureUrl}" alt="#{firstName} #{lastName}")
-								.caption
-									h4 #{firstName} #{lastName}
+			p.text-center
+				.row
+					.col-xs-12.col-sm-12.col-md-6.col-lg-6
+						p.text-center
+							a.btn.btn-eklore.marg-bot-30(role="button" href="{{pathFor 'seeUniverses'}}") {{_ "seeUniverses"}}
+					.col-xs-12.col-sm-12.col-md-6.col-lg-6
+						p.text-center
+							if currentUser
+								a.btn.btn-eklore.marg-bot-30(role="button" href="{{pathFor 'myProfile'}}") {{_ "completeYourProfile"}}
+							else
+								a.btn.btn-eklore.marg-30(role="button" href="{{pathFor 'myProfile'}}") {{_ "createYourProfile"}}
+		.container-fluid.grey2
+			h2.text-center.feteTitle.marg-bot-30.text-uppercase {{_ "localisationAndSchedule"}}
+			.container
+				.row
+					.col-xs-12.col-sm-6.col-md6.col-lg-6
+						address
+							strong {{_ "fete"}} {{_ "eklore"}}
+							br
+							| Cité des Métiers
+							br
+							| 30 Avenue Corentin Cariou
+							br
+							| 75019 Paris
+						address
+							strong {{_ "dateFete"}}
+							br
+							| {{_ "hourFete"}}
+						address
+							strong {{_ "contact"}}
+							br
+							a(href="mailto:contact@fete-eklore.fr") contact@fete-eklore.fr
+						//p#cityMapperButton
+							a(href='https://citymapper.com/go/m1zr64' target="_blank")
+								img(src="https://static.citymapper.com/img/embed/GetMeThere_Citymapper.png" alt="Get directions with Citymapper")
+					.col-xs-12.col-sm-6.col-md6.col-lg-6
+						+map
+		.container
+			h2.text-center.marg-bot-50.text-uppercase {{_ "volunteersLevel1"}}
+			.row(style="display:flex; flex-wrap: wrap;")
+				each volunteersListLevel1
+					.col-xs-6.col-sm-4.col-md-3.col-lg-3
+						.thumbnail
+							img.partnerPicture(src="#{pictureUrl}" alt="#{firstName} #{lastName}")
+							.caption
+								h4.text-center #{firstName} #{lastName}
+								p.text-center
 									em #{functionInFete}
-		.panel.panel-default.volunteers
-			.panel-heading
-				p.panel-title {{_ "volunteersLevel2"}}
-			.panel-body
-				.row(style="display:flex; flex-wrap: wrap;")
-					each volunteersListLevel10
-						.col-xs-6.col-sm-4.col-md-2.col-lg-2
-							.thumbnail
-								img.partnerPicture(src="#{pictureUrl}" alt="#{firstName} #{lastName}")
-								.caption
-									h4 #{firstName} #{lastName}
+			h2.text-center.marg-bot-50.text-uppercase {{_ "volunteersLevel2"}}
+			.row(style="display:flex; flex-wrap: wrap;")
+				each volunteersListLevel10
+					.col-xs-6.col-sm-4.col-md-2.col-lg-2
+						.thumbnail
+							img.partnerPicture(src="#{pictureUrl}" alt="#{firstName} #{lastName}")
+							.caption
+								h4.text-center #{firstName} #{lastName}
+								p.text-center
 									em #{functionInFete}
-		.panel.panel-default.volunteers
-			.panel-heading
-				p.panel-title {{_ "volunteersLevel3"}}
-			.panel-body
-				.row(style="display:flex; flex-wrap: wrap;")
-					each volunteersListLevel99
-						.col-xs-6.col-sm-4.col-md-2.col-lg-2
-							.thumbnail
-								img.partnerPicture(src="#{pictureUrl}" alt="#{firstName} #{lastName}")
-								.caption
-									h4 #{firstName} #{lastName}
+			h2.text-center.marg-bot-50.text-uppercase {{_ "volunteersLevel3"}}
+			.row(style="display:flex; flex-wrap: wrap;")
+				each volunteersListLevel99
+					.col-xs-6.col-sm-4.col-md-2.col-lg-2
+						.thumbnail
+							img.partnerPicture(src="#{pictureUrl}" alt="#{firstName} #{lastName}")
+							.caption
+								h4.text-center #{firstName} #{lastName}
 	else
 		+spinner
