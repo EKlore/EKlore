@@ -59,26 +59,75 @@ template(name="home")
 					.col-xs-12.col-sm-6.col-md6.col-lg-6
 						+map
 		.container
-			h2.text-center.marg-bot-50.text-uppercase {{_ "volunteersLevel1"}}
+			h2.text-center.marg-bot-50.text-uppercase Partenaires principaux de la FETE
 			.row(style="display:flex; flex-wrap: wrap;")
-				each volunteersListLevel1
-					.col-xs-6.col-sm-4.col-md-3.col-lg-3
-						.thumbnail
-							img.partnerPicture(src="#{pictureUrl}" alt="#{firstName} #{lastName}")
-							.caption
-								h4.text-center #{firstName} #{lastName}
-								p.text-center
-									em #{functionInFete}
-			h2.text-center.marg-bot-50.text-uppercase {{_ "volunteersLevel2"}}
+				.col-xs-6.col-sm-4.col-md-3.col-lg-3
+					.thumbnail
+						img.partnerPicture(src="/pictures/cite_des_metiers.jpeg" alt="La Cité des Métiers")
+						.caption
+							h4.text-center La Cité des Métiers
+				.col-xs-6.col-sm-4.col-md-3.col-lg-3
+					.thumbnail
+						img.partnerPicture(src="/pictures/pole_emploi.jpeg" alt="pôle emploi")
+						.caption
+							h4.text-center pôle emploi
+				.col-xs-6.col-sm-4.col-md-3.col-lg-3
+					.thumbnail
+						img.partnerPicture(src="/pictures/talentsoft.jpeg" alt="Talentsoft")
+						.caption
+							h4.text-center Talentsoft
+				.col-xs-6.col-sm-4.col-md-3.col-lg-3
+					.thumbnail
+						img.partnerPicture(src="/pictures/groupe_ferrein.jpeg" alt="Groupe Ferrein RH")
+						.caption
+							h4.text-center Groupe Ferrein RH
+			p.text-center
+				a.btn.btn-eklore.marg-bot-20(role="button" href="{{pathFor 'partners'}}") {{_ "seeAllOurPartners"}}
+		.container-fluid.grey2
+			.container
+				h2.text-center.marg-bot-50.text-uppercase {{_ "volunteersLevel1"}}
+				.row(style="display:flex; flex-wrap: wrap;")
+					each volunteersListLevel1
+						.col-xs-6.col-sm-4.col-md-3.col-lg-3
+							.thumbnail
+								img.partnerPicture(src="#{pictureUrl}" alt="#{firstName} #{lastName}")
+								.caption
+									h4.text-center #{firstName} #{lastName}
+									p.text-center
+										em #{functionInFete}
+		.container
+			h2.text-center.marg-bot-50.text-uppercase Partenaires soutiens de la FETE
 			.row(style="display:flex; flex-wrap: wrap;")
-				each volunteersListLevel10
-					.col-xs-6.col-sm-4.col-md-2.col-lg-2
-						.thumbnail
-							img.partnerPicture(src="#{pictureUrl}" alt="#{firstName} #{lastName}")
-							.caption
-								h4.text-center #{firstName} #{lastName}
-								p.text-center
-									em #{functionInFete}
+				.col-xs-6.col-sm-4.col-md-4.col-lg-4
+					.thumbnail
+						img.partnerPicture(src="/pictures/mairie_de_paris_test.jpeg" alt="Mairie de Paris")
+						.caption
+							h4.text-center Mairie de Paris
+				.col-xs-6.col-sm-4.col-md-4.col-lg-4
+					.thumbnail
+						img.partnerPicture(src="/pictures/idf.png" alt="Île de France")
+						.caption
+							h4.text-center Île de France
+				.col-xs-6.col-sm-4.col-md-4.col-lg-4
+					.thumbnail
+						img.partnerPicture(src="/pictures/defistival.png" alt="Défistival")
+						.caption
+							h4.text-center Défistival
+			p.text-center
+				a.btn.btn-eklore.marg-bot-20(role="button" href="{{pathFor 'partners'}}") {{_ "seeAllOurPartners"}}
+		.container-fluid.grey2
+			.container
+				h2.text-center.marg-bot-50.text-uppercase {{_ "volunteersLevel2"}}
+				.row(style="display:flex; flex-wrap: wrap;")
+					each volunteersListLevel10
+						.col-xs-6.col-sm-4.col-md-2.col-lg-2
+							.thumbnail
+								img.partnerPicture(src="#{pictureUrl}" alt="#{firstName} #{lastName}")
+								.caption
+									h4.text-center #{firstName} #{lastName}
+									p.text-center
+										em #{functionInFete}
+		.container
 			h2.text-center.marg-bot-50.text-uppercase {{_ "volunteersLevel3"}}
 			.row(style="display:flex; flex-wrap: wrap;")
 				each volunteersListLevel99

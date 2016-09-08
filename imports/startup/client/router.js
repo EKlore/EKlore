@@ -33,7 +33,7 @@ import '../../ui/pages/listEkloreQuestions/listEkloreQuestions.js';
 import '../../ui/pages/listVolunteers/listVolunteers.js';
 import '../../ui/pages/editVolunteer/editVolunteer.js';
 import '../../ui/pages/newVolunteer/newVolunteer.js';
-
+import '../../ui/pages/partners/partners.js';
 
 Router.configure({
 	notFoundTemplate: 'notFound'
@@ -42,6 +42,11 @@ Router.configure({
 Router.route('/', {
 	layoutTemplate: 'layout',
 	name: 'home'
+});
+
+Router.route('/partners', {
+	layoutTemplate: 'layout',
+	name: 'partners'
 });
 
 Router.route('/aboutFETE', {
