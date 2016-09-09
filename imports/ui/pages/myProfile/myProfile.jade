@@ -25,6 +25,7 @@ template(name="myProfile")
 							.col-xs-12.col-sm-6.col-md-6.col-lg-6(id="#{_id}")
 								h4.text-center
 									strong #{title}
+								p.text-center #{label}
 								p.text-center
 									a.addQuestionsGroupToUser.btn.btn-eklore(role="button" href="#") {{_ "answerQuestions"}}
 						else
