@@ -17,19 +17,18 @@ template(name="home")
 							p.text-center
 								a.btn.btn-eklore.marg-bot-10(role="button" href="{{pathFor 'aboutEklore'}}") {{_ "aboutEklore"}}
 				.col-xs-12.col-sm-6.col-md-6.col-lg-6
-					.thumbnail
-						img(src="/pictures/banniere.jpg" alt="{{_ 'feteAcronym'}}")
+					iframe(width="100%" height="300" src="https://www.youtube.com/embed/syXNeaJZcJ4" frameborder="0" allowfullscreen)
 			p.text-center
 				.row
 					.col-xs-12.col-sm-12.col-md-6.col-lg-6
 						p.text-center
-							a.btn.btn-eklore.marg-bot-30(role="button" href="{{pathFor 'seeUniverses'}}") {{_ "seeUniverses"}}
+							a.btn.btn-eklore.marg-bot-20.marg-top-20(role="button" href="{{pathFor 'seeUniverses'}}") {{_ "seeUniverses"}}
 					.col-xs-12.col-sm-12.col-md-6.col-lg-6
 						p.text-center
 							if currentUser
-								a.btn.btn-eklore.marg-bot-30(role="button" href="{{pathFor 'myProfile'}}") {{_ "completeYourProfile"}}
+								a.btn.btn-eklore.marg-bot-20.marg-top-20(role="button" href="{{pathFor 'myProfile'}}") {{_ "completeYourProfile"}}
 							else
-								a.btn.btn-eklore.marg-bot-30(role="button" href="{{pathFor 'myProfile'}}") {{_ "createYourProfile"}}
+								a.btn.btn-eklore.marg-bot-20.marg-top-20(role="button" href="{{pathFor 'myProfile'}}") {{_ "createYourProfile"}}
 		.container-fluid.grey2
 			h2.text-center.feteTitle.marg-bot-30.text-uppercase {{_ "localisationAndSchedule"}}
 			.container
