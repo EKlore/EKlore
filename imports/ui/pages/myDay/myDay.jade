@@ -1,7 +1,8 @@
 template(name="myDay")
 	if Template.subscriptionsReady
 		.jumbotron.blue2
-			h3.text-center.text-uppercase {{_ "yourPersonalisedProgramForTheDay"}}
+			h3.text-center.text-uppercase
+				strong {{_ "yourPersonalisedProgramForTheDay"}}
 		if currentUser
 			each customWorkshops
 				.container-fluid.padd-top-20(class="{{workshopColor  @index}}")

@@ -1,7 +1,8 @@
 template(name="myProfile")
 	if Template.subscriptionsReady
 		.jumbotron.blue2
-			h2.text-center.text-uppercase {{_ "myProfile"}}
+			h2.text-center.text-uppercase
+				strong {{_ "myProfile"}}
 		if currentUser
 			.container-fluid
 				.container
