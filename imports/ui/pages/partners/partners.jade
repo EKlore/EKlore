@@ -1,50 +1,42 @@
 template(name="partners")
 	.jumbotron.blue2
-		h3.text-center.text-uppercase {{_ "ourPartners"}}
+		h3.text-center.text-uppercase
+			strong {{_ "ourPartners"}}
 	.container
-		h2.text-center.marg-bot-50.text-uppercase Partenaires principaux de la FETE
+		h2.text-center.marg-bot-50.text-uppercase Partenaires principaux
 		.row(style="display:flex; flex-wrap: wrap;")
-			.col-xs-6.col-sm-4.col-md-3.col-lg-3
+			.col-xs-6.col-sm-4.col-md-4.col-lg-4
 				.thumbnail
 					img.partnerPicture(src="/pictures/cite_des_metiers.jpeg" alt="La Cité des Métiers")
 					.caption
 						h4.text-center La Cité des Métiers
-			.col-xs-6.col-sm-4.col-md-3.col-lg-3
+			.col-xs-6.col-sm-4.col-md-4.col-lg-4
 				.thumbnail
 					img.partnerPicture(src="/pictures/pole_emploi.jpeg" alt="pôle emploi")
 					.caption
 						h4.text-center pôle emploi
-			.col-xs-6.col-sm-4.col-md-3.col-lg-3
+			.col-xs-6.col-sm-4.col-md-4.col-lg-4
 				.thumbnail
 					img.partnerPicture(src="/pictures/talentsoft.jpeg" alt="Talentsoft")
 					.caption
 						h4.text-center Talentsoft
-			.col-xs-6.col-sm-4.col-md-3.col-lg-3
+			.col-xs-6.col-sm-4.col-md-4.col-lg-4
 				.thumbnail
 					img.partnerPicture(src="/pictures/groupe_ferrein.jpeg" alt="Groupe Ferrein RH")
 					.caption
 						h4.text-center Groupe Ferrein RH
-	.container-fluid.grey2
-		.container
-			h2.text-center.marg-bot-50.text-uppercase Partenaires soutiens de la FETE
-			.row(style="display:flex; flex-wrap: wrap;")
-				.col-xs-6.col-sm-4.col-md-4.col-lg-4
-					.thumbnail
-						img.partnerPicture(src="/pictures/mairie_de_paris_test.jpeg" alt="Mairie de Paris")
-						.caption
-							h4.text-center Mairie de Paris
-				.col-xs-6.col-sm-4.col-md-4.col-lg-4
-					.thumbnail
-						img.partnerPicture(src="/pictures/idf.png" alt="Île de France")
-						.caption
-							h4.text-center Île de France
-				.col-xs-6.col-sm-4.col-md-4.col-lg-4
-					.thumbnail
-						img.partnerPicture(src="/pictures/defistival.png" alt="Défistival")
-						.caption
-							h4.text-center Défistival
+			.col-xs-6.col-sm-4.col-md-4.col-lg-4
+				.thumbnail
+					img.partnerPicture(src="/pictures/mairie_de_paris_test.jpeg" alt="Mairie de Paris")
+					.caption
+						h4.text-center Mairie de Paris
+			.col-xs-6.col-sm-4.col-md-4.col-lg-4
+				.thumbnail
+					img.partnerPicture(src="/pictures/defistival.png" alt="Défistival")
+					.caption
+						h4.text-center Défistival
 	.container
-		h2.text-center.marg-bot-50.text-uppercase Partenaires de la programmation de la FETE
+		h2.text-center.marg-bot-50.text-uppercase Partenaires de la programmation
 		.row(style="display:flex; flex-wrap: wrap;")
 			.col-xs-6.col-sm-4.col-md-3.col-lg-3
 				.thumbnail
@@ -104,7 +96,7 @@ template(name="partners")
 							em Univers Reconversion
 	.container-fluid.grey2
 		.container
-			h2.text-center.marg-bot-50.text-uppercase Partenaires médias de la FETE
+			h2.text-center.marg-bot-50.text-uppercase Partenaires médias
 			.row(style="display:flex; flex-wrap: wrap;")
 				.col-xs-6.col-sm-4.col-md-3.col-lg-3
 					.thumbnail
@@ -126,3 +118,46 @@ template(name="partners")
 						img.partnerPicture(src="/pictures/le_monde_moderne.png" alt="Le Monde Moderne")
 						.caption
 							h4.text-center Le Monde Moderne
+	.container
+		h2.text-center.marg-bot-50.text-uppercase Partenaires amis
+		.row(style="display:flex; flex-wrap: wrap;")
+			.col-xs-6.col-sm-4.col-md-3.col-lg-3
+				.thumbnail
+					img.partnerPicture(src="/pictures/bleu_blanc_zebre.png" alt="Bleu Blanc ZEBRE")
+					.caption
+						h4.text-center Bleu Blanc ZEBRE
+			.col-xs-6.col-sm-4.col-md-3.col-lg-3
+				.thumbnail
+					img.partnerPicture(src="/pictures/fabrique_spinoza.png" alt="Fabrique Spinoza")
+					.caption
+						h4.text-center Fabrique Spinoza
+			.col-xs-6.col-sm-4.col-md-3.col-lg-3
+				.thumbnail
+					img.partnerPicture(src="/pictures/openmindkfe.png" alt="OPENMINDKFE")
+					.caption
+						h4.text-center OPENMIND KFE
+			.col-xs-6.col-sm-4.col-md-3.col-lg-3
+				.thumbnail
+					img.partnerPicture(src="/pictures/b_b_hotels.png" alt="B & B Hotels")
+					.caption
+						h4.text-center B & B Hotels
+			.col-xs-6.col-sm-4.col-md-3.col-lg-3
+				.thumbnail
+					img.partnerPicture(src="/pictures/les_gueules_cassees.png" alt="Les Gueules Cassées")
+					.caption
+						h4.text-center Les Gueules Cassées
+			.col-xs-6.col-sm-4.col-md-3.col-lg-3
+				.thumbnail
+					img.partnerPicture(src="/pictures/medef.jpg" alt="MEDEF")
+					.caption
+						h4.text-center MEDEF
+			.col-xs-6.col-sm-4.col-md-3.col-lg-3
+				.thumbnail
+					img.partnerPicture(src="/pictures/cqfd.jpg" alt="Ceux Qui font les Défis")
+					.caption
+						h4.text-center Ceux Qui Font les défis
+			.col-xs-6.col-sm-4.col-md-3.col-lg-3
+				.thumbnail
+					img.partnerPicture(src="/pictures/learn_to_change.png" alt="Learn To Change")
+					.caption
+						h4.text-center Learn To Change
