@@ -20,9 +20,6 @@ Template.listEkloreQuestions.helpers({
 	},
 	ekloreQuestions() {
 		return EkloreQuestions.find({}, {
-			sort: {
-				title: 1
-			},
 			fields: {
 				title: 1,
 				version: 1,
