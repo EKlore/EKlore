@@ -10,6 +10,7 @@ import { Universes } from '../../../api/universes/schema.js';
 
 import './myProfile.jade';
 import '../../components/connect/connect.js';
+import '../../components/barometer/barometer.js';
 
 
 Template.myProfile.onCreated(function() {
@@ -95,7 +96,6 @@ Template.myProfile.helpers({
 			}
 		});
 		return questionsArray;
-
 	},
 	universeData() {
 		return Universes.findOne({ _id: this._id }, {

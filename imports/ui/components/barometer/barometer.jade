@@ -1,0 +1,10 @@
+template(name="barometer")
+	if Template.subscriptionsReady
+		.container-fluid.grey2
+			.container
+				if surveyIsOver
+					h3.text-center.text-uppercase Babar
+				else
+					h3.text-center.text-uppercase {{_ "whenSurveyIsOverBarometer"}}
+	else
+		+spinner
