@@ -43,3 +43,21 @@ Meteor.publish('resultForQuestionsAnswered', (userId) => {
 		}
 	});
 });
+
+Meteor.publish('allQuestionsForScore', (userId) => {
+	return UserQuestions.find({
+		userId: userId,
+		answered: true,
+		deprecated: false
+	}, {
+		sort: {
+			level: 1
+		},
+		fields: {
+			userId: 1,
+			answered: 1,
+			deprecated: 1,
+			result: 1
+		}
+	});
+});

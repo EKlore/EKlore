@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
+import { lodash } from 'meteor/stevezhu:lodash';
 
 import { UserQuestions } from './schema.js';
 
@@ -117,6 +118,52 @@ Meteor.methods({
 					}
 				}
 			});
+		});
+	},
+	fixResults() {
+		UserQuestions.update({}, {
+			$set: {
+				result: []
+			}
+		}, { multi: true });
+		let data = UserQuestions.find({
+			answered: true,
+			deprecated: false
+		}, {
+			fields: {
+				choices: 1,
+				universesLinked: 1,
+				workshopsLinked: 1,
+				choiceSelected: 1
+			}
+		}).fetch();
+		data.map((cur, index, array) => {
+			const ind = lodash.findIndex(cur.choices, ['choiceId', cur.choiceSelected]);
+			const choice = cur.choices[ind];
+			let result = [];
+			for (let i = 0; i < choice.universesLinked.length; i++) {
+				for (let j = 0; j < cur.universesLinked.length; j++) {
+					if (choice.universesLinked[i].universeId === cur.universesLinked[j].universeId) {
+						result.push({
+							universeId: choice.universesLinked[i].universeId,
+							result: lodash.round((choice.universesLinked[i].matchingPower + cur.universesLinked[j].matchingPower) / 2, 4)
+						});
+						break;
+					}
+				}
+			}
+			for (let i = 0; i < choice.workshopsLinked.length; i++) {
+				for (let j = 0; j < cur.workshopsLinked.length; j++) {
+					if (choice.workshopsLinked[i].workshopId === cur.workshopsLinked[j].workshopId) {
+						result.push({
+							workshopId: choice.workshopsLinked[i].workshopId,
+							result: lodash.round((choice.workshopsLinked[i].matchingPower + cur.workshopsLinked[j].matchingPower) / 2, 4)
+						});
+						break;
+					}
+				}
+			}
+			Meteor.call('saveQuestionResult', { result, _id: cur._id });
 		});
 	}
 });

@@ -37,7 +37,7 @@ MethodHooks.after('answerQuestion', (options) => {
 				if (choice.workshopsLinked[i].workshopId === data.workshopsLinked[j].workshopId) {
 					result.push({
 						workshopId: choice.workshopsLinked[i].workshopId,
-						result: lodash.round((choice.workshopsLinked[i].matchingPower * data.workshopsLinked[j].matchingPower) / 2, 4)
+						result: lodash.round((choice.workshopsLinked[i].matchingPower + data.workshopsLinked[j].matchingPower) / 2, 4)
 					});
 					break;
 				}
