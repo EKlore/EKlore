@@ -28,7 +28,11 @@ Template.listEkloreQuestions.helpers({
 				deprecated: 1,
 				universesLinked: 1,
 				workshopsLinked: 1,
-				choices: 1
+				choices: 1,
+				level: 1
+			},
+			sort: {
+				level: 1
 			}
 		});
 	},

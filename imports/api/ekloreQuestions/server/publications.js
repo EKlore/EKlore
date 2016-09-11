@@ -12,7 +12,8 @@ Meteor.publish('allEkloreQuestions', () => {
 			deprecated: 1,
 			universesLinked: 1,
 			workshopsLinked: 1,
-			choices: 1
+			choices: 1,
+			level: 1
 		}
 	});
 });
