@@ -165,5 +165,34 @@ Meteor.methods({
 			}
 			Meteor.call('saveQuestionResult', { result, _id: cur._id });
 		});
+	},
+	fixYesNoChoicesForUser() {
+		let data = UserQuestions.find({displayType: 'yesNo'}, {
+			fields: {
+				_id:1,
+				'choices.choiceId':1,
+				'choices.label':1,
+				displayType:1
+			}
+		}).fetch();
+		data.map((cur, index, array) => {
+			cur.choices.map((cur1, index1, array) => {
+				if (cur1.label === 'yes') {
+					let res = 'choices.' + index1 + '.label';
+					return UserQuestions.update({_id: cur._id}, {
+						$set: {
+							[res]: 'Oui'
+						}
+					});
+				} else if (cur1.label === 'no') {
+					let res = 'choices.' + index1 + '.label';
+					return UserQuestions.update({_id: cur._id}, {
+						$set: {
+							[res]: 'Non'
+						}
+					});
+				}
+			});
+		});
 	}
 });

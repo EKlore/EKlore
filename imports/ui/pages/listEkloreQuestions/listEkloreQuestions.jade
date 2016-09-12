@@ -16,6 +16,7 @@ template(name="listEkloreQuestions")
 							tr
 								th #
 								th {{_ "title"}}
+								th {{_ "level"}}
 								th {{_ "deprecated"}}
 								th {{_ "displayType"}}
 								th {{_ "universesLinked"}}
@@ -29,6 +30,9 @@ template(name="listEkloreQuestions")
 								tr
 									td {{myIndex @index}}
 									td #{title}
+									td
+										h4
+											span.label.label-default #{level}
 									td
 										+deprecated
 									td

@@ -57,7 +57,11 @@ Meteor.publish('allQuestionsForScore', (userId) => {
 			userId: 1,
 			answered: 1,
 			deprecated: 1,
-			result: 1
+			result: 1,
+			choiceSelected: 1,
+			level: 1,
+			['choices.choiceId']: 1,
+			['choices.label']: 1
 		}
 	});
 });

@@ -362,5 +362,34 @@ Meteor.methods({
 			}, { multi: true });
 		});
 		return true;
+	},
+	fixYesNoChoices() {
+		let data = EkloreQuestions.find({displayType: 'yesNo'}, {
+			fields: {
+				_id:1,
+				'choices.choiceId':1,
+				'choices.label':1,
+				displayType:1
+			}
+		}).fetch();
+		data.map((cur, index, array) => {
+			cur.choices.map((cur1, index1, array) => {
+				if (cur1.label === 'yes') {
+					let res = 'choices.' + index1 + '.label';
+					return EkloreQuestions.update({_id: cur._id}, {
+						$set: {
+							[res]: 'Oui'
+						}
+					});
+				} else if (cur1.label === 'no') {
+					let res = 'choices.' + index1 + '.label';
+					return EkloreQuestions.update({_id: cur._id}, {
+						$set: {
+							[res]: 'Non'
+						}
+					});
+				}
+			});
+		});
 	}
 });
