@@ -2,10 +2,11 @@ template(name="answerQuestions")
 	if Template.subscriptionsReady
 		if questionData
 			with questionData
-				.jumbotron.blue2
-					h2.text-center.text-uppercase {{_ "newQuestion"}}
+				.container-fluid.blue2
+					.container
+						h2.text-center.text-uppercase.marg-bot-20 {{_ "newQuestion"}}
 				.container
-					p.lead.text-center #{title}
+					p.lead.text-center.marg-top-10 #{title}
 					if questionTypeRadio
 						.row
 							each choices

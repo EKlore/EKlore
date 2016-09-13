@@ -1,14 +1,17 @@
 template(name="myProfile")
 	if Template.subscriptionsReady
-		.jumbotron.blue2
-			h2.text-center.text-uppercase
-				strong {{_ "myProfile"}}
+		.container-fluid.blue2
+			.container
+				h2.text-center.text-uppercase
+					strong {{_ "myProfile"}}
+				p.text-center
+					a.btn.btn-eklore.marg-bot-10(role="button" target="blank" href="https://www.weezevent.com/festival-eklore-des-talents-et-de-l-emploi") {{_ "linkTicketing"}}
 		if currentUser
 			.container-fluid
 				.container
 					if userHasQuestionsGroupsInProfile
 						if notAnsweredQuestions
-							h4.text-center.text-uppercase {{_ "youStillHave"}}
+							h4.text-center.text-uppercase.marg-top-10 {{_ "youStillHave"}}
 								span.badge #{notAnsweredQuestions}
 								| {{_ "questionsToCompleteYourProfile"}}
 							p.text-center
@@ -42,10 +45,10 @@ template(name="myProfile")
 									.circle.center-block(style="width: #{valueForCircle}px; height: #{valueForCircle}px;line-height: #{valueForCircle}px; background: #{universeData.color}") #{value}%
 									p.text-center #{universeData.name}
 						.row
-							.col-xs-12.col-sm-12.col-md-6.col-lg-6
+							.col-xs-12.col-sm-6.col-md-6.col-lg-6
 								p.text-center
 									a.btn.btn-eklore.marg-20(role="button" href="{{pathFor 'myDay'}}") {{_ "seeMyDay"}}
-							.col-xs-12.col-sm-12.col-md-6.col-lg-6
+							.col-xs-12.col-sm-6.col-md-6.col-lg-6
 								p.text-center
 									a.btn.btn-eklore.marg-20(role="button" href="{{pathFor 'seeUniverses'}}") {{_ "seeUniverses"}}
 			+barometer

@@ -1,7 +1,10 @@
 template(name="partners")
-	.jumbotron.blue2
-		h3.text-center.text-uppercase
-			strong {{_ "ourPartners"}}
+	.container-fluid.blue2
+		.container
+			h3.text-center.text-uppercase
+				strong {{_ "ourPartners"}}
+			p.text-center
+				a.btn.btn-eklore.marg-bot-10(role="button" target="blank" href="https://www.weezevent.com/festival-eklore-des-talents-et-de-l-emploi") {{_ "linkTicketing"}}
 	.container
 		h2.text-center.marg-bot-50.text-uppercase Partenaires principaux
 		.row(style="display:flex; flex-wrap: wrap;")
@@ -35,134 +38,140 @@ template(name="partners")
 					img.partnerPicture(src="/pictures/defistival.png" alt="Défistival")
 					.caption
 						h4.text-center Défistival
-	.container
-		h2.text-center.marg-bot-50.text-uppercase Partenaires de la programmation
-		.row(style="display:flex; flex-wrap: wrap;")
-			.col-xs-6.col-sm-4.col-md-3.col-lg-3
+			.col-xs-6.col-sm-4.col-md-4.col-lg-4
 				.thumbnail
-					img.partnerPicture(src="/partners/ashoka.png" alt="Ashoka")
+					img.partnerPicture(src="/pictures/raison_pure.png" alt="Raison Pure")
 					.caption
-						h4.text-center Ashoka
-						p.text-center
-							em Univers Travail de Demain
-			.col-xs-6.col-sm-4.col-md-3.col-lg-3
-				.thumbnail
-					img.partnerPicture(src="/partners/audace.gif" alt="Audace")
-					.caption
-						h4.text-center Audace
-						p.text-center
-							em Univers Entrepreneuriat
-			.col-xs-6.col-sm-4.col-md-3.col-lg-3
-				.thumbnail
-					img.partnerPicture(src="/partners/capsaaa.png" alt="CapSaaa")
-					.caption
-						h4.text-center CapSaaa
-						p.text-center
-							em Univers Personnes Extra-ordinaires
-			.col-xs-6.col-sm-4.col-md-3.col-lg-3
-				.thumbnail
-					img.partnerPicture(src="/partners/startisanat.jpg" alt="Startisanat")
-					.caption
-						h4.text-center Startisanat
-						p.text-center
-							em Univers Art et Artisanat
-			.col-xs-6.col-sm-4.col-md-3.col-lg-3
-				.thumbnail
-					img.partnerPicture(src="/partners/ticket_for_change.png" alt="Ticket For Change")
-					.caption
-						h4.text-center Ticket For Change
-						p.text-center
-							em Univers Sens
-			.col-xs-6.col-sm-4.col-md-3.col-lg-3
-				.thumbnail
-					img.partnerPicture(src="/partners/taonity_project.jpg" alt="Taonity Project")
-					.caption
-						h4.text-center Taonity Project
-						p.text-center
-							em Univers Personnes Extra-ordinaires
-			.col-xs-6.col-sm-4.col-md-3.col-lg-3
-				.thumbnail
-					img.partnerPicture(src="/partners/whire.png" alt="Whire")
-					.caption
-						h4.text-center Whire
-						p.text-center
-							em Univers Salariat
-			.col-xs-6.col-sm-4.col-md-3.col-lg-3
-				.thumbnail
-					img.partnerPicture(src="/partners/workup.png" alt="WorkUp")
-					.caption
-						h4.text-center WorkUp
-						p.text-center
-							em Univers Reconversion
+						h4.text-center Raison Pure
 	.container-fluid.grey2
 		.container
-			h2.text-center.marg-bot-50.text-uppercase Partenaires médias
+			h2.text-center.marg-bot-50.text-uppercase Partenaires de la programmation
 			.row(style="display:flex; flex-wrap: wrap;")
 				.col-xs-6.col-sm-4.col-md-3.col-lg-3
 					.thumbnail
-						img.partnerPicture(src="/pictures/socialter.png" alt="Socialter")
+						img.partnerPicture(src="/partners/ashoka.png" alt="Ashoka")
 						.caption
-							h4.text-center Socialter
+							h4.text-center Ashoka
+							p.text-center
+								em Univers Travail de Demain
 				.col-xs-6.col-sm-4.col-md-3.col-lg-3
 					.thumbnail
-						img.partnerPicture(src="/pictures/psycho_pos.png" alt="Psychologie Positive")
+						img.partnerPicture(src="/partners/audace.gif" alt="Audace")
 						.caption
-							h4.text-center Psychologie Positive
+							h4.text-center Audace
+							p.text-center
+								em Univers Entrepreneuriat
 				.col-xs-6.col-sm-4.col-md-3.col-lg-3
 					.thumbnail
-						img.partnerPicture(src="/pictures/rh_info.png" alt="RH Info")
+						img.partnerPicture(src="/partners/capsaaa.png" alt="CapSaaa")
 						.caption
-							h4.text-center RH Info
+							h4.text-center CapSaaa
+							p.text-center
+								em Univers Personnes Extra-ordinaires
 				.col-xs-6.col-sm-4.col-md-3.col-lg-3
 					.thumbnail
-						img.partnerPicture(src="/pictures/le_monde_moderne.png" alt="Le Monde Moderne")
+						img.partnerPicture(src="/partners/startisanat.jpg" alt="Startisanat")
 						.caption
-							h4.text-center Le Monde Moderne
+							h4.text-center Startisanat
+							p.text-center
+								em Univers Art et Artisanat
+				.col-xs-6.col-sm-4.col-md-3.col-lg-3
+					.thumbnail
+						img.partnerPicture(src="/partners/ticket_for_change.png" alt="Ticket For Change")
+						.caption
+							h4.text-center Ticket For Change
+							p.text-center
+								em Univers Sens
+				.col-xs-6.col-sm-4.col-md-3.col-lg-3
+					.thumbnail
+						img.partnerPicture(src="/partners/taonity_project.jpg" alt="Taonity Project")
+						.caption
+							h4.text-center Taonity Project
+							p.text-center
+								em Univers Personnes Extra-ordinaires
+				.col-xs-6.col-sm-4.col-md-3.col-lg-3
+					.thumbnail
+						img.partnerPicture(src="/partners/whire.png" alt="Whire")
+						.caption
+							h4.text-center Whire
+							p.text-center
+								em Univers Salariat
+				.col-xs-6.col-sm-4.col-md-3.col-lg-3
+					.thumbnail
+						img.partnerPicture(src="/partners/workup.png" alt="WorkUp")
+						.caption
+							h4.text-center WorkUp
+							p.text-center
+								em Univers Reconversion
 	.container
-		h2.text-center.marg-bot-50.text-uppercase Partenaires amis
+		h2.text-center.marg-bot-50.text-uppercase Partenaires médias
 		.row(style="display:flex; flex-wrap: wrap;")
-			.col-xs-6.col-sm-4.col-md-4.col-lg-4
+			.col-xs-6.col-sm-4.col-md-3.col-lg-3
 				.thumbnail
-					img.partnerPicture(src="/pictures/bleu_blanc_zebre.png" alt="Bleu Blanc ZEBRE")
+					img.partnerPicture(src="/pictures/socialter.png" alt="Socialter")
 					.caption
-						h4.text-center Bleu Blanc ZEBRE
-			.col-xs-6.col-sm-4.col-md-4.col-lg-4
+						h4.text-center Socialter
+			.col-xs-6.col-sm-4.col-md-3.col-lg-3
 				.thumbnail
-					img.partnerPicture(src="/pictures/fabrique_spinoza.png" alt="Fabrique Spinoza")
+					img.partnerPicture(src="/pictures/psycho_pos.png" alt="Psychologie Positive")
 					.caption
-						h4.text-center Fabrique Spinoza
-			.col-xs-6.col-sm-4.col-md-4.col-lg-4
+						h4.text-center Psychologie Positive
+			.col-xs-6.col-sm-4.col-md-3.col-lg-3
 				.thumbnail
-					img.partnerPicture(src="/pictures/openmindkfe.png" alt="OPENMINDKFE")
+					img.partnerPicture(src="/pictures/rh_info.png" alt="RH Info")
 					.caption
-						h4.text-center OPENMIND KFE
-			.col-xs-6.col-sm-4.col-md-4.col-lg-4
+						h4.text-center RH Info
+			.col-xs-6.col-sm-4.col-md-3.col-lg-3
 				.thumbnail
-					img.partnerPicture(src="/pictures/b_b_hotels.png" alt="B & B Hotels")
+					img.partnerPicture(src="/pictures/le_monde_moderne.png" alt="Le Monde Moderne")
 					.caption
-						h4.text-center B & B Hotels
-			.col-xs-6.col-sm-4.col-md-4.col-lg-4
-				.thumbnail
-					img.partnerPicture(src="/pictures/les_gueules_cassees.png" alt="Les Gueules Cassées")
-					.caption
-						h4.text-center Les Gueules Cassées
-			.col-xs-6.col-sm-4.col-md-4.col-lg-4
-				.thumbnail
-					img.partnerPicture(src="/pictures/medef.jpg" alt="MEDEF")
-					.caption
-						h4.text-center MEDEF
-			.col-xs-6.col-sm-4.col-md-4.col-lg-4
-				.thumbnail
-					img.partnerPicture(src="/pictures/cqfd.jpg" alt="Ceux Qui font les Défis")
-					.caption
-						h4.text-center Ceux Qui Font les défis
-			.col-xs-6.col-sm-4.col-md-4.col-lg-4
-				.thumbnail
-					img.partnerPicture(src="/pictures/learn_to_change.png" alt="Learn To Change")
-					.caption
-						h4.text-center Learn To Change
-			.col-xs-6.col-sm-4.col-md-4.col-lg-4
-				.thumbnail
-					img.partnerPicture(src="/pictures/gozzer.png" alt="GOZZER")
-					.caption
-						h4.text-center GOZZER
+						h4.text-center Le Monde Moderne
+	.container-fluid.grey2
+		.container
+			h2.text-center.marg-bot-50.text-uppercase Partenaires amis
+			.row(style="display:flex; flex-wrap: wrap;")
+				.col-xs-6.col-sm-4.col-md-4.col-lg-4
+					.thumbnail
+						img.partnerPicture(src="/pictures/bleu_blanc_zebre.png" alt="Bleu Blanc ZEBRE")
+						.caption
+							h4.text-center Bleu Blanc ZEBRE
+				.col-xs-6.col-sm-4.col-md-4.col-lg-4
+					.thumbnail
+						img.partnerPicture(src="/pictures/fabrique_spinoza.png" alt="Fabrique Spinoza")
+						.caption
+							h4.text-center Fabrique Spinoza
+				.col-xs-6.col-sm-4.col-md-4.col-lg-4
+					.thumbnail
+						img.partnerPicture(src="/pictures/openmindkfe.png" alt="OPENMINDKFE")
+						.caption
+							h4.text-center OPENMIND KFE
+				.col-xs-6.col-sm-4.col-md-4.col-lg-4
+					.thumbnail
+						img.partnerPicture(src="/pictures/b_b_hotels.png" alt="B & B Hotels")
+						.caption
+							h4.text-center B & B Hotels
+				.col-xs-6.col-sm-4.col-md-4.col-lg-4
+					.thumbnail
+						img.partnerPicture(src="/pictures/les_gueules_cassees.png" alt="Les Gueules Cassées")
+						.caption
+							h4.text-center Les Gueules Cassées
+				.col-xs-6.col-sm-4.col-md-4.col-lg-4
+					.thumbnail
+						img.partnerPicture(src="/pictures/medef.jpg" alt="MEDEF")
+						.caption
+							h4.text-center MEDEF
+				.col-xs-6.col-sm-4.col-md-4.col-lg-4
+					.thumbnail
+						img.partnerPicture(src="/pictures/cqfd.jpg" alt="Ceux Qui font les Défis")
+						.caption
+							h4.text-center Ceux Qui Font les défis
+				.col-xs-6.col-sm-4.col-md-4.col-lg-4
+					.thumbnail
+						img.partnerPicture(src="/pictures/learn_to_change.png" alt="Learn To Change")
+						.caption
+							h4.text-center Learn To Change
+				.col-xs-6.col-sm-4.col-md-4.col-lg-4
+					.thumbnail
+						img.partnerPicture(src="/pictures/gozzer.png" alt="GOZZER")
+						.caption
+							h4.text-center GOZZER

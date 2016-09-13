@@ -1,8 +1,12 @@
 template(name="workshopDetails")
 	if Template.subscriptionsReady
 		with workshop
-			.jumbotron.blue2
-				h3.text-center.text-uppercase {{_ "discoverWorkshop"}}
+			.container-fluid.blue2
+				.container
+					h3.text-center.text-uppercase
+						strong {{_ "discoverWorkshop"}}
+					p.text-center
+						a.btn.btn-eklore.marg-bot-10(role="button" target="blank" href="https://www.weezevent.com/festival-eklore-des-talents-et-de-l-emploi") {{_ "linkTicketing"}}
 			.container
 				h3.text-center.text-uppercase.marg-20
 					strong #{name}

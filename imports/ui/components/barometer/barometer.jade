@@ -4,6 +4,9 @@ template(name="barometer")
 			.container
 				if surveyIsOver
 					h3.text-center.text-uppercase {{_ "yourSurveyResult"}}
+					p.text-center
+						a(href="https://intelligenceprojective.com/" target="blank")
+							img.center-block.img-small-logo.marg-bot-20(src="/pictures/projective_intelligence.jpg" alt="Intelligence Projective")
 					with algoForPhrases
 						//p.text-center #{score}
 						if phrase1
@@ -65,5 +68,7 @@ template(name="barometer")
 							p.text-center #{case31}
 				else
 					h3.text-center.text-uppercase {{_ "whenSurveyIsOverBarometer"}}
+					p.text-center
+						a.btn.btn-eklore.marg-bot-10(role="button" href="https://intelligenceprojective.com/") Découvrir l'intelligence projective
 	else
 		+spinner

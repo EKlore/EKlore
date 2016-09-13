@@ -1,8 +1,11 @@
 template(name = "seeUniverses")
 	if Template.subscriptionsReady
-		.jumbotron.blue2
-			h2.text-center.text-uppercase
-				strong {{_ "seeUniverses"}}
+		.container-fluid.blue2
+			.container
+				h2.text-center.text-uppercase
+					strong {{_ "seeUniverses"}}
+				p.text-center
+					a.btn.btn-eklore.marg-bot-10(role="button" target="blank" href="https://www.weezevent.com/festival-eklore-des-talents-et-de-l-emploi") {{_ "linkTicketing"}}
 		each universes
 			.container
 				h2.text-center.text-uppercase #{name}
