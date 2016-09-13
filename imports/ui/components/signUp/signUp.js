@@ -1,6 +1,7 @@
 import { Template } from 'meteor/templating';
 import { check } from 'meteor/check';
 import { Accounts } from 'meteor/accounts-base';
+import { Bert } from 'meteor/themeteorchef:bert';
 
 import './signUp.jade';
 
@@ -15,6 +16,10 @@ Template.signUp.events({
 		check(data.username, String);
 		check(data.email, String);
 		check(data.password, String);
-		Accounts.createUser(data);
+		Accounts.createUser(data, (error) => {
+			if (error) {
+				return Bert.alert(error.message, 'danger', 'growl-top-right');
+			}
+		});
 	}
 });
