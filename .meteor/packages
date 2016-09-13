@@ -29,7 +29,6 @@ twbs:bootstrap
 ian:accounts-ui-bootstrap-3
 dburles:collection-helpers
 momentjs:moment
-kadira:debug
 blaze-html-templates
 templating
 stevezhu:lodash
