@@ -8,7 +8,7 @@ template(name="barometer")
 						a(href="https://intelligenceprojective.com/" target="blank")
 							img.center-block.img-small-logo.marg-bot-20(src="/pictures/projective_intelligence.jpg" alt="Intelligence Projective")
 					with algoForPhrases
-						//p.text-center #{score}
+						h4.text-center.text-uppercase Enseignements sur vous
 						if phrase1
 							p.text-center Vous semblez avoir une bonne connaissance de vous-même - bravo -
 							blockquote
@@ -21,6 +21,7 @@ template(name="barometer")
 						p.text-center #{phrase3}
 						p.text-center #{phrase4}
 						p.text-center #{phrase5}
+						h4.text-center.text-uppercase.marg-top-20 Enseignements sur votre environnement
 						p.text-center #{phrase6}
 						if case10
 							p.text-center #{case10}
