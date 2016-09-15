@@ -42,5 +42,10 @@ template(name="workshopDetails")
 											h4.text-center  #{lastName}
 											if companyName
 												p.text-center #{companyName}
+		.container
+			.row
+				.col-xs-12.col-sm-12.col-md-12.col-lg-12
+					.thumbnail
+						img(src="/pictures/day_program_universes.png" alt="Programme de la journée pour chaque univers")
 	else
 		+spinner

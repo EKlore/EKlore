@@ -7,6 +7,11 @@ template(name="myDay")
 				p.text-center
 					a.btn.btn-eklore.marg-bot-10(role="button" target="blank" href="https://www.weezevent.com/festival-eklore-des-talents-et-de-l-emploi") {{_ "linkTicketing"}}
 		if currentUser
+			.container
+				.row
+					.col-xs-12.col-sm-12.col-md-12.col-lg-12
+						.thumbnail
+							img(src="/pictures/day_program.png" alt="Programme de la journée")
 			each customWorkshops
 				.container-fluid.padd-top-20(class="{{workshopColor  @index}}")
 					.container

@@ -31,7 +31,7 @@ Template.myDay.helpers({
 		});
 	},
 	workshopColor(index) {
-		if (index % 2 !== 0) {
+		if (index % 2 === 0) {
 			return 'grey2';
 		} else {
 			return false;

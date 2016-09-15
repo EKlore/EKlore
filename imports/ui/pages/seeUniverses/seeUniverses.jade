@@ -42,5 +42,10 @@ template(name = "seeUniverses")
 									| #{peopleToGoCount}
 								p.text-center
 									a.btn.btn-eklore(role="button" href="{{pathFor 'workshopDetails'}}") {{_ "moreInformations"}}
+		.container
+			.row
+				.col-xs-12.col-sm-12.col-md-12.col-lg-12
+					.thumbnail
+						img(src="/pictures/day_program_universes.png" alt="Programme de la journée pour chaque univers")
 	else
 		+spinner
