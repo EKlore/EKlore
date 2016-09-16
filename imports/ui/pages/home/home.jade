@@ -55,14 +55,10 @@ template(name="home")
 							a(href="mailto:contact@eklore.fr") contact@eklore.fr
 						p
 							a.btn.btn-eklore.marg-bot-10(role="button" target="blank" href="https://www.weezevent.com/festival-eklore-des-talents-et-de-l-emploi") {{_ "linkTicketing"}}
-						//p#cityMapperButton
-							a(href='https://citymapper.com/go/m1zr64' target="_blank")
-								img(src="https://static.citymapper.com/img/embed/GetMeThere_Citymapper.png" alt="Get directions with Citymapper")
-					.col-xs-12.col-sm-6.col-md-6.col-lg-6
-						+map
-					.col-xs-12.col-sm-12.col-md-12.col-lg-12
 						p.text-justify L'événement est gratuit et accessible à tous. Nous demandons 10 euros lors de l'enregistrement qui vous seront remboursés par virement sur simple demande sur place le 3 octobre.
 						p.text-justify Si vous êtes satisfait de votre journée, nous vous invitons à en faire don à l'association.
+					.col-xs-12.col-sm-6.col-md-6.col-lg-6
+						+map
 		.container
 			h2.text-center.marg-bot-50.text-uppercase Partenaires principaux de la FETE
 			.row(style="display:flex; flex-wrap: wrap;")
