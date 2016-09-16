@@ -18,7 +18,7 @@
 	"firstNameMandatory": "Le prénom est obligatoire.",
 	"lastNameMandatory": "Le prénom est obligatoire.",
 	"emailMandatory": "L'email est obligatoire.",
-	"linkTicketing": "Je prends mon billet pour la FETE",
+	"linkTicketing": "Je m'inscris",
 	"passwordErrorLength": "Le mot de passe doit faire 6 caractères ou plus.",
 	"confirmPasswordDifferentPassword": "Les deux mots de passe ne sont pas identiques.",
 	"whoAmI": "Qui suis-je ?",
