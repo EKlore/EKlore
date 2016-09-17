@@ -5,9 +5,9 @@ template(name="aboutFete")
 	.container
 		h1.text-center.feteTitle.marg-bot-50.text-uppercase {{_ "presentationFete"}}
 		section
-			p.text-justify Le Festival Eklore Talents & Emploi rassemble le 3 octobre à la Cité des métiers 1 000 acteurs engagés pour accompagner l'évolution du travail : des Décideurs, des Professionnels des RH, des Accompagnateurs de l'emploi et des Talents.
-			p.text-justify Le concept est simple : créer un réseau social réel, humain et positif pour décloisonner les univers professionnels, connecter les solutions à l'emploi existantes et valoriser tous les talents.
-			p.text-justify Objectif : changer de regard sur l'accès à l'emploi et le travail (et pourquoi pas recruter ou trouver un emploi !).
+			p.text-justify {{_ "fetePresentation1"}}
+			p.text-justify {{_ "fetePresentation2"}}
+			p.text-justify {{_ "fetePresentation3"}}
 	.container-fluid.grey2
 		.container
 			section.marg-top-20
@@ -38,12 +38,12 @@ template(name="aboutFete")
 							else
 								a.btn.btn-eklore.marg-bot-20.marg-top-20(role="button" href="{{pathFor 'myProfile'}}") {{_ "createYourProfile"}}
 		section
-			p.text-justify L'événement est gratuit et accessible à tous. Nous demandons 10 euros lors de l'enregistrement qui vous seront remboursés par virement sur simple demande sur place le 3 octobre.
-			p.text-justify Si vous êtes satisfait de votre journée, nous vous invitons à en faire don à l'association.
-			p.text-justify Vous pouvez aussi choisir de nous donner une somme supérieure pour soutenir plus activement le projet et ses bénéficiaires, nous, hommes et femmes désireux que chacun(e) trouve sa place dans le monde du travail.
-			p.text-justify Cet événement n'aurait pas été possible sans le soutien de nos bénévoles et le mécénat de nos partenaires.
+			p.text-justify {{_ "praticalInfos1"}}
+			p.text-justify {{_ "praticalInfos2"}}
+			p.text-justify {{_ "praticalInfos3"}}
+			p.text-justify {{_ "praticalInfos4"}}
 			blockquote
-				p Le don est le financement du monde libre de demain.
+				p {{_ "quote4"}}
 	.container
 		.row
 			.col-xs-12.col-sm-12.col-md-12.col-lg-12
@@ -51,12 +51,12 @@ template(name="aboutFete")
 					img(src="/pictures/day_program.png" alt="Programme de la journée")
 	.container-fluid.grey2
 		.container
-			h3.text-center.text-uppercase CEREMONIE D'EKLORE
-			p.text-justify A 16H30, rendez-vous au 1er étage de la cité des Sciences et de l’Industrie (Explora) pour un temps d’inspiration et de célébration. Cette cérémonie sera ponctuée par des poèmes de Vincent Avanzi, Fondateur d’une Odyssée Humaine et de la Plume du Futur. Solenn Thomas, Présidente Fondatrice d’Eklore, animera les échanges avec :
+			h3.text-center.text-uppercase {{_ "ekloreCeremonie"}}
+			p.text-justify {{_ "ekloreCeremonieText"}}
 			ul
 				li Mariette Rih, administratrice, salariée, élue FO, Renault
 				li Frère Samuel Rouvillois, prêtre et philosophe
 				li Bertrand Piccard, psychiatre, aéronaute et inventeur du solar impulse
 				li Ryadh Sallem, champion humaniste et Dirigeant d’enterprises
-			h3.text-center.text-uppercase RENDEZ-VOUS FESTIFS
-			p.text-justify Retrouvez-nous à partir de 18h au 1er étage de la cité des Sciences et de l’Industrie (Explora) pour une soirée dédiée aux Arts & aux rencontres. Autour d’un jeu créé pour l’occasion, venez vivre l’expérience d’un réseau social réel et convivial pour repartir avec un maximum de contacts et de conseils… et peut-être un vol en montgolfière !
+			h3.text-center.text-uppercase {{_ "funMeetings"}}
+			p.text-justify {{_ "funMeetingsText"}}
