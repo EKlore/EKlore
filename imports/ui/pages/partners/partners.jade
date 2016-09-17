@@ -6,43 +6,7 @@ template(name="partners")
 			p.text-center
 				a.btn.btn-eklore.marg-bot-10(role="button" target="blank" href="https://www.weezevent.com/festival-eklore-des-talents-et-de-l-emploi") {{_ "linkTicketing"}}
 	.container
-		h2.text-center.marg-bot-50.text-uppercase Partenaires principaux
-		.row(style="display:flex; flex-wrap: wrap;")
-			.col-xs-6.col-sm-4.col-md-4.col-lg-4
-				.thumbnail
-					img.partnerPicture(src="/pictures/cite_des_metiers.jpg" alt="La Cité des Métiers")
-					.caption
-						h4.text-center La Cité des Métiers
-			.col-xs-6.col-sm-4.col-md-4.col-lg-4
-				.thumbnail
-					img.partnerPicture(src="/pictures/pole_emploi.jpeg" alt="pôle emploi")
-					.caption
-						h4.text-center pôle emploi
-			.col-xs-6.col-sm-4.col-md-4.col-lg-4
-				.thumbnail
-					img.partnerPicture(src="/pictures/talentsoft.jpeg" alt="Talentsoft")
-					.caption
-						h4.text-center Talentsoft
-			.col-xs-6.col-sm-4.col-md-4.col-lg-4
-				.thumbnail
-					img.partnerPicture(src="/pictures/groupe_ferrein.jpeg" alt="Groupe Ferrein RH")
-					.caption
-						h4.text-center Groupe Ferrein RH
-			.col-xs-6.col-sm-4.col-md-4.col-lg-4
-				.thumbnail
-					img.partnerPicture(src="/pictures/mairie_de_paris_test.jpeg" alt="Mairie de Paris")
-					.caption
-						h4.text-center Mairie de Paris
-			.col-xs-6.col-sm-4.col-md-4.col-lg-4
-				.thumbnail
-					img.partnerPicture(src="/pictures/defistival.png" alt="Défistival")
-					.caption
-						h4.text-center Défistival
-			.col-xs-6.col-sm-4.col-md-4.col-lg-4
-				.thumbnail
-					img.partnerPicture(src="/pictures/raison_pure.png" alt="Raison Pure")
-					.caption
-						h4.text-center Raison Pure
+		+majorPartners
 	.container-fluid.grey2
 		.container
 			h2.text-center.marg-bot-50.text-uppercase Partenaires de la programmation
@@ -185,3 +149,13 @@ template(name="partners")
 						img.partnerPicture(src="/pictures/silver_event.png" alt="Silver Event")
 						.caption
 							h4.text-center Silver Event
+				.col-xs-6.col-sm-4.col-md-4.col-lg-4
+					.thumbnail
+						img.partnerPicture(src="/pictures/fo_renault.jpeg" alt="FO Renault")
+						.caption
+							h4.text-center FO Renault
+				.col-xs-6.col-sm-4.col-md-4.col-lg-4
+					.thumbnail
+						img.partnerPicture(src="/pictures/editions_yves_michel.jpeg" alt="Editions Yves Michel")
+						.caption
+							h4.text-center Editions Yves Michel

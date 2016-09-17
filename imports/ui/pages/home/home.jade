@@ -1,138 +1,70 @@
 template(name="home")
-	if Template.subscriptionsReady
-		.container-fluid.blue2
-			.container
-				img.center-block.img-logo(src="/pictures/logo.png" alt="{{_ 'feteAcronym'}}")
-				h3.text-center.marg-bot-20
-					strong {{_ 'feteAcronym'}}
+	.container-fluid.blue2
 		.container
-			h1.text-center.feteTitle.marg-bot-50.text-uppercase {{_ "presentationFete"}}
+			img.center-block.img-logo(src="/pictures/logo.png" alt="{{_ 'feteAcronym'}}")
+			h3.text-center.marg-bot-20
+				strong {{_ 'feteAcronym'}}
+	.container.marg-top-20
+		.row
+			.col-xs-12.col-sm-6.col-md-6.col-lg-6
+				h2.text-center.feteTitle.marg-bot-30.text-uppercase {{_ "presentationFete"}}
+				p.text-justify {{_ "fetePresentation1"}}
+				p.text-justify {{_ "fetePresentation2"}}
+				p.text-justify {{_ "fetePresentation3"}}
+				.row
+					.col-xs-6.col-sm-6.col-md-6.col-lg-6
+						p.text-center
+							a.btn.btn-eklore.marg-bot-10.marg-top-10(role="button" href="{{pathFor 'aboutFete'}}") {{_ "moreInfos"}}
+					.col-xs-6.col-sm-6.col-md-6.col-lg-6
+						p.text-center
+							a.btn.btn-eklore.marg-bot-10.marg-top-10(role="button" href="{{pathFor 'aboutEklore'}}") {{_ "aboutEklore"}}
+			.col-xs-12.col-sm-6.col-md-6.col-lg-6
+				iframe(width="100%" height="300" src="https://www.youtube.com/embed/CSMT4OL3HgA" frameborder="0" allowfullscreen)
+		p.text-center
 			.row
 				.col-xs-12.col-sm-6.col-md-6.col-lg-6
-					p.text-justify Le Festival Eklore Talents & Emploi rassemble le 3 octobre à la Cité des métiers 1 000 acteurs engagés pour accompagner l'évolution du travail : des Décideurs, des Professionnels des RH, des Accompagnateurs de l'emploi et des Talents.
-					p.text-justify Le concept est simple : créer un réseau social réel, humain et positif pour décloisonner les univers professionnels, connecter les solutions à l'emploi existantes et valoriser tous les talents.
-					p.text-justify Objectif : changer de regard sur l'accès à l'emploi et le travail (et pourquoi pas recruter ou trouver un emploi !).
-					.row
-						.col-xs-6.col-sm-6.col-md-6.col-lg-6
-							p.text-center
-								a.btn.btn-eklore.marg-bot-10.marg-top-10(role="button" href="{{pathFor 'aboutFete'}}") {{_ "moreInfos"}}
-						.col-xs-6.col-sm-6.col-md-6.col-lg-6
-							p.text-center
-								a.btn.btn-eklore.marg-bot-10.marg-top-10(role="button" href="{{pathFor 'aboutEklore'}}") {{_ "aboutEklore"}}
+					p.text-center
+						a.btn.btn-eklore.marg-bot-20.marg-top-20(role="button" href="{{pathFor 'seeUniverses'}}") {{_ "seeUniverses"}}
 				.col-xs-12.col-sm-6.col-md-6.col-lg-6
-					iframe(width="100%" height="300" src="https://www.youtube.com/embed/CSMT4OL3HgA" frameborder="0" allowfullscreen)
-			p.text-center
-				.row
-					.col-xs-12.col-sm-6.col-md-6.col-lg-6
-						p.text-center
-							a.btn.btn-eklore.marg-bot-20.marg-top-20(role="button" href="{{pathFor 'seeUniverses'}}") {{_ "seeUniverses"}}
-					.col-xs-12.col-sm-6.col-md-6.col-lg-6
-						p.text-center
-							if currentUser
-								a.btn.btn-eklore.marg-bot-20.marg-top-20(role="button" href="{{pathFor 'myProfile'}}") {{_ "completeYourProfile"}}
-							else
-								a.btn.btn-eklore.marg-bot-20.marg-top-20(role="button" href="{{pathFor 'myProfile'}}") {{_ "createYourProfile"}}
-		.container-fluid.grey2
-			h2.text-center.feteTitle.marg-bot-30.text-uppercase {{_ "localisationAndSchedule"}}
-			.container
-				.row
-					.col-xs-12.col-sm-6.col-md-6.col-lg-6
-						address
-							strong {{_ "fete"}} {{_ "eklore"}}
-							br
-							| Cité des Métiers
-							br
-							| 30 Avenue Corentin Cariou
-							br
-							| 75019 Paris
-						address
-							strong {{_ "dateFete"}}
-							br
-							| {{_ "hourFete"}}
-						address
-							strong {{_ "contact"}}
-							br
-							a(href="mailto:contact@eklore.fr") contact@eklore.fr
-						p
-							a.btn.btn-eklore.marg-bot-10(role="button" target="blank" href="https://www.weezevent.com/festival-eklore-des-talents-et-de-l-emploi") {{_ "linkTicketing"}}
-						p.text-justify L'événement est gratuit et accessible à tous. Nous demandons 10 euros lors de l'enregistrement qui vous seront remboursés par virement sur simple demande sur place le 3 octobre.
-						p.text-justify Si vous êtes satisfait de votre journée, nous vous invitons à en faire don à l'association.
-					.col-xs-12.col-sm-6.col-md-6.col-lg-6
-						+map
-		.container
-			h2.text-center.marg-bot-50.text-uppercase Partenaires principaux de la FETE
-			.row(style="display:flex; flex-wrap: wrap;")
-				.col-xs-6.col-sm-4.col-md-4.col-lg-4
-					.thumbnail
-						img.partnerPicture(src="/pictures/cite_des_metiers.jpg" alt="La Cité des Métiers")
-						.caption
-							h4.text-center La Cité des Métiers
-				.col-xs-6.col-sm-4.col-md-4.col-lg-4
-					.thumbnail
-						img.partnerPicture(src="/pictures/pole_emploi.jpeg" alt="pôle emploi")
-						.caption
-							h4.text-center pôle emploi
-				.col-xs-6.col-sm-4.col-md-4.col-lg-4
-					.thumbnail
-						img.partnerPicture(src="/pictures/talentsoft.jpeg" alt="Talentsoft")
-						.caption
-							h4.text-center Talentsoft
-				.col-xs-6.col-sm-4.col-md-4.col-lg-4
-					.thumbnail
-						img.partnerPicture(src="/pictures/groupe_ferrein.jpeg" alt="Groupe Ferrein RH")
-						.caption
-							h4.text-center Groupe Ferrein RH
-				.col-xs-6.col-sm-4.col-md-4.col-lg-4
-					.thumbnail
-						img.partnerPicture(src="/pictures/mairie_de_paris_test.jpeg" alt="Mairie de Paris")
-						.caption
-							h4.text-center Mairie de Paris
-				.col-xs-6.col-sm-4.col-md-4.col-lg-4
-					.thumbnail
-						img.partnerPicture(src="/pictures/defistival.png" alt="Défistival")
-						.caption
-							h4.text-center Défistival
-			p.text-center
-				a.btn.btn-eklore.marg-bot-20(role="button" href="{{pathFor 'partners'}}") {{_ "seeAllOurPartners"}}
-		.container-fluid.grey2
-			.container
-				h2.text-center.marg-bot-50.text-uppercase {{_ "volunteersLevel1"}}
-				.row(style="display:flex; flex-wrap: wrap;")
-					each volunteersListLevel1
-						.col-xs-6.col-sm-4.col-md-3.col-lg-3
-							.thumbnail
-								img.partnerPicture(src="#{pictureUrl}" alt="#{firstName} #{lastName}")
-								.caption
-									h4.text-center #{firstName} #{lastName}
-									p.text-center
-										em #{functionInFete}
-			p.text-center
-				a.btn.btn-eklore.marg-bot-20(role="button" href="{{pathFor 'partners'}}") {{_ "seeAllOurPartners"}}
-		.container
-			h2.text-center.marg-bot-50.text-uppercase {{_ "volunteersLevel2"}}
-			.row(style="display:flex; flex-wrap: wrap;")
-				each volunteersListLevel10
-					.col-xs-6.col-sm-4.col-md-2.col-lg-2
-						.thumbnail
-							img.partnerPicture(src="#{pictureUrl}" alt="#{firstName} #{lastName}")
-							.caption
-								h4.text-center #{firstName} #{lastName}
-								p.text-center
-									em #{functionInFete}
-		.container-fluid.grey2
-			.container
-				h2.text-center.marg-bot-50.text-uppercase {{_ "volunteersLevel3"}}
-				.row(style="display:flex; flex-wrap: wrap;")
-					each volunteersListLevel99
-						.col-xs-6.col-sm-4.col-md-2.col-lg-2
-							.thumbnail
-								img.partnerPicture(src="#{pictureUrl}" alt="#{firstName} #{lastName}")
-								.caption
-									h4.text-center #{firstName} #{lastName}
+					p.text-center
+						if currentUser
+							a.btn.btn-eklore.marg-bot-20.marg-top-20(role="button" href="{{pathFor 'myProfile'}}") {{_ "completeYourProfile"}}
+						else
+							a.btn.btn-eklore.marg-bot-20.marg-top-20(role="button" href="{{pathFor 'myProfile'}}") {{_ "createYourProfile"}}
+	.container-fluid.grey2
+		h2.text-center.feteTitle.marg-bot-30.text-uppercase {{_ "localisationAndSchedule"}}
 		.container
 			.row
-				.col-xs-12.col-sm-12.col-md-12.col-lg-12
-					.thumbnail
-						img(src="/pictures/day_program.png" alt="Programme de la journée")
-	else
-		+spinner
+				.col-xs-12.col-sm-6.col-md-6.col-lg-6
+					address
+						strong {{_ "fete"}} {{_ "eklore"}}
+						br
+						| Cité des Métiers
+						br
+						| 30 Avenue Corentin Cariou
+						br
+						| 75019 Paris
+					address
+						strong {{_ "dateFete"}}
+						br
+						| {{_ "hourFete"}}
+					address
+						strong {{_ "contact"}}
+						br
+						a(href="mailto:contact@eklore.fr") contact@eklore.fr
+					p
+						a.btn.btn-eklore.marg-bot-10(role="button" target="blank" href="https://www.weezevent.com/festival-eklore-des-talents-et-de-l-emploi") {{_ "linkTicketing"}}
+					p.text-justify {{_ "praticalInfos1"}}
+					p.text-justify {{_ "praticalInfos2"}}
+				.col-xs-12.col-sm-6.col-md-6.col-lg-6
+					+map
+	.container
+		+majorPartners
+		p.text-center
+			a.btn.btn-eklore.marg-bot-20(role="button" href="{{pathFor 'partners'}}") {{_ "seeAllOurPartners"}}
+	+volunteers
+	.container
+		.row
+			.col-xs-12.col-sm-12.col-md-12.col-lg-12
+				.thumbnail
+					img(src="/pictures/day_program.png" alt="Programme de la journée")
