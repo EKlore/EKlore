@@ -42,4 +42,4 @@ Template.header.events({
 			return $('#ekloreNavbar').removeClass('in');
 		}
 	}
-})
+});

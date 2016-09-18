@@ -19,4 +19,4 @@ Template.connectButton.events({
 		$('#ekloreNavbar').removeClass('in');
 		return Router.go('myProfile');
 	}
-})
+});
