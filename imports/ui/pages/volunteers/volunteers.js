@@ -6,7 +6,7 @@ import { Volunteers } from '../../../api/volunteers/schema.js';
 import './volunteers.jade';
 
 Template.volunteers.onCreated(function() {
-	this.autorun(() => {;
+	this.autorun(() => {
 		this.subscribe('midVolunteers');
 		this.subscribe('lowVolunteers');
 	});
