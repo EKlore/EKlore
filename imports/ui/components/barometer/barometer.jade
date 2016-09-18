@@ -3,70 +3,72 @@ template(name="barometer")
 		.container-fluid.grey2
 			.container
 				if surveyIsOver
-					h3.text-center.text-uppercase {{_ "yourSurveyResult"}}
+					h1.text-center.text-uppercase {{_ "yourSurveyResult"}}
 					p.text-center
 						a(href="https://intelligenceprojective.com/" target="blank")
 							img.center-block.img-small-logo.marg-bot-20(src="/pictures/projective_intelligence.jpg" alt="Intelligence Projective")
 					with algoForPhrases
-						h4.text-center.text-uppercase Enseignements sur vous
-						if phrase1
-							p.text-center Vous semblez avoir une bonne connaissance de vous-même - bravo -
-							blockquote
-								p Le plus grand voyageur n’est pas celui qui a fait dix fois le tour du monde, mais celui qui a fait une seule fois le tour de lui-même.
-								footer Gandhi
-						else
-							p.text-center.
-								Vous devez gagner  en termes de connaissances de vos qualités et points de progression comportementaux  - si vous  souhaitez en apprendre plus sur vos qualités et vos points de progression nous vous conseillons de passer des  questionnaires ou tests de personnalité
-						p.text-center #{phrase2}
-						p.text-center #{phrase3}
-						p.text-center #{phrase4}
-						p.text-center #{phrase5}
-						h4.text-center.text-uppercase.marg-top-20 Enseignements sur votre environnement
-						p.text-center #{phrase6}
-						if case10
-							p.text-center #{case10}
-						if case11
-							p.text-center #{case11}
-						if case12
-							p.text-center #{case12}
-						if case13
-							p.text-center #{case13}
-						if case14
-							p.text-center #{case14}
-						if case15
-							p.text-center #{case15}
-						if case16
-							p.text-center #{case16}
-						if case17
-							p.text-center #{case17}
-						if case18
-							p.text-center #{case18}
-						if case19
-							p.text-center #{case19}
-						if case20
-							p.text-center #{case20}
-						if case21
-							p.text-center #{case21}
-						if case22
-							p.text-center #{case22}
-						if case23
-							p.text-center #{case23}
-						if case24
-							p.text-center #{case24}
-						if case25
-							p.text-center #{case25}
-						if case26
-							p.text-center #{case26}
-						if case27
-							p.text-center #{case27}
-						if case28
-							p.text-center #{case28}
-						if case29
-							p.text-center #{case29}
-						if case30
-							p.text-center #{case30}
-						if case31
-							p.text-center #{case31}
+						section
+							h3.text-center.text-uppercase Enseignements sur vous
+							if phrase1
+								p.text-center Vous semblez avoir une bonne connaissance de vous-même - bravo -
+								blockquote
+									p Le plus grand voyageur n’est pas celui qui a fait dix fois le tour du monde, mais celui qui a fait une seule fois le tour de lui-même.
+									footer Gandhi
+							else
+								p.text-center.
+									Vous devez gagner  en termes de connaissances de vos qualités et points de progression comportementaux  - si vous  souhaitez en apprendre plus sur vos qualités et vos points de progression nous vous conseillons de passer des  questionnaires ou tests de personnalité
+							p.text-center #{phrase2}
+							p.text-center #{phrase3}
+							p.text-center #{phrase4}
+							p.text-center #{phrase5}
+						section
+							h3.text-center.text-uppercase.marg-top-20 Enseignements sur votre environnement
+							p.text-center #{phrase6}
+							if case10
+								p.text-center #{case10}
+							if case11
+								p.text-center #{case11}
+							if case12
+								p.text-center #{case12}
+							if case13
+								p.text-center #{case13}
+							if case14
+								p.text-center #{case14}
+							if case15
+								p.text-center #{case15}
+							if case16
+								p.text-center #{case16}
+							if case17
+								p.text-center #{case17}
+							if case18
+								p.text-center #{case18}
+							if case19
+								p.text-center #{case19}
+							if case20
+								p.text-center #{case20}
+							if case21
+								p.text-center #{case21}
+							if case22
+								p.text-center #{case22}
+							if case23
+								p.text-center #{case23}
+							if case24
+								p.text-center #{case24}
+							if case25
+								p.text-center #{case25}
+							if case26
+								p.text-center #{case26}
+							if case27
+								p.text-center #{case27}
+							if case28
+								p.text-center #{case28}
+							if case29
+								p.text-center #{case29}
+							if case30
+								p.text-center #{case30}
+							if case31
+								p.text-center #{case31}
 				else
 					h3.text-center.text-uppercase {{_ "whenSurveyIsOverBarometer"}}
 					p.text-center

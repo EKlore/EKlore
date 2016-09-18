@@ -2,8 +2,7 @@ template(name="myDay")
 	if Template.subscriptionsReady
 		.container-fluid.blue2
 			.container
-				h2.text-center.text-uppercase
-					strong {{_ "yourPersonalisedProgramForTheDay"}}
+				h1.text-center.text-uppercase {{_ "yourPersonalisedProgramForTheDay"}}
 				p.text-center
 					a.btn.btn-eklore.marg-bot-10(role="button" target="blank" href="https://www.weezevent.com/festival-eklore-des-talents-et-de-l-emploi") {{_ "linkTicketing"}}
 		if currentUser
@@ -15,8 +14,7 @@ template(name="myDay")
 			each customWorkshops
 				.container-fluid.padd-top-20(class="{{workshopColor  @index}}")
 					.container
-						h3.text-center.text-uppercase
-							strong #{workshopData.name}
+						h2.text-center.text-uppercase #{workshopData.name}
 						p.lead.text-center {{_ "yourMatchingRate"}} :
 							strong #{value} %
 						p.text-center #{workshopData.description}
@@ -43,7 +41,7 @@ template(name="myDay")
 									p.text-center
 										a.btn.btn-eklore.marg-bottom-20(role="button" href="{{pathFor 'workshopDetails'}}") {{_ "moreInformations"}}
 			else
-				h4.text-center.text-uppercase {{_ "youNeedToCompleteYourProfile"}}
+				h3.text-center.text-uppercase {{_ "youNeedToCompleteYourProfile"}}
 				p.text-center
 					a.btn.btn-eklore(role="button" href="{{pathFor 'myProfile'}}") {{_ "go"}}
 		else

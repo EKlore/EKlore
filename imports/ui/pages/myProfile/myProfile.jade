@@ -2,8 +2,7 @@ template(name="myProfile")
 	if Template.subscriptionsReady
 		.container-fluid.blue2
 			.container
-				h2.text-center.text-uppercase
-					strong {{_ "myProfile"}}
+				h1.text-center.text-uppercase {{_ "myProfile"}}
 				p.text-center
 					a.btn.btn-eklore.marg-bot-10(role="button" target="blank" href="https://www.weezevent.com/festival-eklore-des-talents-et-de-l-emploi") {{_ "linkTicketing"}}
 		if currentUser
@@ -11,19 +10,19 @@ template(name="myProfile")
 				.container
 					if userHasQuestionsGroupsInProfile
 						if notAnsweredQuestions
-							h4.text-center.text-uppercase.marg-top-10 {{_ "youStillHave"}}
+							h3.text-center.text-uppercase.marg-top-10 {{_ "youStillHave"}}
 								span.badge #{notAnsweredQuestions}
 								| {{_ "questionsToCompleteYourProfile"}}
 							p.text-center
 								a.btn.btn-eklore(role="button" href="{{pathFor 'answerQuestions'}}") {{_ "go"}}
 						else
-							h4.text-center.text-uppercase {{_ "congratsNoMoreQuestions"}}
+							h3.text-center.text-uppercase {{_ "congratsNoMoreQuestions"}}
 							p.text-center {{_ "labelToAddQuestionsGroups"}}
 					else
-						h4.text-center.text-uppercase {{_ "labelToAddQuestionsGroups"}}
+						h3.text-center.text-uppercase {{_ "labelToAddQuestionsGroups"}}
 			.container-fluid.grey2.padd-bot-20
 				.container
-					h3.text-center.text-uppercase {{_ "questionsGroupsAvailable"}}
+					h1.text-center.text-uppercase {{_ "questionsGroupsAvailable"}}
 					.row(style="display:flex; flex-wrap: wrap;")
 						each questionsGroupAvailable
 							.col-xs-12.col-sm-6.col-md-6.col-lg-6(id="#{_id}")
@@ -38,7 +37,7 @@ template(name="myProfile")
 			if alreadyAnsweredQuestions
 				.container-fluid
 					.container
-						h3.text-center.text-uppercase {{_ "yourProfileByUniverses"}}
+						h1.text-center.text-uppercase {{_ "yourProfileByUniverses"}}
 						.row(style="display:flex; flex-wrap: wrap;")
 							each universes
 								.col-xs-6.col-sm-4.col-md-3.col-lg-3.vcenter

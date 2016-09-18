@@ -2,8 +2,7 @@ template(name = "seeUniverses")
 	if Template.subscriptionsReady
 		.container-fluid.blue2
 			.container
-				h2.text-center.text-uppercase
-					strong {{_ "seeUniverses"}}
+				h1.text-center.text-uppercase {{_ "seeUniverses"}}
 				p.text-center
 					a.btn.btn-eklore.marg-bot-10(role="button" target="blank" href="https://www.weezevent.com/festival-eklore-des-talents-et-de-l-emploi") {{_ "linkTicketing"}}
 		each universes
@@ -16,8 +15,7 @@ template(name = "seeUniverses")
 							.thumbnail
 								img.universePartnersPicture(src="#{pictureUrl}" alt="#{companyName}")
 								.caption
-									h3.text-center
-										strong {{_ "universePartner"}} : #{companyName}
+									h3.text-center {{_ "universePartner"}} : #{companyName}
 									p.text-center #{description}
 									p.text-center
 										a.btn.btn-eklore(href="#{website}" target="blank" role="button") {{_ "visitPartnerWebsite"}}
@@ -27,8 +25,7 @@ template(name = "seeUniverses")
 					.row(style="display:flex; flex-wrap: wrap;")
 						each workshops
 							.marg-bot-20.col-xs-12.col-sm-6.col-md-6.col-lg-6
-								h4.text-center
-									strong #{name}
+								h4.text-center #{name}
 								p.text-center #{description}
 								p.text-center
 									strong {{_ "startDate"}} :

@@ -2,15 +2,14 @@ template(name="volunteers")
 	if Template.subscriptionsReady
 		.container-fluid.blue2
 			.container
-				h2.text-center.text-uppercase
-					strong {{_ "allOurVolunteers"}}
+				h1.text-center.text-uppercase {{_ "allOurVolunteers"}}
 				p.text-center
 					a.btn.btn-eklore.marg-bot-10(role="button" target="blank" href="https://www.weezevent.com/festival-eklore-des-talents-et-de-l-emploi") {{_ "linkTicketing"}}
 		.container-fluid
 			+majorVolunteers
 		.container-fluid.grey2
 			.container
-				h2.text-center.marg-bot-50.text-uppercase {{_ "volunteersLevel2"}}
+				h1.text-center.marg-bot-50.text-uppercase {{_ "volunteersLevel2"}}
 				.row(style="display:flex; flex-wrap: wrap;")
 					each volunteersListLevel10
 						.col-xs-6.col-sm-4.col-md-2.col-lg-2
@@ -21,7 +20,7 @@ template(name="volunteers")
 									p.text-center
 										em #{functionInFete}
 		.container
-			h2.text-center.marg-bot-50.text-uppercase {{_ "volunteersLevel3"}}
+			h1.text-center.marg-bot-50.text-uppercase {{_ "volunteersLevel3"}}
 			.row(style="display:flex; flex-wrap: wrap;")
 				each volunteersListLevel99
 					.col-xs-6.col-sm-4.col-md-2.col-lg-2
