@@ -1,10 +1,22 @@
 @import "bootstrap-datetimepicker.css"
 @import "spectrum.css"
 
+@font-face
+    font-family '__Baronessa_5'
+    src url('/fonts/320dda_0_0.eot')
+    src local('☺'), url('/fonts/320dda_0_0.woff') format('woff')
+    font-weight 400
+    font-style normal
+
+h1, h2, h3, h4, h5, h6
+	font-family '__Baronessa_5'
+
 .navbar-default
 	.navbar-brand
-		font-size 24px
-		color #FFFFFF
+		font-family '__Baronessa_5'
+		font-size 30px
+		color #FCE538
+		line-height 10px
 	.navbar-nav
 		li
 			a
@@ -41,11 +53,16 @@
 	max-height 200px
 .universePartnersPicture
 	max-height 350px
+.no-padd
+	padding-left 0px
+	padding-right 0px
 .blue1
 	background-color #6F9DD9
 .blue2
 	background-color #B7D5F6
 	color #FFFFFF
+.blue3
+	background-color #588AD1
 .grey1
 	background-color #5B5B5B
 .grey2
@@ -65,11 +82,17 @@
 	border-radius 12px
 	color #FFFFFF
 	padding 10px 20px
+	font-family '__Baronessa_5'
+	line-height 10px
+	font-size 20px
 .btn-eklore-danger
+	font-family '__Baronessa_5'
 	background-color #D9534F
 	border-radius 12px
 	color #FFFFFF
 	padding 10px 20px
+	line-height 10px
+	font-size 20px
 .marg-20
 	margin 20px
 .marg-30
@@ -78,8 +101,7 @@
 	border 0px
 	background-color inherit
 .img-logo
-	max-height 300px
-	max-width 100%
+	width 100%
 .img-small-logo
 	max-height 150px
 	max-width 100%
