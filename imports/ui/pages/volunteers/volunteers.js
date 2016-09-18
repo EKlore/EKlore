@@ -6,25 +6,13 @@ import { Volunteers } from '../../../api/volunteers/schema.js';
 import './volunteers.jade';
 
 Template.volunteers.onCreated(function() {
-	this.autorun(() => {
-		this.subscribe('topVolunteers');
+	this.autorun(() => {;
 		this.subscribe('midVolunteers');
 		this.subscribe('lowVolunteers');
 	});
 });
 
 Template.volunteers.helpers({
-	volunteersListLevel1() {
-		return Volunteers.find({
-			level: {
-				$lt: 10
-			}
-		}, {
-			sort: {
-				level: 1
-			}
-		});
-	},
 	volunteersListLevel10() {
 		return Volunteers.find({
 			level: 10
