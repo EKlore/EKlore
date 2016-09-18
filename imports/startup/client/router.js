@@ -34,6 +34,7 @@ import '../../ui/pages/listVolunteers/listVolunteers.js';
 import '../../ui/pages/editVolunteer/editVolunteer.js';
 import '../../ui/pages/newVolunteer/newVolunteer.js';
 import '../../ui/pages/partners/partners.js';
+import '../../ui/pages/volunteers/volunteers.js';
 
 Router.configure({
 	notFoundTemplate: 'notFound'
@@ -48,6 +49,12 @@ Router.route('/partners', {
 	layoutTemplate: 'layout',
 	name: 'partners'
 });
+
+Router.route('/volunteers', {
+	layoutTemplate: 'layout',
+	name: 'volunteers'
+});
+
 
 Router.route('/aboutFETE', {
 	layoutTemplate: 'layout',
