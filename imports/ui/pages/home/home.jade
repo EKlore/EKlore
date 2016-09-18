@@ -59,7 +59,11 @@ template(name="home")
 		+majorPartners
 		p.text-center
 			a.btn.btn-eklore.marg-bot-20(role="button" href="{{pathFor 'partners'}}") {{_ "seeAllOurPartners"}}
-	+volunteers
+	.container-fluid.grey2
+		.container
+			+majorVolunteers
+			p.text-center
+				a.btn.btn-eklore.marg-bot-20(role="button" href="{{pathFor 'volunteers'}}") {{_ "seeAllOurVolunteers"}}
 	.container
 		.row
 			.col-xs-12.col-sm-12.col-md-12.col-lg-12
