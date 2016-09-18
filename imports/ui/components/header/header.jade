@@ -1,5 +1,5 @@
 template(name="header")
-	nav.navbar.navbar-default.blue1
+	nav.navbar.navbar-default
 		.container
 			.navbar-header
 				button.navbar-toggle.collapsed(type="button" data-toggle="collapse" data-target="#ekloreNavbar" aria-expended="false")
@@ -8,7 +8,8 @@ template(name="header")
 					span.icon-bar
 					span.icon-bar
 				a.navbar-brand(href="{{pathFor 'home'}}")
-					strong {{_ "fete"}}
+					img(src="/pictures/logo_header.png" alt="{{_ 'fete'}}")
+					//strong {{_ "fete"}}
 			#ekloreNavbar.collapse.navbar-collapse
 				ul.nav.navbar-nav
 					li.hidden-xs(class="#{seeUniversesActive}")
@@ -17,11 +18,15 @@ template(name="header")
 						a(href="{{pathFor 'myProfile'}}") {{_ "myProfile"}}
 					li.hidden-xs(class="#{myDayActive}")
 						a(href="{{pathFor 'myDay'}}") {{_ "myDay"}}
+					li.hidden-xs(class="#{volunteersActive}")
+						a(href="{{pathFor 'volunteers'}}") {{_ "volunteers"}}
 					li.visible-xs(class="#{seeUniversesActive}")
 						a(href="{{pathFor 'seeUniverses'}}" data-toggle="collapse", data-target=".navbar-collapse") {{_ "universes"}}
 					li.visible-xs(class="#{myProfileActive}")
 						a(href="{{pathFor 'myProfile'}}" data-toggle="collapse", data-target=".navbar-collapse") {{_ "myProfile"}}
 					li.visible-xs(class="#{myDayActive}")
 						a(href="{{pathFor 'myDay'}}" data-toggle="collapse", data-target=".navbar-collapse") {{_ "myDay"}}
-				.nav.navbar-nav.navbar-right
+					li.visible-xs(class="#{volunteersActive}")
+						a(href="{{pathFor 'volunteers'}}" data-toggle="collapse", data-target=".navbar-collapse") {{_ "volunteers"}}
+				//.nav.navbar-nav.navbar-right
 					+loginButtons

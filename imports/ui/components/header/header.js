@@ -25,5 +25,12 @@ Template.header.helpers({
 		} else {
 			return false;
 		}
+	},
+	volunteersActive() {
+		if (Router.current().route._path === '/volunteers') {
+			return 'active';
+		} else {
+			return false;
+		}
 	}
 });
