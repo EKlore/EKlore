@@ -28,5 +28,7 @@ template(name="header")
 						a(href="{{pathFor 'myDay'}}" data-toggle="collapse", data-target=".navbar-collapse") {{_ "myDay"}}
 					li.visible-xs(class="#{volunteersActive}")
 						a(href="{{pathFor 'volunteers'}}" data-toggle="collapse", data-target=".navbar-collapse") {{_ "volunteers"}}
+					li
+						+connectButton
 				//.nav.navbar-nav.navbar-right
 					+loginButtons

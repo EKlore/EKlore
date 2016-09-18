@@ -3,6 +3,7 @@ import { Router } from 'meteor/iron:router';
 import 'meteor/ian:accounts-ui-bootstrap-3';
 
 import './header.jade';
+import '../connectButton/connectButton.js';
 
 Template.header.helpers({
 	myProfileActive() {
@@ -34,3 +35,11 @@ Template.header.helpers({
 		}
 	}
 });
+
+Template.header.events({
+	'click .navbar-brand': function(event) {
+		if ($('#ekloreNavbar').hasClass('in')) {
+			return $('#ekloreNavbar').removeClass('in');
+		}
+	}
+})
