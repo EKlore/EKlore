@@ -4,7 +4,13 @@ template(name="volunteers")
 			.container
 				h1.text-center.text-uppercase {{_ "allOurVolunteers"}}
 				p.text-center
-					a.btn.btn-eklore.marg-bot-10(role="button" target="blank" href="mailto:benevole@eklore.fr") {{_ "becomeAVolunteer"}}
+					if currentUser
+						if alreadyVolunteer
+							a.btn.btn-eklore-success.marg-bot-10(role="button" href="#") {{_ "alreadyVolunteer"}}
+						else
+							a.btn.btn-eklore.marg-bot-10.becomeVolunteer(role="button" href="#") {{_ "becomeAVolunteer"}}
+					else
+						a.btn.btn-eklore.marg-bot-10(role="button" href="{{pathFor 'myProfile'}}") {{_ "becomeAVolunteer"}}
 		.container-fluid
 			+majorVolunteers
 		.container-fluid.grey2

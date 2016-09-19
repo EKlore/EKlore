@@ -13,6 +13,13 @@ Template.volunteers.onCreated(function() {
 });
 
 Template.volunteers.helpers({
+	alreadyVolunteer() {
+		if (Meteor.user().profile.wantsToBeVolunteer) {
+			return true;
+		} else {
+			return false;
+		}
+	},
 	volunteersListLevel10() {
 		return Volunteers.find({
 			level: 10
@@ -28,6 +35,17 @@ Template.volunteers.helpers({
 		}, {
 			sort: {
 				lastName: 1
+			}
+		});
+	}
+});
+
+Template.volunteers.events({
+	'click .becomeVolunteer': function(event) {
+		event.preventDefault();
+		Meteor.call('becomeVolunteer', Meteor.userId(), (error, result) => {
+			if (error) {
+				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			}
 		});
 	}

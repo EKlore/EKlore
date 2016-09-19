@@ -14,5 +14,13 @@ Meteor.methods({
 				'profile.questionsGroups': data.questionsGroupId
 			}
 		});
+	},
+	becomeVolunteer(userId) {
+		check(userId, String);
+		return Meteor.users.update({ _id: userId }, {
+			$set: {
+				'profile.wantsToBeVolunteer': true
+			}
+		});
 	}
 });
