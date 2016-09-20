@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { check } from 'meteor/check';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
+import { HTTP } from 'meteor/http';
 
 Meteor.methods({
 	addQuestionsGroupIntoUser(data) {
@@ -22,5 +23,21 @@ Meteor.methods({
 				'profile.wantsToBeVolunteer': true
 			}
 		});
+	},
+	HTGetToken() {
+		const options = {
+			content: '',
+			data: {},
+			query: '',
+			params: {
+				grant_type: 'client_credentials',
+				client_id: '',
+				client_secret: ''
+			},
+			auth: 'username:password',
+			header: {},
+			timeout: 3000
+		};
+		HTTP.post('https://app.hellotalent.com/api/token')
 	}
 });
