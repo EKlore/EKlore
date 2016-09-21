@@ -203,7 +203,7 @@ Template.barometer.helpers({
 				}
 			} else if (cur.level === 76) {
 				if (labelForChoiceSelected === 'Oui') {
-					return result.case25 = 'Rappelez-vous que chaque personnes que vous rencontrez doit vos donner deux noms sur lesquels rebondir';
+					return result.case25 = 'Rappelez-vous que chaque personnes que vous rencontrez doit vous donner deux noms sur lesquels rebondir';
 				} else if (labelForChoiceSelected === 'Non') {
 					return result.case25 = 'Les opportunités sont faites de rencontres, il faut savoir provoquer le destin';
 				}
