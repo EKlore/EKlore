@@ -28,23 +28,27 @@ template(name="home")
 							a.btn.btn-eklore.marg-bot-20.marg-top-20(role="button" href="{{pathFor 'myProfile'}}") {{_ "completeYourProfile"}}
 						else
 							a.btn.btn-eklore.marg-bot-20.marg-top-20(role="button" href="{{pathFor 'myProfile'}}") {{_ "createYourProfile"}}
-	.container-fluid.grey2
+	.container-fluid.grey2(itemscope itemtype="http://schema.org/Festival")
 		h1.text-center.feteTitle.marg-bot-30.text-uppercase {{_ "localisationAndSchedule"}}
 		.container
 			.row
 				.col-xs-12.col-sm-6.col-md-6.col-lg-6
-					address
+					address(itemprop="address" itemscope itemtype="http://schema.org/PostalAddress")
 						strong {{_ "fete"}} {{_ "eklore"}}
 						br
-						| Cité des Métiers
+						span(itemprop="name") Cité des Métiers
 						br
-						| 30 Avenue Corentin Cariou
+						span(itemprop="streetAddress") 30 Avenue Corentin Cariou
 						br
-						| 75019 Paris
+						span(itemprop="postalCode") 75019
+						span(itemprop="addressLocality") Paris
 					address
 						strong {{_ "dateFete"}}
 						br
-						| {{_ "hourFete"}}
+						| De 
+						span(itemprop="startDate" content="2016-10-03T09:00") {{_ "hourFete"}}
+						| à 
+						span(itemprop="endDate" content="2016-10-03T23:00") {{_ "hourFete"}}
 					address
 						strong {{_ "contact"}}
 						br
