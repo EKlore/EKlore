@@ -7,6 +7,7 @@ import { Workshops } from '../../../api/workshops/schema.js';
 import { Partners } from '../../../api/partners/schema.js';
 
 import './seeUniverses.jade';
+import '../../components/goToWorkshop/goToWorkshop.js';
 
 Template.seeUniverses.onCreated(function() {
 	this.autorun(() => {

@@ -3,13 +3,11 @@ template(name="workshopDetails")
 		with workshop
 			.container-fluid.blue2
 				.container
-					h3.text-center.text-uppercase
-						strong {{_ "discoverWorkshop"}}
+					h1.text-center.text-uppercase {{_ "discoverWorkshop"}}
 					p.text-center
 						a.btn.btn-eklore.marg-bot-10(role="button" target="blank" href="https://www.weezevent.com/festival-eklore-des-talents-et-de-l-emploi") {{_ "linkTicketing"}}
 			.container
-				h3.text-center.text-uppercase.marg-20
-					strong #{name}
+				h2.text-center.text-uppercase.marg-20 #{name}
 				h4.text-center #{description}
 				p.text-center
 					strong {{_ "startDate"}} :
@@ -20,11 +18,7 @@ template(name="workshopDetails")
 				p.text-center
 					strong {{_ "peopleAreGoingToo"}} :
 					| #{peopleToGoCount}
-				if currentUser
-					if isUserAlreadyIn
-						button.removeFromWorkshop.btn.btn-eklore-danger.center-block(type="button") {{_ "youdontWantToGo"}}
-					else
-						button.goToWorkshop.btn.btn-eklore.center-block(type="button") {{_ "doYouWantToGo"}}
+				+goToWorkshop
 			.container-fluid.grey2.marg-top-20
 				.container
 					h3.text-center.text-uppercase {{_ "workshopSpeaker"}}
@@ -42,7 +36,7 @@ template(name="workshopDetails")
 											h4.text-center  #{lastName}
 											if companyName
 												p.text-center #{companyName}
-		.container
+		.container.hidden-xs
 			.row
 				.col-xs-12.col-sm-12.col-md-12.col-lg-12
 					.thumbnail

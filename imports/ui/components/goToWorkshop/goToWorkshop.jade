@@ -1,0 +1,9 @@
+template(name="goToWorkshop")
+	if currentUser
+		if isUserAlreadyIn
+			button.removeFromWorkshop.btn.btn-eklore-danger.center-block(type="button") {{_ "youdontWantToGo"}}
+		else
+			button.goToWorkshop.btn.btn-eklore.center-block(type="button") {{_ "doYouWantToGo"}}
+	else
+		p.text-center
+			a.btn.btn-eklore(role="button" href="{{pathFor 'myProfile'}}") {{_ "doYouWantToGo"}}
