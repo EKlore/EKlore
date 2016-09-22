@@ -167,28 +167,50 @@ Meteor.methods({
 		});
 	},
 	fixYesNoChoicesForUser() {
-		let data = UserQuestions.find({displayType: 'yesNo'}, {
+		let data = UserQuestions.find({ displayType: 'yesNo' }, {
 			fields: {
-				_id:1,
-				'choices.choiceId':1,
-				'choices.label':1,
-				displayType:1
+				_id: 1,
+				'choices.choiceId': 1,
+				'choices.label': 1,
+				displayType: 1
 			}
 		}).fetch();
 		data.map((cur, index, array) => {
 			cur.choices.map((cur1, index1, array) => {
 				if (cur1.label === 'yes') {
 					let res = 'choices.' + index1 + '.label';
-					return UserQuestions.update({_id: cur._id}, {
+					return UserQuestions.update({ _id: cur._id }, {
 						$set: {
 							[res]: 'Oui'
 						}
 					});
 				} else if (cur1.label === 'no') {
 					let res = 'choices.' + index1 + '.label';
-					return UserQuestions.update({_id: cur._id}, {
+					return UserQuestions.update({ _id: cur._id }, {
 						$set: {
 							[res]: 'Non'
+						}
+					});
+				}
+			});
+		});
+	},
+	fixDontKnowChoicesForUser() {
+		let data = UserQuestions.find({ displayType: 'qcm' }, {
+			fields: {
+				_id: 1,
+				'choices.choiceId': 1,
+				'choices.label': 1,
+				displayType: 1
+			}
+		}).fetch();
+		data.map((cur, index, array) => {
+			cur.choices.map((cur1, index1, array) => {
+				if (cur1.label === 'Ne sait pas') {
+					let res = 'choices.' + index1 + '.label';
+					return UserQuestions.update({ _id: cur._id }, {
+						$set: {
+							[res]: 'Ne sais pas'
 						}
 					});
 				}

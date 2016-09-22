@@ -364,28 +364,50 @@ Meteor.methods({
 		return true;
 	},
 	fixYesNoChoices() {
-		let data = EkloreQuestions.find({displayType: 'yesNo'}, {
+		let data = EkloreQuestions.find({ displayType: 'yesNo' }, {
 			fields: {
-				_id:1,
-				'choices.choiceId':1,
-				'choices.label':1,
-				displayType:1
+				_id: 1,
+				'choices.choiceId': 1,
+				'choices.label': 1,
+				displayType: 1
 			}
 		}).fetch();
 		data.map((cur, index, array) => {
 			cur.choices.map((cur1, index1, array) => {
 				if (cur1.label === 'yes') {
 					let res = 'choices.' + index1 + '.label';
-					return EkloreQuestions.update({_id: cur._id}, {
+					return EkloreQuestions.update({ _id: cur._id }, {
 						$set: {
 							[res]: 'Oui'
 						}
 					});
 				} else if (cur1.label === 'no') {
 					let res = 'choices.' + index1 + '.label';
-					return EkloreQuestions.update({_id: cur._id}, {
+					return EkloreQuestions.update({ _id: cur._id }, {
 						$set: {
 							[res]: 'Non'
+						}
+					});
+				}
+			});
+		});
+	},
+	fixDontKnowChoices() {
+		let data = EkloreQuestions.find({ displayType: 'qcm' }, {
+			fields: {
+				_id: 1,
+				'choices.choiceId': 1,
+				'choices.label': 1,
+				displayType: 1
+			}
+		}).fetch();
+		data.map((cur, index, array) => {
+			cur.choices.map((cur1, index1, array) => {
+				if (cur1.label === 'Ne sait pas') {
+					let res = 'choices.' + index1 + '.label';
+					return EkloreQuestions.update({ _id: cur._id }, {
+						$set: {
+							[res]: 'Ne sais pas'
 						}
 					});
 				}
