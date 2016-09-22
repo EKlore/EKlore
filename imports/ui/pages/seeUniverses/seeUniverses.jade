@@ -5,6 +5,11 @@ template(name = "seeUniverses")
 				h1.text-center.text-uppercase {{_ "seeUniverses"}}
 				p.text-center
 					a.btn.btn-eklore.marg-bot-10(role="button" target="blank" href="https://www.weezevent.com/festival-eklore-des-talents-et-de-l-emploi") {{_ "linkTicketing"}}
+		.container
+			.row
+				.col-xs-12.col-sm-12.col-md-12.col-lg-12
+					.thumbnail
+						img(src="/pictures/day_program_universes.png" alt="Programme de la journée pour chaque univers")
 		each universes
 			.container
 				.thumbnail
@@ -42,10 +47,5 @@ template(name = "seeUniverses")
 									.col-xs-12.col-sm-12.col-md-6.col-lg-6
 										p.text-center
 											a.btn.btn-eklore(role="button" href="{{pathFor 'workshopDetails'}}") {{_ "moreInformations"}}
-		.container
-			.row
-				.col-xs-12.col-sm-12.col-md-12.col-lg-12
-					.thumbnail
-						img(src="/pictures/day_program_universes.png" alt="Programme de la journée pour chaque univers")
 	else
 		+spinner
