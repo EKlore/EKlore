@@ -26,18 +26,15 @@ Meteor.methods({
 	},
 	HTGetToken() {
 		const options = {
-			content: '',
-			data: {},
-			query: '',
 			params: {
 				grant_type: 'client_credentials',
-				client_id: '',
-				client_secret: ''
+				client_id: 'Eklore',
+				client_secret: 'db94315f-9b10-4470-bbaa-aefcc62f6da0'
 			},
-			auth: 'username:password',
-			header: {},
 			timeout: 3000
 		};
-		HTTP.post('https://app.hellotalent.com/api/token')
+		return HTTP.post('https://app.hellotalent.com/api/token', options, (result) => {
+			return console.log(result);
+		});
 	}
 });
