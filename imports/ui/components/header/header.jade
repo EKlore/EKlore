@@ -20,6 +20,8 @@ template(name="header")
 						a(href="{{pathFor 'myDay'}}") {{_ "myDay"}}
 					li.hidden-xs(class="#{volunteersActive}")
 						a(href="{{pathFor 'volunteers'}}") {{_ "volunteers"}}
+					li.hidden-xs(class="#{partnersActive}")
+						a(href="{{pathFor 'partners'}}") {{_ "partnersMaj"}}
 					li.visible-xs(class="#{seeUniversesActive}")
 						a(href="{{pathFor 'seeUniverses'}}" data-toggle="collapse", data-target=".navbar-collapse") {{_ "universes"}}
 					li.visible-xs(class="#{myProfileActive}")
@@ -28,6 +30,8 @@ template(name="header")
 						a(href="{{pathFor 'myDay'}}" data-toggle="collapse", data-target=".navbar-collapse") {{_ "myDay"}}
 					li.visible-xs(class="#{volunteersActive}")
 						a(href="{{pathFor 'volunteers'}}" data-toggle="collapse", data-target=".navbar-collapse") {{_ "volunteers"}}
+					li.visible-xs(class="#{partnersActive}")
+						a(href="{{pathFor 'partners'}}" data-toggle="collapse", data-target=".navbar-collapse") {{_ "partnersMaj"}}
 					li
 						+connectButton
 				//.nav.navbar-nav.navbar-right

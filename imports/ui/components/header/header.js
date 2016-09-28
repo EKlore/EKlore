@@ -33,6 +33,13 @@ Template.header.helpers({
 		} else {
 			return false;
 		}
+	},
+	partnersActive() {
+		if (Router.current().route._path === '/partners') {
+			return 'active';
+		} else {
+			return false;
+		}
 	}
 });
 
