@@ -64,8 +64,8 @@ Template.myProfile.helpers({
 		let questions = UserQuestions.find({ userId: Meteor.userId(), answered: true, deprecated: false }, { fields: { result: 1 } }).fetch();
 		let questionsObject = {};
 		let questionsArray = [];
-		questions.map((cur, index, array) => {
-			cur.result.map((cur1, index1, array1) => {
+		questions.map((cur) => {
+			cur.result.map((cur1) => {
 				if (cur1.universeId) {
 					if (questionsObject[cur1.universeId]) {
 						questionsObject[cur1.universeId].value += cur1.result;
@@ -79,7 +79,7 @@ Template.myProfile.helpers({
 				}
 			});
 		});
-		for (prop in questionsObject) {
+		for (var prop in questionsObject) {
 			questionsArray.push({
 				_id: prop,
 				value: lodash.round(questionsObject[prop].value / questionsObject[prop].long * 100, 2),
@@ -108,14 +108,14 @@ Template.myProfile.helpers({
 });
 
 Template.myProfile.events({
-	'click .addQuestionsGroupToUser': function(event, template) {
+	'click .addQuestionsGroupToUser': function(event) {
 		$('#' + this._id).hide();
 		event.preventDefault();
 		const data = {
 			questionsGroupId: this._id,
 			userId: Meteor.userId()
 		};
-		Meteor.call('addQuestionsGroupToUser', data, (error, result) => {
+		Meteor.call('addQuestionsGroupToUser', data, (error) => {
 			if (error) {
 				$('#' + this._id).show();
 				return Bert.alert(error.message, 'danger', 'growl-top-right');

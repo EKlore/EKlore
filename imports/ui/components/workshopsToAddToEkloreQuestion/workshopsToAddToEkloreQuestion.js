@@ -21,7 +21,7 @@ Template.workshopsToAddToEkloreQuestion.events({
 		} else if (data.matchingPower > 1) {
 			return Bert.alert('The matching power of the workshop must be inferior to 1', 'danger', 'growl-top-right');
 		}
-		Meteor.call('addWorkshopToEkloreQuestion', data, (error, result) => {
+		Meteor.call('addWorkshopToEkloreQuestion', data, (error) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			}

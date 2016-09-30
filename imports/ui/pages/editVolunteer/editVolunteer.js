@@ -31,7 +31,7 @@ Template.editVolunteer.events({
 			pictureUrl: $('#volunteerPictureUrl').val(),
 			level: Number($('#volunteerLevel').val())
 		};
-		Meteor.call('updateAVolunteer', data, (error, result) => {
+		Meteor.call('updateAVolunteer', data, (error) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			} else {

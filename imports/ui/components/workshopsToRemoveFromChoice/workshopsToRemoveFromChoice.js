@@ -1,6 +1,8 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { Router } from 'meteor/iron:router';
+import { lodash } from 'meteor/stevezhu:lodash';
+import { Bert } from 'meteor/themeteorchef:bert';
 
 import { Workshops } from '../../../api/workshops/schema.js';
 
@@ -21,9 +23,9 @@ Template.workshopsToRemoveFromChoice.events({
 			workshopId: this.workshopId
 		};
 		data.choiceIndex = lodash.findIndex(Template.parentData(2).choices, ['choiceId', data.choiceId]);
-		Meteor.call('removeWorkshopFromChoice', data, (error, result) => {
+		Meteor.call('removeWorkshopFromChoice', data, (error) => {
 			if (error) {
-				return throwError(error.message);
+				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			}
 		});
 	}

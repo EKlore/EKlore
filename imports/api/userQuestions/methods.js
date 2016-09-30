@@ -82,7 +82,7 @@ Meteor.methods({
 				_id: 1
 			}
 		}).fetch();
-		users.map((cur, index, array) => {
+		users.map((cur) => {
 			let questionsForUser = UserQuestions.find({ userId: cur._id }, {
 				fields: {
 					_id: 1,
@@ -94,7 +94,7 @@ Meteor.methods({
 				}
 			}).fetch();
 			let lastQuestion = { _id: null, questionId: null, answered: null };
-			questionsForUser.map((cur1, index, array) => {
+			questionsForUser.map((cur1) => {
 				if (lastQuestion._id === null) {
 					lastQuestion._id = cur1._id;
 					lastQuestion.questionId = cur1.questionId;
@@ -137,7 +137,7 @@ Meteor.methods({
 				choiceSelected: 1
 			}
 		}).fetch();
-		data.map((cur, index, array) => {
+		data.map((cur) => {
 			const ind = lodash.findIndex(cur.choices, ['choiceId', cur.choiceSelected]);
 			const choice = cur.choices[ind];
 			let result = [];
@@ -175,8 +175,8 @@ Meteor.methods({
 				displayType: 1
 			}
 		}).fetch();
-		data.map((cur, index, array) => {
-			cur.choices.map((cur1, index1, array) => {
+		data.map((cur) => {
+			cur.choices.map((cur1, index1) => {
 				if (cur1.label === 'yes') {
 					let res = 'choices.' + index1 + '.label';
 					return UserQuestions.update({ _id: cur._id }, {
@@ -204,8 +204,8 @@ Meteor.methods({
 				displayType: 1
 			}
 		}).fetch();
-		data.map((cur, index, array) => {
-			cur.choices.map((cur1, index1, array) => {
+		data.map((cur) => {
+			cur.choices.map((cur1, index1) => {
 				if (cur1.label === 'Ne sait pas') {
 					let res = 'choices.' + index1 + '.label';
 					return UserQuestions.update({ _id: cur._id }, {

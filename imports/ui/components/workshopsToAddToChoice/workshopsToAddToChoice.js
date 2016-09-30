@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { Router } from 'meteor/iron:router';
 import { Bert } from 'meteor/themeteorchef:bert';
+import { lodash } from 'meteor/stevezhu:lodash';
 
 import './workshopsToAddToChoice.jade';
 
@@ -23,7 +24,7 @@ Template.workshopsToAddToChoice.events({
 		} else if (data.matchingPower > 1) {
 			return Bert.alert('The matching power of the workshop must be inferior to 1', 'danger', 'growl-top-right');
 		}
-		Meteor.call('addWorkshopToChoice', data, (error, result) => {
+		Meteor.call('addWorkshopToChoice', data, (error) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			}

@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { Router } from 'meteor/iron:router';
 import { Bert } from 'meteor/themeteorchef:bert';
+import { lodash } from 'meteor/stevezhu:lodash';
 
 import { Universes } from '../../../api/universes/schema.js';
 
@@ -22,9 +23,9 @@ Template.universesToRemoveFromChoice.events({
 			universeId: this.universeId
 		};
 		data.choiceIndex = lodash.findIndex(Template.parentData(2).choices, ['choiceId', data.choiceId]);
-		Meteor.call('removeUniverseFromChoice', data, (error, result) => {
+		Meteor.call('removeUniverseFromChoice', data, (error) => {
 			if (error) {
-				return throwError(error.message);
+				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			}
 		});
 	}

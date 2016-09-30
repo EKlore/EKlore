@@ -1,4 +1,5 @@
 /*eslint no-console: "off"*/
+/*eslint no-unused-vars: "off"*/
 
 import { Meteor } from 'meteor/meteor';
 import { lodash } from 'meteor/stevezhu:lodash';
@@ -28,8 +29,8 @@ Meteor.startup(() => {
 			functionInFete: 'Responsable programmation'
 		}];
 		console.log('begin volunteers adding');
-		volunteers.map((cur, index, array) => {
-			return Meteor.call('addAVolunteer', cur, (error, result) => {
+		volunteers.map((cur) => {
+			return Meteor.call('addAVolunteer', cur, (error) => {
 				if (error) {
 					return console.log(error.message);
 				} else {
@@ -58,7 +59,7 @@ Meteor.startup(() => {
 			pictureUrl: '/partners/workUp.png'
 		}];
 		console.log('begin partners adding');
-		partners.map((cur, index, array) => {
+		partners.map((cur) => {
 			return Meteor.call('addAPartner', cur, (error, result) => {
 				if (error) {
 					return console.log(error.message);
@@ -330,7 +331,7 @@ Meteor.startup(() => {
 			format: '',
 			speaker: 'Bruno Albanese & Enrico Ughetto (Lien Qualité) & Pierre Yves Fabre (Le Gourmet Pro) & Laure Morot & Olivier Rerolle (ArtLuxury Experience) & Ariane Tytgat (ANTConseil)'
 		}];
-		universes.map((cur, index, array) => {
+		universes.map((cur) => {
 			return Meteor.call('addAUniverse', cur, (error, result) => {
 				if (error) {
 					return console.log(error.message);
@@ -339,7 +340,7 @@ Meteor.startup(() => {
 				}
 			});
 		});
-		workshops.map((cur, index, array) => {
+		workshops.map((cur) => {
 			return Meteor.call('addAWorkshop', cur, (error, result) => {
 				if (error) {
 					return console.log(error.message);
@@ -351,8 +352,8 @@ Meteor.startup(() => {
 		/*
 		let uniData = Universes.find({}, { fields: { _id: 1 } });
 		let workData = Workshops.find({}, { fields: { _id: 1 } });
-		uniData.map((cur, index, array) => {
-			return workData.map((cur1, index1, array1) => {
+		uniData.map((cur) => {
+			return workData.map((cur1) => {
 				let data = {
 					workshopId: cur1._id,
 					universeId: cur._id,
@@ -382,7 +383,7 @@ Meteor.startup(() => {
 			label: 'A trouver',
 			level: 3
 		}];
-		questionsGroups.map((cur, index, array) => {
+		questionsGroups.map((cur) => {
 			return Meteor.call('addAQuestionsGroup', cur, (error, result) => {
 				if (error) {
 					return console.log(error.message);
@@ -730,7 +731,7 @@ Meteor.startup(() => {
 				level: 1
 			}
 		});
-		questionsEgoCentrees.map((cur, index, array) => {
+		questionsEgoCentrees.map((cur) => {
 			return Meteor.call('addAnEkloreQuestion', cur, (error, result) => {
 				if (error) {
 					return console.log(error.message);
@@ -746,7 +747,7 @@ Meteor.startup(() => {
 				level: 1
 			}
 		});
-		questionsCompetences.map((cur, index, array) => {
+		questionsCompetences.map((cur) => {
 			return Meteor.call('addAnEkloreQuestion', cur, (error, result) => {
 				if (error) {
 					return console.log(error.message);
@@ -762,7 +763,7 @@ Meteor.startup(() => {
 				level: 1
 			}
 		});
-		questionsMotivations.map((cur, index, array) => {
+		questionsMotivations.map((cur) => {
 			return Meteor.call('addAnEkloreQuestion', cur, (error, result) => {
 				if (error) {
 					return console.log(error.message);
@@ -776,8 +777,8 @@ Meteor.startup(() => {
 		let questData = EkloreQuestions.find({}, { fields: { _id: 1, choices: 1 } });
 		let uniData = Universes.find({}, { fields: { _id: 1 } });
 		let workData = Workshops.find({}, { fields: { _id: 1 } });
-		questData.map((cur, index, array) => {
-			workData.map((cur1, index1, array1) => {
+		questData.map((cur) => {
+			workData.map((cur1) => {
 				let data = {
 					workshopId: cur1._id,
 					ekloreQuestionId: cur._id,
@@ -788,7 +789,7 @@ Meteor.startup(() => {
 				}
 				Meteor.call('addWorkshopToEkloreQuestion', data);
 				console.log(`addWorkshopToEkloreQuestion : ${data.workshopId} ${data.ekloreQuestionId} ${data.matchingPower} Done`);
-				cur.choices.map((cur2, index2, array2) => {
+				cur.choices.map((cur2, index2) => {
 					let data = {
 						workshopId: cur1._id,
 						choiceId: cur2.choiceId,
@@ -803,7 +804,7 @@ Meteor.startup(() => {
 					console.log(`addWorkshopToChoice : ${data.workshopId} ${data.choiceId} ${data.ekloreQuestionId} ${data.matchingPower} ${data.choiceIndex} Done`);
 				});
 			});
-			uniData.map((cur1, index1, array1) => {
+			uniData.map((cur1) => {
 				let data = {
 					universeId: cur1._id,
 					ekloreQuestionId: cur._id,
@@ -814,7 +815,7 @@ Meteor.startup(() => {
 				}
 				Meteor.call('addUniverseToEkloreQuestion', data);
 				console.log(`addWorkshopToEkloreQuestion : ${data.universeId} ${data.ekloreQuestionId} ${data.matchingPower} Done`);
-				cur.choices.map((cur2, index2, array2) => {
+				cur.choices.map((cur2, index2) => {
 					let data = {
 						universeId: cur1._id,
 						choiceId: cur2.choiceId,

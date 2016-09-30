@@ -71,7 +71,7 @@ Template.editEkloreQuestion.helpers({
 			});
 		} else {
 			let qStart = { _id: { $nin: [] } };
-			this.workshopsLinked.map((cur, index, array) => {
+			this.workshopsLinked.map((cur) => {
 				return qStart._id['$nin'].push(cur.workshopId);
 			});
 			return Workshops.find(qStart, {
@@ -90,7 +90,7 @@ Template.editEkloreQuestion.helpers({
 			});
 		} else {
 			let qStart = { _id: { $nin: [] } };
-			this.universesLinked.map((cur, index, array) => {
+			this.universesLinked.map((cur) => {
 				return qStart._id['$nin'].push(cur.universeId);
 			});
 			return Universes.find(qStart, {
@@ -124,7 +124,7 @@ Template.editEkloreQuestion.events({
 		if (data.level < 2) {
 			return Bert.alert('The level must be superior to 1', 'danger', 'growl-top-right');
 		}
-		Meteor.call('updateAnEkloreQuestion', data, (error, result) => {
+		Meteor.call('updateAnEkloreQuestion', data, (error) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			} else {
@@ -138,7 +138,7 @@ Template.editEkloreQuestion.events({
 			ekloreQuestionId: Router.current().params._id,
 			questionsGroupId: this._id
 		};
-		Meteor.call('linkQuestionsGroupToAnEkloreQuestion', data, (error, result) => {
+		Meteor.call('linkQuestionsGroupToAnEkloreQuestion', data, (error) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			}
@@ -149,7 +149,7 @@ Template.editEkloreQuestion.events({
 		const data = {
 			ekloreQuestionId: Router.current().params._id
 		};
-		Meteor.call('unlikQuestionGroupFromEkloreQuestion', data, (error, result) => {
+		Meteor.call('unlikQuestionGroupFromEkloreQuestion', data, (error) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			}
@@ -160,7 +160,7 @@ Template.editEkloreQuestion.events({
 		const data = {
 			ekloreQuestionId: Router.current().params._id
 		};
-		Meteor.call('addChoiceToEkloreQuestion', data, (error, result) => {
+		Meteor.call('addChoiceToEkloreQuestion', data, (error) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			}

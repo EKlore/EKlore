@@ -12,7 +12,8 @@ template(name="volunteers")
 					else
 						a.btn.btn-eklore.marg-bot-10(role="button" href="{{pathFor 'myProfile'}}") {{_ "becomeAVolunteer"}}
 		.container-fluid
-			+majorVolunteers
+			.container
+				+majorVolunteers
 		.container-fluid.grey2
 			.container
 				h1.text-center.marg-bot-50.text-uppercase {{_ "volunteersLevel2"}}

@@ -1,5 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
+import { Bert } from 'meteor/themeteorchef:bert';
 
 import { Universes } from '../../../api/universes/schema.js';
 
@@ -18,13 +19,13 @@ Template.universesToRemove.events({
 			workshopId: Router.current().params._id,
 			universeId: this.universeId
 		};
-		Meteor.call('removeUniverseFromWorkshop', data, (error, result) => {
+		Meteor.call('removeUniverseFromWorkshop', data, (error) => {
 			if (error) {
-				return throwError(error.message);
+				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			} else {
-				Meteor.call('removeWorkshopFromUniverse', data, (error, result) => {
+				Meteor.call('removeWorkshopFromUniverse', data, (error) => {
 					if (error) {
-						return throwError(error.message);
+						return Bert.alert(error.message, 'danger', 'growl-top-right');
 					}
 				});
 			}

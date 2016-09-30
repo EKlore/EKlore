@@ -22,7 +22,7 @@ Template.goToWorkshop.events({
 			userId: Meteor.userId(),
 			workshopId: this._id
 		};
-		Meteor.call('addUserToWorkshop', data, (error, result) => {
+		Meteor.call('addUserToWorkshop', data, (error) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			}
@@ -34,7 +34,7 @@ Template.goToWorkshop.events({
 			userId: Meteor.userId(),
 			workshopId: this._id
 		};
-		Meteor.call('removeUserFromWorkshop', data, (error, result) => {
+		Meteor.call('removeUserFromWorkshop', data, (error) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			}

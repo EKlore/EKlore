@@ -49,7 +49,7 @@ Meteor.methods({
 			deprecated: false,
 			questionsGroupId: data.questionsGroupId
 		}).fetch();
-		ekloreQuestionsForUser.map((cur, index, array) => {
+		ekloreQuestionsForUser.map((cur) => {
 			cur.answered = false;
 			cur.userId = data.userId;
 			cur.questionId = cur._id;

@@ -21,7 +21,7 @@ Template.universesToAddToEkloreQuestion.events({
 		} else if (data.matchingPower > 1) {
 			return Bert.alert('The matching power of the universe must be inferior to 1', 'danger', 'growl-top-right');
 		}
-		Meteor.call('addUniverseToEkloreQuestion', data, (error, result) => {
+		Meteor.call('addUniverseToEkloreQuestion', data, (error) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			}

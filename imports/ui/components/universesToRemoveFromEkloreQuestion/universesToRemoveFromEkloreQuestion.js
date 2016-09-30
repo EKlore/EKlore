@@ -1,6 +1,7 @@
 import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { Router } from 'meteor/iron:router';
+import { Bert } from 'meteor/themeteorchef:bert';
 
 import { Universes } from '../../../api/universes/schema.js';
 
@@ -19,7 +20,7 @@ Template.universesToRemoveFromEkloreQuestion.events({
 			ekloreQuestionId: Router.current().params._id,
 			universeId: this.universeId
 		};
-		Meteor.call('removeUniverseFromEkloreQuestion', data, (error, result) => {
+		Meteor.call('removeUniverseFromEkloreQuestion', data, (error) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			}

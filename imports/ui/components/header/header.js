@@ -44,7 +44,7 @@ Template.header.helpers({
 });
 
 Template.header.events({
-	'click .navbar-brand': function(event) {
+	'click .navbar-brand': function() {
 		if ($('#ekloreNavbar').hasClass('in')) {
 			return $('#ekloreNavbar').removeClass('in');
 		}

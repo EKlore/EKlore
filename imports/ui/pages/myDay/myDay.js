@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { lodash } from 'meteor/stevezhu:lodash';
 import { Bert } from 'meteor/themeteorchef:bert';
+import { moment } from 'meteor/momentjs:moment';
 import 'meteor/sacha:spin';
 
 import { Workshops } from '../../../api/workshops/schema.js';
@@ -41,8 +42,8 @@ Template.myDay.helpers({
 		let questions = UserQuestions.find({ userId: Meteor.userId(), answered: true, deprecated: false }, { fields: { result: 1 } }).fetch();
 		let questionsObject = {};
 		let questionsArray = [];
-		questions.map((cur, index, array) => {
-			cur.result.map((cur1, index1, array1) => {
+		questions.map((cur) => {
+			cur.result.map((cur1) => {
 				if (cur1.workshopId) {
 					if (questionsObject[cur1.workshopId]) {
 						questionsObject[cur1.workshopId].value += cur1.result;
@@ -56,7 +57,7 @@ Template.myDay.helpers({
 				}
 			});
 		});
-		for (prop in questionsObject) {
+		for (var prop in questionsObject) {
 			questionsArray.push({
 				_id: prop,
 				value: lodash.round(questionsObject[prop].value / questionsObject[prop].long * 100, 2)
@@ -95,7 +96,7 @@ Template.myDay.events({
 			userId: Meteor.userId(),
 			workshopId: this._id
 		};
-		Meteor.call('addUserToWorkshop', data, (error, result) => {
+		Meteor.call('addUserToWorkshop', data, (error) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			}
@@ -107,7 +108,7 @@ Template.myDay.events({
 			userId: Meteor.userId(),
 			workshopId: this._id
 		};
-		Meteor.call('removeUserFromWorkshop', data, (error, result) => {
+		Meteor.call('removeUserFromWorkshop', data, (error) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			}

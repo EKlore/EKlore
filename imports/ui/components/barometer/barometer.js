@@ -80,7 +80,7 @@ Template.barometer.helpers({
 				['choices.label']: 1
 			}
 		}).fetch();
-		data.map((cur, index, array) => {
+		data.map((cur) => {
 			let ind = lodash.findIndex(cur.choices, ['choiceId', cur.choiceSelected]);
 			let labelForChoiceSelected = cur.choices[ind].label;
 			if (cur.level === 2 || cur.level === 3) {

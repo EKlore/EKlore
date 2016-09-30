@@ -20,7 +20,7 @@ Template.workshopsToRemoveFromEkloreQuestion.events({
 			ekloreQuestionId: Router.current().params._id,
 			workshopId: this.workshopId
 		};
-		Meteor.call('removeWorkshopFromEkloreQuestion', data, (error, result) => {
+		Meteor.call('removeWorkshopFromEkloreQuestion', data, (error) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			}

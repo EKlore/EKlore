@@ -31,7 +31,7 @@ Template.editPartner.helpers({
 			});
 		} else {
 			let qStart = { _id: { $nin: [] } };
-			this.workshopsLinked.map((cur, index, array) => {
+			this.workshopsLinked.map((cur) => {
 				return qStart._id['$nin'].push(cur.workshopId);
 			});
 			return Workshops.find(qStart, {
@@ -50,7 +50,7 @@ Template.editPartner.helpers({
 			});
 		} else {
 			let qStart = { _id: { $nin: [] } };
-			this.universesLinked.map((cur, index, array) => {
+			this.universesLinked.map((cur) => {
 				return qStart._id['$nin'].push(cur.universeId);
 			});
 			return Universes.find(qStart, {
@@ -86,7 +86,7 @@ Template.editPartner.events({
 			pictureUrl: $('#partnerPictureUrl').val(),
 			website: $('#partnerWebsite').val()
 		};
-		Meteor.call('updateAPartner', data, (error, result) => {
+		Meteor.call('updateAPartner', data, (error) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			} else {
@@ -103,7 +103,7 @@ Template.universesToRemoveFromPartner.events({
 			partnerId: Router.current().params._id,
 			universeId: this.universeId
 		};
-		Meteor.call('removeUniverseFromPartner', data, (error, result) => {
+		Meteor.call('removeUniverseFromPartner', data, (error) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			}
@@ -118,7 +118,7 @@ Template.universesToAddToPartner.events({
 			partnerId: Router.current().params._id,
 			universeId: this._id
 		};
-		Meteor.call('addUniverseToPartner', data, (error, result) => {
+		Meteor.call('addUniverseToPartner', data, (error) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			}
@@ -133,7 +133,7 @@ Template.workshopsToRemoveFromPartner.events({
 			partnerId: Router.current().params._id,
 			workshopId: this.workshopId
 		};
-		Meteor.call('removeWorkshopFromPartner', data, (error, result) => {
+		Meteor.call('removeWorkshopFromPartner', data, (error) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			}
@@ -148,7 +148,7 @@ Template.workshopsToAddToPartner.events({
 			partnerId: Router.current().params._id,
 			workshopId: this._id
 		};
-		Meteor.call('addWorkshopToPartner', data, (error, result) => {
+		Meteor.call('addWorkshopToPartner', data, (error) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			}

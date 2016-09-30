@@ -1,6 +1,5 @@
-import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
-import { Bert } from 'meteor/themeteorchef:bert';
+import { moment } from 'meteor/momentjs:moment';
 import 'meteor/sacha:spin';
 
 import { Workshops } from '../../../api/workshops/schema.js';

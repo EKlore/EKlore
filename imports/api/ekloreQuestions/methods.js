@@ -289,14 +289,14 @@ Meteor.methods({
 		let choice1 = data.choices[0];
 		let choice10 = data.choices[9];
 		if (mode === 'extreme') {
-			data.choices.map((cur, index, array) => {
+			data.choices.map((cur, index) => {
 				if (index === 0 || index === 9) {
 					newChoices.push(cur);
 				} else {
 					cur.universesLinked = [];
 					cur.workshopsLinked = [];
 					if (index < 5) {
-						choice1.universesLinked.map((cur1, index1, array1) => {
+						choice1.universesLinked.map((cur1) => {
 							let data = {
 								universeId: cur1.universeId,
 								matchingPower: lodash.round(cur1.matchingPower - lodash.round(index / 10, 1), 2)
@@ -305,7 +305,7 @@ Meteor.methods({
 								cur.universesLinked.push(data);
 							}
 						});
-						choice1.workshopsLinked.map((cur2, index2, array2) => {
+						choice1.workshopsLinked.map((cur2) => {
 							let data = {
 								workshopId: cur2.workshopId,
 								matchingPower: lodash.round(cur2.matchingPower - lodash.round(index / 10, 1), 2)
@@ -315,7 +315,7 @@ Meteor.methods({
 							}
 						});
 					} else {
-						choice10.universesLinked.map((cur3, index3, array3) => {
+						choice10.universesLinked.map((cur3) => {
 							let data = {
 								universeId: cur3.universeId,
 								matchingPower: lodash.round(cur3.matchingPower - lodash.round(0.9 - index / 10, 1), 2)
@@ -324,7 +324,7 @@ Meteor.methods({
 								cur.universesLinked.push(data);
 							}
 						});
-						choice10.workshopsLinked.map((cur4, index4, array4) => {
+						choice10.workshopsLinked.map((cur4) => {
 							let data = {
 								workshopId: cur4.workshopId,
 								matchingPower: lodash.round(cur4.matchingPower - lodash.round(0.9 - index / 10, 1), 2)
@@ -354,7 +354,7 @@ Meteor.methods({
 				questionsGroupId: 1
 			}
 		}).fetch();
-		data.map((cur, index, array) => {
+		data.map((cur) => {
 			return UserQuestions.update({ questionId: cur._id }, {
 				$set: {
 					questionGroupId: cur.questionsGroupId
@@ -372,8 +372,8 @@ Meteor.methods({
 				displayType: 1
 			}
 		}).fetch();
-		data.map((cur, index, array) => {
-			cur.choices.map((cur1, index1, array) => {
+		data.map((cur) => {
+			cur.choices.map((cur1, index1) => {
 				if (cur1.label === 'yes') {
 					let res = 'choices.' + index1 + '.label';
 					return EkloreQuestions.update({ _id: cur._id }, {
@@ -401,8 +401,8 @@ Meteor.methods({
 				displayType: 1
 			}
 		}).fetch();
-		data.map((cur, index, array) => {
-			cur.choices.map((cur1, index1, array) => {
+		data.map((cur) => {
+			cur.choices.map((cur1, index1) => {
 				if (cur1.label === 'Ne sait pas') {
 					let res = 'choices.' + index1 + '.label';
 					return EkloreQuestions.update({ _id: cur._id }, {

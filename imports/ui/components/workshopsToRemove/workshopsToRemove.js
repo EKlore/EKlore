@@ -19,11 +19,11 @@ Template.workshopsToRemove.events({
 			universeId: Router.current().params._id,
 			workshopId: this.workshopId
 		};
-		Meteor.call('removeWorkshopFromUniverse', data, (error, result) => {
+		Meteor.call('removeWorkshopFromUniverse', data, (error) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			} else {
-				Meteor.call('removeUniverseFromWorkshop', data, (error, result) => {
+				Meteor.call('removeUniverseFromWorkshop', data, (error) => {
 					if (error) {
 						return Bert.alert(error.message, 'danger', 'growl-top-right');
 					}

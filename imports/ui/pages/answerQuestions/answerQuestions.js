@@ -44,7 +44,7 @@ Template.answerQuestions.events({
 			data.choiceSelected = $('input[name="choicesForQuestion"]:checked').val();
 		} else {
 			let answer = $('#answerForRange').val();
-			this.choices.map((cur, index, array) => {
+			this.choices.map((cur) => {
 				if (cur.label === answer) {
 					return data.choiceSelected = cur.choiceId;
 				}
@@ -53,7 +53,7 @@ Template.answerQuestions.events({
 		if (!data.choiceSelected) {
 			return Bert.alert('You must choose an answer !', 'danger', 'growl-top-right');
 		}
-		Meteor.call('answerQuestion', data, (error, result) => {
+		Meteor.call('answerQuestion', data, (error) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			} else {

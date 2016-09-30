@@ -1,6 +1,8 @@
 import { Mongo } from 'meteor/mongo';
 import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 
+import { UserQuestions } from '../userQuestions/schema.js';
+
 export const Workshops = new Mongo.Collection('workshops');
 
 Workshops.deny({

@@ -1,5 +1,5 @@
-import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
+import { moment } from 'meteor/momentjs:moment';
 import 'meteor/sacha:spin';
 
 import { Universes } from '../../../api/universes/schema.js';
@@ -38,7 +38,7 @@ Template.seeUniverses.helpers({
 	},
 	workshops() {
 		let query = [];
-		this.workshopsLinked.map((cur, index, array) => {
+		this.workshopsLinked.map((cur) => {
 			if (cur.matchingPower === 1) {
 				query.push(cur.workshopId);
 			}

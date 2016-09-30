@@ -1,4 +1,5 @@
 import { Template } from 'meteor/templating';
+import { Bert } from 'meteor/themeteorchef:bert';
 import 'meteor/sacha:spin';
 
 import { Volunteers } from '../../../api/volunteers/schema.js';
@@ -43,7 +44,7 @@ Template.volunteers.helpers({
 Template.volunteers.events({
 	'click .becomeVolunteer': function(event) {
 		event.preventDefault();
-		Meteor.call('becomeVolunteer', Meteor.userId(), (error, result) => {
+		Meteor.call('becomeVolunteer', Meteor.userId(), (error) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			}

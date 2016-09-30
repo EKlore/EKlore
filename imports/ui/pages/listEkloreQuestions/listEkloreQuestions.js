@@ -63,7 +63,7 @@ Template.listEkloreQuestions.helpers({
 		let choices = this.choices;
 		let ok = 0;
 		let total = choices.length;
-		choices.map((cur, index, array) => {
+		choices.map((cur) => {
 			if (validateChoiceEkloreQuestion(cur)) {
 				return ok++;
 			}

@@ -24,7 +24,7 @@ Template.editUniverse.helpers({
 	},
 	workshopsNotLinkedToUniverse() {
 		let arr = [];
-		this.workshopsLinked.map((cur, index, array) => {
+		this.workshopsLinked.map((cur) => {
 			arr.push(cur.workshopId);
 		});
 		return Workshops.find({
@@ -59,7 +59,7 @@ Template.editUniverse.events({
 		if (!data.color) {
 			return Bert.alert('Color must be filled', 'danger', 'growl-top-right');
 		}
-		Meteor.call('updateAnUniverse', data, (error, result) => {
+		Meteor.call('updateAnUniverse', data, (error) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			} else {

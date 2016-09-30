@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { Router } from 'meteor/iron:router';
 import { Bert } from 'meteor/themeteorchef:bert';
+import { lodash } from 'meteor/stevezhu:lodash';
 
 import './universesToAddToChoice.jade';
 
@@ -23,7 +24,7 @@ Template.universesToAddToChoice.events({
 		} else if (data.matchingPower > 1) {
 			return Bert.alert('The matching power of the universe must be inferior to 1', 'danger', 'growl-top-right');
 		}
-		Meteor.call('addUniverseToChoice', data, (error, result) => {
+		Meteor.call('addUniverseToChoice', data, (error) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			}

@@ -36,7 +36,7 @@ Template.choice.helpers({
 			return false;
 		} else if (!this.universesLinked || this.universesLinked.length === 0) {
 			let qStart = { _id: { $in: [] } };
-			Template.parentData(1).universesLinked.map((cur, index, array) => {
+			Template.parentData(1).universesLinked.map((cur) => {
 				return qStart._id['$in'].push(cur.universeId);
 			});
 			return Universes.find(qStart, {
@@ -48,10 +48,10 @@ Template.choice.helpers({
 			let qStart = { $and: [] };
 			let qIn = { _id: { $in: [] } };
 			let qNin = { _id: { $nin: [] } };
-			Template.parentData(1).universesLinked.map((cur, index, array) => {
+			Template.parentData(1).universesLinked.map((cur) => {
 				return qIn._id['$in'].push(cur.universeId);
 			});
-			this.universesLinked.map((cur, index, array) => {
+			this.universesLinked.map((cur) => {
 				return qNin._id['$nin'].push(cur.universeId);
 			});
 			qStart['$and'].push(qIn, qNin);
@@ -67,7 +67,7 @@ Template.choice.helpers({
 			return false;
 		} else if (!this.workshopsLinked || this.workshopsLinked.length === 0) {
 			let qStart = { _id: { $in: [] } };
-			Template.parentData(1).workshopsLinked.map((cur, index, array) => {
+			Template.parentData(1).workshopsLinked.map((cur) => {
 				return qStart._id['$in'].push(cur.workshopId);
 			});
 			return Workshops.find(qStart, {
@@ -79,10 +79,10 @@ Template.choice.helpers({
 			let qStart = { $and: [] };
 			let qIn = { _id: { $in: [] } };
 			let qNin = { _id: { $nin: [] } };
-			Template.parentData(1).workshopsLinked.map((cur, index, array) => {
+			Template.parentData(1).workshopsLinked.map((cur) => {
 				return qIn._id['$in'].push(cur.workshopId);
 			});
-			this.workshopsLinked.map((cur, index, array) => {
+			this.workshopsLinked.map((cur) => {
 				return qNin._id['$nin'].push(cur.workshopId);
 			});
 			qStart['$and'].push(qIn, qNin);
@@ -107,7 +107,7 @@ Template.choice.events({
 		if (!data.label) {
 			return Bert.alert('Label must be filled', 'danger', 'growl-top-right');
 		}
-		Meteor.call('updateAChoice', data, (error, result) => {
+		Meteor.call('updateAChoice', data, (error) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			} else {
@@ -121,7 +121,7 @@ Template.choice.events({
 			ekloreQuestionId: Router.current().params._id,
 			choiceId: this.choiceId
 		};
-		Meteor.call('removeChoiceFromEkloreQuestion', data, (error, result) => {
+		Meteor.call('removeChoiceFromEkloreQuestion', data, (error) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			}

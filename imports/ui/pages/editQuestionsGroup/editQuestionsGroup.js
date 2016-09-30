@@ -53,7 +53,7 @@ Template.editQuestionsGroup.events({
 		if (data.level < 1) {
 			return Bert.alert('The level must be superior to 1', 'danger', 'growl-top-right');
 		}
-		Meteor.call('updateAQuestionsGroup', data, (error, result) => {
+		Meteor.call('updateAQuestionsGroup', data, (error) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			} else {

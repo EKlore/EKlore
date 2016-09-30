@@ -20,11 +20,11 @@ Template.workshopsToAdd.events({
 		} else if (data.matchingPower > 1) {
 			return Bert.alert('The matching power of the workshop must be inferior to 1', 'danger', 'growl-top-right');
 		}
-		Meteor.call('addWorkshopToUniverse', data, (error, result) => {
+		Meteor.call('addWorkshopToUniverse', data, (error) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			} else {
-				Meteor.call('addUniverseToWorkshop', data, (error, result) => {
+				Meteor.call('addUniverseToWorkshop', data, (error) => {
 					if (error) {
 						return Bert.alert(error.message, 'danger', 'growl-top-right');
 					}

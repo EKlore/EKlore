@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { Router } from 'meteor/iron:router';
 import { Bert } from 'meteor/themeteorchef:bert';
+import { moment } from 'meteor/momentjs:moment';
 import 'meteor/sacha:spin';
 
 import { Universes } from '../../../api/universes/schema.js';
@@ -41,7 +42,7 @@ Template.editWorkshop.helpers({
 	},
 	universes() {
 		let arr = [];
-		this.universesLinked.map((cur, index, array) => {
+		this.universesLinked.map((cur) => {
 			arr.push(cur.universeId);
 		});
 		return Universes.find({
@@ -83,7 +84,7 @@ Template.editWorkshop.events({
 		if (!data.color) {
 			return Bert.alert('Color must be filled', 'danger', 'growl-top-right');
 		}
-		Meteor.call('updateAWorkshop', data, (error, result) => {
+		Meteor.call('updateAWorkshop', data, (error) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			} else {
