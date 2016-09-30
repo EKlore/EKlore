@@ -4,9 +4,17 @@ template(name="signIn")
 			h2.text-center.text-uppercase {{_ "signIn"}}
 			form.userLogIn
 				.form-group
-					label(for="email") {{_ "email"}}
+					label(for="signInEmail") {{_ "email"}}
 					input#signInEmail.form-control(type="email" required)
 				.form-group
-					label(for="password") {{_ "password"}}
+					label(for="singInPassword") {{_ "password"}}
 					input#singInPassword.form-control(type="password" required)
 				button.btn.btn-success.btn-block(type="submit") {{_ "connect"}}
+	.container-fluid
+		.container
+			h2.text-center.text-uppercase {{_ "forgotPassword"}}
+			form.forgotPassword
+				.form-group
+					label(for="emailForForgotPassword") {{_ "email"}}
+					input#emailForForgotPassword.form-control(type="email" required)
+				button.btn.btn-success.btn-block(type="submit") {{_ "retrievePassWord"}}

@@ -15,5 +15,13 @@ Template.signIn.events({
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			}
 		});
+	},
+	'submit .forgotPassword': function(event) {
+		event.preventDefault();
+		return Accounts.forgotPassword($(event.target).find('#emailForForgotPassword').val(), (error) => {
+			if (error) {
+				return Bert.alert(error.message, 'danger', 'growl-top-right');
+			}
+		});
 	}
 });
