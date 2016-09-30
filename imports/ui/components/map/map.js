@@ -1,5 +1,7 @@
+/*eslint no-undef: "off"*/
+
 import { Template } from 'meteor/templating';
-import { L } from 'meteor/bevanhunt:leaflet';
+import 'meteor/bevanhunt:leaflet';
 
 import './map.jade';
 
