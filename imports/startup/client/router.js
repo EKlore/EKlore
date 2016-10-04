@@ -35,6 +35,7 @@ import '../../ui/pages/editVolunteer/editVolunteer.js';
 import '../../ui/pages/newVolunteer/newVolunteer.js';
 import '../../ui/pages/partners/partners.js';
 import '../../ui/pages/volunteers/volunteers.js';
+import '../../ui/pages/listUsers/listUsers.js';
 
 Router.configure({
 	notFoundTemplate: 'notFound'
@@ -99,6 +100,11 @@ Router.route('/workshop/:_id', {
 Router.route('/admin', {
 	layoutTemplate: 'adminLayout',
 	name: 'admin'
+});
+
+Router.route('/admin/users', {
+	layoutTemplate: 'adminLayout',
+	name: 'listUsers'
 });
 
 Router.route('/admin/universes', {

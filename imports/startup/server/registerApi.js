@@ -16,6 +16,7 @@ import '/imports/api/userQuestions/server/publications.js';
 import '/imports/api/volunteers/server/publications.js';
 import '/imports/api/workshops/server/publications.js';
 import '/imports/api/partners/server/publications.js';
+import '/imports/api/users/server/publications.js';
 
 // Methods
 import '/imports/api/ekloreQuestions/methods.js';

@@ -1,0 +1,34 @@
+template(name="listUsers")
+	if Template.subscriptionsReady
+		.panel.panel-default
+			.panel-heading
+				p.panel-title {{_ "allUsers"}}
+			.panel-body
+				p {{_ "thereAre"}}
+					span.badge #{usersCount}
+					| {{_ "users"}}.
+				if usersCount
+					table.table
+						thead
+							tr
+								th #
+								th {{_ "username"}}
+								th {{_ "emailAddress"}}
+								th {{_ "nbQuestionsGroupsAdded"}}
+								th {{_"nbUserQuestionsAnswered"}} / {{_ "nbUserQuestionsCount"}}
+								//th {{_ "actions"}}
+						tbody
+							each user
+								tr
+									td {{myIndex @index}}
+									td #{username}
+									td #{emailAddress}
+									td #{questionsGroupsCount}
+									td
+										a.btn(class="#{questionsGroupsCountClass}" role="button" href="#")
+											strong #{questionsAnsweredCount} / #{questionsCount}
+									//td
+										a.btn.btn-info(role="button" href="{{pathFor 'seeUserDetails'}}")
+											span.glyphicon.glyphicon-edit(aria-hidden="true")
+	else
+		+spinner

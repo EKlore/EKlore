@@ -4,12 +4,13 @@ template(name="listUniverses")
 			.panel-heading
 				p.panel-title {{_ "universeList"}}
 			.panel-body
-				.col-xs-12.col-sm-6.col-md-6.col-lg-6
-					p {{_ "thereAre"}}
-						span.badge #{universesCount}
-						| {{_ "universes"}}.
-				.col-xs-12.col-sm-6.col-md-6.col-lg-6
-					a.pull-right.btn.btn-primary(role="button" href="{{pathFor 'newUniverse'}}") {{_ "addNewUniverse"}}
+				.row
+					.col-xs-12.col-sm-6.col-md-6.col-lg-6
+						p {{_ "thereAre"}}
+							span.badge #{universesCount}
+							| {{_ "universes"}}.
+					.col-xs-12.col-sm-6.col-md-6.col-lg-6
+						a.pull-right.btn.btn-primary(role="button" href="{{pathFor 'newUniverse'}}") {{_ "addNewUniverse"}}
 				if universesCount
 					table.table
 						thead

@@ -1,14 +1,22 @@
 template(name="admin")
 	if currentUser
 		if isAdmin
-			p
-				a.btn.btn-default(role="button" href="{{pathFor 'listUniverses'}}") {{_ "listUniverses"}}
-				a.btn.btn-primary(role="button" href="{{pathFor 'listWorkshops'}}") {{_ "listWorkshops"}}
-				a.btn.btn-info(role="button" href="{{pathFor 'listQuestionsGroups'}}") {{_ "listQuestionsGroups"}}
-				a.btn.btn-danger(role="button" href="{{pathFor 'listEkloreQuestions'}}") {{_ "listEkloreQuestions"}}
-				a.btn.btn-success(role="button" href="{{pathFor 'listPartners'}}") {{_ "listPartners"}}
-				a.btn.btn-warning(role="button" href="{{pathFor 'listVolunteers'}}") {{_ "listVolunteers"}}
+			.row
+				.col-xs-12.col-sm-4.col-md-3.col-lg-2
+					a.btn-block.btn.btn-default(role="button" href="{{pathFor 'listUniverses'}}") {{_ "listUniverses"}}
+				.col-xs-12.col-sm-4.col-md-3.col-lg-2
+					a.btn-block.btn.btn-primary(role="button" href="{{pathFor 'listWorkshops'}}") {{_ "listWorkshops"}}
+				.col-xs-12.col-sm-4.col-md-3.col-lg-2
+					a.btn-block.btn.btn-info(role="button" href="{{pathFor 'listQuestionsGroups'}}") {{_ "listQuestionsGroups"}}
+				.col-xs-12.col-sm-4.col-md-3.col-lg-2
+					a.btn-block.btn.btn-danger(role="button" href="{{pathFor 'listEkloreQuestions'}}") {{_ "listEkloreQuestions"}}
+				.col-xs-12.col-sm-4.col-md-3.col-lg-2
+					a.btn-block.btn.btn-success(role="button" href="{{pathFor 'listPartners'}}") {{_ "listPartners"}}
+				.col-xs-12.col-sm-4.col-md-3.col-lg-2
+					a.btn-block.btn.btn-warning(role="button" href="{{pathFor 'listVolunteers'}}") {{_ "listVolunteers"}}
+				.col-xs-12.col-sm-4.col-md-3.col-lg-2
+					a.btn-block.btn.btn-default(role="button" href="{{pathFor 'listUsers'}}") {{_ "listUsers"}}
 		else
 			h1 {{_ "circulateThereIsNothingToSee"}}
 	else
-		h1 {{_ "circulateThereIsNothingToSee"}}
+		+connect

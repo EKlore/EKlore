@@ -20,5 +20,8 @@ Meteor.users.helpers({
 	},
 	questionsNotAnsweredCount() {
 		return UserQuestions.find({ userId: this._id, answered: false }).count();
+	},
+	questionsAnsweredCount() {
+		return UserQuestions.find({ userId: this._id, answered: true }).count();
 	}
 });

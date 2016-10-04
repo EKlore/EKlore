@@ -2,6 +2,16 @@ import { Meteor } from 'meteor/meteor';
 
 import { UserQuestions } from '../schema.js';
 
+Meteor.publish('allUsersQuestions', () => {
+	return UserQuestions.find({}, {
+		fields: {
+			userId: 1,
+			answered: 1,
+			_id: 1
+		}
+	});
+});
+
 Meteor.publish('tenQuestionAtATime', (userId) => {
 	return UserQuestions.find({
 		userId: userId,
