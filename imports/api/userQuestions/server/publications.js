@@ -7,7 +7,11 @@ Meteor.publish('allUsersQuestions', () => {
 		fields: {
 			userId: 1,
 			answered: 1,
-			_id: 1
+			_id: 1,
+			'profile.score': 1
+		},
+		sort: {
+			'profile.score': -1
 		}
 	});
 });

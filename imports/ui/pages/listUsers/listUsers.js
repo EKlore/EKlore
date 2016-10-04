@@ -17,7 +17,11 @@ Template.listUsers.helpers({
 		return Meteor.users.find({}).count();
 	},
 	user() {
-		return Meteor.users.find({});
+		return Meteor.users.find({}, {
+			sort: {
+				'profile.score': -1
+			}
+		});
 	},
 	myIndex(index) {
 		return index + 1;

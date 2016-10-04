@@ -12,10 +12,11 @@ template(name="listUsers")
 						thead
 							tr
 								th #
-								th {{_ "username"}}
-								th {{_ "emailAddress"}}
+								th {{_ "pseudo"}}
+								th {{_ "email"}}
 								th {{_ "nbQuestionsGroupsAdded"}}
 								th {{_"nbUserQuestionsAnswered"}} / {{_ "nbUserQuestionsCount"}}
+								th {{_ "score"}}
 								//th {{_ "actions"}}
 						tbody
 							each user
@@ -23,10 +24,15 @@ template(name="listUsers")
 									td {{myIndex @index}}
 									td #{username}
 									td #{emailAddress}
-									td #{questionsGroupsCount}
+									td
+										a.btn(class="#{questionsGroupsCountClass}" rolle="button" href="#")
+											strong #{questionsGroupsCount}
 									td
 										a.btn(class="#{questionsGroupsCountClass}" role="button" href="#")
 											strong #{questionsAnsweredCount} / #{questionsCount}
+									td
+										a.btn.btn-primary( role="button" href="#")
+											strong #{profile.score}
 									//td
 										a.btn.btn-info(role="button" href="{{pathFor 'seeUserDetails'}}")
 											span.glyphicon.glyphicon-edit(aria-hidden="true")
