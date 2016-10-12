@@ -11,7 +11,9 @@ Accounts.onCreateUser((options, user) => {
 			firstName: '',
 			lastName: '',
 			admin: false,
-			questionsGroups: []
+			questionsGroups: [],
+			nbAnswered: 0,
+			nbQuestions: 0
 		};
 	}
 	return user;

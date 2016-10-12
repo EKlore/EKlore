@@ -1,14 +1,11 @@
 import { Template } from 'meteor/templating';
 import 'meteor/sacha:spin';
 
-import { UserQuestions } from '../../../api/userQuestions/schema.js';
-
 import './listUsers.jade';
 
 Template.listUsers.onCreated(function() {
 	this.autorun(() => {
 		this.subscribe('allUsers');
-		this.subscribe('allUsersQuestions');
 	});
 });
 
@@ -18,6 +15,11 @@ Template.listUsers.helpers({
 	},
 	user() {
 		return Meteor.users.find({}, {
+			fields: {
+				_id: 1,
+				emails: 1,
+				profile: 1
+			},
 			sort: {
 				'profile.score': -1
 			}
@@ -33,10 +35,10 @@ Template.listUsers.helpers({
 		return this.profile.questionsGroups.length;
 	},
 	questionsAnsweredCount() {
-		return UserQuestions.find({ userId: this._id, answered: true }, { fields: { _id: 1 } }).count();
+		return this.profile.nbAnswered;
 	},
 	questionsCount() {
-		return UserQuestions.find({ userId: this._id }, { fields: { _id: 1 } }).count();
+		return this.profile.nbQuestions;
 	},
 	questionsGroupsCountClass() {
 		if (this.profile.questionsGroups.length === 0) {

@@ -12,7 +12,6 @@ template(name="listUsers")
 						thead
 							tr
 								th #
-								th {{_ "pseudo"}}
 								th {{_ "email"}}
 								th {{_ "nbQuestionsGroupsAdded"}}
 								th {{_"nbUserQuestionsAnswered"}} / {{_ "nbUserQuestionsCount"}}
@@ -22,7 +21,6 @@ template(name="listUsers")
 							each user
 								tr
 									td {{myIndex @index}}
-									td #{username}
 									td #{emailAddress}
 									td
 										a.btn(class="#{questionsGroupsCountClass}" rolle="button" href="#")

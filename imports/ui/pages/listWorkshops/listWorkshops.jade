@@ -19,6 +19,7 @@ template(name="listWorkshops")
 								th {{_ "universesLinked"}}
 								th {{_ "startDate"}}
 								th {{_ "endDate"}}
+								th {{_ "peopleAreGoingToo"}}
 								th {{_"actionEdit"}}
 						tbody
 							each workshop
@@ -39,6 +40,9 @@ template(name="listWorkshops")
 									td
 										h4
 											span.label.label-default #{dateEnd}
+									td
+										a.btn.btn-primary(role="button" href="#")
+											strong #{peopleToGoCount}
 									td
 										a.btn.btn-info(role="button" href="{{pathFor 'editWorkshop'}}")
 											span.glyphicon.glyphicon-edit(aria-hidden="true")

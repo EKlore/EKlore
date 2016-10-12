@@ -1,21 +1,21 @@
 template(name="admin")
 	if currentUser
 		if isAdmin
-			.row
-				.col-xs-12.col-sm-4.col-md-3.col-lg-2
-					a.btn-block.btn.btn-default(role="button" href="{{pathFor 'listUniverses'}}") {{_ "listUniverses"}}
-				.col-xs-12.col-sm-4.col-md-3.col-lg-2
-					a.btn-block.btn.btn-primary(role="button" href="{{pathFor 'listWorkshops'}}") {{_ "listWorkshops"}}
-				.col-xs-12.col-sm-4.col-md-3.col-lg-2
-					a.btn-block.btn.btn-info(role="button" href="{{pathFor 'listQuestionsGroups'}}") {{_ "listQuestionsGroups"}}
-				.col-xs-12.col-sm-4.col-md-3.col-lg-2
-					a.btn-block.btn.btn-danger(role="button" href="{{pathFor 'listEkloreQuestions'}}") {{_ "listEkloreQuestions"}}
-				.col-xs-12.col-sm-4.col-md-3.col-lg-2
-					a.btn-block.btn.btn-success(role="button" href="{{pathFor 'listPartners'}}") {{_ "listPartners"}}
-				.col-xs-12.col-sm-4.col-md-3.col-lg-2
-					a.btn-block.btn.btn-warning(role="button" href="{{pathFor 'listVolunteers'}}") {{_ "listVolunteers"}}
-				.col-xs-12.col-sm-4.col-md-3.col-lg-2
-					a.btn-block.btn.btn-default(role="button" href="{{pathFor 'listUsers'}}") {{_ "listUsers"}}
+			ul.nav.nav-pills.nav-stacked
+				li(role="presentation")
+					a(href="{{pathFor 'listUniverses'}}") {{_ "listUniverses"}}
+				li(role="presentation")
+					a(href="{{pathFor 'listWorkshops'}}") {{_ "listWorkshops"}}
+				li(role="presentation")
+					a(href="{{pathFor 'listQuestionsGroups'}}") {{_ "listQuestionsGroups"}}
+				li(role="presentation")
+					a(href="{{pathFor 'listEkloreQuestions'}}") {{_ "listEkloreQuestions"}}
+				li(role="presentation")
+					a(href="{{pathFor 'listPartners'}}") {{_ "listPartners"}}
+				li(role="presentation")
+					a(href="{{pathFor 'listVolunteers'}}") {{_ "listVolunteers"}}
+				li(role="presentation")
+					a(href="{{pathFor 'listUsers'}}") {{_ "listUsers"}}
 		else
 			h1 {{_ "circulateThereIsNothingToSee"}}
 	else

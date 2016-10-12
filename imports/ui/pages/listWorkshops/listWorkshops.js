@@ -25,7 +25,8 @@ Template.listWorkshops.helpers({
 				name: 1,
 				dateStart: 1,
 				dateEnd: 1,
-				universesLinked: 1
+				universesLinked: 1,
+				peopleToGo: 1
 			}
 		});
 	},
