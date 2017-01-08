@@ -1,6 +1,6 @@
 import { sitemaps } from 'meteor/gadicohen:sitemaps';
 
-sitemaps.add('/sitemap.xml', function() {
+sitemaps.add('/sitemap.xml', () => {
 	// required: page
 	// optional: lastmod, changefreq, priority, xhtmlLinks, images, videos
 	return [{
