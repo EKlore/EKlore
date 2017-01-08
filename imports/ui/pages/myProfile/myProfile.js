@@ -115,7 +115,7 @@ Template.myProfile.events({
 			questionsGroupId: this._id,
 			userId: Meteor.userId()
 		};
-		Meteor.call('addQuestionsGroupToUser', data, (error) => {
+		Meteor.call('addQuestionsGroupQuestionsToUser', data, (error) => {
 			if (error) {
 				$('#' + this._id).show();
 				return Bert.alert(error.message, 'danger', 'growl-top-right');

@@ -39,26 +39,38 @@ Meteor.methods({
 			}
 		});
 	},
-	addQuestionsGroupToUser(data) {
+	/*
+	This method will add for a user all the questions linked to q
+	*/
+	addQuestionsGroupQuestionsToUser(data) {
+		// Check method params
 		let methodSchema = new SimpleSchema({
 			questionsGroupId: { type: String },
 			userId: { type: String }
 		});
 		check(data, methodSchema);
-		const ekloreQuestionsForUser = EkloreQuestions.find({
-			deprecated: false,
+
+		// If OK the code continue
+		const ekloreQuestionsForQuestionsGroup = EkloreQuestions.find({
 			questionsGroupId: data.questionsGroupId
+			deprecated: false,
 		}).fetch();
-		ekloreQuestionsForUser.map((cur) => {
+
+		// Modify the EkloreQuestion to fit a user's question
+		ekloreQestionsForQuestionsGroup.map((cur) => {
 			cur.answered = false;
 			cur.userId = data.userId;
 			cur.questionId = cur._id;
 			cur.questionGroupId = data.questionsGroupId;
+			// Delete now useless properties
 			delete cur._id;
 			delete cur.createdAt;
 			delete cur.questionsGroupId;
+			// Insert this question into the user's profile
 			return Meteor.call('insertQuestion', cur);
 		});
-		Meteor.call('addQuestionsGroupIntoUser', data);
+
+		// To finish add the questionsGroup's id into the user's profile
+		return Meteor.call('addQuestionsGroupIntoUser', data);
 	}
 });
