@@ -16,12 +16,23 @@ Meteor.users.deny({
 
 Meteor.users.helpers({
 	questionsCount() {
-		return UserQuestions.find({ userId: this._id }).count();
+		// this = user's MongoDB document
+		return UserQuestions.find({
+			userId: this._id
+		}).count();
 	},
 	questionsNotAnsweredCount() {
-		return UserQuestions.find({ userId: this._id, answered: false }).count();
+		// this = user's MongoDB document
+		return UserQuestions.find({
+			userId: this._id,
+			answered: false
+		}).count();
 	},
 	questionsAnsweredCount() {
-		return UserQuestions.find({ userId: this._id, answered: true }).count();
+		// this = user's MongoDB document
+		return UserQuestions.find({
+			userId: this._id,
+			answered: true
+		}).count();
 	}
 });
