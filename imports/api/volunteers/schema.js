@@ -15,7 +15,7 @@ Volunteers.deny({
 	}
 });
 
-Volunteers.schema = new SimpleSchema({
+export const volunteersSchema = new SimpleSchema({
 	firstName: {
 		type: String,
 		label: 'Volunteer firstname'
@@ -34,9 +34,11 @@ Volunteers.schema = new SimpleSchema({
 		label: 'Volunteer function in FETE',
 		optional: true
 	},
-	level: {
+	level: { // Need to refactor the level because it doesn't make much sense now
 		type: Number,
 		label: 'Volunteer level',
 		min: 1
 	}
 });
+
+Volunteers.schema = volunteersSchema;
