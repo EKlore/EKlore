@@ -6,6 +6,7 @@ import { Volunteers } from './schema.js';
 
 Meteor.methods({
 	addAVolunteer(data) {
+		// Check method params
 		let methodSchema = new SimpleSchema({
 			firstName: { type: String, optional: true },
 			lastName: { type: String, optional: true },
@@ -13,6 +14,7 @@ Meteor.methods({
 			functionInFete: { type: String, optional: true }
 		});
 		check(data, methodSchema);
+		// If OK the code continue
 		if (!data.pictureUrl) {
 			data.pictureUrl = '/no_picture.gif';
 		}
@@ -20,6 +22,7 @@ Meteor.methods({
 		return Volunteers.insert(data);
 	},
 	updateAVolunteer(data) {
+		// Check method params
 		let methodSchema = new SimpleSchema({
 			volunteerId: { type: String },
 			firstName: { type: String, optional: true },
@@ -29,6 +32,7 @@ Meteor.methods({
 			level: { type: Number, min: 1 }
 		});
 		check(data, methodSchema);
+		// If OK the code continue
 		return Volunteers.update({ _id: data.volunteerId }, {
 			$set: {
 				firstName: data.firstName,
