@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 
 import { Workshops } from '../schema.js';
 
-Meteor.publish('allWorkshops', () => {
+Meteor.publish('Workshops.allWorkshops', () => {
 	return Workshops.find({}, {
 		fields: {
 			name: 1,
@@ -14,7 +14,7 @@ Meteor.publish('allWorkshops', () => {
 	});
 });
 
-Meteor.publish('allWorkshopsForTheDay', () => {
+Meteor.publish('Workshops.allWorkshopsForTheDay', () => {
 	return Workshops.find({}, {
 		fields: {
 			name: 1,
@@ -26,7 +26,7 @@ Meteor.publish('allWorkshopsForTheDay', () => {
 	});
 });
 
-Meteor.publish('allWorkshopsLinkableToUniverse', () => {
+Meteor.publish('Workshops.allWorkshopsLinkableToUniverse', () => {
 	return Workshops.find({}, {
 		fields: {
 			name: 1
@@ -34,13 +34,13 @@ Meteor.publish('allWorkshopsLinkableToUniverse', () => {
 	});
 });
 
-Meteor.publish('aWorkshop', (workshopId) => {
+Meteor.publish('Workshops.aWorkshop', (workshopId) => {
 	return Workshops.find({
 		_id: workshopId
 	});
 });
 
-Meteor.publish('allWorkshopsToSee', () => {
+Meteor.publish('Workshops.allWorkshopsToSee', () => {
 	return Workshops.find({}, {
 		fields: {
 			name: 1,

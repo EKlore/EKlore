@@ -5,7 +5,7 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 import { Volunteers } from './schema.js';
 
 Meteor.methods({
-	addAVolunteer(data) {
+	'Volunteers.addAVolunteer': (data) => {
 		// Check method params
 		let methodSchema = new SimpleSchema({
 			firstName: { type: String, optional: true },
@@ -21,7 +21,7 @@ Meteor.methods({
 		data.level = 99;
 		return Volunteers.insert(data);
 	},
-	updateAVolunteer(data) {
+	'Volunteers.updateAVolunteer': (data) => {
 		// Check method params
 		let methodSchema = new SimpleSchema({
 			volunteerId: { type: String },

@@ -5,7 +5,7 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 import { Partners } from './schema.js';
 
 Meteor.methods({
-	addAPartner(data) {
+	'Partners.addAPartner': (data) => {
 		let methodSchema = new SimpleSchema({
 			firstName: { type: String, optional: true },
 			lastName: { type: String, optional: true },
@@ -24,7 +24,7 @@ Meteor.methods({
 		}
 		return Partners.insert(data);
 	},
-	updateAPartner(data) {
+	'Partners.updateAPartner': (data) => {
 		let methodSchema = new SimpleSchema({
 			partnerId: { type: String },
 			firstName: { type: String, optional: true },
@@ -46,7 +46,7 @@ Meteor.methods({
 			}
 		});
 	},
-	addUniverseToPartner(data) {
+	'Partners.addUniverseToPartner': (data) => {
 		let methodSchema = new SimpleSchema({
 			universeId: { type: String },
 			partnerId: { type: String }
@@ -60,7 +60,7 @@ Meteor.methods({
 			}
 		});
 	},
-	removeUniverseFromPartner(data) {
+	'Partners.removeUniverseFromPartner': (data) => {
 		let methodSchema = new SimpleSchema({
 			universeId: { type: String },
 			partnerId: { type: String }
@@ -74,7 +74,7 @@ Meteor.methods({
 			}
 		});
 	},
-	addWorkshopToPartner(data) {
+	'Partners.addWorkshopToPartner': (data) => {
 		let methodSchema = new SimpleSchema({
 			workshopId: { type: String },
 			partnerId: { type: String }
@@ -88,7 +88,7 @@ Meteor.methods({
 			}
 		});
 	},
-	removeWorkshopFromPartner(data) {
+	'Partners.removeWorkshopFromPartner': (data) => {
 		let methodSchema = new SimpleSchema({
 			workshopId: { type: String },
 			partnerId: { type: String }

@@ -5,7 +5,7 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 import { Universes } from './schema.js';
 
 Meteor.methods({
-	addAUniverse(data) {
+	'Universes.addAUniverse': (data) => {
 		let methodSchema = new SimpleSchema({
 			name: { type: String },
 			label: { type: String },
@@ -21,7 +21,7 @@ Meteor.methods({
 		data.workshopsLinked = [];
 		return Universes.insert(data);
 	},
-	updateAnUniverse(data) {
+	'Universes.updateAnUniverse': (data) => {
 		let methodSchema = new SimpleSchema({
 			universeId: { type: String },
 			name: { type: String },
@@ -49,7 +49,7 @@ Meteor.methods({
 			}
 		});
 	},
-	addWorkshopToUniverse(data) {
+	'Universes.addWorkshopToUniverse': (data) => {
 		let methodSchema = new SimpleSchema({
 			universeId: { type: String },
 			workshopId: { type: String },
@@ -65,7 +65,7 @@ Meteor.methods({
 			}
 		});
 	},
-	removeWorkshopFromUniverse(data) {
+	'Universes.removeWorkshopFromUniverse': (data) => {
 		let methodSchema = new SimpleSchema({
 			universeId: { type: String },
 			workshopId: { type: String }

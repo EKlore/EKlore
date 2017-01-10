@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 
 import { EkloreQuestions } from '../schema.js';
 
-Meteor.publish('allEkloreQuestions', () => {
+Meteor.publish('EkloreQuestions.allEkloreQuestions', () => {
 	return EkloreQuestions.find({}, {
 		fields: {
 			title: 1,
@@ -18,11 +18,11 @@ Meteor.publish('allEkloreQuestions', () => {
 	});
 });
 
-Meteor.publish('anEkloreQuestion', (ekloreQuestionId) => {
+Meteor.publish('EkloreQuestions.anEkloreQuestion', (ekloreQuestionId) => {
 	return EkloreQuestions.find({ _id: ekloreQuestionId });
 });
 
-Meteor.publish('ekloreQuestionsLinkedToQuestionsGroup', (questionsGroupId) => {
+Meteor.publish('EkloreQuestions.ekloreQuestionsLinkedToQuestionsGroup', (questionsGroupId) => {
 	return EkloreQuestions.find({ questionsGroupId: questionsGroupId }, {
 		fields: {
 			title: 1,
@@ -32,7 +32,7 @@ Meteor.publish('ekloreQuestionsLinkedToQuestionsGroup', (questionsGroupId) => {
 	});
 });
 
-Meteor.publish('allEkloreQuestionsForCountQuestionsGroups', () => {
+Meteor.publish('EkloreQuestions.allEkloreQuestionsForCountQuestionsGroups', () => {
 	return EkloreQuestions.find({}, {
 		fields: {
 			questionsGroupId: 1

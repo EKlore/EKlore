@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 
 import { Partners } from '../schema.js';
 
-Meteor.publish('allPartners', () => {
+Meteor.publish('Partners.allPartners', () => {
 	return Partners.find({}, {
 		fields: {
 			firstName: 1,
@@ -13,7 +13,7 @@ Meteor.publish('allPartners', () => {
 	});
 });
 
-Meteor.publish('allPartnersForWorkshop', (workshopId) => {
+Meteor.publish('Partners.allPartnersForWorkshop', (workshopId) => {
 	return Partners.find({
 		workshopsLinked: {
 			workshopId
@@ -21,7 +21,7 @@ Meteor.publish('allPartnersForWorkshop', (workshopId) => {
 	});
 });
 
-Meteor.publish('allPartnersForUniverses', () => {
+Meteor.publish('Partners.allPartnersForUniverses', () => {
 	return Partners.find({
 		universesLinked: {
 			$size: 1
@@ -29,6 +29,6 @@ Meteor.publish('allPartnersForUniverses', () => {
 	});
 });
 
-Meteor.publish('aPartner', (partnerId) => {
+Meteor.publish('Partners.aPartner', (partnerId) => {
 	return Partners.find({ _id: partnerId });
 });

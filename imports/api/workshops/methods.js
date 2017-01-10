@@ -5,7 +5,7 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 import { Workshops } from './schema.js';
 
 Meteor.methods({
-	addAWorkshop(data) {
+	'Workshops.addAWorkshop': (data) => {
 		let methodSchema = new SimpleSchema({
 			name: { type: String },
 			description: { type: String },
@@ -18,7 +18,7 @@ Meteor.methods({
 		data.universesLinked = [];
 		return Workshops.insert(data);
 	},
-	updateAWorkshop(data) {
+	'Workshops.updateAWorkshop': (data) => {
 		let methodSchema = new SimpleSchema({
 			workshopId: { type: String },
 			name: { type: String },
@@ -42,7 +42,7 @@ Meteor.methods({
 			}
 		});
 	},
-	addUniverseToWorkshop(data) {
+	'Workshops.addUniverseToWorkshop': (data) => {
 		let methodSchema = new SimpleSchema({
 			workshopId: { type: String },
 			universeId: { type: String },
@@ -63,7 +63,7 @@ Meteor.methods({
 			}
 		});
 	},
-	removeUniverseFromWorkshop(data) {
+	'Workshops.removeUniverseFromWorkshop': (data) => {
 		let methodSchema = new SimpleSchema({
 			workshopId: { type: String },
 			universeId: { type: String }
@@ -77,7 +77,7 @@ Meteor.methods({
 			}
 		});
 	},
-	addUserToWorkshop(data) {
+	'Workshops.addUserToWorkshop': (data) => {
 		let methodSchema = new SimpleSchema({
 			workshopId: { type: String },
 			userId: { type: String }
@@ -92,7 +92,7 @@ Meteor.methods({
 			}
 		});
 	},
-	removeUserFromWorkshop(data) {
+	'Workshops.removeUserFromWorkshop': (data) => {
 		let methodSchema = new SimpleSchema({
 			workshopId: { type: String },
 			userId: { type: String }

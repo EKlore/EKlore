@@ -2,7 +2,9 @@ import { Meteor } from 'meteor/meteor';
 
 import { UserQuestions } from '../userQuestions/schema.js';
 
-Meteor.users.deny({
+export const Users = Meteor.users;
+
+Users.deny({
 	insert() {
 		return true;
 	},
@@ -14,7 +16,7 @@ Meteor.users.deny({
 	}
 });
 
-Meteor.users.helpers({
+Users.helpers({
 	questionsCount() {
 		// this = user's MongoDB document
 		return UserQuestions.find({

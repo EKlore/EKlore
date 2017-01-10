@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 
 import { Universes } from '../schema.js';
 
-Meteor.publish('allUniverses', () => {
+Meteor.publish('Universes.allUniverses', () => {
 	return Universes.find({}, {
 		fields: {
 			name: 1,
@@ -18,7 +18,7 @@ Meteor.publish('allUniverses', () => {
 	});
 });
 
-Meteor.publish('allUniversesLinkableToWorkshop', () => {
+Meteor.publish('Universes.allUniversesLinkableToWorkshop', () => {
 	return Universes.find({}, {
 		fields: {
 			name: 1,
@@ -28,7 +28,7 @@ Meteor.publish('allUniversesLinkableToWorkshop', () => {
 });
 
 
-Meteor.publish('anUniverse', (universeId) => {
+Meteor.publish('Universes.anUniverse', (universeId) => {
 	return Universes.find({
 		_id: universeId
 	});

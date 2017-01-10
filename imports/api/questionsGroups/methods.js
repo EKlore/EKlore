@@ -6,7 +6,7 @@ import { QuestionsGroups } from './schema.js';
 import { EkloreQuestions } from '../ekloreQuestions/schema.js';
 
 Meteor.methods({
-	addAQuestionsGroup(data) {
+	'QuestionsGroups.addAQuestionsGroup': (data) => {
 		let methodSchema = new SimpleSchema({
 			title: { type: String },
 			level: { type: Number },
@@ -18,7 +18,7 @@ Meteor.methods({
 		data.createdAt = new Date();
 		return QuestionsGroups.insert(data);
 	},
-	updateAQuestionsGroup(data) {
+	'QuestionsGroups.updateAQuestionsGroup': (data) => {
 		let methodSchema = new SimpleSchema({
 			questionsGroupId: { type: String },
 			title: { type: String },
@@ -42,7 +42,7 @@ Meteor.methods({
 	/*
 	This method will add for a user all the questions linked to q
 	*/
-	addQuestionsGroupQuestionsToUser(data) {
+	'QuestionsGroups.addQuestionsGroupQuestionsToUser': (data) => {
 		// Check method params
 		let methodSchema = new SimpleSchema({
 			questionsGroupId: { type: String },
@@ -52,12 +52,12 @@ Meteor.methods({
 
 		// If OK the code continue
 		const ekloreQuestionsForQuestionsGroup = EkloreQuestions.find({
-			questionsGroupId: data.questionsGroupId
+			questionsGroupId: data.questionsGroupId,
 			deprecated: false,
 		}).fetch();
 
 		// Modify the EkloreQuestion to fit a user's question
-		ekloreQestionsForQuestionsGroup.map((cur) => {
+		ekloreQuestionsForQuestionsGroup.map((cur) => {
 			cur.answered = false;
 			cur.userId = data.userId;
 			cur.questionId = cur._id;
@@ -67,10 +67,10 @@ Meteor.methods({
 			delete cur.createdAt;
 			delete cur.questionsGroupId;
 			// Insert this question into the user's profile
-			return Meteor.call('insertQuestion', cur);
+			return Meteor.call('UserQuestions.insertQuestion', cur);
 		});
 
 		// To finish add the questionsGroup's id into the user's profile
-		return Meteor.call('addQuestionsGroupIntoUser', data);
+		return Meteor.call('UserQuestions.addQuestionsGroupIntoUser', data);
 	}
 });

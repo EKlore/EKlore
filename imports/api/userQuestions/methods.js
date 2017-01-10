@@ -4,41 +4,14 @@ import { SimpleSchema } from 'meteor/aldeed:simple-schema';
 import { lodash } from 'meteor/stevezhu:lodash';
 
 import { UserQuestions } from './schema.js';
+import { userQuestionSchema } from '../schemas.js';
 
 Meteor.methods({
-	insertQuestion(data) {
-		let UniverseSchema = new SimpleSchema({
-			universeId: { type: String },
-			matchingPower: { type: Number, decimal: true, min: 0.01, max: 1 }
-		});
-		let WorkshopSchema = new SimpleSchema({
-			workshopId: { type: String },
-			matchingPower: { type: Number, decimal: true, min: 0.01, max: 1 }
-		});
-		let ChoicesSchema = new SimpleSchema({
-			choiceId: { type: String },
-			label: { type: String },
-			universesLinked: { type: [UniverseSchema], minCount: 1 },
-			workshopsLinked: { type: [WorkshopSchema], minCount: 1 }
-		});
-		let methodSchema = new SimpleSchema({
-			title: { type: String },
-			level: { type: Number, min: 1 },
-			displayType: { type: String, allowedValues: ['yesNo', 'qcm', 'scale'] },
-			version: { type: Number, min: 1 },
-			deprecated: { type: Boolean },
-			choices: { type: [ChoicesSchema], minCount: 2 },
-			universesLinked: { type: [UniverseSchema], minCount: 1 },
-			workshopsLinked: { type: [WorkshopSchema], minCount: 1 },
-			answered: { type: Boolean },
-			userId: { type: String },
-			questionId: { type: String },
-			questionGroupId: { type: String }
-		});
-		check(data, methodSchema);
+	'UserQuestions.insertQuestion': (data) => {
+		check(data, userQuestionSchema);
 		return UserQuestions.insert(data);
 	},
-	answerQuestion(data) {
+	'UserQuestions.answerQuestion': (data) => {
 		let methodSchema = new SimpleSchema({
 			userQuestionId: { type: String },
 			choiceSelected: { type: String }
@@ -52,7 +25,7 @@ Meteor.methods({
 			}
 		});
 	},
-	saveQuestionResult(data) {
+	'UserQuestions.saveQuestionResult': (data) => {
 		let ResultSchema = new SimpleSchema({
 			universeId: { type: String, optional: true },
 			workshopId: { type: String, optional: true },
@@ -76,7 +49,7 @@ Meteor.methods({
 			}
 		});
 	},
-	deleteDoublons() {
+	'UserQuestions.deleteDoublons': () => {
 		let users = Meteor.users.find({}, {
 			fields: {
 				_id: 1,
@@ -123,7 +96,7 @@ Meteor.methods({
 			}
 		});
 	},
-	fixResults() {
+	'UserQuestions.fixResults': () => {
 		UserQuestions.update({}, {
 			$set: {
 				result: []
@@ -166,10 +139,10 @@ Meteor.methods({
 					}
 				}
 			}
-			Meteor.call('saveQuestionResult', { result, _id: cur._id });
+			Meteor.call('UserQuestions.saveQuestionResult', { result, _id: cur._id });
 		});
 	},
-	fixYesNoChoicesForUser() {
+	'UserQuestions.fixYesNoChoicesForUser': () => {
 		let data = UserQuestions.find({ displayType: 'yesNo' }, {
 			fields: {
 				_id: 1,
@@ -198,7 +171,7 @@ Meteor.methods({
 			});
 		});
 	},
-	fixDontKnowChoicesForUser() {
+	'UserQuestions.fixDontKnowChoicesForUser': () => {
 		let data = UserQuestions.find({ displayType: 'qcm' }, {
 			fields: {
 				_id: 1,
@@ -220,7 +193,7 @@ Meteor.methods({
 			});
 		});
 	},
-	insertScoreForUsers() {
+	'UserQuestions.insertScoreForUsers': () => {
 		const users = Meteor.users.find({
 			'profile.nbAnswered': 82
 		}, {

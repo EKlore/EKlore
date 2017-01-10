@@ -8,7 +8,7 @@ import { EkloreQuestions } from './schema.js';
 import { UserQuestions } from '../userQuestions/schema.js';
 
 Meteor.methods({
-	addAnEkloreQuestion(data) {
+	'EkloreQuestions.addAnEkloreQuestion': (data) => {
 		function yesNoChoices() {
 			return [{
 				choiceId: Random.id(),
@@ -62,7 +62,7 @@ Meteor.methods({
 		data.workshopsLinked = [];
 		return EkloreQuestions.insert(data);
 	},
-	updateAnEkloreQuestion(data) {
+	'EkloreQuestions.updateAnEkloreQuestion': (data) => {
 		let methodSchema = new SimpleSchema({
 			ekloreQuestionId: { type: String },
 			title: { type: String },
@@ -81,7 +81,7 @@ Meteor.methods({
 			}
 		});
 	},
-	linkQuestionsGroupToAnEkloreQuestion(data) {
+	'EkloreQuestions.linkQuestionsGroupToAnEkloreQuestion': (data) => {
 		let methodSchema = new SimpleSchema({
 			questionsGroupId: { type: String },
 			ekloreQuestionId: { type: String }
@@ -93,7 +93,7 @@ Meteor.methods({
 			}
 		});
 	},
-	unlikQuestionGroupFromEkloreQuestion(data) {
+	'EkloreQuestions.unlikQuestionGroupFromEkloreQuestion': (data) => {
 		let methodSchema = new SimpleSchema({
 			ekloreQuestionId: { type: String }
 		});
@@ -104,7 +104,7 @@ Meteor.methods({
 			}
 		});
 	},
-	addWorkshopToEkloreQuestion(data) {
+	'EkloreQuestions.addWorkshopToEkloreQuestion': (data) => {
 		let methodSchema = new SimpleSchema({
 			workshopId: { type: String },
 			ekloreQuestionId: { type: String },
@@ -120,7 +120,7 @@ Meteor.methods({
 			}
 		});
 	},
-	removeWorkshopFromEkloreQuestion(data) {
+	'EkloreQuestions.removeWorkshopFromEkloreQuestion': (data) => {
 		let methodSchema = new SimpleSchema({
 			workshopId: { type: String },
 			ekloreQuestionId: { type: String }
@@ -134,7 +134,7 @@ Meteor.methods({
 			}
 		});
 	},
-	addUniverseToEkloreQuestion(data) {
+	'EkloreQuestions.addUniverseToEkloreQuestion': (data) => {
 		let methodSchema = new SimpleSchema({
 			universeId: { type: String },
 			ekloreQuestionId: { type: String },
@@ -150,7 +150,7 @@ Meteor.methods({
 			}
 		});
 	},
-	removeUniverseFromEkloreQuestion(data) {
+	'EkloreQuestions.removeUniverseFromEkloreQuestion': (data) => {
 		let methodSchema = new SimpleSchema({
 			universeId: { type: String },
 			ekloreQuestionId: { type: String }
@@ -164,7 +164,7 @@ Meteor.methods({
 			}
 		});
 	},
-	addUniverseToChoice(data) {
+	'EkloreQuestions.addUniverseToChoice': (data) => {
 		let methodSchema = new SimpleSchema({
 			universeId: { type: String },
 			choiceId: { type: String },
@@ -183,7 +183,7 @@ Meteor.methods({
 			}
 		});
 	},
-	removeUniverseFromChoice(data) {
+	'EkloreQuestions.removeUniverseFromChoice': (data) => {
 		let methodSchema = new SimpleSchema({
 			universeId: { type: String },
 			choiceId: { type: String },
@@ -200,7 +200,7 @@ Meteor.methods({
 			}
 		});
 	},
-	addWorkshopToChoice(data) {
+	'EkloreQuestions.addWorkshopToChoice': (data) => {
 		let methodSchema = new SimpleSchema({
 			workshopId: { type: String },
 			choiceId: { type: String },
@@ -219,7 +219,7 @@ Meteor.methods({
 			}
 		});
 	},
-	removeWorkshopFromChoice(data) {
+	'EkloreQuestions.removeWorkshopFromChoice': (data) => {
 		let methodSchema = new SimpleSchema({
 			workshopId: { type: String },
 			choiceId: { type: String },
@@ -236,7 +236,7 @@ Meteor.methods({
 			}
 		});
 	},
-	updateAChoice(data) {
+	'EkloreQuestions.updateAChoice': (data) => {
 		let methodSchema = new SimpleSchema({
 			label: { type: String },
 			choiceId: { type: String },
@@ -254,7 +254,7 @@ Meteor.methods({
 			}
 		});
 	},
-	addChoiceToEkloreQuestion(data) {
+	'EkloreQuestions.addChoiceToEkloreQuestion': (data) => {
 		let methodSchema = new SimpleSchema({
 			ekloreQuestionId: { type: String }
 		});
@@ -267,7 +267,7 @@ Meteor.methods({
 			}
 		});
 	},
-	removeChoiceFromEkloreQuestion(data) {
+	'EkloreQuestions.removeChoiceFromEkloreQuestion': (data) => {
 		let methodSchema = new SimpleSchema({
 			ekloreQuestionId: { type: String },
 			choiceId: { type: String }

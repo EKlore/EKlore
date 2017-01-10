@@ -6,7 +6,7 @@ import { UserQuestions } from './schema.js';
 
 import './methods.js';
 
-MethodHooks.after('answerQuestion', (options) => {
+MethodHooks.after('UserQuestions.answerQuestion', (options) => {
 	if (options.error) {
 		return;
 	} else if (options.result === 1) {
@@ -43,7 +43,7 @@ MethodHooks.after('answerQuestion', (options) => {
 				}
 			}
 		}
-		Meteor.call('saveQuestionResult', { result, _id: data._id });
+		Meteor.call('UserQuestions.saveQuestionResult', { result, _id: data._id });
 
 		return options.result;
 	}

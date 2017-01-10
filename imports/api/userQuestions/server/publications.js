@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 
 import { UserQuestions } from '../schema.js';
 
-Meteor.publish('allUsersQuestions', () => {
+Meteor.publish('UserQuestions.allUsersQuestions', () => {
 	return UserQuestions.find({}, {
 		fields: {
 			userId: 1,
@@ -16,7 +16,7 @@ Meteor.publish('allUsersQuestions', () => {
 	});
 });
 
-Meteor.publish('tenQuestionAtATime', (userId) => {
+Meteor.publish('UserQuestions.tenQuestionAtATime', (userId) => {
 	return UserQuestions.find({
 		userId: userId,
 		answered: false,
@@ -29,7 +29,7 @@ Meteor.publish('tenQuestionAtATime', (userId) => {
 	});
 });
 
-Meteor.publish('userQuestionsNotAnswered', (userId) => {
+Meteor.publish('UserQuestions.userQuestionsNotAnswered', (userId) => {
 	return UserQuestions.find({
 		userId,
 		answered: false,
@@ -43,7 +43,7 @@ Meteor.publish('userQuestionsNotAnswered', (userId) => {
 	});
 });
 
-Meteor.publish('resultForQuestionsAnswered', (userId) => {
+Meteor.publish('UserQuestions.resultForQuestionsAnswered', (userId) => {
 	return UserQuestions.find({
 		userId,
 		answered: true,
@@ -58,7 +58,7 @@ Meteor.publish('resultForQuestionsAnswered', (userId) => {
 	});
 });
 
-Meteor.publish('allQuestionsForScore', (userId) => {
+Meteor.publish('UserQuestions.allQuestionsForScore', (userId) => {
 	return UserQuestions.find({
 		userId: userId,
 		answered: true,

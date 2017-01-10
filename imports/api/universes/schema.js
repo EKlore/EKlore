@@ -17,7 +17,7 @@ Universes.deny({
 	}
 });
 
-let WorkshopSchema = new SimpleSchema({
+const WorkshopSchema = new SimpleSchema({
 	workshopId: {
 		type: String,
 		label: 'Workshop ID'
@@ -31,7 +31,7 @@ let WorkshopSchema = new SimpleSchema({
 	}
 });
 
-Universes.schema = new SimpleSchema({
+export const universeSchema = new SimpleSchema({
 	name: {
 		type: String,
 		label: 'Universes name'
@@ -80,6 +80,8 @@ Universes.schema = new SimpleSchema({
 		optional: true
 	}
 });
+
+Universes.schema = universeSchema;
 
 Universes.helpers({
 	questionsLinked() {

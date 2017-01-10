@@ -2,11 +2,11 @@ import { Meteor } from 'meteor/meteor';
 
 import { Volunteers } from '../schema.js';
 
-Meteor.publish('allVolunteers', () => {
+Meteor.publish('Volunteers.allVolunteers', () => {
 	return Volunteers.find({});
 });
 
-Meteor.publish('topVolunteers', () => {
+Meteor.publish('Volunteers.topVolunteers', () => {
 	return Volunteers.find({
 		level: {
 			$lt: 10
@@ -18,7 +18,7 @@ Meteor.publish('topVolunteers', () => {
 	});
 });
 
-Meteor.publish('midVolunteers', () => {
+Meteor.publish('Volunteers.midVolunteers', () => {
 	return Volunteers.find({
 		level: 10
 	}, {
@@ -28,7 +28,7 @@ Meteor.publish('midVolunteers', () => {
 	});
 });
 
-Meteor.publish('lowVolunteers', () => {
+Meteor.publish('Volunteers.lowVolunteers', () => {
 	return Volunteers.find({
 		level: 99
 	}, {
@@ -38,6 +38,6 @@ Meteor.publish('lowVolunteers', () => {
 	});
 });
 
-Meteor.publish('aVolunteer', (volunteerId) => {
+Meteor.publish('Volunteers.aVolunteer', (volunteerId) => {
 	return Volunteers.find({ _id: volunteerId });
 });

@@ -2,7 +2,7 @@ import { Meteor } from 'meteor/meteor';
 
 import { QuestionsGroups } from '../schema.js';
 
-Meteor.publish('allQuestionsGroups', () => {
+Meteor.publish('QuestionsGroups.allQuestionsGroups', () => {
 	return QuestionsGroups.find({}, {
 		fields: {
 			title: 1,
@@ -12,7 +12,7 @@ Meteor.publish('allQuestionsGroups', () => {
 	});
 });
 
-Meteor.publish('aQuestionsGroup', (questionsGroupId) => {
+Meteor.publish('QuestionsGroups.aQuestionsGroup', (questionsGroupId) => {
 	return QuestionsGroups.find({
 		_id: questionsGroupId
 	});
