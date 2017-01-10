@@ -20,10 +20,10 @@ import '../../components/workshopsToRemoveFromEkloreQuestion/workshopsToRemoveFr
 
 Template.editEkloreQuestion.onCreated(function() {
 	this.autorun(() => {
-		this.subscribe('anEkloreQuestion', Router.current().params._id);
-		this.subscribe('allQuestionsGroups');
-		this.subscribe('allUniverses');
-		this.subscribe('allWorkshops');
+		this.subscribe('EkloreQuestions.anEkloreQuestion', Router.current().params._id);
+		this.subscribe('EkloreQuestions.allQuestionsGroups');
+		this.subscribe('EkloreQuestions.allUniverses');
+		this.subscribe('EkloreQuestions.allWorkshops');
 	});
 });
 
@@ -124,7 +124,7 @@ Template.editEkloreQuestion.events({
 		if (data.level < 2) {
 			return Bert.alert('The level must be superior to 1', 'danger', 'growl-top-right');
 		}
-		Meteor.call('updateAnEkloreQuestion', data, (error) => {
+		Meteor.call('EkloreQuestions.updateAnEkloreQuestion', data, (error) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			} else {
@@ -138,7 +138,7 @@ Template.editEkloreQuestion.events({
 			ekloreQuestionId: Router.current().params._id,
 			questionsGroupId: this._id
 		};
-		Meteor.call('linkQuestionsGroupToAnEkloreQuestion', data, (error) => {
+		Meteor.call('EkloreQuestions.linkQuestionsGroupToAnEkloreQuestion', data, (error) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			}
@@ -149,7 +149,7 @@ Template.editEkloreQuestion.events({
 		const data = {
 			ekloreQuestionId: Router.current().params._id
 		};
-		Meteor.call('unlikQuestionGroupFromEkloreQuestion', data, (error) => {
+		Meteor.call('EkloreQuestions.unlikQuestionGroupFromEkloreQuestion', data, (error) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			}
@@ -160,7 +160,7 @@ Template.editEkloreQuestion.events({
 		const data = {
 			ekloreQuestionId: Router.current().params._id
 		};
-		Meteor.call('addChoiceToEkloreQuestion', data, (error) => {
+		Meteor.call('EkloreQuestions.addChoiceToEkloreQuestion', data, (error) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			}

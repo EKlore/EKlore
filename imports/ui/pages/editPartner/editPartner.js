@@ -12,9 +12,9 @@ import './editPartner.jade';
 
 Template.editPartner.onCreated(function() {
 	this.autorun(() => {
-		this.subscribe('aPartner', Router.current().params._id);
-		this.subscribe('allUniverses');
-		this.subscribe('allWorkshops');
+		this.subscribe('Partners.aPartner', Router.current().params._id);
+		this.subscribe('Partners.allUniverses');
+		this.subscribe('Partners.allWorkshops');
 	});
 });
 
@@ -86,7 +86,7 @@ Template.editPartner.events({
 			pictureUrl: $('#partnerPictureUrl').val(),
 			website: $('#partnerWebsite').val()
 		};
-		Meteor.call('updateAPartner', data, (error) => {
+		Meteor.call('Partners.updateAPartner', data, (error) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			} else {
@@ -103,7 +103,7 @@ Template.universesToRemoveFromPartner.events({
 			partnerId: Router.current().params._id,
 			universeId: this.universeId
 		};
-		Meteor.call('removeUniverseFromPartner', data, (error) => {
+		Meteor.call('Partners.removeUniverseFromPartner', data, (error) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			}
@@ -118,7 +118,7 @@ Template.universesToAddToPartner.events({
 			partnerId: Router.current().params._id,
 			universeId: this._id
 		};
-		Meteor.call('addUniverseToPartner', data, (error) => {
+		Meteor.call('Partners.addUniverseToPartner', data, (error) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			}
@@ -133,7 +133,7 @@ Template.workshopsToRemoveFromPartner.events({
 			partnerId: Router.current().params._id,
 			workshopId: this.workshopId
 		};
-		Meteor.call('removeWorkshopFromPartner', data, (error) => {
+		Meteor.call('Partners.removeWorkshopFromPartner', data, (error) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			}
@@ -148,7 +148,7 @@ Template.workshopsToAddToPartner.events({
 			partnerId: Router.current().params._id,
 			workshopId: this._id
 		};
-		Meteor.call('addWorkshopToPartner', data, (error) => {
+		Meteor.call('Partners.addWorkshopToPartner', data, (error) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			}

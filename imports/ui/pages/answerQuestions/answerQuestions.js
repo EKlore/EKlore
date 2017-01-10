@@ -9,7 +9,7 @@ import './answerQuestions.jade';
 
 Template.answerQuestions.onCreated(function() {
 	this.autorun(() => {
-		this.subscribe('tenQuestionAtATime', Meteor.userId());
+		this.subscribe('UserQuestions.tenQuestionAtATime', Meteor.userId());
 	});
 });
 
@@ -37,6 +37,12 @@ Template.answerQuestions.helpers({
 Template.answerQuestions.events({
 	'click #validateChoice': function(event) {
 		event.preventDefault();
+
+		function cleanFormToAnswerQuestion() {
+			$('input[name="choicesForQuestion"]:checked').removeAttr('checked');
+			$('#answerForRange').val('5');
+		}
+
 		const data = {
 			userQuestionId: this._id
 		};
@@ -53,12 +59,11 @@ Template.answerQuestions.events({
 		if (!data.choiceSelected) {
 			return Bert.alert('You must choose an answer !', 'danger', 'growl-top-right');
 		}
-		Meteor.call('answerQuestion', data, (error) => {
+		Meteor.call('UserQuestions.answerQuestion', data, (error) => {
 			if (error) {
 				return Bert.alert(error.message, 'danger', 'growl-top-right');
 			} else {
-				$('input[name="choicesForQuestion"]:checked').removeAttr('checked');
-				$('#answerForRange').val('5');
+				cleanFormToAnswerQuestion();
 			}
 		});
 	}
