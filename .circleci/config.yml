@@ -1,8 +1,16 @@
 version: 2
-dependencies:
-  cache_directories:
-    - ~/.meteor
-  override:
-    - meteor || curl https://install.meteor.com | /bin/sh
-    - npm install -g eslint
-    - meteor npm install
+jobs:
+  one:
+    cache_directories:
+      - ~/.meteor
+  two:
+    steps:
+      - meteor || curl https://install.meteor.com | /bin/sh
+      - npm install -g eslint
+      - meteor npm install
+workflows:
+  version: 2
+  one_and_two:
+    jobs:
+      - one
+      - two
