@@ -1,3 +1,4 @@
+version: 2
 dependencies:
   cache_directories:
     - ~/.meteor
@@ -5,7 +6,3 @@ dependencies:
     - meteor || curl https://install.meteor.com | /bin/sh
     - npm install -g eslint
     - meteor npm install
-
-test:
-  override:
-    - eslint client/ imports/ server/
